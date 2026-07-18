@@ -1,30 +1,26 @@
 ---
-title: "The Way of Markdown"
-description: "Markdown is the universal language of the web. Learn how to use it — and the ecosystem of markdown-based tools — to build websites, docs, knowledge bases and more, without lock-in."
+title: "Own the source. Compose with anything."
+description: "Websites, knowledge bases, blogs, even a Notion replacement — built from plain text files you own, with tools you can swap anytime. Markdown is quietly everywhere; here's the way to make it work for you."
+showHero: true
+cta:
+  - href: /roadmap
+    label: "Start the roadmap 🗺️"
+  - href: /manifesto
+    label: "Read the manifesto"
 ---
-
-<div style="text-align:center; padding:2.5rem 0 1rem;">
-  <div style="font-family:Menlo,monospace; color:#16a34a; font-size:1rem; margin-bottom:1rem;"># The Way of Markdown</div>
-  <h1 style="font-size:2.6rem; font-weight:800; line-height:1.15; margin:0 0 1rem;">Own the source.<br/>Compose with anything.</h1>
-  <p style="max-width:38rem; margin:0 auto 1.5rem; font-size:1.15rem;">Websites, knowledge bases, blogs, even a Notion replacement — built from plain text files <em>you</em> own, with tools you can swap anytime. Markdown is quietly everywhere; here's how to make it work for you.</p>
-  <div style="display:flex; gap:0.8rem; justify-content:center; flex-wrap:wrap;">
-    <a href="/roadmap" style="display:inline-block; background:#16a34a; color:#fff; border-radius:10px; padding:0.7rem 1.5rem; font-weight:700; text-decoration:none;">Start the roadmap 🗺️</a>
-    <a href="/manifesto" style="display:inline-block; border:2px solid #16a34a; border-radius:10px; padding:0.7rem 1.5rem; font-weight:700; text-decoration:none;">Read the manifesto</a>
-  </div>
-</div>
 
 <div class="grid md:grid-cols-2 gap-4 my-8" style="align-items:stretch;">
   <div style="border:1px solid rgba(148,163,184,0.4); border-radius:12px; overflow:hidden;">
     <div style="font-family:Menlo,monospace; font-size:0.75rem; padding:0.4rem 1rem; border-bottom:1px solid rgba(148,163,184,0.4); opacity:0.7;">notes/reading-list.md — plain text, yours forever</div>
-    <pre style="margin:0; padding:1rem; font-size:0.8rem; line-height:1.6; background:transparent;"><code># My reading list
-
-Books I **actually** finished:
-
-- [ ] The Dispossessed
-- [x] File over app
-- [x] [The Markdown Manifesto](/manifesto)
-
-> Plain text never goes out of fashion.</code></pre>
+    <pre style="margin:0; padding:1rem; font-size:0.8rem; line-height:1.6; background:transparent;"><code>&#35; My reading list
+&nbsp;
+Books I &#42;&#42;actually&#42;&#42; finished:
+&nbsp;
+&#45; [ ] The Dispossessed
+&#45; [x] File over app
+&#45; [x] [The Markdown Manifesto](/manifesto)
+&nbsp;
+&#62; Plain text never goes out of fashion.</code></pre>
   </div>
   <div style="border:1px solid #22c55e; border-radius:12px; overflow:hidden;">
     <div style="font-family:Menlo,monospace; font-size:0.75rem; padding:0.4rem 1rem; border-bottom:1px solid rgba(34,197,94,0.5); color:#16a34a;">the same file, rendered — by any tool, today or in 2046</div>

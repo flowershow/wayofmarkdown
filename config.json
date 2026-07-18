@@ -154,5 +154,8 @@
       "from": "/kb/ipad-notes",
       "to": "/markdown-in-apple-notes"
     }
+  ],
+  "contentHide": [
+    "playground.html"
   ]
 }
