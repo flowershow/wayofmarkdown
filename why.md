@@ -52,4 +52,6 @@ Each piece is replaceable — that's the point — but together they take you fr
 
 So "the way of markdown" isn't devotion to a syntax. It's a practice built on a simple principle: **keep your content in open plain-text formats that you control, and choose your tools freely on top.** Simplicity, portability, ownership — demonstrated, not proclaimed.
 
+Want the declaration rather than the argument? Read [The Markdown Manifesto](manifesto.md).
+
 Ready? [Start learning](learn/).

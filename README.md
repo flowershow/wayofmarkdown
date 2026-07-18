@@ -12,6 +12,7 @@ Published with [Flowershow](https://flowershow.app). The site content is the mar
 
 - `index.md` — landing page
 - `why.md` — the case for the markdown-based approach
+- `manifesto.md` — The Markdown Manifesto
 - `basics.md` — markdown syntax primer
 - `learn/` — tutorial series: build a website with Markdown + Obsidian + GitHub + Flowershow
 - `kb/` — knowledge base: notes on markdown in apps, tools, and workflows

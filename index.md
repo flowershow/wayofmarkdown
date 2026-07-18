@@ -19,7 +19,7 @@ That's the way of markdown: **own your content, keep it in an open format, and l
 - **AI-friendly** — ChatGPT, Claude, Copilot: every major AI tool speaks markdown natively. It's the lingua franca of the AI era.
 - **Everywhere** — Google Docs, Apple Notes, Obsidian, GitHub… the world is converging on markdown.
 
-Read the full case in [Why Markdown-based?](why.md)
+Read the full case in [Why Markdown-based?](why.md) — or start with [The Markdown Manifesto](manifesto.md).
 
 ## Start here
 
