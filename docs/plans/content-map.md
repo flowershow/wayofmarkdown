@@ -61,6 +61,12 @@ Brainstormed list (slug = SEO: top-level `/markdown-<x>` pages, flat per our IA 
 
 Also from the coggle mining ([[../coggle-distilled]]): **kb/glossary** (git/GitHub terms for non-devs, question-phrased) and a **git-rescue howto** (unstage/uncommit/merge-conflicts — the newcomer fear trio).
 
+From Rufus 2026-07-18 (roadmap review session):
+
+- **Pluggable markdown** — dedicated entry on fenced ```-blocks as markdown's *plugin system* (mermaid, dataview/Bases, embedded languages): "you can embed entire other tools". Currently only touched in the manifesto's superpowers section. P1-adjacent — it's a distinctive idea we can own.
+- **"Why markdown is awesome" — visual one-pager** — the format's core magic (simple/human-readable, plain text, AI-native, pluggable/extensible) presented *visually and concisely*; distinct from why.md (which argues the approach). Candidate landing-page material.
+- **Landing-page engagement** (parked, location TBD): tiny manifesto + visual (roadmap slice or the awesome one-pager) as the hook.
+
 ## B3. Videos (Rufus 2026-07-18)
 
 @flowershowapp channel reviewed (15 videos; ~10 markdown-general). Plan: a `/videos` section page listing the markdown-relevant ones grouped by topic, **plus** embedded on the relevant guide pages (iframe embeds — which itself demos "markdown supports HTML" 😎). Product-only videos (What is Flowershow, error-syncing, sidebar) stay out.
