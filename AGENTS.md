@@ -10,7 +10,7 @@ This repo is **The Way of Markdown** (https://wayofmarkdown.com): a content site
 
 ## Workflow
 
-- **Tracking lives in GitHub issues**: a version epic (currently #46) links sub-issues per big item; loose ideas go to the inbox issue (#45). Close sub-issues with a "what happened" writeup — they double as the project's history.
+- **Tracking lives in GitHub issues**: a version epic (currently #67, v0.2) links sub-issues per big item; loose ideas go to the inbox issue (#45). Close sub-issues with a "what happened" writeup — they double as the project's history.
 - **Act first, review later.** Rufus delegates fully: proceed without asking for anything reversible, and append a short comment per work session to the review log issue (#57) listing judgment calls, prose worth a skim, and unverified fact-claims. Ask first only for irreversible or outward-facing steps (deleting things you can't restore, posting/emailing as Rufus, anything touching other repos or services).
 - **Commit and push to `main`** in logical chunks with prefixed messages (`content:`, `docs:`, `voice:`, `seo:`, `launch:`). Pushing deploys the site (usually live within ~1–2 minutes). After significant pushes, spot-check live URLs.
 - Also update the narrative log in the current `docs/plans/v*.md` when a session changes project state.

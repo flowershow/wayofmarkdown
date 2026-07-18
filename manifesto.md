@@ -99,7 +99,7 @@ Write in markdown. Store in markdown. Build on markdown.
 
 Own the source, and the whole ecosystem is yours. 🚀
 
-Agree? [Fly the badge](badges.md): **We ❤ Markdown**.
+Agree? [Fly the badge](badges.md): **❤ Markdown**.
 
 ---
 

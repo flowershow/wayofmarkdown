@@ -1,15 +1,15 @@
 ---
 title: "❤ Markdown badges — show the flag"
-description: "Put a 'We ❤ Markdown' badge on your site, README or docs, linking back to the Markdown Manifesto. Free to use, two styles, copy-paste embed."
+description: "Put a '❤ Markdown' badge on your site, README or docs, linking back to the Markdown Manifesto. Free to use, two styles, copy-paste embed."
 ---
 
-# We ❤ Markdown badges
+# ❤ Markdown badges
 
 Does your tool, site or community speak markdown? Say so. Stick a badge on your README, docs or footer: it links back to [the manifesto](manifesto.md), and tells your users their content is in an open format they'll never be locked out of.
 
 <div style="display:flex; gap:1.5rem; align-items:center; flex-wrap:wrap; margin:1.5rem 0;">
-  <img src="/assets/badges/heart-markdown.svg" alt="We ❤ Markdown badge, dark" />
-  <img src="/assets/badges/heart-markdown-light.svg" alt="We ❤ Markdown badge, light" />
+  <img src="/assets/badges/heart-markdown.svg" alt="❤ Markdown badge, dark" />
+  <img src="/assets/badges/heart-markdown-light.svg" alt="❤ Markdown badge, light" />
 </div>
 
 ## Embed it
@@ -17,13 +17,13 @@ Does your tool, site or community speak markdown? Say so. Stick a badge on your 
 Markdown (READMEs, docs):
 
 ```md
-[![We ❤ Markdown](https://wayofmarkdown.com/assets/badges/heart-markdown.svg)](https://wayofmarkdown.com/manifesto)
+[![❤ Markdown](https://wayofmarkdown.com/assets/badges/heart-markdown.svg)](https://wayofmarkdown.com/manifesto)
 ```
 
 HTML:
 
 ```html
-<a href="https://wayofmarkdown.com/manifesto"><img src="https://wayofmarkdown.com/assets/badges/heart-markdown.svg" alt="We ❤ Markdown"></a>
+<a href="https://wayofmarkdown.com/manifesto"><img src="https://wayofmarkdown.com/assets/badges/heart-markdown.svg" alt="❤ Markdown"></a>
 ```
 
 Light style: swap `heart-markdown.svg` for `heart-markdown-light.svg`. Hosting it yourself is fine too (it's [just an SVG](https://github.com/flowershow/wayofmarkdown/tree/main/assets/badges) — of course you can copy it; that's rather our whole philosophy).
