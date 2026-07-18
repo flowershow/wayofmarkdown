@@ -1,12 +1,21 @@
 {
-  "title": "Markdown is Awesome 🚀",
+  "title": "The Way of Markdown",
+  "description": "Markdown is the universal language of the web. Learn how to use it — and the markdown-based tool ecosystem — to build websites, docs and knowledge bases you own.",
   "showSidebar": true,
   "favicon": "🚀",
   "showEditLink": true,
   "theme": "lessflowery",
   "nav": {
-    "title": "Markdown is Awesome 🚀",
+    "title": "The Way of Markdown",
     "links": [
+      {
+        "href": "/learn",
+        "name": "Learn"
+      },
+      {
+        "href": "/kb",
+        "name": "Knowledge Base"
+      },
       {
         "href": "/why",
         "name": "Why"
@@ -15,8 +24,8 @@
     "social": [
       {
         "label": "github",
-        "name": "GitHub Profile",
-        "href": "https://github.com/flowershow/markdownisawesome"
+        "name": "GitHub",
+        "href": "https://github.com/flowershow/wayofmarkdown"
       }
     ]
   }
