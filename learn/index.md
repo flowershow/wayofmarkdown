@@ -2,6 +2,9 @@
 
 Welcome! Here you can learn how to build markdown-based websites – and why a markdown-based approach is awesome 🦸‍♀️
 
+> [!tip]
+> Joining a team that works in markdown? There's a dedicated [step-by-step onboarding path](onboarding.md) that sequences everything here for you.
+
 This series of tutorials guides you through the basics of creating a website using a Markdown-based approach that we have termed MOGF (Markdown + Obsidian + GitHub + Flowershow).
 
 By the end of this tutorial series, you will:

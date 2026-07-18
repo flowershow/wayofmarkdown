@@ -23,8 +23,10 @@ Read the full case in [Why Markdown-based?](why.md) — or start with [The Markd
 
 ## Start here
 
-**New to markdown?** The syntax takes ten minutes: [Markdown Basics](basics.md).
+**New to markdown?** The syntax takes ten minutes: [Markdown Basics](basics.md). Onboarding a whole team? There's a [step-by-step path](learn/onboarding.md).
 
-**Want to build something?** That's the real point. Our [tutorial series](learn/) takes you from zero to a published website using Markdown, Obsidian, GitHub, and [Flowershow](https://flowershow.app) — no code required, nothing to install.
+**Want to build something?** That's the real point. Browse [Markdown-based Everything](markdown-based.md) — websites, blogs, knowledge bases, even a Notion replacement — or take the [tutorial series](learn/) from zero to a published website.
 
-**Already fluent?** Browse the [knowledge base](kb/) — tips, tools, and workflows, from using markdown in Google Docs to AI-editing your Obsidian vault. Or go deeper with essays like [The Markdown Database Pattern](markdown-database.md).
+**Curious where markdown works?** [Everywhere](everywhere.md) 🌍 — WhatsApp, Discord, Slack, Google Docs, Notion, every AI chat — with a guide for each (and a name-and-shame list for the holdouts).
+
+**Already fluent?** The [knowledge base](kb/) has tools and workflows, the [videos](videos.md) show it done live, and essays like [The Markdown Database Pattern](markdown-database.md) go deep.

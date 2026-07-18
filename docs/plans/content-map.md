@@ -33,13 +33,33 @@ P2: GitHub (competitive but table-stakes), Reddit, Telegram, Substack, Gmail/Goo
 - `basics.md` ✅ — already ≈ the Datopian playbook intro (same text; diff & merge its extra links). Improve into a proper standalone tutorial: examples, try-it prompts, cheatsheet section.
 - Later (P3, competitive with markdownguide.org): per-syntax reference pages (tables, links, images, footnotes…). Only if Search Console shows appetite.
 
-**Use-case guides — "How to X with markdown"** (Escaper; the site's real point). Format: what you get, the pattern, tools (Flowershow as *a* publish option), worked example.
+**Team onboarding path** (direct Rufus use case, 2026-07-18: Life Itself newcomers who don't know markdown and need to end up using GitHub + markdown knowledge bases): a single "start here, work through in order" page sequencing basics → tutorial 1 (publish) → tutorial 2 (Obsidian + GitHub Desktop) → KB practices (catalog howto, wiki-links) → collaboration (tutorial 3 when done). Mostly curation of existing material; gaps become new tutorials. Likely absorbs legacy issue #1 (editor guide epic).
 
-P1:
-1. **Replace Notion with markdown** — flagship escape guide; pattern = files + frontmatter + views (Obsidian Bases etc.); links markdown-database essay
-2. **Build a knowledge base / second brain** — Obsidian-centric, publishing optional
+## B2. Markdown-based X — a section in its own right (Rufus 2026-07-18)
 
-P2: 3. Make a website ✅ (MOGF tutorials, reframed as one guide entry) · 4. Small database/catalog ✅ (catalog howto + pattern essay, unify) · 5. Blog · 6. Digital garden (import digital-garden.md from flowershow notes/, #50) · 7. Docs site · 8. Team wiki/handbook · 9. Journal/daily notes · 10. Books & long-form (pandoc).
+Elevated from "use-case guides": for *every* X people build with proprietary tools, an entry — stub first, detailed guide over time. Format per entry: what is X (intro for someone who's never named the concept) → the markdown-based pattern → tools out there (Flowershow shows up naturally for publishing; Obsidian for PKM; etc.) → worked walkthrough (deep guides only).
+
+Brainstormed list (slug = SEO: top-level `/markdown-<x>` pages, flat per our IA preference):
+
+| X | Status / notes |
+|---|---|
+| **Websites** | FLAGSHIP, multi-part, almost a guide-in-itself. Must include **"markdown supports HTML"** as a core part (Rufus: major, underexplained; video Qquv0Qq7luE = editing HTML site with AI). Flowershow features a lot here. Absorbs/reframes MOGF tutorials + legacy #12. |
+| **Blogs** | video 0NGvcuXTris (blog listing in 30s) |
+| **Knowledge bases / second brain / PKM** | videos CsCVOFn3bMc (Obsidian+PARA), HwkO14-nTwk (AI+git+Obsidian) |
+| **Notion replacement** | flagship escape guide; Bases video 0_qr_qQVkxk |
+| **Wikis** (team wiki / handbook) | |
+| **Docs** (product/project documentation) | |
+| **Databases / catalogs** | ✅ essay + catalog howto; unify |
+| **Digital gardens** | import digital-garden.md (#50) |
+| **Journals / daily notes** | |
+| **Bookmarking / web clipping** | video d-Vte5vJCl0 |
+| **Books & long-form** | pandoc |
+| **Slides / presentations** | Marp, reveal.js — P3 |
+| **Forms/CVs/letters** | P3, maybe |
+
+## B3. Videos (Rufus 2026-07-18)
+
+@flowershowapp channel reviewed (15 videos; ~10 markdown-general). Plan: a `/videos` section page listing the markdown-relevant ones grouped by topic, **plus** embedded on the relevant guide pages (iframe embeds — which itself demos "markdown supports HTML" 😎). Product-only videos (What is Flowershow, error-syncing, sidebar) stay out.
 
 ## C. Why / essays (Builder + PKM; the linkable layer)
 
