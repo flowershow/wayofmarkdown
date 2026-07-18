@@ -5,9 +5,9 @@ description: "Every AI chat speaks markdown natively — that's why the output h
 
 # Markdown in ChatGPT, Claude and every AI chat
 
-Ever noticed AI answers arrive with headings, **bold**, bullet lists, tables? That's markdown. Every major AI -- ChatGPT, Claude, Gemini, Copilot, all of them -- reads and writes markdown natively. The chat window just renders it.
+Ever noticed AI answers arrive with headings, **bold**, bullet lists, tables? That's markdown. Every major AI (ChatGPT, Claude, Gemini, Copilot, all of them) reads and writes markdown natively. The chat window just renders it.
 
-This isn't a UI choice someone made. Models were trained on oceans of markdown (all of GitHub, for a start), and markdown is close to the minimum syntax that adds structure to plain text -- which makes it cheap in tokens too. Markdown is, in effect, **the native language of the AI era**, and knowing that unlocks some genuinely useful moves.
+This isn't a UI choice someone made. Models were trained on oceans of markdown (all of GitHub, for a start), and markdown is close to the minimum syntax that adds structure to plain text, which also makes it cheap in tokens. Markdown is, in effect, **the native language of the AI era**, and knowing that unlocks some genuinely useful moves.
 
 ## Get raw markdown out
 
@@ -17,9 +17,9 @@ This isn't a UI choice someone made. Models were trained on oceans of markdown (
 
 ## Feed markdown in
 
-Paste markdown at an AI and it understands the *structure*, not just the words -- these headings are sections, this is a table, these are sub-points. A markdown document is a better prompt than the same text with formatting stripped.
+Paste markdown at an AI and it understands the *structure*, not just the words: these headings are sections, this is a table, these are sub-points. A markdown document is a better prompt than the same text with formatting stripped.
 
-This goes further than one document. A folder of markdown notes is something an AI tool (Claude Code, Codex and friends) can read, search, edit and reorganize directly -- your notes become a workspace the AI operates *in*. We use this constantly: see [using AI to edit your Obsidian notes](kb/ai-editing.md).
+This goes further than one document. A folder of markdown notes is something an AI tool (Claude Code, Codex and friends) can read, search, edit and reorganize directly. Your notes become a workspace the AI operates *in*. We use this constantly: see [using AI to edit your Obsidian notes](kb/ai-editing.md).
 
 ## The universal converter trick
 
@@ -33,6 +33,6 @@ Markdown is the hub; every app dialect is a spoke; AI does the translation for f
 
 ## Why this matters beyond chat
 
-The AI era quietly settles the format wars. When your notes, docs and knowledge bases are markdown, every AI tool can work on them directly -- no export, no plugin, no lock-in. When they're in a proprietary format, there's an API and a permissions dialog between your content and your tools.
+The AI era quietly settles the format wars. When your notes, docs and knowledge bases are markdown, every AI tool can work on them directly, with no export, no plugin, no lock-in. When they're in a proprietary format, there's an API and a permissions dialog between your content and your tools.
 
 That's a big part of [why we think markdown-based wins](why.md). Your move: [put your knowledge in markdown](markdown-based.md) and let the robots read it 🤖

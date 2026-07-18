@@ -4,7 +4,7 @@ publish: false
 
 # The Way of Markdown
 
-Source for **The Way of Markdown** — a site about markdown and the markdown-based way of working: how to use markdown and its tool ecosystem (Obsidian, GitHub, Flowershow, …) to build websites, docs, knowledge bases and more, and why an open, plain-text, no-lock-in approach wins.
+Source for **The Way of Markdown**, a site about markdown and the markdown-based way of working: how to use markdown and its tool ecosystem (Obsidian, GitHub, Flowershow, …) to build websites, docs, knowledge bases and more, and why an open, plain-text, no-lock-in approach wins.
 
 Published with [Flowershow](https://flowershow.app) at **https://wayofmarkdown.com**. The site content is the markdown in this repository.
 
@@ -22,6 +22,6 @@ Published with [Flowershow](https://flowershow.app) at **https://wayofmarkdown.c
 
 ## Contributing / working on the site
 
-Work is tracked in GitHub issues — see the [current epic (#46)](https://github.com/flowershow/wayofmarkdown/issues/46) for what's done and what's next, and the [inbox issue (#45)](https://github.com/flowershow/wayofmarkdown/issues/45) for loose ideas. Plans and the work log live in [docs/plans/](docs/plans/); vision and approach notes are in [docs/vision.md](docs/vision.md).
+Work is tracked in GitHub issues: see the [current epic (#46)](https://github.com/flowershow/wayofmarkdown/issues/46) for what's done and what's next, and the [inbox issue (#45)](https://github.com/flowershow/wayofmarkdown/issues/45) for loose ideas. Plans and the work log live in [docs/plans/](docs/plans/); vision and approach notes are in [docs/vision.md](docs/vision.md).
 
 Edit content as plain markdown (Obsidian works great — this repo is a valid vault). Changes pushed to `main` deploy automatically via Flowershow.

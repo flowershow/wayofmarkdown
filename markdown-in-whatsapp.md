@@ -5,7 +5,7 @@ description: "WhatsApp formatting is basically markdown with an accent: *bold*, 
 
 # How to use Markdown in WhatsApp
 
-Yes, WhatsApp speaks markdown -- or at least a close cousin of it. If you've ever wondered how people get **bold** text in their messages, this is it.
+Yes, WhatsApp speaks markdown, or at least a close cousin of it. If you've ever wondered how people get **bold** text in their messages, this is it.
 
 ## The syntax
 
@@ -33,9 +33,9 @@ WhatsApp is markdown-*ish*, and the differences will bite you when you copy text
 
 ## Copying between WhatsApp and real markdown
 
-Pasting a markdown doc into WhatsApp mostly works if it's simple (lists, quotes survive fine) but your `**bold**` comes out wrong. Going the other way, WhatsApp's formatting characters *are* visible in the text, so a copied message is nearly-valid markdown -- fix the bold and you're done.
+Pasting a markdown doc into WhatsApp mostly works if it's simple (lists, quotes survive fine) but your `**bold**` comes out wrong. Going the other way, WhatsApp's formatting characters *are* visible in the text, so a copied message is nearly-valid markdown. Fix the bold and you're done.
 
-Doing this a lot? Ask any AI chat to convert -- "convert this to WhatsApp formatting" works because [AI speaks markdown natively](markdown-in-chatgpt.md).
+Doing this a lot? Ask any AI chat to convert: "convert this to WhatsApp formatting" works because [AI speaks markdown natively](markdown-in-chatgpt.md).
 
 ## The bigger picture
 

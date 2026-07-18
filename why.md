@@ -7,9 +7,9 @@ description: "Nobody cares about markdown per se. What matters is the markdown-b
 
 Here's a secret: **nobody actually cares about markdown.**
 
-Markdown is a formatting syntax — a few conventions for headings, bold, links. Caring about markdown is like caring about ASCII. Learning it takes [ten minutes](basics.md), and that's not why this site exists.
+Markdown is a formatting syntax: a few conventions for headings, bold, links. Caring about markdown is like caring about ASCII. Learning it takes [ten minutes](basics.md), and that's not why this site exists.
 
-What you actually care about is what you can *do*: publish a website, keep a knowledge base, run a blog, organize a catalog of books or recipes or research, collaborate on documents, build something Notion-shaped. Today, the default way to get those things is to hand your content to a platform — a CMS, a wiki service, a notes app — and accept its format, its editor, its pricing, and its exit barriers.
+What you actually care about is what you can *do*: publish a website, keep a knowledge base, run a blog, organize a catalog of books or recipes or research, collaborate on documents, build something Notion-shaped. Today, the default way to get those things is to hand your content to a platform (a CMS, a wiki service, a notes app) and accept its format, its editor, its pricing, and its exit barriers.
 
 The markdown-based approach is the alternative: **keep your content in plain markdown files, and get those same capabilities from an ecosystem of tools that work on top of them.**
 
@@ -35,7 +35,7 @@ One file of markdown is a note. A folder of markdown files plus the right tools 
 - **a collaborative workspace** — versioned, branched, and reviewed with git and GitHub
 - **docs, books, papers** — converted to anything via pandoc and friends
 
-In other words: the markdown ecosystem can reproduce most of what proprietary platforms offer — without the lock-in. That's why we talk about a markdown-*based* approach: markdown is just the substrate; the value is in what's built on it.
+In other words: the markdown ecosystem can reproduce most of what proprietary platforms offer, without the lock-in. That's why we talk about a markdown-*based* approach: markdown is just the substrate; the value is in what's built on it.
 
 ## Why the MOGF stack?
 
@@ -46,7 +46,7 @@ For building and publishing websites, our recommended starting stack is **Markdo
 - **GitHub** — free hosting for your files with full history, plus branching, review, and collaboration when you need it.
 - **Flowershow** — turns the repository into an elegant website automatically; push a change, the site updates.
 
-Each piece is replaceable — that's the point — but together they take you from empty folder to published, collaborative, version-controlled website without writing code or paying anyone. The [tutorial series](learn/) walks you through exactly that.
+Each piece is replaceable (that's the point) but together they take you from empty folder to published, collaborative, version-controlled website without writing code or paying anyone. The [tutorial series](learn/) walks you through exactly that.
 
 ## The way of markdown
 

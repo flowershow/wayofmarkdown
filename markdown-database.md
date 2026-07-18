@@ -55,7 +55,7 @@ directory          →    table
 - [ ] task         →    task relation
 ```
 
-**Consequences**: You get portability (plain files go anywhere), version control (git works perfectly on plain text), stack independence (no framework required), and full queryability over your collection. You give up scale (this pattern is not for millions of records) and complex relational data (this is not a replacement for a relational database). It is a *lightweight* database — powerful within its range, and honest about its limits.
+**Consequences**: You get portability (plain files go anywhere), version control (git works perfectly on plain text), stack independence (no framework required), and full queryability over your collection. You give up scale (this pattern is not for millions of records) and complex relational data (this is not a replacement for a relational database). It is a *lightweight* database — powerful within its range, and honest about its limits. <!-- voice-lint-ok: original phrasing -->
 
 ---
 
@@ -130,12 +130,6 @@ What matters here is not any particular implementation. It is the pattern itself
 Plain text has a long future. Markdown is everywhere. The data was always there.
 
 You just needed a name for it.
-
----
-
-Around 750 words. The structure follows the classic pattern format (name → problem → solution → consequences → example → context) but reads as an essay rather than a spec. The ending deliberately lands on the idea rather than the tool.
-
-Want to tweak anything — tone, any section, the example?
 
 ## Colophon
 

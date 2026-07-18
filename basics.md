@@ -1,101 +1,101 @@
 ---
 title: Markdown Basics
+description: "Learn markdown in ten minutes: headings, bold, links, lists, code, tables, frontmatter. The complete beginner's guide with examples."
 ---
 
-Markdown is a lightweight markup language with plain text formatting syntax. It is easy-to-use and widely deployed to on the web, for example by DataHub, GitHub, Stackoverflow and many other sites.
+# Markdown Basics
 
-In Markdown, you control the display of the document: formatting words as bold or italic, adding images, and creating lists are just a few of the things we can do with Markdown. Mostly, Markdown is just regular text with a few non-alphabetic characters thrown in, like ## or **.
+Markdown is a lightweight markup language with plain text formatting syntax. It is easy to use and deployed all over the web -- GitHub, Reddit, Stack Overflow, [and everywhere else](everywhere.md).
 
-## Table of Contents
+In Markdown you control the display of the document: formatting words as bold or italic, adding images, and creating lists are just a few of the things you can do. Mostly, Markdown is just regular text with a few non-alphabetic characters thrown in, like `##` or `**`.
+
+## Why plain text?
 
 First, plain text is awesome 😎 Plain text never goes out of fashion -- plain text files written thirty years ago are still readable on your modern computer (unlike more complex formats). You can also create and use plain text almost anywhere.
 
 But... plain text has no formatting like bold, italic, or bullet lists etc. Plain text needs conventions for "headings", lists, etc. Wouldn't it be cool if we had a way to add this to plain text *and* this then could be converted to HTML or something that does actually look good? Enter Markdown. 🦸
 
-## Tutorials
+## Learn by doing
 
-If you are looking to *learn* Markdown we recommend this interactive tutorials: [Commonmark Tutorial](https://commonmark.org/help/tutorial/) (10 minutes of Markdown exercises)
+Reading this page takes ten minutes. If you prefer interactive exercises:
 
-## General Markdown guideline
+- [markdowntutorial.com](https://www.markdowntutorial.com/) -- easy, interactive
+- [CommonMark tutorial](https://commonmark.org/help/tutorial/) -- ten minutes of exercises
 
-### Basics
+## The syntax
+
+### Text basics
 
 `usual text` usual text  
-`*italic text*` *italic text*
-`**bold text**` **bold text**,  
-`~~crossed though~~` ~~crossed though~~  
-`double space` -- double space at the end of the text will break the lines
-
-`---` horizontal line like this:
+`*italic text*` *italic text*  
+`**bold text**` **bold text**  
+`~~crossed through~~` ~~crossed through~~  
+`---` on its own line gives a horizontal rule:
 
 ---
 
-### Blockquotes
+To force a line break, end a line with two spaces.
 
-```
-Santa Claus said:
-
-> Happy Christmas, hohoho
-```
-
-Santa Claus said:
-
-> Happy Christmas, hohoho
-
-### Headers
+### Headings
 
 ```md
-# this is a Header1
-## Header2
-...
-###### Header6
+# Heading 1
+## Heading 2
+### Heading 3 (and so on to 6)
 ```
 
-### Links
+One `# Heading 1` per page, at the top, is the usual convention.
 
-`https://example.com` -- automatic  
-`[Example](https://example.com)` [Example](https://datahub.io) -- defined text  
-`![alt text](https://goo.gl/YPFoy5 "image title")`
-![alt text](https://goo.gl/YPFoy5 "image title")
+### Links and images
+
+`https://example.com` -- bare URLs auto-link in most tools  
+`[link text](https://example.com)` -- [a proper link](https://example.com)  
+`![alt text](image.png)` -- an image (the `!` in front is the difference)
+
+Many markdown tools (Obsidian, Flowershow, wikis) also support `[[wiki-links]]`: double brackets around a page name links to that page. Not part of core markdown, but everywhere in [knowledge-base land](markdown-knowledge-bases.md).
 
 ### Lists
 
 ```md
-* task 1
-* task 2
-  * task 2a
-  * task 2b
+- item 1
+- item 2
+  - item 2a (indent two spaces to nest)
+
+1. first
+2. second
 ```
 
-* task 1
-* task 2
-  * task 2a
-  * task 2b
+- item 1
+- item 2
+  - item 2a
 
-List with checkboxes:
-
->[!info]These work only in certain places e.g. GitHub, GitLab, HackMD. But not here in Vuepress.
-
+Task lists (GitHub, Obsidian and friends -- [not everywhere](everywhere.md)):
 
 ```md
-* [x] unchecked
-* [ ] checked
+- [ ] not done yet
+- [x] done
 ```
+
+### Quotes
+
+```md
+Santa Claus said:
+
+> Happy Christmas, hohoho
+```
+
+Santa Claus said:
+
+> Happy Christmas, hohoho
 
 ### Code
 
-Markdown:
+Inline code goes in single backticks: `` `like this` ``.
 
-```md
-This is inline code: `inline code`
-```
-
-This is inline code: `inline code`
-
-Multi-line code starts with triple backtick and ends with triple backtick apostrophe as well. You also you can add the programming language name:
+Multi-line code goes between triple-backtick lines, and you can name the language for syntax highlighting:
 
 ````md
-```[python|bash|php|etc]  
+```python
 print('hello world')
 ```
 ````
@@ -106,43 +106,57 @@ Renders as:
 print('hello world')
 ```
 
+### Tables
+
+```md
+| Name | Awesome? |
+|------|----------|
+| Markdown | Yes |
+| .docx | No |
+```
+
+| Name | Awesome? |
+|------|----------|
+| Markdown | Yes |
+| .docx | No |
+
 ## Advanced features
 
-As you can see, formatting text with Markdown is as easy as using Notepad. Also, the Markdown syntax could be extended easily. Here are some extra features that you can use.
+Formatting text with Markdown is as easy as using Notepad, and the syntax extends easily. Some extras worth knowing:
 
-> [!warning]These features may not always be supported by the tool you are using so check before you use them.
+> [!warning]
+> These aren't always supported -- check your tool before relying on them.
 
-### FrontMatter
+### Frontmatter
 
-In the world of computer programming, **frontmatter** is metadata at the top of a file.
-Just put your metadata between two lines like this:
+**Frontmatter** is metadata at the top of a file, between two `---` lines:
 
-
-```
+```md
 ---
-title: 5 minutes Markdown guide
-date: 2022-12-21
-authors: ['name']
+title: 5 minute markdown guide
+date: 2026-07-18
+author: Rufus
 ---
 ```
 
+Tools use it for page titles, dates, and anything else -- it's also how markdown files [act like database records](markdown-database.md).
 
-And our site will use this metadata while forming the page. The result you can see on top of this page ('authors' is used in the blog posts).
+### Callouts
 
-### Table of contents
-
-If you will add `## Table of Contents` in your document -- this will be automatically transformed into Table Of Content section, with links to all your Headers.
-
-### Directive boxes (Callouts)
-
-You can add info boxes in your text and the message will appear in a colored box:
-
-```
->[!info]My important message here.
+```md
+> [!info]
+> My important message here.
 ```
 
-and this is how it would be rendered:
+> [!info]
+> My important message here.
 
-> [!info]My important message here.
+Several types exist (info, warning, tip...) -- see the [Flowershow syntax docs](https://flowershow.app/docs/syntax) for the full set.
 
-For more supported callouts please refer to [Flowershow docs](https://flowershow.app/docs/syntax#callouts). 
+### HTML
+
+And the escape hatch for everything else: plain HTML is valid markdown. If the syntax can't do it, `<html>` can -- [this matters more than you'd think](markdown-websites.md).
+
+## That's it
+
+Truly, that's the bulk of markdown. You now know enough to write anything on [most of the internet](everywhere.md) -- and to start [building things](markdown-based.md). If you're joining a team that works this way, carry on with the [onboarding path](learn/onboarding.md) 🚀

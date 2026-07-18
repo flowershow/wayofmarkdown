@@ -5,13 +5,13 @@ description: "A step-by-step path for new team members: learn markdown, get work
 
 # Zero to Markdown: the onboarding path 🚀
 
-New to a team that runs on markdown -- notes in Obsidian, sites and wikis on GitHub -- and none of those words mean anything yet? This page is for you. Work through it in order; each step builds on the last. Budget a couple of hours total, spread over a few days is fine.
+New to a team that runs on markdown (notes in Obsidian, sites and wikis on GitHub) and none of those words mean anything yet? This page is for you. Work through it in order; each step builds on the last. Budget a couple of hours total, spread over a few days is fine.
 
 *(Team leads: this is the path we use to onboard people at Life Itself. Point your newcomers here.)*
 
 ## Step 1: Learn markdown itself (~20 min)
 
-Markdown is just text with a few extra characters -- `**bold**`, `# headings`, `[links](url)`. Truly, this is the easy part.
+Markdown is just text with a few extra characters: `**bold**`, `# headings`, `[links](url)`. Truly, this is the easy part.
 
 - Read [Markdown Basics](../basics.md)
 - Do the interactive [CommonMark tutorial](https://commonmark.org/help/tutorial/) (10 minutes, worth it)
@@ -26,7 +26,7 @@ Before any theory about git: make a live website, because it's fast and motivati
 
 **You're done when**: you've edited a page on GitHub's website and watched your live site update.
 
-## Step 3: Edit like the team does -- Obsidian + GitHub Desktop (~40 min)
+## Step 3: Edit like the team does: Obsidian + GitHub Desktop (~40 min)
 
 Editing in the browser is fine; the comfortable daily setup is files on your computer, edited in Obsidian, synced with GitHub Desktop.
 
@@ -37,7 +37,7 @@ Editing in the browser is fine; the comfortable daily setup is files on your com
 
 ## Step 4: Knowledge-base basics (~30 min)
 
-Most of what the team keeps in markdown isn't websites -- it's shared knowledge: notes, docs, little structured collections.
+Most of what the team keeps in markdown isn't websites. It's shared knowledge: notes, docs, little structured collections.
 
 - Do [create a simple catalog of anything](howtos/create-a-simple-catalog-of-anything.md) -- teaches frontmatter (data fields in notes) and linking between notes
 - Skim [markdown knowledge bases](../markdown-knowledge-bases.md) for the picture of how it hangs together

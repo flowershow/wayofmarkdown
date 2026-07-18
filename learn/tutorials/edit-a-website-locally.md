@@ -26,7 +26,7 @@ Ok, but, what exactly is Markdown?
 
 > *Markdown is a lightweight [**markup language**](https://en.wikipedia.org/wiki/Markup_language) for creating [**formatted text**](https://en.wikipedia.org/wiki/Formatted_text) using a **plain-text editor**.*
 
-The key term here is "markup language". In simple terms, it is a way to annotate or "mark up" a plain text document with symbols that describe how the document is structured and so, how it should be understood, processed, or displayed. These tags can tell a computer program that supports this syntax (e.g. a website) how to format the rendered text, for example: which words should be bold or italic, where to insert images, when to start new paragraphs, how to create tables, and so forth. It's important to note, that even though Markdown symbols change how the text is displayed when it's rendered by a Markdown-compatible viewer, the underlying document in still just a plain text. For instance, if you want to create a heading in Markdown, you use the "#" symbol before your heading text, like this:
+The key term here is "markup language". In simple terms, it is a way to annotate or "mark up" a plain text document with symbols that describe how the document is structured and so, how it should be understood, processed, or displayed. These tags can tell a computer program that supports this syntax (e.g. a website) how to format the rendered text, for example: which words should be bold or italic, where to insert images, when to start new paragraphs, how to create tables, and so forth. Note that even though Markdown symbols change how the text is displayed when it's rendered by a Markdown-compatible viewer, the underlying document in still just a plain text. For instance, if you want to create a heading in Markdown, you use the "#" symbol before your heading text, like this:
 
 ```md
 # This is a Heading
@@ -47,7 +47,7 @@ As you might have guessed by now, GitHub UI will only preview GitHub Flavoured M
 
 Another drawback of GitHub UI, is that it doesn't allow you to make changes (or to add) multiple files at once. Changes to each file will have to be commited (saved) separately, which can introduce a bit of a mess to your GitHub history, and may be cumbersome (e.g. if you want to update a link to some page on 10 other pages...).
 
-Ok, now we have this sorted, let's dive in and start editing your Flowershow website locally!
+Ok, now we have this sorted, let's get started editing your Flowershow website locally!
 
 ## Prerequisites
 
