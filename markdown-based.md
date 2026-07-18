@@ -5,9 +5,9 @@ description: "Websites, blogs, wikis, knowledge bases, databases, digital garden
 
 # Markdown-based Everything
 
-Here's the secret about this site: it's not really about markdown. Nobody cares about markdown, the same way nobody cares about ASCII. What you care about is the *stuff you want to build* -- a website, a knowledge base, a place for your team's docs -- and the fact that right now you probably build those inside somebody else's platform, in somebody else's format, on somebody else's terms.
+Nobody cares about markdown, the same way nobody cares about ASCII. What you care about is the *stuff you want to build*: a website, a knowledge base, a place for your team's docs. And right now you probably build those inside somebody else's platform, in somebody else's format, on somebody else's terms.
 
-The markdown-based way: take almost any of those things and rebuild it as **plain markdown files you own, plus tools you choose**. Same capability. No lock-in. That's it, that's the whole trick.
+The markdown-based way: take almost any of those things and rebuild it as **plain markdown files you own, plus tools you choose**. Same capability, no lock-in. That's the whole trick.
 
 Below, one guide per thing. Each covers: what it is, the markdown-based pattern for it, which tools to use, and (for the big ones) a full walkthrough.
 

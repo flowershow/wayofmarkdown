@@ -26,7 +26,7 @@ It's decent -- much better than most tools manage -- but it's an *exit*, not a s
 
 ## The escape hatch reading of all this
 
-Here's the thing markdown-export really gives you: **leverage**. Your notes can leave. And once you know they can leave, the next question is whether they needed to live in a proprietary blocks database in the first place -- most of what most people do in Notion (notes, docs, wikis, even light databases) works in plain markdown files with the right tools on top.
+What markdown export really gives you is an exit. Your notes can leave. And once you know they can leave, the next question is whether they needed to live in a proprietary blocks database in the first place: most of what most people do in Notion (notes, docs, wikis, even light databases) works in plain markdown files with the right tools on top.
 
 We wrote up that whole pattern: [The Markdown Database Pattern](markdown-database.md), and the practical guide to [markdown-based Notion alternatives](markdown-based.md) -- files you own, tools you choose, no export button needed because there's nothing to export *from*.
 

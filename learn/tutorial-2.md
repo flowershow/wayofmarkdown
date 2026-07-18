@@ -141,7 +141,7 @@ Reload your website to see the updated site live. Congratulations! 🎉
 
 ## What's next?
 
-By learning how to utilise Obsidian and GitHub Desktop, you have unlocked powerful editing capabilities and improved the overall publishing process. Now, you can enjoy the benefits of offline editing, simultaneous file editing, and previewing the extended Markdown syntax provided by Obsidian.
+By learning how to use Obsidian and GitHub Desktop, you have unlocked powerful editing capabilities and improved the overall publishing process. Now, you can enjoy the benefits of offline editing, simultaneous file editing, and previewing the extended Markdown syntax provided by Obsidian.
 
 But what happens if you want to collaborate with others on your website project? In the next tutorial, we will learn how to create a new branch of your repository locally, and then merge any changes with the web version.
 

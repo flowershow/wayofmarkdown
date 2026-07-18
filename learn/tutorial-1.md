@@ -119,6 +119,6 @@ To see the new file we've just added, you can navigate to the published page by 
 
 ## What's next?
 
-While editing on GitHub UI is acceptable, it has its limitations – it doesn't support working offline, adding multiple files simultaneously, or previewing many markdown syntax elements supported by Flowershow-based websites. We'll delve into these issues and solutions to overcome them in our next tutorial.
+While editing on GitHub UI is acceptable, it has its limitations – it doesn't support working offline, adding multiple files simultaneously, or previewing many markdown syntax elements supported by Flowershow-based websites. We'll dig into these issues and solutions to overcome them in our next tutorial.
 
 [[tutorial-2|Next: Tutorial 2]]

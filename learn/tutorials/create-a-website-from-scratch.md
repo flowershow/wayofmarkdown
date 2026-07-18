@@ -182,4 +182,4 @@ As you already know, Vercel will now start rebuilding your website. When it's do
 
 ## What's next?
 
-While editing on GitHub UI is acceptable, it has its limitations – it doesn't support working offline, adding multiple files simultaneously, or previewing many markdown syntax elements supported by Flowershow-based websites. We'll delve into these issues and solutions to overcome them in our next tutorial. Stay tuned!
+While editing on GitHub UI is acceptable, it has its limitations – it doesn't support working offline, adding multiple files simultaneously, or previewing many markdown syntax elements supported by Flowershow-based websites. We'll dig into these issues and solutions to overcome them in our next tutorial. Stay tuned!

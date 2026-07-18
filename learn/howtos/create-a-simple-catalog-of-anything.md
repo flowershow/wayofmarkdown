@@ -187,7 +187,7 @@ When you click on Hermione's name in the rendered link, Obsidian will take you t
 
 ## Summary
 
-And there you have it! We've walked through the process of creating a personal data catalog using markdown files, the Obsidian application, and its Dataview plugin. We've transformed scattered data into a well-organized, easy-to-navigate, and visually pleasing catalog. Whether you've used our example of a Harry Potter character catalog or applied these steps to a different topic of your choosing, we hope you've found this tutorial helpful and empowering.
+And there you have it! We've walked through the process of creating a personal data catalog using markdown files, the Obsidian application, and its Dataview plugin. We've transformed scattered data into a well-organized, easy-to-navigate, and visually pleasing catalog. Whether you've used our example of a Harry Potter character catalog or applied these steps to a different topic of your choosing, we hope you've found this tutorial helpful and helping.
 
 Happy data cataloging!
 

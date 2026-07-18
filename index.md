@@ -7,7 +7,7 @@ description: "Markdown is the universal language of the web. Learn how to use it
 
 **Markdown is awesome — and it's everywhere.** You already use it: on GitHub, Reddit, Slack, Discord, in every AI chat. Google Docs speaks it. Apple Notes speaks it. It's the simplest way to write structured content that works everywhere — and it's quietly become the universal language of the web.
 
-But here's the thing: markdown itself is just the beginning. What matters is what a **markdown-based approach** unlocks: websites, blogs, docs, knowledge bases, wikis, catalogs — even Notion-style databases — built from plain text files that *you* own, with free and open tools, and no platform holding your content hostage.
+And markdown itself is just the beginning. What matters is what a **markdown-based approach** unlocks: websites, blogs, docs, knowledge bases, wikis, catalogs, even Notion-style databases, all built from plain text files that *you* own, with free and open tools, and no platform holding your content hostage.
 
 That's the way of markdown: **own your content, keep it in an open format, and let an ecosystem of tools do the rest.**
 

@@ -16,7 +16,7 @@ Or to make some text bold, you add two asterisks before and after it, like so:
 
 `**This text is bold**`
 
-It's important to note that, even though Markdown symbols change how the text is displayed when it's rendered by a Markdown-compatible viewer, the underlying document is still just a plain text file.
+Note that even though Markdown symbols change how the text is displayed when it's rendered by a Markdown-compatible viewer, the underlying document is still just a plain text file.
 
 ## Why use Markdown?
 
