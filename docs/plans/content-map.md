@@ -56,6 +56,10 @@ Brainstormed list (slug = SEO: top-level `/markdown-<x>` pages, flat per our IA 
 | **Books & long-form** | pandoc |
 | **Slides / presentations** | Marp, reveal.js — P3 |
 | **Forms/CVs/letters** | P3, maybe |
+| **A single page/document** | from coggle "5 core areas" (#62): the humblest on-ramp — "put one note/report/article on the web". P2, small page, big funnel value |
+| **A landing page** | from coggle: hero, CTA, signup; showcases HTML-in-markdown. P2 |
+
+Also from the coggle mining ([[../coggle-distilled]]): **kb/glossary** (git/GitHub terms for non-devs, question-phrased) and a **git-rescue howto** (unstage/uncommit/merge-conflicts — the newcomer fear trio).
 
 ## B3. Videos (Rufus 2026-07-18)
 
