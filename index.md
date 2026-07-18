@@ -31,4 +31,6 @@ Read the full case in [Why Markdown-based?](why.md) — or start with [The Markd
 
 **Curious where markdown works?** [Everywhere](everywhere.md) 🌍 — WhatsApp, Discord, Slack, Google Docs, Notion, every AI chat — with a guide for each (and a name-and-shame list for the holdouts).
 
-**Already fluent?** The [knowledge base](kb/) has tools and workflows, the [videos](videos.md) show it done live, and essays like [The Markdown Database Pattern](markdown-database.md) go deep.
+**Already fluent?** The [knowledge base](kb/) has tools and workflows, the [videos](videos.md) show it done live, and essays like [The Markdown Database Pattern](markdown-database.md) go deep. Curious how we got here? [The markdown timeline](timeline.md) and [the canon](kb/canon.md).
+
+**What's new?** The [blog](blog/) — announcements, essays, and site changelog.

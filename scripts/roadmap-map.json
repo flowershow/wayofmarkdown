@@ -1,58 +1,196 @@
 {
   "stages": [
     {
-      "label": "⓪ Why bother?", "url": "/why", "status": "built",
+      "label": "⓪ Why bother?",
+      "url": "/why",
+      "status": "built",
       "branches": [
-        {"label": "The Manifesto", "url": "/manifesto", "status": "built", "side": "right"}
+        {
+          "label": "The Manifesto",
+          "url": "/manifesto",
+          "status": "built",
+          "side": "right"
+        },
+        {
+          "label": "History of markdown",
+          "url": "/timeline",
+          "status": "built",
+          "side": "left"
+        },
+        {
+          "label": "The canon 📜",
+          "url": "/kb/canon",
+          "status": "built",
+          "side": "left"
+        }
       ]
     },
     {
-      "label": "① Learn markdown", "url": "/basics", "status": "built",
+      "label": "① Learn markdown",
+      "url": "/basics",
+      "status": "built",
       "branches": [
-        {"label": "Markdown Everywhere 🌍", "url": "/everywhere", "status": "built", "side": "right"},
-        {"label": "Markdown + AI 🤖", "url": "/markdown-in-chatgpt", "status": "built", "side": "right"},
-        {"label": "Pluggable markdown", "url": "/markdown-based", "status": "planned", "side": "left"}
+        {
+          "label": "Markdown Everywhere 🌍",
+          "url": "/everywhere",
+          "status": "built",
+          "side": "right"
+        },
+        {
+          "label": "Markdown + AI 🤖",
+          "url": "/markdown-in-chatgpt",
+          "status": "built",
+          "side": "right"
+        },
+        {
+          "label": "Pluggable markdown",
+          "url": "/pluggable-markdown",
+          "status": "built",
+          "side": "left"
+        }
       ]
     },
     {
-      "label": "② Publish your first page", "url": "/learn/tutorials/create-a-website-from-scratch", "status": "built",
+      "label": "② Publish your first page",
+      "url": "/learn/tutorials/create-a-website-from-scratch",
+      "status": "built",
       "branches": [
-        {"label": "Sandbox site howto", "url": "/learn/howtos/quickly-create-a-sandbox-website", "status": "built", "side": "left"},
-        {"label": "Publish one document", "url": "/markdown-based", "status": "planned", "side": "right"}
+        {
+          "label": "Sandbox site howto",
+          "url": "/learn/howtos/quickly-create-a-sandbox-website",
+          "status": "built",
+          "side": "left"
+        },
+        {
+          "label": "Publish one document",
+          "url": "/publish-markdown",
+          "status": "built",
+          "side": "right"
+        }
       ]
     },
     {
-      "label": "③ Go local:\\nObsidian + GitHub", "url": "/learn/tutorials/edit-a-website-locally", "status": "built",
+      "label": "③ Go local:\\nObsidian + GitHub",
+      "url": "/learn/tutorials/edit-a-website-locally",
+      "status": "built",
       "branches": [
-        {"label": "Obsidian deep-dive", "url": "/markdown-in-obsidian", "status": "built", "side": "right"},
-        {"label": "Vault → GitHub", "url": "/learn/howtos/publish-obsidian-vault-to-github", "status": "built", "side": "left"}
+        {
+          "label": "Obsidian deep-dive",
+          "url": "/markdown-in-obsidian",
+          "status": "built",
+          "side": "right"
+        },
+        {
+          "label": "Vault → GitHub",
+          "url": "/learn/howtos/publish-obsidian-vault-to-github",
+          "status": "built",
+          "side": "left"
+        }
       ]
     },
     {
-      "label": "④ Structure your stuff", "url": "/learn/howtos/create-a-simple-catalog-of-anything", "status": "built",
+      "label": "④ Structure your stuff",
+      "url": "/learn/howtos/create-a-simple-catalog-of-anything",
+      "status": "built",
       "branches": [
-        {"label": "The database pattern", "url": "/markdown-database", "status": "built", "side": "right"},
-        {"label": "Git/GitHub glossary", "url": "/kb", "status": "planned", "side": "left"}
+        {
+          "label": "The database pattern",
+          "url": "/markdown-database",
+          "status": "built",
+          "side": "right"
+        },
+        {
+          "label": "Git/GitHub glossary",
+          "url": "/kb/glossary",
+          "status": "built",
+          "side": "left"
+        }
       ]
     },
     {
-      "label": "⑤ Work with others", "url": "/learn/tutorial-3", "status": "partial",
+      "label": "⑤ Work with others",
+      "url": "/learn/tutorial-3",
+      "status": "partial",
       "branches": [
-        {"label": "GitHub tips & FAQs", "url": "/kb/github-tips", "status": "built", "side": "right"},
-        {"label": "Git rescue howto", "url": "/kb", "status": "planned", "side": "left"}
+        {
+          "label": "GitHub tips & FAQs",
+          "url": "/kb/github-tips",
+          "status": "built",
+          "side": "right"
+        },
+        {
+          "label": "Git rescue howto",
+          "url": "/kb/git-rescue",
+          "status": "built",
+          "side": "left"
+        }
       ]
     },
     {
-      "label": "⑥ Build your X ✨", "url": "/markdown-based", "status": "built",
+      "label": "⑥ Build your X ✨",
+      "url": "/markdown-based",
+      "status": "built",
       "branches": [
-        {"label": "Website", "url": "/markdown-websites", "status": "built", "side": "left"},
-        {"label": "Blog", "url": "/markdown-blogs", "status": "built", "side": "left"},
-        {"label": "Knowledge base", "url": "/markdown-knowledge-bases", "status": "built", "side": "left"},
-        {"label": "Notion replacement", "url": "/markdown-notion-alternative", "status": "built", "side": "left"},
-        {"label": "Database / catalog", "url": "/markdown-databases", "status": "built", "side": "right"},
-        {"label": "Team wiki", "url": "/markdown-wikis", "status": "built", "side": "right"},
-        {"label": "Digital garden", "url": "/markdown-digital-gardens", "status": "built", "side": "right"},
-        {"label": "…all guides", "url": "/markdown-based", "status": "built", "side": "right"}
+        {
+          "label": "Website",
+          "url": "/markdown-websites",
+          "status": "built",
+          "side": "left"
+        },
+        {
+          "label": "Blog",
+          "url": "/markdown-blogs",
+          "status": "built",
+          "side": "left"
+        },
+        {
+          "label": "Knowledge base",
+          "url": "/markdown-knowledge-bases",
+          "status": "built",
+          "side": "left"
+        },
+        {
+          "label": "Notion replacement",
+          "url": "/markdown-notion-alternative",
+          "status": "built",
+          "side": "left"
+        },
+        {
+          "label": "Landing page",
+          "url": "/markdown-landing-pages",
+          "status": "built",
+          "side": "right"
+        },
+        {
+          "label": "Database / catalog",
+          "url": "/markdown-databases",
+          "status": "built",
+          "side": "right"
+        },
+        {
+          "label": "Team wiki",
+          "url": "/markdown-wikis",
+          "status": "built",
+          "side": "right"
+        },
+        {
+          "label": "Digital garden",
+          "url": "/markdown-digital-gardens",
+          "status": "built",
+          "side": "right"
+        },
+        {
+          "label": "…all guides",
+          "url": "/markdown-based",
+          "status": "built",
+          "side": "right"
+        },
+        {
+          "label": "Slides & more",
+          "url": "/markdown-based",
+          "status": "planned",
+          "side": "left"
+        }
       ]
     }
   ]

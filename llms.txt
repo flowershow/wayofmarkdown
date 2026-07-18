@@ -23,5 +23,14 @@ Site: https://wayofmarkdown.com — all pages are written in markdown; append no
 
 ## Learning
 
+- [The Markdown Roadmap](https://wayofmarkdown.com/roadmap): the visual path through everything
 - [Tutorial series](https://wayofmarkdown.com/learn): zero to published markdown website
 - [Team onboarding path](https://wayofmarkdown.com/learn/onboarding)
+- [Publish a single markdown file](https://wayofmarkdown.com/publish-markdown)
+
+## History & reference
+
+- [The markdown timeline](https://wayofmarkdown.com/timeline), [The Markdown Canon](https://wayofmarkdown.com/kb/canon)
+- [Pluggable markdown](https://wayofmarkdown.com/pluggable-markdown): fenced blocks as markdown's plugin system
+- [Git/GitHub glossary](https://wayofmarkdown.com/kb/glossary), [Git rescue](https://wayofmarkdown.com/kb/git-rescue)
+- [Blog](https://wayofmarkdown.com/blog)

@@ -24,12 +24,18 @@ Practical articles, tools, and tips for using Markdown across apps and workflows
 
 - [Using AI to edit Markdown notes in Obsidian](ai-editing) — Claude Code, Codex, and other AI tools with your vault
 - [Using Cursor with Obsidian](cursor-obsidian)
-- [GitHub FAQs and tips](github-tips) — branches, commit messages, and good practices
 
 ## Essays
 
 - [The Markdown Database Pattern](../markdown-database) — your filesystem is already a database
 
-## Syntax Reference
+## Git & GitHub
 
+- [Glossary for non-developers](glossary) — repo, commit, push, branch, PR: every term in plain language
+- [Git rescue](git-rescue) 🚑 — undo, unstage, merge conflicts: calm fixes for the scary moments
+- [GitHub FAQs and tips](github-tips) — branches, commit messages, and good practices
+
+## Reference
+
+- [The Markdown Canon](canon) 📜 — the essential texts, from Gruber's spec to File over app
 - [Heading identifiers (Pandoc-style)](identifiers) — the `{#custom-id}` syntax and where it works

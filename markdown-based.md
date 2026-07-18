@@ -24,6 +24,8 @@ Below, one guide per thing. Each covers: what it is, the markdown-based pattern 
 - **[Journals & daily notes](markdown-journals.md)** -- the simplest habit, the most durable archive.
 - **[Bookmarking & web clipping](markdown-bookmarking.md)** -- save the web as markdown you can search forever.
 - **[Books & long-form](markdown-books.md)** -- write in markdown, publish to anything via pandoc.
+- **[Landing pages](markdown-landing-pages.md)** -- hero, pitch, call to action; the HTML superpower earning its keep.
+- **[A single page](publish-markdown.md)** -- the humblest version: put one document on the web, now.
 
 ## The pattern behind all of them
 
