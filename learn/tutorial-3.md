@@ -5,7 +5,7 @@ description: "Branches, pull requests, review and merging — collaborate on a m
 
 # Tutorial 3: Collaborating with others on your website project
 
-In tutorials [1](tutorial-1.md) and [2](tutorial-2.md) you published a site and learned to edit it locally. Now the fun part: working on it *with other people* without overwriting each other or breaking the live site. This is what GitHub was actually built for, and the good news is that the workflow — branches and pull requests — sounds more technical than it is.
+In tutorials [1](tutorial-1.md) and [2](tutorial-2.md) you published a site and learned to edit it locally. Now the fun part: working on it *with other people* without overwriting each other or breaking the live site. This is what GitHub was actually built for, and the good news is that the workflow (branches and pull requests) sounds more technical than it is.
 
 By the end of this tutorial, you will:
 
@@ -25,7 +25,7 @@ Why bother, when you *could* commit straight to main? Because with more than one
 
 ## Step 1: Create a branch
 
-**On GitHub** (easiest): go to your repository, click the branch dropdown (it says `main`, top-left of the file list), type a new branch name — say `update-about-page` — and press Enter on "Create branch". That's it 🎉
+**On GitHub** (easiest): go to your repository, click the branch dropdown (it says `main`, top-left of the file list), type a new branch name, say `update-about-page`, and press Enter on "Create branch". That's it 🎉
 
 **In GitHub Desktop**: Branch menu → New Branch → name it → Create. Then click "Publish branch" so it exists on GitHub too.
 
@@ -48,7 +48,7 @@ Then **Push origin** to send the branch's commits up to GitHub. The live site ha
 1. Go to your repository on GitHub. If you pushed recently, a yellow banner offers **"Compare & pull request"** — click it. (Otherwise: Pull requests tab → New pull request → select your branch.)
 2. Check the direction reads `base: main ← compare: your-branch`.
 3. Give the PR a clear title and a sentence or two of description: what changed and why.
-4. Scroll down — GitHub shows every change, additions in green, deletions in red. This diff view is the whole point: your proposed edit, laid out for anyone to see.
+4. Scroll down: GitHub shows every change, additions in green, deletions in red. This diff view is the whole point: your proposed edit, laid out for anyone to see.
 5. Click **Create pull request** 🎉
 
 Your changes are now up for review. Mention a teammate ("@sarah — look right?") in a comment if you want specific eyes.

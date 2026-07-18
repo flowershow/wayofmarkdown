@@ -13,7 +13,7 @@ This site is that theme applied to everyday writing and knowledge. I kept explai
 
 Exactly the way it tells you to make yours: it's a folder of markdown files in a [public GitHub repo](https://github.com/flowershow/wayofmarkdown), edited in Obsidian and with AI tools, published by [Flowershow](https://flowershow.app). Every page has an "edit this page" link, and the raw markdown of anything you read is one click away in the repo. We eat the dogfood — even our [roadmap](roadmap.md) is a plain-text data file rendered into a picture.
 
-Full disclosure, since it matters: I build Flowershow, so when the guides mention it as a publishing option, that's not a coincidence — it's also why the guides always name the alternatives (Hugo, Jekyll, Astro, MkDocs…). The whole point of the markdown-based way is that the tools are swappable. Including ours.
+Full disclosure, since it matters: I build Flowershow, so the guides mentioning it as a publishing option is no coincidence — which is exactly why they always name the alternatives (Hugo, Jekyll, Astro, MkDocs…). The whole point of the markdown-based way is that the tools are swappable. Including ours.
 
 ## Get in touch
 
