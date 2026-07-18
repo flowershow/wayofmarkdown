@@ -1,4 +1,8 @@
-# Skeleton (condensed)
+---
+publish: false
+---
+
+# Site Skeleton (condensed, 2023)
 
 #### Home Page
 - Welcome to Makeitmarkdown!

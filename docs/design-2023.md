@@ -1,4 +1,8 @@
-# Design Background for Make it Markdown
+---
+publish: false
+---
+
+# Design Background for Make it Markdown (2023)
 
 ## Purpose and Principles
 

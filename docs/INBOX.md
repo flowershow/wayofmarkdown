@@ -1,0 +1,4 @@
+- Markdown Databases concept overview: https://chatgpt.com/share/6a5ac1ef-a670-83eb-b4fb-0b5d26fe1a63
+- Beginning of a "How to make a Markdown-based Notion setup" discussion https://chatgpt.com/share/6a5ac512-2d64-83eb-a343-e44aead93935
+- TODO: coggle links for orview done 2/3y ago ...
+- TODO: dig out where Content DB ideas ended up (datahub notebook??)
