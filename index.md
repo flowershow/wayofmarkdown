@@ -3,38 +3,78 @@ title: "The Way of Markdown"
 description: "Markdown is the universal language of the web. Learn how to use it — and the ecosystem of markdown-based tools — to build websites, docs, knowledge bases and more, without lock-in."
 ---
 
-# The Way of Markdown
+<div style="text-align:center; padding:2.5rem 0 1rem;">
+  <div style="font-family:Menlo,monospace; color:#16a34a; font-size:1rem; margin-bottom:1rem;"># The Way of Markdown</div>
+  <h1 style="font-size:2.6rem; font-weight:800; line-height:1.15; margin:0 0 1rem;">Own the source.<br/>Compose with anything.</h1>
+  <p style="max-width:38rem; margin:0 auto 1.5rem; font-size:1.15rem;">Websites, knowledge bases, blogs, even a Notion replacement — built from plain text files <em>you</em> own, with tools you can swap anytime. Markdown is quietly everywhere; here's how to make it work for you.</p>
+  <div style="display:flex; gap:0.8rem; justify-content:center; flex-wrap:wrap;">
+    <a href="/roadmap" style="display:inline-block; background:#16a34a; color:#fff; border-radius:10px; padding:0.7rem 1.5rem; font-weight:700; text-decoration:none;">Start the roadmap 🗺️</a>
+    <a href="/manifesto" style="display:inline-block; border:2px solid #16a34a; border-radius:10px; padding:0.7rem 1.5rem; font-weight:700; text-decoration:none;">Read the manifesto</a>
+  </div>
+</div>
 
-**Markdown is awesome — and it's everywhere.** You already use it: on GitHub, Reddit, Slack, Discord, in every AI chat. Google Docs speaks it. Apple Notes speaks it. It's the simplest way to write structured content that works everywhere — and it's quietly become the universal language of the web.
+<div class="grid md:grid-cols-2 gap-4 my-8" style="align-items:stretch;">
+  <div style="border:1px solid rgba(148,163,184,0.4); border-radius:12px; overflow:hidden;">
+    <div style="font-family:Menlo,monospace; font-size:0.75rem; padding:0.4rem 1rem; border-bottom:1px solid rgba(148,163,184,0.4); opacity:0.7;">notes/reading-list.md — plain text, yours forever</div>
+    <pre style="margin:0; padding:1rem; font-size:0.8rem; line-height:1.6; background:transparent;"><code># My reading list
 
-And markdown itself is just the beginning. What matters is what a **markdown-based approach** unlocks: websites, blogs, docs, knowledge bases, wikis, catalogs, even Notion-style databases, all built from plain text files that *you* own, with free and open tools, and no platform holding your content hostage.
+Books I **actually** finished:
 
-That's the way of markdown: **own your content, keep it in an open format, and let an ecosystem of tools do the rest.**
+- [ ] The Dispossessed
+- [x] File over app
+- [x] [The Markdown Manifesto](/manifesto)
 
-## Why markdown?
+> Plain text never goes out of fashion.</code></pre>
+  </div>
+  <div style="border:1px solid #22c55e; border-radius:12px; overflow:hidden;">
+    <div style="font-family:Menlo,monospace; font-size:0.75rem; padding:0.4rem 1rem; border-bottom:1px solid rgba(34,197,94,0.5); color:#16a34a;">the same file, rendered — by any tool, today or in 2046</div>
+    <div style="padding:1rem;">
+      <div style="font-weight:800; font-size:1.2rem; margin-bottom:0.5rem;">My reading list</div>
+      <p style="margin:0 0 0.5rem;">Books I <strong>actually</strong> finished:</p>
+      <div style="line-height:1.9;">☐ The Dispossessed<br/>☑ File over app<br/>☑ <a href="/manifesto">The Markdown Manifesto</a></div>
+      <div style="border-left:3px solid #22c55e; padding-left:0.8rem; margin-top:0.6rem; opacity:0.8;"><em>Plain text never goes out of fashion.</em></div>
+    </div>
+  </div>
+</div>
 
-- **Simple** — write naturally with a few symbols (`# heading`, `**bold**`, `[link](url)`). No complex editors, no proprietary formats.
-- **Portable** — plain text works on every platform, every device, every OS. Your content is never locked in.
-- **Future-proof** — plain text files will be readable in 50 years. Can you say that about your `.docx` files?
-- **AI-friendly** — ChatGPT, Claude, Copilot: every major AI tool speaks markdown natively. It's the lingua franca of the AI era.
-- **Everywhere** — Google Docs, Apple Notes, Obsidian, GitHub… the world is converging on markdown.
+<p style="text-align:center;"><em>That's the whole trick, and it goes remarkably far. Try it yourself in the <a href="/playground.html">playground</a> 🎮</em></p>
 
-Read the full case in [Why Markdown-based?](why.md) — or start with [The Markdown Manifesto](manifesto.md).
+## Why markdown wins
 
-## Start here
+<div class="grid grid-cols-2 md:grid-cols-3 gap-3 my-6">
+  <a href="/basics" class="block border rounded-lg p-4 no-underline hover:shadow-md transition-shadow"><strong>✏️ Simple</strong><br/>The whole syntax in ten minutes. Truly.</a>
+  <a href="/why" class="block border rounded-lg p-4 no-underline hover:shadow-md transition-shadow"><strong>🔓 Yours</strong><br/>Plain files on your disk. No platform owns you.</a>
+  <a href="/timeline" class="block border rounded-lg p-4 no-underline hover:shadow-md transition-shadow"><strong>⏳ Future-proof</strong><br/>Readable in 50 years. Ask your .docx files.</a>
+  <a href="/markdown-in-chatgpt" class="block border rounded-lg p-4 no-underline hover:shadow-md transition-shadow"><strong>🤖 AI-native</strong><br/>Every AI speaks it. Your notes become programmable.</a>
+  <a href="/pluggable-markdown" class="block border rounded-lg p-4 no-underline hover:shadow-md transition-shadow"><strong>🧩 Pluggable</strong><br/>Diagrams, databases, whole tools inside three backticks.</a>
+  <a href="/everywhere" class="block border rounded-lg p-4 no-underline hover:shadow-md transition-shadow"><strong>🌍 Everywhere</strong><br/>WhatsApp to Google Docs to GitHub. The world converged.</a>
+</div>
 
-**Want the whole journey on one page?** [The Markdown Roadmap](roadmap.md) 🗺️ — from zero to building anything, with two entrances and a branch for every destination.
+## What will you build?
 
-**New to markdown?** The syntax takes ten minutes: [Markdown Basics](basics.md), or just [try it live in the playground](/playground.html) 🎮. Onboarding a whole team? There's a [step-by-step path](learn/onboarding.md).
+Nobody cares about markdown, the same way nobody cares about ASCII. You care about the thing you want to make — and there's a guide for each:
 
-**Want to build something?** That's the real point. Browse [Markdown-based Everything](markdown-based.md) — websites, blogs, knowledge bases, even a Notion replacement — or take the [tutorial series](learn/) from zero to a published website.
+<div class="grid grid-cols-2 md:grid-cols-4 gap-3 my-6">
+  <a href="/markdown-websites" class="block border rounded-lg p-3 no-underline hover:shadow-md transition-shadow text-center"><strong>🌐 Website</strong></a>
+  <a href="/markdown-knowledge-bases" class="block border rounded-lg p-3 no-underline hover:shadow-md transition-shadow text-center"><strong>🧠 Knowledge base</strong></a>
+  <a href="/markdown-notion-alternative" class="block border rounded-lg p-3 no-underline hover:shadow-md transition-shadow text-center"><strong>🚪 Notion escape</strong></a>
+  <a href="/markdown-blogs" class="block border rounded-lg p-3 no-underline hover:shadow-md transition-shadow text-center"><strong>✍️ Blog</strong></a>
+  <a href="/markdown-databases" class="block border rounded-lg p-3 no-underline hover:shadow-md transition-shadow text-center"><strong>🗃️ Database</strong></a>
+  <a href="/markdown-wikis" class="block border rounded-lg p-3 no-underline hover:shadow-md transition-shadow text-center"><strong>👥 Team wiki</strong></a>
+  <a href="/markdown-digital-gardens" class="block border rounded-lg p-3 no-underline hover:shadow-md transition-shadow text-center"><strong>🌱 Garden</strong></a>
+  <a href="/markdown-based" class="block border rounded-lg p-3 no-underline hover:shadow-md transition-shadow text-center"><strong>✨ All guides</strong></a>
+</div>
 
-**Curious where markdown works?** [Everywhere](everywhere.md) 🌍 — WhatsApp, Discord, Slack, Google Docs, Notion, every AI chat — with a guide for each (and a name-and-shame list for the holdouts).
+## Start where you are
 
-**Already fluent?** The [knowledge base](kb/) has tools and workflows, the [videos](videos.md) show it done live, and essays like [The Markdown Database Pattern](markdown-database.md) go deep. Curious how we got here? [The markdown timeline](timeline.md) and [the canon](kb/canon.md).
+**New to markdown?** [The basics](basics.md) take ten minutes, or [try it live](/playground.html) right now. Onboarding a team? [The step-by-step path](learn/onboarding.md).
 
-**What's new?** The [blog](blog/) — announcements, essays, and site changelog.
+**Ready to build?** [The roadmap](roadmap.md) walks the whole journey; the [tutorial series](learn/) takes you from zero to a published website.
+
+**Already fluent?** The [knowledge base](kb/), the [videos](videos.md), the [canon](kb/canon.md) and [timeline](timeline.md) — or go deep with [The Markdown Database Pattern](markdown-database.md).
+
+**What's new?** The [blog](blog/) — announcements, essays, changelog.
 
 ---
 
-*Made by [Rufus Pollock](about.md) as markdown files [in the open](https://github.com/flowershow/wayofmarkdown) — [about this site](about.md).*
+*Made by [Rufus Pollock](about.md), as markdown files [in the open](https://github.com/flowershow/wayofmarkdown). This page is itself markdown with a little HTML in it — [which is rather the point](markdown-websites.md).*
