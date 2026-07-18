@@ -1,6 +1,6 @@
-# Make It Markdown: A Markdown-based Websites Guide 🚀
+# Learn: Build a Markdown-based Website 🚀
 
-Welcome to Make it Markdown! Here you can learn how to build markdown-based websites – and why a markdown-based approach is awesome 🦸‍♀️
+Welcome! Here you can learn how to build markdown-based websites – and why a markdown-based approach is awesome 🦸‍♀️
 
 This series of tutorials guides you through the basics of creating a website using a Markdown-based approach that we have termed MOGF (Markdown + Obsidian + GitHub + Flowershow).
 

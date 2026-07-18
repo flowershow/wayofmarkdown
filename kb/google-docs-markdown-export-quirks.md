@@ -1,4 +1,5 @@
 ---
+title: Google Docs Markdown Export Quirks
 created: 2025-12-04
 ---
 
@@ -22,7 +23,7 @@ And in context:
 Our world shows signs of multi-systemic breakdown. In this context, **polycrisis** names an *entanglement* of interconnected crises that affect one another \- ecological, political, cultural, technological. **Metacrisis**, by contrast, denotes foundational conditions that generate these crises. Just as symptoms signal an underlying illness, polycrisis points to metacrisis. While the reality of a global polycrisis is increasingly acknowledged, awareness of metacrisis is less common. 
 ```
 
-This is [[syntax/Idenfifiers|Identifiers]] feature introduced by Pandoc.
+This is the [[identifiers|Identifiers]] feature introduced by Pandoc.
 
 ### Images inlined
 

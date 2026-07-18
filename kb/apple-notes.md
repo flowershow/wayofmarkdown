@@ -3,7 +3,7 @@ created: 2024-12-15
 title: Markdown for Apple Notes
 ---
 
-Appled Notes unfortunately still does not support [[markdown]].
+Apple Notes unfortunately still does not support markdown natively. (Update: as of 2025, Notes on iPad has markdown import/export — see [iPad Notes gets Markdown import/export](ipad-notes).)
 
 Typing `## My Title` will give you just that -- no nice conversion to Heading.
 

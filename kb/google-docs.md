@@ -1,6 +1,6 @@
 # How to use Markdown in Google Docs
 
-Did you know that Google Docs has major markdown support? Most importantly (at least for me) you can copy and past from markdown -- this is great for moving content from or to systems that are [[Markdown Native]] like [[GitHub]], [[ChatGPT]], [[Discourse]], [[Obsidian]] etc etc.
+Did you know that Google Docs has major markdown support? Most importantly (at least for me) you can copy and past from markdown -- this is great for moving content from or to systems that are markdown-native like GitHub, ChatGPT, Discourse, Obsidian etc etc.
 
 **However, markdown support is disabled by default 🤯**. So you need to enable it ... here's how courtesy of the official instructions https://support.google.com/docs/answer/12014036?hl=en
 
