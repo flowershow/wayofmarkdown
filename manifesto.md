@@ -99,6 +99,8 @@ Write in markdown. Store in markdown. Build on markdown.
 
 Own the source, and the whole ecosystem is yours. 🚀
 
+Agree? [Fly the badge](badges.md): **We ❤ Markdown**.
+
 ---
 
 *Credit where due: markdown was created by John Gruber with Aaron Swartz -- internet legends both. Convinced? [Why markdown-based](why.md) has the full argument; [start building](markdown-based.md) has the practice.*

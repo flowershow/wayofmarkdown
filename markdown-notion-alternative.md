@@ -5,6 +5,8 @@ description: "Most of what you do in Notion — docs, wikis, light databases —
 
 # Replacing Notion with Markdown
 
+Still weighing it up? The feature-by-feature scorecard is at [Notion vs Markdown](notion-vs-markdown.md); this page is the *how*, for when you've decided.
+
 Let me be clear upfront: Notion is genuinely good software. The blocks editor is slick, the databases are clever, and teams get real value from it. If it's working for you and the trade-offs below don't bother you, carry on.
 
 But Notion is also a proprietary blocks database that owns your notes, your wiki and your little databases, rented back to you monthly. Your "pages" aren't files; they're rows in someone else's system, reachable only through their app and their API. And most people don't realise that *most of what they use Notion for works in plain markdown files*. Not with heroic effort. With a nice editor and a couple of conventions.

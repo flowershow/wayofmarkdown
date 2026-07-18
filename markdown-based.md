@@ -16,7 +16,7 @@ Below, one guide per thing. Each covers: what it is, the markdown-based pattern 
 - **[Websites](markdown-websites.md)** 🌟 -- the flagship guide. From "I have some markdown files" to a live, elegant website. Includes the underrated superpower: markdown supports HTML.
 - **[Blogs](markdown-blogs.md)** -- a folder of posts + dates. Blogging was *born* markdown-shaped.
 - **[Knowledge bases & second brains](markdown-knowledge-bases.md)** -- notes, wiki-links, backlinks; Obsidian and friends.
-- **[Replacing Notion](markdown-notion-alternative.md)** -- the escape guide: docs, wikis and databases without the platform.
+- **[Replacing Notion](markdown-notion-alternative.md)** -- the escape guide: docs, wikis and databases without the platform. (Deciding? [The comparison](notion-vs-markdown.md).)
 - **[Databases & catalogs](markdown-databases.md)** -- files as records, frontmatter as fields. Yes really. ([The pattern, in depth](markdown-database.md).)
 - **[Wikis & team handbooks](markdown-wikis.md)** -- shared knowledge with review and history built in.
 - **[Docs sites](markdown-docs.md)** -- product and project documentation, the way every serious dev tool already does it.

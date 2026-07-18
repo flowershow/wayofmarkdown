@@ -14,7 +14,7 @@ Site: https://wayofmarkdown.com — all pages are written in markdown; append no
 
 - [Guide index](https://wayofmarkdown.com/markdown-based)
 - [Websites](https://wayofmarkdown.com/markdown-websites) — flagship; includes HTML-in-markdown
-- [Knowledge bases](https://wayofmarkdown.com/markdown-knowledge-bases), [Replacing Notion](https://wayofmarkdown.com/markdown-notion-alternative), [Databases](https://wayofmarkdown.com/markdown-databases), [The Markdown Database Pattern](https://wayofmarkdown.com/markdown-database)
+- [Knowledge bases](https://wayofmarkdown.com/markdown-knowledge-bases), [Replacing Notion](https://wayofmarkdown.com/markdown-notion-alternative), [Notion vs Markdown comparison](https://wayofmarkdown.com/notion-vs-markdown), [Databases](https://wayofmarkdown.com/markdown-databases), [The Markdown Database Pattern](https://wayofmarkdown.com/markdown-database)
 
 ## Markdown in apps ("everywhere")
 
