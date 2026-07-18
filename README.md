@@ -22,6 +22,6 @@ Published with [Flowershow](https://flowershow.app). The site content is the mar
 
 ## Contributing / working on the site
 
-Plans and the work log live in [docs/plans/](docs/plans/) — start with the current version plan. Vision and approach notes are in [docs/vision.md](docs/vision.md).
+Work is tracked in GitHub issues — see the [current epic (#46)](https://github.com/flowershow/wayofmarkdown/issues/46) for what's done and what's next, and the [inbox issue (#45)](https://github.com/flowershow/wayofmarkdown/issues/45) for loose ideas. Plans and the work log live in [docs/plans/](docs/plans/); vision and approach notes are in [docs/vision.md](docs/vision.md).
 
 Edit content as plain markdown (Obsidian works great — this repo is a valid vault). Changes pushed to `main` deploy automatically via Flowershow.
