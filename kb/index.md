@@ -9,10 +9,7 @@ Practical articles, tools, and tips for using Markdown across apps and workflows
 
 ## Markdown in Apps
 
-- [How to use Markdown in Google Docs](google-docs) — enable Markdown, paste from Markdown, copy as Markdown
-- [Google Docs Markdown export quirks](google-docs-markdown-export-quirks) — anchor links, image handling in exports
-- [Markdown for Apple Notes](apple-notes) — using ProNotes to get Markdown support in Apple Notes
-- [iPad Notes gets Markdown import/export](ipad-notes) — iPadOS adds native Markdown support
+Now a full series with its own hub: [Markdown Everywhere](../everywhere.md) 🌍 — WhatsApp, Discord, Slack, [Google Docs](../markdown-in-google-docs.md), Notion, [Apple Notes](../markdown-in-apple-notes.md), Obsidian, GitHub, Reddit, Telegram, AI chats…
 
 ## Tools
 

@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Markdown Playground — The Way of Markdown</title>
+<meta name="description" content="Type markdown on the left, see it rendered on the right. A tiny live playground — try the syntax right now.">
+<style>
+  :root { --green:#16a34a; --green-l:#22c55e; --bg:#fff; --fg:#37342f; --muted:#78716c; --panel:#f6faf7; --border:#d6d3d1; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#0f1712; --fg:#d6d3d1; --muted:#a8a29e; --panel:#141f18; --border:#333; --green:#4ade80; }
+  }
+  * { box-sizing:border-box }
+  body { margin:0; font-family:system-ui,-apple-system,sans-serif; background:var(--bg); color:var(--fg); height:100vh; display:flex; flex-direction:column }
+  header { padding:0.7rem 1.2rem; border-bottom:2px solid var(--green); display:flex; align-items:center; gap:1rem; flex-wrap:wrap }
+  header .brand { font-family:Menlo,monospace; color:var(--green); font-weight:700; text-decoration:none }
+  header .title { font-weight:700 }
+  header .links { margin-left:auto; font-size:0.9rem }
+  header a { color:var(--green) }
+  main { flex:1; display:grid; grid-template-columns:1fr 1fr; min-height:0 }
+  @media (max-width:800px){ main { grid-template-columns:1fr; grid-template-rows:1fr 1fr } }
+  textarea { border:none; outline:none; resize:none; padding:1.2rem; font:14px/1.6 Menlo,monospace; background:var(--panel); color:var(--fg); border-right:1px solid var(--border) }
+  #out { padding:1.2rem 1.6rem; overflow:auto; line-height:1.65 }
+  #out h1,#out h2,#out h3 { line-height:1.25 } #out h1{font-size:1.7rem} #out h2{font-size:1.35rem}
+  #out code { background:var(--panel); border:1px solid var(--border); border-radius:4px; padding:0.1em 0.35em; font-family:Menlo,monospace; font-size:0.9em }
+  #out pre { background:var(--panel); border:1px solid var(--border); border-radius:8px; padding:0.9rem; overflow:auto }
+  #out pre code { border:none; background:none; padding:0 }
+  #out blockquote { border-left:3px solid var(--green-l); margin-left:0; padding-left:1rem; color:var(--muted) }
+  #out table { border-collapse:collapse } #out th,#out td { border:1px solid var(--border); padding:0.35rem 0.7rem } #out th { background:var(--panel) }
+  #out a { color:var(--green) }
+  #out img { max-width:100% }
+  #out hr { border:none; border-top:2px solid var(--green-l); width:5rem; margin:1.5rem auto; opacity:.5 }
+  #out input[type=checkbox]{ accent-color: var(--green) }
+</style>
+</head>
+<body>
+<header>
+  <a class="brand" href="/"># The Way of Markdown</a>
+  <span class="title">Markdown Playground</span>
+  <span class="links"><a href="/basics">syntax guide</a> · <a href="/roadmap">roadmap</a></span>
+</header>
+<main>
+  <textarea id="in" spellcheck="false" aria-label="Markdown input"># Try markdown right here 🚀
+
+Type on the left, rendered on the right. **Bold**, *italic*, ~~strikethrough~~, `inline code`.
+
+## The basics
+
+- A list item
+- Another one
+  - Nested!
+
+1. Numbered
+2. Lists too
+
+> A quote. Santa Claus said: Happy Christmas, hohoho
+
+## Links, tasks, tables
+
+A [link to the basics guide](/basics), and a task list:
+
+- [x] learn markdown
+- [ ] build something with it
+
+| Name | Awesome? |
+|------|----------|
+| Markdown | Yes |
+| .docx | No |
+
+## Code
+
+```
+function hello() { return "the way of markdown" }
+```
+
+---
+
+That's most of the syntax already. Ten minutes, like we said 😎
+Now: [what will you build?](/markdown-based)</textarea>
+  <div id="out" aria-live="polite"></div>
+</main>
+<script>
+// Tiny markdown renderer — deliberately dependency-free. Subset: headings, emphasis,
+// code (inline + fenced), links, images, lists (incl. tasks, one nest level), quotes,
+// tables, hr. Good enough to teach; not a spec implementation.
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")}
+function inline(s){
+  s=esc(s);
+  s=s.replace(/`([^`]+)`/g,(m,c)=>"<code>"+c+"</code>");
+  s=s.replace(/!\[([^\]]*)\]\(([^)\s]+)\)/g,'<img alt="$1" src="$2">');
+  s=s.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g,'<a href="$2">$1</a>');
+  s=s.replace(/\*\*\*([^*]+)\*\*\*/g,"<strong><em>$1</em></strong>");
+  s=s.replace(/\*\*([^*]+)\*\*/g,"<strong>$1</strong>");
+  s=s.replace(/(^|\W)\*([^*\s][^*]*)\*/g,"$1<em>$2</em>");
+  s=s.replace(/~~([^~]+)~~/g,"<del>$1</del>");
+  return s;
+}
+function render(src){
+  const lines=src.split(/\r?\n/); let out=[],i=0;
+  while(i<lines.length){
+    let l=lines[i];
+    if(/^```/.test(l)){ let buf=[]; i++;
+      while(i<lines.length && !/^```/.test(lines[i])) buf.push(lines[i++]);
+      i++; out.push("<pre><code>"+esc(buf.join("\n"))+"</code></pre>"); continue; }
+    if(/^#{1,6}\s/.test(l)){ const n=l.match(/^#+/)[0].length;
+      out.push(`<h${n}>`+inline(l.replace(/^#+\s*/,""))+`</h${n}>`); i++; continue; }
+    if(/^(-{3,}|\*{3,})\s*$/.test(l)){ out.push("<hr>"); i++; continue; }
+    if(/^>\s?/.test(l)){ let buf=[];
+      while(i<lines.length && /^>\s?/.test(lines[i])) buf.push(lines[i++].replace(/^>\s?/,""));
+      out.push("<blockquote>"+render(buf.join("\n"))+"</blockquote>"); continue; }
+    if(/^\|.*\|/.test(l) && i+1<lines.length && /^\|[\s:|-]+\|/.test(lines[i+1])){
+      const cells=r=>r.replace(/^\||\|$/g,"").split("|").map(c=>inline(c.trim()));
+      let h="<tr>"+cells(l).map(c=>"<th>"+c+"</th>").join("")+"</tr>"; i+=2; let rows=[];
+      while(i<lines.length && /^\|.*\|/.test(lines[i]))
+        rows.push("<tr>"+cells(lines[i++]).map(c=>"<td>"+c+"</td>").join("")+"</tr>");
+      out.push("<table><thead>"+h+"</thead><tbody>"+rows.join("")+"</tbody></table>"); continue; }
+    if(/^(\s*)([-*]|\d+\.)\s/.test(l)){
+      const ord=/^\s*\d+\./.test(l); let items=[];
+      while(i<lines.length && /^(\s*)([-*]|\d+\.)\s/.test(lines[i])){
+        let m=lines[i]; const nested=/^\s{2,}/.test(m);
+        m=m.replace(/^\s*([-*]|\d+\.)\s/,"");
+        let li=m.replace(/^\[([ xX])\]\s*/,(mm,c)=>`<input type="checkbox" disabled ${c!==" "?"checked":""}> `);
+        li=li.startsWith("<input")? li.split(/> (.*)/s).length>1 ? li.replace(/> (.*)/s,(mm,r)=>"> "+inline(r)) : li : inline(li);
+        items.push({nested, html:li});
+        i++;
+      }
+      let html="",depth=0;
+      const open=ord?"<ol>":"<ul>", close=ord?"</ol>":"</ul>";
+      html+=open;
+      items.forEach(it=>{
+        if(it.nested&&depth===0){html+=open;depth=1}
+        if(!it.nested&&depth===1){html+=close;depth=0}
+        html+="<li>"+it.html+"</li>";
+      });
+      if(depth===1)html+=close;
+      html+=close;
+      out.push(html); continue; }
+    if(/^\s*$/.test(l)){ i++; continue; }
+    { let buf=[l]; i++;
+      while(i<lines.length && !/^\s*$/.test(lines[i]) && !/^(#|>|```|\||[-*]\s|\d+\.\s|(-{3,})$)/.test(lines[i])) buf.push(lines[i++]);
+      out.push("<p>"+buf.map(inline).join("<br>")+"</p>"); }
+  }
+  return out.join("\n");
+}
+const inEl=document.getElementById("in"), outEl=document.getElementById("out");
+function update(){ outEl.innerHTML=render(inEl.value); }
+inEl.addEventListener("input", update); update();
+</script>
+</body>
+</html>

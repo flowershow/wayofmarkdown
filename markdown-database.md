@@ -2,9 +2,12 @@
 title: "The Markdown Database Pattern"
 description: "Treat a folder of markdown files as records in a database — the pattern behind Obsidian Bases, Notion-style workflows without lock-in, and more."
 created: 2023-05-02
+authors: ["Rufus Pollock"]
 ---
 
 # The Markdown Database Pattern
+
+*[Rufus Pollock](/about) · begun 2023, maintained since — [history](https://github.com/flowershow/wayofmarkdown/commits/main/markdown-database.md)*
 
 Your filesystem is already a database. Most tools just don't treat it that way.
 

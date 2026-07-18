@@ -31,6 +31,12 @@
       "status": "built",
       "branches": [
         {
+          "label": "Playground 🎮",
+          "url": "/playground.html",
+          "status": "built",
+          "side": "left"
+        },
+        {
           "label": "Markdown Everywhere 🌍",
           "url": "/everywhere",
           "status": "built",
@@ -110,7 +116,7 @@
     {
       "label": "⑤ Work with others",
       "url": "/learn/tutorial-3",
-      "status": "partial",
+      "status": "built",
       "branches": [
         {
           "label": "GitHub tips & FAQs",

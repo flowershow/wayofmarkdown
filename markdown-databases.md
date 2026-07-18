@@ -16,7 +16,9 @@ patronus: otter
 Brightest witch of her age. Friend of [[Harry]].
 ```
 
-A folder of these is a table. Fields, records, even relations (that wiki-link is a foreign key if you squint). What's missing is the query layer, and that's what the tools provide.
+A folder of these is a table. Fields, records, even relations (that wiki-link is a foreign key if you squint). What's missing is the query layer, and that's what the tools provide. Here's exactly that: three character files rendered as a live, sortable table in Obsidian:
+
+![[table2.png]]
 
 This idea has a name and a full essay behind it: [The Markdown Database Pattern](markdown-database.md) 🌟 This page is the practical version.
 

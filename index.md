@@ -25,7 +25,7 @@ Read the full case in [Why Markdown-based?](why.md) — or start with [The Markd
 
 **Want the whole journey on one page?** [The Markdown Roadmap](roadmap.md) 🗺️ — from zero to building anything, with two entrances and a branch for every destination.
 
-**New to markdown?** The syntax takes ten minutes: [Markdown Basics](basics.md). Onboarding a whole team? There's a [step-by-step path](learn/onboarding.md).
+**New to markdown?** The syntax takes ten minutes: [Markdown Basics](basics.md), or just [try it live in the playground](/playground.html) 🎮. Onboarding a whole team? There's a [step-by-step path](learn/onboarding.md).
 
 **Want to build something?** That's the real point. Browse [Markdown-based Everything](markdown-based.md) — websites, blogs, knowledge bases, even a Notion replacement — or take the [tutorial series](learn/) from zero to a published website.
 
@@ -34,3 +34,7 @@ Read the full case in [Why Markdown-based?](why.md) — or start with [The Markd
 **Already fluent?** The [knowledge base](kb/) has tools and workflows, the [videos](videos.md) show it done live, and essays like [The Markdown Database Pattern](markdown-database.md) go deep. Curious how we got here? [The markdown timeline](timeline.md) and [the canon](kb/canon.md).
 
 **What's new?** The [blog](blog/) — announcements, essays, and site changelog.
+
+---
+
+*Made by [Rufus Pollock](about.md) as markdown files [in the open](https://github.com/flowershow/wayofmarkdown) — [about this site](about.md).*

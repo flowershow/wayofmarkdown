@@ -52,5 +52,107 @@
         "href": "https://github.com/flowershow/wayofmarkdown"
       }
     ]
-  }
+  },
+  "footer": {
+    "navigation": [
+      {
+        "title": "Learn",
+        "links": [
+          {
+            "name": "Roadmap",
+            "href": "/roadmap"
+          },
+          {
+            "name": "Tutorials",
+            "href": "/learn"
+          },
+          {
+            "name": "Markdown Basics",
+            "href": "/basics"
+          },
+          {
+            "name": "Team onboarding",
+            "href": "/learn/onboarding"
+          }
+        ]
+      },
+      {
+        "title": "Guides",
+        "links": [
+          {
+            "name": "Markdown-based everything",
+            "href": "/markdown-based"
+          },
+          {
+            "name": "Markdown everywhere",
+            "href": "/everywhere"
+          },
+          {
+            "name": "Knowledge base",
+            "href": "/kb"
+          },
+          {
+            "name": "Videos",
+            "href": "/videos"
+          }
+        ]
+      },
+      {
+        "title": "About",
+        "links": [
+          {
+            "name": "The Manifesto",
+            "href": "/manifesto"
+          },
+          {
+            "name": "Why markdown-based",
+            "href": "/why"
+          },
+          {
+            "name": "About this site",
+            "href": "/about"
+          },
+          {
+            "name": "Blog",
+            "href": "/blog"
+          },
+          {
+            "name": "Timeline",
+            "href": "/timeline"
+          }
+        ]
+      }
+    ]
+  },
+  "image": "/assets/og/default.png",
+  "enableRss": true,
+  "showComments": true,
+  "giscus": {
+    "repo": "flowershow/wayofmarkdown",
+    "repoId": "R_kgDOK53idA",
+    "category": "General",
+    "categoryId": "DIC_kwDOK53idM4DBedl",
+    "mapping": "pathname",
+    "reactionsEnabled": "1",
+    "inputPosition": "bottom",
+    "lang": "en"
+  },
+  "redirects": [
+    {
+      "from": "/kb/google-docs",
+      "to": "/markdown-in-google-docs"
+    },
+    {
+      "from": "/kb/google-docs-markdown-export-quirks",
+      "to": "/markdown-in-google-docs"
+    },
+    {
+      "from": "/kb/apple-notes",
+      "to": "/markdown-in-apple-notes"
+    },
+    {
+      "from": "/kb/ipad-notes",
+      "to": "/markdown-in-apple-notes"
+    }
+  ]
 }

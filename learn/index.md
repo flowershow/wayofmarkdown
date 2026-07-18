@@ -21,7 +21,7 @@ If you are already familiar with what Markdown is and want to jump straight into
 ## Table of Contents
 
 > [!info]
-> 🚧 Tutorials 3 and 4 are currently work-in-progress, but they are available in outline form.
+> 🚧 Tutorial 4 is currently work-in-progress (available in outline form).
 
 - [[background|Background and motivation]]
 	- [[background#What is Markdown?|Markdown is a lightweight markup language used to format text]]
@@ -81,7 +81,7 @@ If you are already familiar with what Markdown is and want to jump straight into
 		- Commit your changes
 		- Push your changes to the remote repository
 		- See updated site live!
-- [[tutorial-3|Tutorial 3: Collaborating with others on your website project (WIP)]]
+- [[tutorial-3|Tutorial 3: Collaborating with others on your website project]]
 	- Create a new branch
 	- Make changes in the new branch
 	- Create a pull request (PR)

@@ -29,7 +29,11 @@ rating: 5
 Anarchist moon physics. Loved it.
 ```
 
-A folder of these is a table. And **Obsidian Bases** now does natively what Notion databases do: table views, filters, sorting, cards, all over your plain files. (Dataview did it for years before that.) You can even [publish a Base to the web](https://www.youtube.com/watch?v=0_qr_qQVkxk). The full pattern, including when it's the *wrong* tool, is written up in [The Markdown Database Pattern](markdown-database.md).
+A folder of these is a table — here's one, three markdown files rendered as a live table in Obsidian:
+
+![[table2.png]]
+
+And **Obsidian Bases** now does natively what Notion databases do: table views, filters, sorting, cards, all over your plain files. (Dataview did it for years before that.) You can even [publish a Base to the web](https://www.youtube.com/watch?v=0_qr_qQVkxk). The full pattern, including when it's the *wrong* tool, is written up in [The Markdown Database Pattern](markdown-database.md).
 
 **Sharing and publishing.** Notion's public pages become: publish your folder (or part of it) with [Flowershow](https://flowershow.app) or any static site tool. Your "workspace" gets a real website, on your domain.
 

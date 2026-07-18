@@ -22,7 +22,11 @@ That last point deserves emphasis because it's where knowledge bases usually die
 
 ## The tools
 
-**[Obsidian](https://obsidian.md)** is the champion and the right default: local markdown files, live preview, backlinks pane, graph view, thousands of plugins, free. Genuinely lovely to live in. ([Cursor and VS Code](kb/cursor-obsidian.md) work too if you're that way inclined.)
+**[Obsidian](https://obsidian.md)** is the champion and the right default: local markdown files, live preview, backlinks pane, graph view, thousands of plugins, free. Genuinely lovely to live in. This is all it is — folders of files, being edited:
+
+![[obsidian-content-book-index.png]]
+
+([Cursor and VS Code](kb/cursor-obsidian.md) work too, if you're that way inclined.)
 
 **Git + GitHub** underneath gives you history, sync between machines, and collaboration when a team shows up. [Pushing an Obsidian vault to GitHub](learn/howtos/publish-obsidian-vault-to-github.md) takes ten minutes and upgrades your knowledge base from "files on my laptop" to "versioned, backed up, shareable".
 

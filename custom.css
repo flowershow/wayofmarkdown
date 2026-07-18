@@ -1,0 +1,54 @@
+/* The Way of Markdown — brand layer over the lessflowery theme.
+   Palette: the roadmap's green, adopted site-wide as the accent.
+   Keep this restrained: we brand with colour + detail, not layout fights. */
+
+:root {
+  /* Accent: markdown green (matches the roadmap's "built" colour family) */
+  --color-l-accent: #16a34a;
+  --color-d-accent: #4ade80;
+
+  /* Slightly warmer near-black text in light mode for a print-like feel */
+  --color-l-foreground: #44403c;
+
+  /* Code blocks: whisper of green so code feels part of the brand */
+  --color-code-bg: #f6faf7;
+  --color-code-bg-dark: #142019;
+
+  /* CTA button, if/when used */
+  --color-cta-bg: #16a34a;
+  --color-cta-bg-hover: #15803d;
+  --color-cta-text: #ffffff;
+}
+
+/* Text selection in brand colour */
+::selection {
+  background: rgba(34, 197, 94, 0.25);
+}
+
+/* Horizontal rules: short, centered, quiet — a section breath, not a fence */
+article hr,
+.prose hr {
+  border: none;
+  border-top: 2px solid rgba(34, 197, 94, 0.35);
+  width: 5rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Blockquotes carry the accent */
+article blockquote,
+.prose blockquote {
+  border-left-color: #22c55e;
+}
+
+/* Table headers: subtle brand tint */
+article thead,
+.prose thead {
+  background: rgba(34, 197, 94, 0.08);
+}
+
+/* Inline code: keep it quiet but branded on hover-adjacent elements only via links */
+article a code,
+.prose a code {
+  color: inherit;
+}

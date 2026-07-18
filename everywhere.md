@@ -28,13 +28,13 @@ Markdown's in there, sometimes as a dialect, sometimes hidden behind a setting.
 
 | App | The deal |
 |---|---|
-| [Google Docs](kb/google-docs.md) | Genuinely good now: paste from markdown, copy as markdown, import/export. You have to switch it on. |
+| [Google Docs](markdown-in-google-docs.md) | Genuinely good now: paste from markdown, copy as markdown, import/export. You have to switch it on. |
 | [WhatsApp](markdown-in-whatsapp.md) | Bold, italic, lists, quotes, code -- with its own accent (single `*asterisks*` for bold). |
 | [Discord](markdown-in-discord.md) | Solid subset: headings, lists, code blocks with syntax highlighting, spoilers. |
 | [Slack](markdown-in-slack.md) | Speaks "mrkdwn" -- a markdown cousin with opinions. Worth understanding. |
 | [Notion](markdown-in-notion.md) | Markdown shortcuts as you type, import and export -- but blocks don't all round-trip. |
 | [Telegram](markdown-in-telegram.md) | Bold/italic/code/spoilers via markdown syntax, in apps and bots. |
-| [iPad Notes](kb/ipad-notes.md) | Import/export arrived in iPadOS 2025. Progress! |
+| [iPad Notes](markdown-in-apple-notes.md) | Import/export arrived in iPadOS 2025. Progress! |
 
 ## The holdouts 🙈
 
@@ -42,7 +42,7 @@ Name and shame. We say this with love: it's 2026, folks.
 
 | App | Excuse |
 |---|---|
-| [Apple Notes (Mac)](kb/apple-notes.md) | Still no native markdown (Apple always have to do things their way). [ProNotes](kb/apple-notes.md) patches it. iPad Notes broke ranks -- hope lives. |
+| [Apple Notes (Mac)](markdown-in-apple-notes.md) | Still no native markdown (Apple always have to do things their way). [ProNotes](markdown-in-apple-notes.md) patches it. iPad Notes broke ranks -- hope lives. |
 | Microsoft Word | Copilot outputs markdown but Word won't read it. Pandoc to the rescue. |
 | Confluence | *Removed* markdown support they used to have. Bold move. |
 

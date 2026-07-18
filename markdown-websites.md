@@ -16,7 +16,9 @@ A folder of markdown files plus a tool that turns them into web pages. That's th
 
 Compare the alternatives. WordPress: a database, a server, plugins, security updates, forever. Squarespace: a subscription, and a format you can never leave. Here, the "database" is files you can read in any editor, and the website is just a *view* of them. Delete the publisher and you still have everything.
 
-**Fastest start**: the [tutorial series](learn/index.md) takes you from zero to a published site. Create a GitHub repo, connect a publisher, done in minutes. No code, nothing to install.
+**Fastest start**: the [tutorial series](learn/index.md) takes you from zero to a published site. Create a GitHub repo, connect a publisher, done in minutes. No code, nothing to install. Here's the actual result of tutorial 1 — a markdown file, live on the web:
+
+![[tutorial-1-final-result.png]]
 
 ## Part 2: The superpower nobody tells you about: markdown supports HTML 🦸
 

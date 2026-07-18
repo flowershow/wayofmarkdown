@@ -17,10 +17,9 @@ But... plain text has no formatting like bold, italic, or bullet lists etc. Plai
 
 ## Learn by doing
 
-Reading this page takes ten minutes. If you prefer interactive exercises:
+**Try it right now**: our [markdown playground](/playground.html) -- type on the left, see it rendered on the right, nothing to install 🎮
 
-- [markdowntutorial.com](https://www.markdowntutorial.com/) -- easy, interactive
-- [CommonMark tutorial](https://commonmark.org/help/tutorial/) -- ten minutes of exercises
+Prefer structured exercises? [markdowntutorial.com](https://www.markdowntutorial.com/) and the [CommonMark tutorial](https://commonmark.org/help/tutorial/) are both good.
 
 ## The syntax
 

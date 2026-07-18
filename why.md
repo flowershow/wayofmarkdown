@@ -5,6 +5,8 @@ description: "Nobody cares about markdown per se. What matters is the markdown-b
 
 # Why Markdown-based?
 
+*[Rufus Pollock](/about) · updated July 2026*
+
 Here's a secret: **nobody actually cares about markdown.**
 
 Markdown is a formatting syntax: a few conventions for headings, bold, links. Caring about markdown is like caring about ASCII. Learning it takes [ten minutes](basics.md), and that's not why this site exists.
