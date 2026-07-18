@@ -52,3 +52,9 @@ article a code,
 .prose a code {
   color: inherit;
 }
+
+/* Hero: airy but not a whole empty viewport */
+.page-hero {
+  min-height: unset;
+  padding: 4rem 1rem 3rem;
+}

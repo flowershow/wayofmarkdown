@@ -18,7 +18,7 @@ Books I &#42;&#42;actually&#42;&#42; finished:
 &nbsp;
 &#45; [ ] The Dispossessed
 &#45; [x] File over app
-&#45; [x] [The Markdown Manifesto](/manifesto)
+&#45; [x] [the manifesto](/manifesto)
 &nbsp;
 &#62; Plain text never goes out of fashion.</code></pre>
   </div>
@@ -27,7 +27,7 @@ Books I &#42;&#42;actually&#42;&#42; finished:
     <div style="padding:1rem;">
       <div style="font-weight:800; font-size:1.2rem; margin-bottom:0.5rem;">My reading list</div>
       <p style="margin:0 0 0.5rem;">Books I <strong>actually</strong> finished:</p>
-      <div style="line-height:1.9;">☐ The Dispossessed<br/>☑ File over app<br/>☑ <a href="/manifesto">The Markdown Manifesto</a></div>
+      <div style="line-height:1.9;">☐ The Dispossessed<br/>☑ File over app<br/>☑ <a href="/manifesto">the manifesto</a></div>
       <div style="border-left:3px solid #22c55e; padding-left:0.8rem; margin-top:0.6rem; opacity:0.8;"><em>Plain text never goes out of fashion.</em></div>
     </div>
   </div>
