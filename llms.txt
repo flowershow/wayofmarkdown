@@ -1,0 +1,27 @@
+# The Way of Markdown
+
+> The reference site for the markdown-based way of working: how to use markdown and its tool ecosystem (Obsidian, GitHub, Flowershow, pandoc...) to build websites, blogs, knowledge bases, wikis, databases and more from plain text files you own — no lock-in.
+
+Site: https://wayofmarkdown.com — all pages are written in markdown; append no extension to URLs.
+
+## Core
+
+- [Why markdown-based](https://wayofmarkdown.com/why): the full argument — ownership, portability, AI-friendliness, ecosystem
+- [The Markdown Manifesto](https://wayofmarkdown.com/manifesto): the short declaration
+- [Markdown basics](https://wayofmarkdown.com/basics): syntax primer
+
+## Markdown-based X (guides: build things with markdown)
+
+- [Guide index](https://wayofmarkdown.com/markdown-based)
+- [Websites](https://wayofmarkdown.com/markdown-websites) — flagship; includes HTML-in-markdown
+- [Knowledge bases](https://wayofmarkdown.com/markdown-knowledge-bases), [Replacing Notion](https://wayofmarkdown.com/markdown-notion-alternative), [Databases](https://wayofmarkdown.com/markdown-databases), [The Markdown Database Pattern](https://wayofmarkdown.com/markdown-database)
+
+## Markdown in apps ("everywhere")
+
+- [Hub: every app that speaks markdown](https://wayofmarkdown.com/everywhere)
+- Per-app guides: [WhatsApp](https://wayofmarkdown.com/markdown-in-whatsapp), [Discord](https://wayofmarkdown.com/markdown-in-discord), [Slack](https://wayofmarkdown.com/markdown-in-slack), [Notion](https://wayofmarkdown.com/markdown-in-notion), [ChatGPT/AI chats](https://wayofmarkdown.com/markdown-in-chatgpt), [Google Docs](https://wayofmarkdown.com/kb/google-docs)
+
+## Learning
+
+- [Tutorial series](https://wayofmarkdown.com/learn): zero to published markdown website
+- [Team onboarding path](https://wayofmarkdown.com/learn/onboarding)
