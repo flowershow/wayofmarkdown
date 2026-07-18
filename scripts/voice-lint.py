@@ -77,7 +77,8 @@ def main():
             files.extend(glob.glob(a, recursive=True))
     else:
         files = [f for f in glob.glob("**/*.md", recursive=True)
-                 if not f.startswith((".", "docs/", "node_modules"))]
+                 if not f.startswith((".", "docs/", "node_modules"))
+                 and f not in ("AGENTS.md", "CLAUDE.md")]
     total = 0
     for f in sorted(files):
         findings = lint_file(f)

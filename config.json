@@ -1,5 +1,6 @@
 {
   "title": "The Way of Markdown",
+  "contentExclude": ["/.claude", "/docs", "/scripts", "README.md", "AGENTS.md", "CLAUDE.md"],
   "description": "Markdown is the universal language of the web. Learn how to use it — and the markdown-based tool ecosystem — to build websites, docs and knowledge bases you own.",
   "showSidebar": true,
   "favicon": "🚀",
