@@ -6,7 +6,7 @@ publish: false
 
 Source for **The Way of Markdown** — a site about markdown and the markdown-based way of working: how to use markdown and its tool ecosystem (Obsidian, GitHub, Flowershow, …) to build websites, docs, knowledge bases and more, and why an open, plain-text, no-lock-in approach wins.
 
-Published with [Flowershow](https://flowershow.app). The site content is the markdown in this repository.
+Published with [Flowershow](https://flowershow.app) at **https://wayofmarkdown.com**. The site content is the markdown in this repository.
 
 ## Structure
 
