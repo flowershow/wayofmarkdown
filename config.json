@@ -3,6 +3,7 @@
   "contentExclude": [
     "/.claude",
     "/docs",
+    "drafts",
     "/scripts",
     "README.md",
     "AGENTS.md",
