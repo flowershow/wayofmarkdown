@@ -1,4 +1,5 @@
 ---
+publish: false
 name: write-like-me
 description: Polish and rewrite AI-generated or drafted text to match a specific person's voice and writing style. Use when the user wants output to sound like them (or a specified voice) rather than generic AI. Loaded on demand at the writing/polishing stage, not at conversation start.
 metadata:

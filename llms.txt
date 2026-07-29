@@ -6,6 +6,7 @@ Site: https://wayofmarkdown.com — all pages are written in markdown; append no
 
 ## Core
 
+- [Explore everything](https://wayofmarkdown.com/explore): full contents of the site, grouped by topic
 - [Why markdown-based](https://wayofmarkdown.com/why): the full argument — ownership, portability, AI-friendliness, ecosystem
 - [The Markdown Manifesto](https://wayofmarkdown.com/manifesto): the short declaration
 - [Markdown basics](https://wayofmarkdown.com/basics): syntax primer

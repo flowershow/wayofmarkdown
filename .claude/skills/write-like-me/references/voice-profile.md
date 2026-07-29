@@ -1,3 +1,7 @@
+---
+publish: false
+---
+
 # Voice Profile: Rufus Pollock — Way of Markdown edition
 
 Two layers: the base voice (from rufuspollock.com essays, via soundlikeme) plus a "site mode" register for wayofmarkdown pages (from the original manifesto draft, markdown-database essay, and dictated notes).

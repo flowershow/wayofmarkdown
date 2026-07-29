@@ -10,7 +10,7 @@
     "CLAUDE.md"
   ],
   "description": "Markdown is the universal language of the web. Learn how to use it — and the markdown-based tool ecosystem — to build websites, docs and knowledge bases you own.",
-  "showSidebar": true,
+  "showSidebar": false,
   "favicon": "🚀",
   "showEditLink": true,
   "theme": "lessflowery",
@@ -38,8 +38,8 @@
         "name": "Reference"
       },
       {
-        "href": "/why",
-        "name": "Why"
+        "href": "/explore",
+        "name": "Explore"
       },
       {
         "href": "/manifesto",
@@ -105,6 +105,10 @@
       {
         "title": "About",
         "links": [
+          {
+            "name": "Explore everything",
+            "href": "/explore"
+          },
           {
             "name": "The Manifesto",
             "href": "/manifesto"
