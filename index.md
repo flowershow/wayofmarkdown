@@ -12,12 +12,7 @@ cta:
 <div class="grid md:grid-cols-2 gap-4 my-8" style="align-items:stretch;">
   <div style="border:1px solid rgba(148,163,184,0.4); border-radius:12px; overflow:hidden;">
     <div style="font-family:Menlo,monospace; font-size:0.75rem; padding:0.4rem 1rem; border-bottom:1px solid rgba(148,163,184,0.4); opacity:0.7;">notes/reading-list.md — plain text, yours forever</div>
-    <pre style="margin:0; padding:1rem; font-size:0.75rem; line-height:1.55; background:transparent;"><code>&#45;&#45;&#45;
-title: My reading list
-rating: 4
-&#45;&#45;&#45;
-&nbsp;
-&#35; My reading list
+    <pre style="margin:0; padding:1rem; font-size:0.75rem; line-height:1.55; background:transparent;"><code>&#35; My reading list
 &nbsp;
 Books I &#42;&#42;actually&#42;&#42; finished:
 &nbsp;
@@ -55,7 +50,7 @@ graph LR
   </div>
 </div>
 
-<p style="text-align:center; margin:0.5rem 0 0.25rem;"><em>Frontmatter, tables, task lists, diagrams — all still plain text. That's the whole trick, and it goes remarkably far.</em></p>
+<p style="text-align:center; margin:0.5rem 0 0.25rem;"><em>Tables, task lists, diagrams — all still plain text. That's the whole trick, and it goes remarkably far.</em></p>
 
 <p style="text-align:center; margin:0 0 2rem;"><a href="/playground.html" style="display:inline-block; background:#22c55e; color:#fff; font-weight:700; font-size:1.05rem; padding:0.75rem 1.75rem; border-radius:10px; text-decoration:none; box-shadow:0 2px 8px rgba(34,197,94,0.35);">🎮 Try it yourself in the playground</a></p>
 
