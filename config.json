@@ -1,10 +1,10 @@
 {
   "title": "The Way of Markdown",
   "contentExclude": [
-    "/.claude",
-    "/docs",
+    ".claude",
+    "docs",
     "drafts",
-    "/scripts",
+    "scripts",
     "README.md",
     "AGENTS.md",
     "CLAUDE.md"
