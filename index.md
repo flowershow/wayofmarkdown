@@ -5,8 +5,8 @@ showHero: true
 cta:
   - href: /roadmap
     label: "Start the roadmap 🗺️"
-  - href: /manifesto
-    label: "Read the manifesto"
+  - href: /basics
+    label: "New here? Markdown in 10 minutes"
 ---
 
 <div class="grid md:grid-cols-2 gap-4 my-8" style="align-items:stretch;">
@@ -37,14 +37,7 @@ Books I &#42;&#42;actually&#42;&#42; finished:
 
 ## Why markdown wins
 
-<div class="grid grid-cols-2 md:grid-cols-3 gap-3 my-6">
-  <a href="/basics" class="block border rounded-lg p-4 no-underline hover:shadow-md transition-shadow"><strong>✏️ Simple</strong><br/>The whole syntax in ten minutes. Truly.</a>
-  <a href="/why" class="block border rounded-lg p-4 no-underline hover:shadow-md transition-shadow"><strong>🔓 Yours</strong><br/>Plain files on your disk. No platform owns you.</a>
-  <a href="/timeline" class="block border rounded-lg p-4 no-underline hover:shadow-md transition-shadow"><strong>⏳ Future-proof</strong><br/>Readable in 50 years. Ask your .docx files.</a>
-  <a href="/markdown-in-chatgpt" class="block border rounded-lg p-4 no-underline hover:shadow-md transition-shadow"><strong>🤖 AI-native</strong><br/>Every AI speaks it. Your notes become programmable.</a>
-  <a href="/pluggable-markdown" class="block border rounded-lg p-4 no-underline hover:shadow-md transition-shadow"><strong>🧩 Pluggable</strong><br/>Diagrams, databases, whole tools inside three backticks.</a>
-  <a href="/everywhere" class="block border rounded-lg p-4 no-underline hover:shadow-md transition-shadow"><strong>🌍 Everywhere</strong><br/>WhatsApp to Google Docs to GitHub. The world converged.</a>
-</div>
+The whole syntax takes [ten minutes](basics.md) to learn, and then it's [yours](why.md): plain files on your disk, still readable in fifty years, which is more than your .docx files can promise ([the history](timeline.md) is instructive here). The rest of the world has quietly agreed. [Every AI speaks markdown](markdown-in-chatgpt.md), [most of the apps you already use](everywhere.md) handle it, and you can put diagrams, databases and whole tools [inside three backticks](pluggable-markdown.md).
 
 ## What will you build?
 
@@ -61,15 +54,14 @@ Nobody cares about markdown, the same way nobody cares about ASCII. You care abo
   <a href="/markdown-based" class="block border rounded-lg p-3 no-underline hover:shadow-md transition-shadow text-center"><strong>✨ All guides</strong></a>
 </div>
 
-## Start where you are
+## Start here
 
-**New to markdown?** [The basics](basics.md) take ten minutes, or [try it live](/playground.html) right now. Onboarding a team? [The step-by-step path](learn/onboarding.md).
+There are two ways in, and they walk the same path:
 
-**Ready to build?** [The roadmap](roadmap.md) walks the whole journey; the [tutorial series](learn/) takes you from zero to a published website.
+- 🚀 **"I want to publish something"** — a website, a blog, a page on the web. [The roadmap](roadmap.md) starts at the syntax and has you live by step ②, today. Prefer working straight through? [The tutorial series](learn/) goes from zero to a published site.
+- 📝 **"I want better notes"** — a knowledge base, a second brain, published later or never. Start the same way, then [build a catalog of anything](learn/howtos/create-a-simple-catalog-of-anything.md) and read [the pattern behind it](markdown-database.md).
 
-**Already fluent?** The [knowledge base](kb/), the [videos](videos.md), the [canon](kb/canon.md) and [timeline](timeline.md) — or go deep with [The Markdown Database Pattern](markdown-database.md).
-
-**What's new?** The [blog](blog/) — announcements, essays, changelog.
+Never touched markdown? [The basics](basics.md) take ten minutes, or [try it live](/playground.html) right now. Onboarding a team? The [step-by-step path](learn/onboarding.md) sequences the whole thing with checkpoints. Already fluent — go poke around the [reference shelf](kb/), the [videos](videos.md), the [canon](kb/canon.md) or the [blog](blog/).
 
 ---
 

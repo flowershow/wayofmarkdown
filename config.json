@@ -23,7 +23,7 @@
       },
       {
         "href": "/learn",
-        "name": "Learn"
+        "name": "Tutorials"
       },
       {
         "href": "/markdown-based",
@@ -31,11 +31,11 @@
       },
       {
         "href": "/everywhere",
-        "name": "Everywhere"
+        "name": "Markdown in apps"
       },
       {
         "href": "/kb",
-        "name": "Knowledge Base"
+        "name": "Reference"
       },
       {
         "href": "/why",
@@ -90,6 +90,10 @@
           },
           {
             "name": "Knowledge base",
+            "href": "/markdown-knowledge-bases"
+          },
+          {
+            "name": "Reference",
             "href": "/kb"
           },
           {
