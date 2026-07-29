@@ -25,6 +25,8 @@ The [tutorial series](learn/) takes you from an empty folder to a published webs
 - [Tutorial 3: collaborating with others](learn/tutorial-3.md)
 - [Tutorial 4](learn/tutorial-4.md) — work in progress, outline form
 
+Earlier versions of the first two tutorials are also still online, and cover the same ground: [tutorial 1](learn/tutorial-1.md), [tutorial 2](learn/tutorial-2.md).
+
 How-tos, for when you want one specific thing:
 
 - [Add a simple page](learn/howtos/add-a-simple-md-page.md) · [edit text on a page](learn/howtos/edit-text-on-a-single-md-page.md) · [edit or add pages locally](learn/howtos/edit-or-add-md-pages-locally.md)
@@ -84,4 +86,9 @@ The [reference shelf](kb/): things to look up rather than read through.
 - [Why markdown-based](why.md) — the same case, argued properly
 - [The Markdown Timeline](timeline.md) — a brief history
 - [The Markdown Canon](kb/canon.md) 📜 — the essential texts, from Gruber's spec onwards
-- [Videos](videos.md) 🎬 · [Blog](blog/) · [Badges](badges.md) ❤ · [About this site](about.md)
+- [Videos](videos.md) 🎬 · [Badges](badges.md) ❤ · [About this site](about.md)
+
+From the [blog](blog/):
+
+- [The Way of Markdown is live](blog/2026-07-18-the-way-of-markdown-is-live.md)
+- [New: the visual roadmap (and where it came from)](blog/2026-07-18-visual-roadmap.md)
