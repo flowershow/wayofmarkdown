@@ -22,6 +22,10 @@
         "name": "Roadmap"
       },
       {
+        "href": "/explore",
+        "name": "Explore"
+      },
+      {
         "href": "/learn",
         "name": "Tutorials"
       },
@@ -36,10 +40,6 @@
       {
         "href": "/kb",
         "name": "Reference"
-      },
-      {
-        "href": "/explore",
-        "name": "Explore"
       },
       {
         "href": "/manifesto",
