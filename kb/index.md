@@ -1,15 +1,11 @@
 ---
-title: "Markdown Knowledge Base"
-description: "Tips, tools, and workflows for using Markdown everywhere — Google Docs, Apple Notes, AI tools, and more."
+title: "Markdown Reference: tools, workflows and help"
+description: "The reference shelf: markdown converters, AI and Obsidian workflows, Git and GitHub help for non-developers, and the essential reading."
 ---
 
-# Markdown Knowledge Base
+# Markdown Reference
 
-Practical articles, tools, and tips for using Markdown across apps and workflows.
-
-## Markdown in Apps
-
-Now a full series with its own hub: [Markdown Everywhere](../everywhere.md) 🌍 — WhatsApp, Discord, Slack, [Google Docs](../markdown-in-google-docs.md), Notion, [Apple Notes](../markdown-in-apple-notes.md), Obsidian, GitHub, Reddit, Telegram, AI chats…
+Practical articles, tools and tips for working in markdown. Looking for how to *build* a knowledge base? That's the [knowledge base guide](../markdown-knowledge-bases.md). Which apps speak markdown lives on [Markdown Everywhere](../everywhere.md) 🌍.
 
 ## Tools
 

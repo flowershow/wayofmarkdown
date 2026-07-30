@@ -8,6 +8,7 @@ created: 2025-10-18
 description: "🛏 An HTML to Markdown converter written in JavaScript - mixmark-io/turndown"
 tags:
   - "clippings"
+publish: false
 ---
 **[turndown](https://github.com/mixmark-io/turndown)** Public
 

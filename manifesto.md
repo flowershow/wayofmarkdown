@@ -101,6 +101,12 @@ Own the source, and the whole ecosystem is yours. 🚀
 
 Agree? [Fly the badge](badges.md): **❤ Markdown**.
 
+## Want the argument rather than the declaration?
+
+This page is the loud version. There's a quieter one: [Why markdown-based](why.md) makes the same case slowly and carefully, including why nobody actually cares about markdown itself, what the ecosystem gives you that a platform can't, and why we recommend the MOGF stack (Markdown + Obsidian + GitHub + Flowershow) to start with. Read that one if you want to be persuaded rather than cheered at.
+
+Or skip both and [start building](markdown-based.md).
+
 ---
 
-*Credit where due: markdown was created by John Gruber with Aaron Swartz -- internet legends both. Convinced? [Why markdown-based](why.md) has the full argument; [start building](markdown-based.md) has the practice.*
+*Credit where due: markdown was created by John Gruber with Aaron Swartz -- internet legends both.*

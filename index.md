@@ -5,20 +5,26 @@ showHero: true
 cta:
   - href: /roadmap
     label: "Start the roadmap 🗺️"
-  - href: /manifesto
-    label: "Read the manifesto"
+  - href: /basics
+    label: "New here? Markdown in 10 minutes"
 ---
 
 <div class="grid md:grid-cols-2 gap-4 my-8" style="align-items:stretch;">
   <div style="border:1px solid rgba(148,163,184,0.4); border-radius:12px; overflow:hidden;">
     <div style="font-family:Menlo,monospace; font-size:0.75rem; padding:0.4rem 1rem; border-bottom:1px solid rgba(148,163,184,0.4); opacity:0.7;">notes/reading-list.md — plain text, yours forever</div>
-    <pre style="margin:0; padding:1rem; font-size:0.8rem; line-height:1.6; background:transparent;"><code>&#35; My reading list
+    <pre style="margin:0; padding:1rem; font-size:0.75rem; line-height:1.55; background:transparent;"><code>&#35; My reading list
 &nbsp;
 Books I &#42;&#42;actually&#42;&#42; finished:
 &nbsp;
-&#45; [ ] The Dispossessed
-&#45; [x] File over app
-&#45; [x] [the manifesto](/manifesto)
+&#124; Book &#124; Year &#124; Done &#124;
+&#124;&#45;&#45;&#45;&#45;&#45;&#45;&#124;&#45;&#45;&#45;&#45;&#45;&#45;&#124;&#45;&#45;&#45;&#45;&#45;&#45;&#124;
+&#124; The Dispossessed &#124; 1974 &#124; ☐ &#124;
+&#124; File over app &#124; 2023 &#124; ☑ &#124;
+&nbsp;
+&#96;&#96;&#96;mermaid
+graph LR
+&nbsp; A[write] &#45;&#45;&gt; B[store] &#45;&#45;&gt; C[publish]
+&#96;&#96;&#96;
 &nbsp;
 &#62; Plain text never goes out of fashion.</code></pre>
   </div>
@@ -26,25 +32,31 @@ Books I &#42;&#42;actually&#42;&#42; finished:
     <div style="font-family:Menlo,monospace; font-size:0.75rem; padding:0.4rem 1rem; border-bottom:1px solid rgba(34,197,94,0.5); color:#16a34a;">the same file, rendered — by any tool, today or in 2046</div>
     <div style="padding:1rem;">
       <div style="font-weight:800; font-size:1.2rem; margin-bottom:0.5rem;">My reading list</div>
-      <p style="margin:0 0 0.5rem;">Books I <strong>actually</strong> finished:</p>
-      <div style="line-height:1.9;">☐ The Dispossessed<br/>☑ File over app<br/>☑ <a href="/manifesto">the manifesto</a></div>
-      <div style="border-left:3px solid #22c55e; padding-left:0.8rem; margin-top:0.6rem; opacity:0.8;"><em>Plain text never goes out of fashion.</em></div>
+      <p style="margin:0 0 0.6rem;">Books I <strong>actually</strong> finished:</p>
+      <table style="width:100%; border-collapse:collapse; font-size:0.85rem; margin:0 0 0.8rem;">
+        <thead><tr style="border-bottom:2px solid rgba(148,163,184,0.5);"><th style="text-align:left; padding:0.25rem 0.4rem;">Book</th><th style="text-align:left; padding:0.25rem 0.4rem;">Year</th><th style="text-align:left; padding:0.25rem 0.4rem;">Done</th></tr></thead>
+        <tbody>
+          <tr style="border-bottom:1px solid rgba(148,163,184,0.25);"><td style="padding:0.25rem 0.4rem;">The Dispossessed</td><td style="padding:0.25rem 0.4rem;">1974</td><td style="padding:0.25rem 0.4rem;">☐</td></tr>
+          <tr><td style="padding:0.25rem 0.4rem;">File over app</td><td style="padding:0.25rem 0.4rem;">2023</td><td style="padding:0.25rem 0.4rem;">☑</td></tr>
+        </tbody>
+      </table>
+      <div style="display:flex; align-items:center; gap:0.4rem; font-size:0.75rem; margin-bottom:0.7rem; flex-wrap:wrap;">
+        <span style="border:1px solid #22c55e; border-radius:6px; padding:0.15rem 0.5rem;">write</span><span style="opacity:0.6;">→</span>
+        <span style="border:1px solid #22c55e; border-radius:6px; padding:0.15rem 0.5rem;">store</span><span style="opacity:0.6;">→</span>
+        <span style="border:1px solid #22c55e; border-radius:6px; padding:0.15rem 0.5rem;">publish</span>
+      </div>
+      <div style="border-left:3px solid #22c55e; padding-left:0.8rem; opacity:0.8;"><em>Plain text never goes out of fashion.</em></div>
     </div>
   </div>
 </div>
 
-<p style="text-align:center;"><em>That's the whole trick, and it goes remarkably far. Try it yourself in the <a href="/playground.html">playground</a> 🎮</em></p>
+<p style="text-align:center; margin:0.5rem 0 0.25rem;"><em>Tables, task lists, diagrams — all still plain text. That's the whole trick, and it goes remarkably far.</em></p>
+
+<p style="text-align:center; margin:0 0 2rem;"><a href="/playground.html" style="display:inline-block; background:#22c55e; color:#fff; font-weight:700; font-size:1.05rem; padding:0.75rem 1.75rem; border-radius:10px; text-decoration:none; box-shadow:0 2px 8px rgba(34,197,94,0.35);">🎮 Try it yourself in the playground</a></p>
 
 ## Why markdown wins
 
-<div class="grid grid-cols-2 md:grid-cols-3 gap-3 my-6">
-  <a href="/basics" class="block border rounded-lg p-4 no-underline hover:shadow-md transition-shadow"><strong>✏️ Simple</strong><br/>The whole syntax in ten minutes. Truly.</a>
-  <a href="/why" class="block border rounded-lg p-4 no-underline hover:shadow-md transition-shadow"><strong>🔓 Yours</strong><br/>Plain files on your disk. No platform owns you.</a>
-  <a href="/timeline" class="block border rounded-lg p-4 no-underline hover:shadow-md transition-shadow"><strong>⏳ Future-proof</strong><br/>Readable in 50 years. Ask your .docx files.</a>
-  <a href="/markdown-in-chatgpt" class="block border rounded-lg p-4 no-underline hover:shadow-md transition-shadow"><strong>🤖 AI-native</strong><br/>Every AI speaks it. Your notes become programmable.</a>
-  <a href="/pluggable-markdown" class="block border rounded-lg p-4 no-underline hover:shadow-md transition-shadow"><strong>🧩 Pluggable</strong><br/>Diagrams, databases, whole tools inside three backticks.</a>
-  <a href="/everywhere" class="block border rounded-lg p-4 no-underline hover:shadow-md transition-shadow"><strong>🌍 Everywhere</strong><br/>WhatsApp to Google Docs to GitHub. The world converged.</a>
-</div>
+The whole syntax takes [ten minutes](basics.md) to learn, and then it's [yours](why.md): plain files on your disk, still readable in fifty years, which is more than your .docx files can promise ([the history](timeline.md) is instructive here). The rest of the world has quietly agreed. [Every AI speaks markdown](markdown-in-chatgpt.md), [most of the apps you already use](everywhere.md) handle it, and you can put diagrams, databases and whole tools [inside three backticks](pluggable-markdown.md).
 
 ## What will you build?
 
@@ -61,15 +73,14 @@ Nobody cares about markdown, the same way nobody cares about ASCII. You care abo
   <a href="/markdown-based" class="block border rounded-lg p-3 no-underline hover:shadow-md transition-shadow text-center"><strong>✨ All guides</strong></a>
 </div>
 
-## Start where you are
+## Start here
 
-**New to markdown?** [The basics](basics.md) take ten minutes, or [try it live](/playground.html) right now. Onboarding a team? [The step-by-step path](learn/onboarding.md).
+There are two ways in, and they walk the same path:
 
-**Ready to build?** [The roadmap](roadmap.md) walks the whole journey; the [tutorial series](learn/) takes you from zero to a published website.
+- 🚀 **"I want to publish something"** — a website, a blog, a page on the web. [The roadmap](roadmap.md) starts at the syntax and has you live by step ②, today. Prefer working straight through? [The tutorial series](learn/) goes from zero to a published site.
+- 📝 **"I want better notes"** — a knowledge base, a second brain, published later or never. Start the same way, then [build a catalog of anything](learn/howtos/create-a-simple-catalog-of-anything.md) and read [the pattern behind it](markdown-database.md).
 
-**Already fluent?** The [knowledge base](kb/), the [videos](videos.md), the [canon](kb/canon.md) and [timeline](timeline.md) — or go deep with [The Markdown Database Pattern](markdown-database.md).
-
-**What's new?** The [blog](blog/) — announcements, essays, changelog.
+Never touched markdown? [The basics](basics.md) take ten minutes, or [try it live](/playground.html) right now. Onboarding a team? The [step-by-step path](learn/onboarding.md) sequences the whole thing with checkpoints. Already fluent — go poke around the [reference shelf](kb/), the [videos](videos.md), the [canon](kb/canon.md) or the [blog](blog/).
 
 ---
 

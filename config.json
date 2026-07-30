@@ -1,16 +1,16 @@
 {
   "title": "The Way of Markdown",
   "contentExclude": [
-    "/.claude",
-    "/docs",
+    ".claude",
+    "docs",
     "drafts",
-    "/scripts",
+    "scripts",
     "README.md",
     "AGENTS.md",
     "CLAUDE.md"
   ],
   "description": "Markdown is the universal language of the web. Learn how to use it — and the markdown-based tool ecosystem — to build websites, docs and knowledge bases you own.",
-  "showSidebar": true,
+  "showSidebar": false,
   "favicon": "🚀",
   "showEditLink": true,
   "theme": "lessflowery",
@@ -22,8 +22,12 @@
         "name": "Roadmap"
       },
       {
+        "href": "/explore",
+        "name": "Explore"
+      },
+      {
         "href": "/learn",
-        "name": "Learn"
+        "name": "Tutorials"
       },
       {
         "href": "/markdown-based",
@@ -31,15 +35,11 @@
       },
       {
         "href": "/everywhere",
-        "name": "Everywhere"
+        "name": "Markdown in apps"
       },
       {
         "href": "/kb",
-        "name": "Knowledge Base"
-      },
-      {
-        "href": "/why",
-        "name": "Why"
+        "name": "Reference"
       },
       {
         "href": "/manifesto",
@@ -90,6 +90,10 @@
           },
           {
             "name": "Knowledge base",
+            "href": "/markdown-knowledge-bases"
+          },
+          {
+            "name": "Reference",
             "href": "/kb"
           },
           {
@@ -101,6 +105,10 @@
       {
         "title": "About",
         "links": [
+          {
+            "name": "Explore everything",
+            "href": "/explore"
+          },
           {
             "name": "The Manifesto",
             "href": "/manifesto"
