@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Markdown tai chi — motion study</title>
+  <title>Markdown tai chi — Wudang motion study</title>
   <style>
     :root {
       color-scheme: light dark;
-      --paper: #f5f3ea;
-      --paper-deep: #e9eee5;
-      --ink: #183128;
-      --muted: #678078;
-      --line: rgba(24, 49, 40, .16);
-      --accent: #16a34a;
-      --accent-soft: rgba(34, 197, 94, .16);
-      --panel: rgba(255, 255, 255, .58);
-      --shadow: rgba(24, 49, 40, .12);
+      --paper: #f2f0e7;
+      --paper-deep: #e4eae1;
+      --ink: #152f27;
+      --ink-soft: #557168;
+      --line: rgba(21, 47, 39, .15);
+      --accent: #159447;
+      --accent-soft: rgba(21, 148, 71, .14);
+      --panel: rgba(255, 255, 255, .54);
+      --shadow: rgba(21, 47, 39, .13);
     }
 
     * { box-sizing: border-box; }
@@ -25,7 +25,7 @@
       min-width: 320px;
       color: var(--ink);
       background:
-        radial-gradient(circle at 50% 38%, rgba(255,255,255,.92) 0 18%, transparent 52%),
+        radial-gradient(circle at 44% 39%, rgba(255,255,255,.94) 0 17%, transparent 49%),
         linear-gradient(145deg, var(--paper), var(--paper-deep));
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     }
@@ -38,30 +38,30 @@
     }
 
     .study {
-      width: min(96vw, 68rem);
+      width: min(96vw, 70rem);
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(15rem, 22rem);
-      gap: clamp(1.5rem, 4vw, 4.5rem);
+      grid-template-columns: minmax(0, 1.15fr) minmax(16rem, .72fr);
+      gap: clamp(1.75rem, 4vw, 4.75rem);
       align-items: center;
     }
 
     .stage-shell {
       position: relative;
       aspect-ratio: 1;
-      border: 1px solid var(--line);
-      border-radius: clamp(1.5rem, 4vw, 3rem);
       overflow: hidden;
-      background: rgba(255,255,255,.26);
-      box-shadow: 0 2rem 5rem var(--shadow), inset 0 1px rgba(255,255,255,.72);
+      border: 1px solid var(--line);
+      border-radius: clamp(1.75rem, 4vw, 3.25rem);
+      background: rgba(255,255,255,.25);
+      box-shadow: 0 2rem 5rem var(--shadow), inset 0 1px rgba(255,255,255,.76);
     }
 
     .stage-shell::before {
       content: "";
       position: absolute;
-      inset: 12%;
+      inset: 13%;
       border-radius: 50%;
-      background: radial-gradient(circle, var(--accent-soft), transparent 68%);
-      filter: blur(16px);
+      background: radial-gradient(circle, var(--accent-soft), transparent 69%);
+      filter: blur(18px);
     }
 
     #motion-stage {
@@ -70,6 +70,65 @@
       width: 100%;
       height: 100%;
     }
+
+    .enso {
+      fill: none;
+      stroke: var(--ink);
+      stroke-width: 4;
+      stroke-linecap: round;
+      opacity: .055;
+    }
+
+    .ground { stroke: var(--line); stroke-width: 1.4; }
+    .ground-glow { stroke: var(--accent); stroke-width: 3; opacity: .12; filter: blur(5px); }
+
+    .figure-underlay {
+      fill: var(--ink);
+      fill-opacity: .035;
+      stroke: var(--ink);
+      stroke-opacity: .11;
+      stroke-width: 1.1;
+      stroke-linejoin: round;
+      transition: opacity 160ms ease;
+    }
+
+    .limb-underlay {
+      fill: none;
+      stroke: var(--ink);
+      stroke-opacity: .055;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .master-glyph {
+      fill: var(--ink);
+      font-weight: 720;
+      dominant-baseline: middle;
+      text-anchor: middle;
+      paint-order: stroke;
+      stroke: rgba(242, 240, 231, .3);
+      stroke-width: .35px;
+    }
+
+    .master-glyph.accent { fill: var(--accent); }
+    .master-glyph.edge { font-weight: 900; }
+
+    .construction {
+      fill: none;
+      stroke: #d97706;
+      stroke-width: 1.3;
+      stroke-dasharray: 4 6;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .construction-joint { fill: #d97706; stroke: none; opacity: 0; }
+    .show-skeleton .construction { opacity: .42; }
+    .show-skeleton .construction-joint { opacity: .55; }
+
+    #static-figure[hidden] { display: none; }
+    #static-figure text { fill: var(--ink); font-weight: 750; text-anchor: middle; }
+    #static-figure .fallback-accent { fill: var(--accent); }
 
     .eyebrow {
       margin: 0 0 .65rem;
@@ -81,22 +140,40 @@
     }
 
     h1 {
-      max-width: 11ch;
+      max-width: 10ch;
       margin: 0;
       font-family: ui-serif, Georgia, Cambria, "Times New Roman", serif;
-      font-size: clamp(2.4rem, 6vw, 5.2rem);
+      font-size: clamp(2.55rem, 6.3vw, 5.35rem);
       font-weight: 500;
-      letter-spacing: -.055em;
-      line-height: .92;
+      letter-spacing: -.057em;
+      line-height: .91;
     }
 
     .lede {
-      max-width: 31rem;
-      margin: 1.25rem 0 1.75rem;
-      color: var(--muted);
+      max-width: 30rem;
+      margin: 1.25rem 0 1.65rem;
+      color: var(--ink-soft);
       font-family: ui-sans-serif, system-ui, sans-serif;
       font-size: clamp(.95rem, 2vw, 1.08rem);
       line-height: 1.6;
+    }
+
+    .movement-name {
+      display: inline-flex;
+      align-items: center;
+      gap: .55rem;
+      margin-bottom: 1rem;
+      color: var(--ink-soft);
+      font-size: .68rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .movement-name::before {
+      content: "";
+      width: 1.7rem;
+      height: 1px;
+      background: var(--accent);
     }
 
     .phase-readout {
@@ -105,7 +182,7 @@
       gap: .65rem;
       min-height: 1.5rem;
       margin-bottom: 1rem;
-      color: var(--muted);
+      color: var(--ink-soft);
       font-size: .72rem;
       letter-spacing: .08em;
       text-transform: uppercase;
@@ -119,14 +196,13 @@
       box-shadow: 0 0 0 .35rem var(--accent-soft);
     }
 
-    .controls { display: grid; gap: .75rem; }
-    .mode-controls, .playback-controls { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .controls { display: flex; flex-wrap: wrap; gap: .5rem; }
 
     button {
       appearance: none;
       border: 1px solid var(--line);
       border-radius: 999px;
-      padding: .58rem .8rem;
+      padding: .6rem .86rem;
       color: var(--ink);
       background: var(--panel);
       font: 650 .72rem/1 ui-monospace, SFMono-Regular, Menlo, monospace;
@@ -137,57 +213,40 @@
     button:hover { border-color: var(--accent); transform: translateY(-1px); }
     button:focus-visible { outline: 3px solid var(--accent-soft); outline-offset: 2px; }
     button[aria-pressed="true"] { border-color: var(--accent); background: var(--accent-soft); color: var(--accent); }
+    button:disabled { cursor: default; opacity: .45; transform: none; }
 
     .hint {
       margin: .9rem 0 0;
-      color: var(--muted);
+      color: var(--ink-soft);
       font-family: ui-sans-serif, system-ui, sans-serif;
       font-size: .75rem;
       line-height: 1.45;
     }
 
-    .orbit { fill: none; stroke: var(--line); stroke-width: 1; stroke-dasharray: 2 9; }
-    .ground { stroke: var(--line); stroke-width: 1.4; }
-    .ground-glow { stroke: var(--accent); stroke-width: 2; opacity: .13; filter: blur(4px); }
-    .glyph { fill: var(--ink); font-weight: 700; dominant-baseline: middle; text-anchor: middle; }
-    .glyph.accent { fill: var(--accent); }
-    .ribbon-path { fill: none; stroke: none; }
-    .ribbon-text { fill: var(--ink); font-size: 13px; font-weight: 650; letter-spacing: 2px; }
-    .ribbon-text.accent { fill: var(--accent); }
-    .constellation-line { fill: none; stroke: var(--ink); stroke-width: 1; opacity: .16; }
-    .constellation-point { fill: var(--ink); opacity: .76; }
-    .constellation-point.accent { fill: var(--accent); }
-    .skeleton { fill: none; stroke: #d97706; stroke-width: 1.5; stroke-dasharray: 4 6; opacity: 0; }
-    .show-skeleton .skeleton { opacity: .45; }
-    .mode-layer[hidden] { display: none; }
-    #static-figure[hidden] { display: none; }
-
-    #static-figure text { fill: var(--ink); font-weight: 700; text-anchor: middle; }
-    #static-figure .fallback-accent { fill: var(--accent); }
-
     @media (max-width: 760px) {
       main { align-items: start; }
-      .study { grid-template-columns: 1fr; width: min(96vw, 36rem); }
+      .study { grid-template-columns: 1fr; width: min(96vw, 37rem); }
       .stage-shell { order: 2; }
       .copy { order: 1; padding: .5rem .2rem 0; }
-      h1 { max-width: 13ch; font-size: clamp(2.6rem, 13vw, 4.4rem); }
-      .lede { margin-bottom: 1.2rem; }
+      h1 { max-width: 12ch; font-size: clamp(2.65rem, 13vw, 4.5rem); }
+      .lede { margin-bottom: 1.15rem; }
     }
 
     @media (prefers-color-scheme: dark) {
       :root {
-        --paper: #0d1713;
-        --paper-deep: #14221c;
-        --ink: #e8f1eb;
-        --muted: #9cb0a7;
-        --line: rgba(232, 241, 235, .16);
+        --paper: #0c1713;
+        --paper-deep: #13221c;
+        --ink: #e5efe8;
+        --ink-soft: #9eb2a8;
+        --line: rgba(229, 239, 232, .16);
         --accent: #4ade80;
         --accent-soft: rgba(74, 222, 128, .14);
-        --panel: rgba(13, 23, 19, .66);
-        --shadow: rgba(0, 0, 0, .28);
+        --panel: rgba(12, 23, 19, .64);
+        --shadow: rgba(0, 0, 0, .3);
       }
-      body { background: radial-gradient(circle at 50% 38%, rgba(32,55,45,.82), transparent 49%), linear-gradient(145deg, var(--paper), var(--paper-deep)); }
-      .stage-shell { background: rgba(8,14,12,.22); box-shadow: 0 2rem 5rem var(--shadow), inset 0 1px rgba(255,255,255,.06); }
+      body { background: radial-gradient(circle at 44% 39%, rgba(31,55,44,.84), transparent 48%), linear-gradient(145deg, var(--paper), var(--paper-deep)); }
+      .stage-shell { background: rgba(8,14,12,.24); box-shadow: 0 2rem 5rem var(--shadow), inset 0 1px rgba(255,255,255,.06); }
+      .master-glyph { stroke: rgba(12, 23, 19, .25); }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -196,316 +255,410 @@
     }
   </style>
 </head>
-<body>
+<body data-study-version="2" data-reference-movement="parting-wild-horse-mane">
   <main>
     <section class="study" aria-labelledby="study-title">
       <div class="stage-shell">
-        <svg id="motion-stage" viewBox="0 0 600 600" role="img" aria-label="Markdown characters forming a person doing tai chi">
-          <circle class="orbit" cx="300" cy="286" r="204"></circle>
-          <circle class="orbit" cx="300" cy="286" r="156"></circle>
-          <line class="ground-glow" x1="155" y1="500" x2="445" y2="500"></line>
-          <line class="ground" x1="155" y1="500" x2="445" y2="500"></line>
+        <svg id="motion-stage" viewBox="0 0 600 600" role="img" aria-label="A robed figure made from Markdown characters performing Parting the Wild Horse's Mane">
+          <path class="enso" d="M 177 427 C 92 321 124 158 261 99 C 397 40 526 137 518 280 C 512 398 426 489 310 503"></path>
+          <line class="ground-glow" x1="126" y1="506" x2="493" y2="506"></line>
+          <line class="ground" x1="126" y1="506" x2="493" y2="506"></line>
 
           <g id="static-figure" aria-hidden="true">
-            <text x="300" y="145" font-size="24" class="fallback-accent">#</text>
-            <text x="300" y="178" font-size="19">[ ]</text>
-            <text x="300" y="218" font-size="18">**</text>
-            <text x="284" y="255" font-size="17">&gt;</text>
-            <text x="316" y="255" font-size="17">_</text>
-            <text x="270" y="302" font-size="16">[</text>
-            <text x="330" y="302" font-size="16">]</text>
-            <text x="238" y="246" font-size="18">*</text>
-            <text x="205" y="286" font-size="18" class="fallback-accent">#</text>
-            <text x="362" y="250" font-size="18">_</text>
-            <text x="405" y="235" font-size="18" class="fallback-accent">&gt;</text>
-            <text x="270" y="370" font-size="19">/</text>
-            <text x="244" y="425" font-size="19">/</text>
-            <text x="205" y="486" font-size="20" class="fallback-accent">_</text>
-            <text x="340" y="372" font-size="19">\</text>
-            <text x="373" y="427" font-size="19">\</text>
-            <text x="417" y="486" font-size="20" class="fallback-accent">_</text>
+            <text x="347" y="116" font-size="15">*</text>
+            <text x="346" y="137" font-size="19" class="fallback-accent">#</text>
+            <text x="343" y="168" font-size="15">()</text>
+            <text x="334" y="203" font-size="15">**</text>
+            <text x="329" y="235" font-size="14">[ ]</text>
+            <text x="325" y="268" font-size="15">&gt; _</text>
+            <text x="316" y="301" font-size="14">` # `</text>
+            <text x="307" y="335" font-size="15">** []</text>
+            <text x="297" y="370" font-size="14">_ &gt; _</text>
+            <text x="286" y="407" font-size="15">[ ] #</text>
+            <text x="274" y="445" font-size="14">` _ `</text>
+            <text x="264" y="480" font-size="15">__</text>
+            <text x="378" y="217" font-size="15">**</text>
+            <text x="414" y="226" font-size="14">[]</text>
+            <text x="452" y="213" font-size="17" class="fallback-accent">&gt;</text>
+            <text x="355" y="342" font-size="14">#</text>
+            <text x="389" y="397" font-size="15">\</text>
+            <text x="431" y="485" font-size="17" class="fallback-accent">_</text>
           </g>
 
-          <g id="skeleton-layer" class="skeleton" aria-hidden="true"></g>
-          <g id="glyph-body-layer" class="mode-layer" aria-hidden="true"></g>
-          <g id="syntax-ribbons-layer" class="mode-layer" aria-hidden="true" hidden></g>
-          <g id="source-constellation-layer" class="mode-layer" aria-hidden="true" hidden></g>
+          <g id="animated-figure" aria-hidden="true">
+            <g data-region="coat-tails">
+              <path id="tail-underlay-back" class="figure-underlay"></path>
+              <path id="tail-underlay-front" class="figure-underlay"></path>
+              <g id="tail-glyphs"></g>
+            </g>
+            <g data-region="legs">
+              <path id="back-leg-underlay" class="limb-underlay" stroke-width="34"></path>
+              <path id="front-leg-underlay" class="limb-underlay" stroke-width="38"></path>
+              <g id="leg-glyphs"></g>
+            </g>
+            <g data-region="robe">
+              <path id="robe-underlay" class="figure-underlay"></path>
+              <g id="robe-glyphs"></g>
+            </g>
+            <g data-region="sleeves">
+              <path id="back-sleeve-underlay" class="limb-underlay" stroke-width="42"></path>
+              <path id="front-sleeve-underlay" class="limb-underlay" stroke-width="46"></path>
+              <g id="sleeve-glyphs"></g>
+            </g>
+            <g data-region="head">
+              <ellipse id="head-underlay" class="figure-underlay" rx="19" ry="25"></ellipse>
+              <g id="head-glyphs"></g>
+            </g>
+            <g data-region="topknot">
+              <g id="topknot-glyphs"></g>
+            </g>
+          </g>
+
+          <g id="construction-layer" aria-hidden="true">
+            <path id="construction-spine" class="construction"></path>
+            <path id="construction-back-arm" class="construction"></path>
+            <path id="construction-front-arm" class="construction"></path>
+            <path id="construction-back-leg" class="construction"></path>
+            <path id="construction-front-leg" class="construction"></path>
+            <g id="construction-joints"></g>
+          </g>
         </svg>
       </div>
 
       <div class="copy">
-        <p class="eyebrow">Motion study 01 · issue #71</p>
-        <h1 id="study-title">The source finds its form.</h1>
-        <p class="lede">Plain symbols gather, move as one, then return to source. Three treatments, one gesture.</p>
-
+        <p class="eyebrow">Motion study 02 · Wudang silhouette</p>
+        <h1 id="study-title">The source learns to flow.</h1>
+        <p class="lede">A figure of Markdown takes one slow step through <em>Parting the Wild Horse's Mane</em>.</p>
+        <div class="movement-name">Near-side view · facing right</div>
         <div class="phase-readout" aria-live="polite">
           <span class="phase-dot" aria-hidden="true"></span>
           <span id="phase-name">Compose</span>
         </div>
-
         <div class="controls" aria-label="Animation review controls">
-          <div class="mode-controls">
-            <button type="button" data-mode="glyph-body" aria-pressed="true">Glyph body</button>
-            <button type="button" data-mode="syntax-ribbons" aria-pressed="false">Syntax ribbons</button>
-            <button type="button" data-mode="source-constellation" aria-pressed="false">Constellation</button>
-          </div>
-          <div class="playback-controls">
-            <button type="button" id="pause-animation">Pause</button>
-            <button type="button" id="replay-animation">Replay</button>
-            <button type="button" id="toggle-skeleton" aria-pressed="false">Show skeleton</button>
-          </div>
+          <button type="button" id="pause-animation">Pause</button>
+          <button type="button" id="replay-animation">Replay</button>
+          <button type="button" id="toggle-skeleton" aria-pressed="false">Show construction</button>
         </div>
-        <p class="hint">Review prototype only. It is deliberately separate from the homepage.</p>
+        <p class="hint">Version 2 review study. The homepage is unchanged.</p>
       </div>
     </section>
   </main>
 
   <script>
-    const PHASE_SOURCE = 0.12;
-    const PHASE_COMPOSE = 0.32;
-    const PHASE_FLOW = 0.82;
-    const PHASE_RELEASE = 1;
-    const LOOP_MS = 9000;
-
-    const BODY_KEYFRAMES = [
-      {
-        head: [300, 142], neck: [300, 184], leftShoulder: [267, 210], rightShoulder: [333, 210],
-        leftElbow: [238, 250], leftHand: [213, 296], rightElbow: [368, 250], rightHand: [403, 230],
-        leftHip: [281, 326], rightHip: [319, 326], leftKnee: [267, 405], rightKnee: [352, 398],
-        leftFoot: [205, 492], rightFoot: [418, 492]
-      },
-      {
-        head: [285, 144], neck: [288, 185], leftShoulder: [254, 209], rightShoulder: [321, 216],
-        leftElbow: [218, 225], leftHand: [187, 263], rightElbow: [351, 270], rightHand: [386, 303],
-        leftHip: [264, 327], rightHip: [306, 331], leftKnee: [240, 401], rightKnee: [351, 407],
-        leftFoot: [190, 492], rightFoot: [412, 492]
-      },
-      {
-        head: [314, 142], neck: [311, 184], leftShoulder: [278, 217], rightShoulder: [344, 208],
-        leftElbow: [248, 273], leftHand: [214, 307], rightElbow: [380, 224], rightHand: [418, 261],
-        leftHip: [294, 331], rightHip: [336, 326], leftKnee: [254, 407], rightKnee: [368, 399],
-        leftFoot: [194, 492], rightFoot: [425, 492]
-      },
-      {
-        head: [300, 142], neck: [300, 184], leftShoulder: [267, 210], rightShoulder: [333, 210],
-        leftElbow: [236, 248], leftHand: [205, 275], rightElbow: [364, 248], rightHand: [397, 274],
-        leftHip: [281, 326], rightHip: [319, 326], leftKnee: [267, 405], rightKnee: [352, 398],
-        leftFoot: [205, 492], rightFoot: [418, 492]
-      }
-    ];
-
-    const SEGMENTS = [
-      ["shoulders", "leftShoulder", "rightShoulder", 6],
-      ["spine", "neck", "leftHip", 8],
-      ["chest", "neck", "rightHip", 8],
-      ["leftUpperArm", "leftShoulder", "leftElbow", 5],
-      ["leftForearm", "leftElbow", "leftHand", 5],
-      ["rightUpperArm", "rightShoulder", "rightElbow", 5],
-      ["rightForearm", "rightElbow", "rightHand", 5],
-      ["waist", "leftHip", "rightHip", 5],
-      ["leftThigh", "leftHip", "leftKnee", 6],
-      ["leftShin", "leftKnee", "leftFoot", 7],
-      ["rightThigh", "rightHip", "rightKnee", 6],
-      ["rightShin", "rightKnee", "rightFoot", 7]
-    ];
-
-    const TOKENS = ["#", "**", "_", ">", "[]", "`", "*", "-", "()", "!", "[", "]", "~"];
     const SVG_NS = "http://www.w3.org/2000/svg";
-    const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
+    const COMPOSE_ONCE_MS = 1650;
+    const MOVEMENT_LOOP_MS = 11200;
+    const FABRIC_LAG = 0.032;
+
+    const WUDANG_PARTS = {
+      robe: { rows: 9, columns: 6 },
+      sleeves: { along: 7, across: 3 },
+      legs: { along: 7, across: 3 },
+      coatTails: { rows: 6, columns: 2 },
+      head: { count: 15 },
+      topknot: { count: 7 }
+    };
+
+    const CRADLE = {
+      head: [304, 143], topknot: [300, 111], neck: [302, 180],
+      shoulderBack: [284, 207], shoulderFront: [322, 201], hipBack: [283, 330], hipFront: [318, 328],
+      backElbow: [305, 243], backHand: [347, 270], frontElbow: [350, 224], frontHand: [376, 255],
+      backKnee: [256, 406], backFoot: [224, 494], frontKnee: [354, 404], frontFoot: [382, 494]
+    };
+
+    const SINK = {
+      head: [302, 148], topknot: [298, 116], neck: [300, 185],
+      shoulderBack: [282, 212], shoulderFront: [320, 206], hipBack: [278, 338], hipFront: [313, 336],
+      backElbow: [305, 250], backHand: [342, 279], frontElbow: [347, 234], frontHand: [373, 264],
+      backKnee: [249, 414], backFoot: [218, 494], frontKnee: [356, 414], frontFoot: [386, 494]
+    };
+
+    const STEP = {
+      head: [311, 146], topknot: [307, 114], neck: [309, 183],
+      shoulderBack: [291, 210], shoulderFront: [329, 204], hipBack: [289, 336], hipFront: [324, 334],
+      backElbow: [316, 250], backHand: [354, 267], frontElbow: [354, 232], frontHand: [377, 267],
+      backKnee: [254, 411], backFoot: [219, 494], frontKnee: [386, 424], frontFoot: [438, 494]
+    };
+
+    const PART = {
+      head: [326, 143], topknot: [322, 111], neck: [324, 180],
+      shoulderBack: [305, 208], shoulderFront: [343, 201], hipBack: [306, 332], hipFront: [341, 330],
+      backElbow: [320, 257], backHand: [313, 304], frontElbow: [389, 225], frontHand: [430, 212],
+      backKnee: [268, 408], backFoot: [222, 494], frontKnee: [402, 409], frontFoot: [450, 494]
+    };
+
+    const SETTLE = {
+      head: [338, 140], topknot: [334, 108], neck: [336, 177],
+      shoulderBack: [317, 205], shoulderFront: [355, 198], hipBack: [319, 328], hipFront: [354, 326],
+      backElbow: [327, 260], backHand: [310, 309], frontElbow: [407, 224], frontHand: [462, 205],
+      backKnee: [276, 407], backFoot: [224, 494], frontKnee: [413, 404], frontFoot: [462, 494]
+    };
+
+    const WILD_HORSE_KEYFRAMES = [
+      { at: 0, name: "Cradle", pose: CRADLE },
+      { at: .11, name: "Cradle", pose: CRADLE },
+      { at: .23, name: "Sink", pose: SINK },
+      { at: .38, name: "Step", pose: STEP },
+      { at: .58, name: "Part", pose: PART },
+      { at: .72, name: "Settle", pose: SETTLE },
+      { at: .82, name: "Settle", pose: SETTLE },
+      { at: .9, name: "Return", pose: STEP },
+      { at: 1, name: "Cradle", pose: CRADLE }
+    ];
+
+    const TOKENS = ["#", "**", "_", ">", "[]", "`", "*", "-", "()", "[", "]", "~", "##", "__"];
     const stage = document.querySelector("#motion-stage");
-    const glyphLayer = document.querySelector("#glyph-body-layer");
-    const ribbonLayer = document.querySelector("#syntax-ribbons-layer");
-    const constellationLayer = document.querySelector("#source-constellation-layer");
-    const skeletonLayer = document.querySelector("#skeleton-layer");
     const staticFigure = document.querySelector("#static-figure");
     const phaseName = document.querySelector("#phase-name");
+    const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
+
+    const robeGroup = document.querySelector("#robe-glyphs");
+    const sleeveGroup = document.querySelector("#sleeve-glyphs");
+    const legGroup = document.querySelector("#leg-glyphs");
+    const tailGroup = document.querySelector("#tail-glyphs");
+    const headGroup = document.querySelector("#head-glyphs");
+    const topknotGroup = document.querySelector("#topknot-glyphs");
 
     const clamp = (value, min = 0, max = 1) => Math.min(max, Math.max(min, value));
     const mix = (a, b, amount) => a + (b - a) * amount;
     const ease = value => value < .5 ? 4 * value ** 3 : 1 - ((-2 * value + 2) ** 3) / 2;
+    const pointMix = (a, b, amount) => [mix(a[0], b[0], amount), mix(a[1], b[1], amount)];
 
     function mixPose(a, b, amount) {
-      return Object.fromEntries(Object.keys(a).map(key => [key, [mix(a[key][0], b[key][0], amount), mix(a[key][1], b[key][1], amount)]]));
+      return Object.fromEntries(Object.keys(a).map(key => [key, pointMix(a[key], b[key], amount)]));
     }
 
-    function sampleFlow(progress) {
-      const scaled = clamp(progress) * (BODY_KEYFRAMES.length - 1);
-      const index = Math.min(BODY_KEYFRAMES.length - 2, Math.floor(scaled));
-      return mixPose(BODY_KEYFRAMES[index], BODY_KEYFRAMES[index + 1], ease(scaled - index));
+    function sampleMovement(cycle) {
+      const wrapped = ((cycle % 1) + 1) % 1;
+      let index = WILD_HORSE_KEYFRAMES.findIndex(frame => frame.at >= wrapped);
+      if (index <= 0) index = 1;
+      const before = WILD_HORSE_KEYFRAMES[index - 1];
+      const after = WILD_HORSE_KEYFRAMES[index];
+      const local = ease((wrapped - before.at) / (after.at - before.at));
+      return { pose: mixPose(before.pose, after.pose, local), name: after.name };
     }
 
-    function pointOnSegment(pose, segment, amount) {
-      if (segment === "head") {
-        const angle = amount * Math.PI * 2 - Math.PI / 2;
-        return [pose.head[0] + Math.cos(angle) * 22, pose.head[1] + Math.sin(angle) * 27, angle + Math.PI / 2];
+    function makeGlyph(group, index, region, edge = false) {
+      const node = document.createElementNS(SVG_NS, "text");
+      node.classList.add("master-glyph");
+      if (edge) node.classList.add("edge");
+      if ((index + region.length) % 17 === 0) node.classList.add("accent");
+      node.textContent = TOKENS[(index * 5 + region.length * 3) % TOKENS.length];
+      node.setAttribute("font-size", edge ? "15" : index % 9 === 0 ? "14" : "11.5");
+      group.append(node);
+      return { node, index, region };
+    }
+
+    const robeGlyphs = [];
+    for (let row = 0; row < WUDANG_PARTS.robe.rows; row += 1) {
+      for (let column = 0; column < WUDANG_PARTS.robe.columns; column += 1) {
+        const edge = column === 0 || column === WUDANG_PARTS.robe.columns - 1 || row === WUDANG_PARTS.robe.rows - 1;
+        robeGlyphs.push({ ...makeGlyph(robeGroup, robeGlyphs.length, "robe", edge), row, column });
       }
-      const spec = SEGMENTS.find(([name]) => name === segment);
-      const start = pose[spec[1]];
-      const end = pose[spec[2]];
-      return [mix(start[0], end[0], amount), mix(start[1], end[1], amount), Math.atan2(end[1] - start[1], end[0] - start[0])];
     }
 
-    const GLYPH_SPECS = [];
-    for (let index = 0; index < 10; index += 1) {
-      GLYPH_SPECS.push({ segment: "head", amount: index / 10, token: TOKENS[index % TOKENS.length], accent: index === 0 });
+    function makeLimbGlyphs(group, region, limbs, alongCount, acrossCount) {
+      const glyphs = [];
+      limbs.forEach(limb => {
+        for (let along = 0; along < alongCount; along += 1) {
+          for (let across = 0; across < acrossCount; across += 1) {
+            const edge = across === 0 || across === acrossCount - 1 || along === alongCount - 1;
+            glyphs.push({ ...makeGlyph(group, glyphs.length, region, edge), limb, along, across, alongCount, acrossCount });
+          }
+        }
+      });
+      return glyphs;
     }
-    SEGMENTS.forEach(([segment,,, count], segmentIndex) => {
-      for (let index = 0; index < count; index += 1) {
-        GLYPH_SPECS.push({
-          segment,
-          amount: count === 1 ? .5 : index / (count - 1),
-          token: TOKENS[(segmentIndex * 3 + index) % TOKENS.length],
-          accent: index === count - 1 && [4, 6, 9, 11].includes(segmentIndex)
-        });
+
+    const sleeveGlyphs = makeLimbGlyphs(sleeveGroup, "sleeves", ["back", "front"], WUDANG_PARTS.sleeves.along, WUDANG_PARTS.sleeves.across);
+    const legGlyphs = makeLimbGlyphs(legGroup, "legs", ["back", "front"], WUDANG_PARTS.legs.along, WUDANG_PARTS.legs.across);
+
+    const tailGlyphs = [];
+    ["back", "front"].forEach(tail => {
+      for (let row = 0; row < WUDANG_PARTS.coatTails.rows; row += 1) {
+        for (let column = 0; column < WUDANG_PARTS.coatTails.columns; column += 1) {
+          tailGlyphs.push({ ...makeGlyph(tailGroup, tailGlyphs.length, "coat-tails", column === 0 || row === WUDANG_PARTS.coatTails.rows - 1), tail, row, column });
+        }
       }
     });
+
+    const headGlyphs = Array.from({ length: WUDANG_PARTS.head.count }, (_, index) => makeGlyph(headGroup, index, "head", index % 4 === 0));
+    const topknotGlyphs = Array.from({ length: WUDANG_PARTS.topknot.count }, (_, index) => makeGlyph(topknotGroup, index, "topknot", true));
+    const allGlyphs = [...tailGlyphs, ...legGlyphs, ...robeGlyphs, ...sleeveGlyphs, ...headGlyphs, ...topknotGlyphs];
 
     function sourcePoint(index) {
-      const angle = index * 2.399963 + .4;
-      const radius = 118 + (index % 9) * 14;
-      return [300 + Math.cos(angle) * radius, 292 + Math.sin(angle) * radius * .86, angle];
+      const angle = index * 2.399963 + .65;
+      const radius = 135 + (index % 10) * 12;
+      return [306 + Math.cos(angle) * radius, 295 + Math.sin(angle) * radius * .82, angle];
     }
 
-    const glyphNodes = GLYPH_SPECS.map((spec, index) => {
-      const text = document.createElementNS(SVG_NS, "text");
-      text.classList.add("glyph");
-      if (spec.accent) text.classList.add("accent");
-      text.textContent = spec.token;
-      text.setAttribute("font-size", spec.token.length > 1 ? "13" : index % 7 === 0 ? "19" : "15");
-      glyphLayer.append(text);
-      return text;
-    });
+    function setGlyph(glyph, target, form, rotation = 0) {
+      const source = sourcePoint(glyph.index + allGlyphs.indexOf(glyph));
+      const x = mix(source[0], target[0], form);
+      const y = mix(source[1], target[1], form);
+      const angle = mix(source[2], rotation, form) * 180 / Math.PI;
+      glyph.node.setAttribute("x", x.toFixed(2));
+      glyph.node.setAttribute("y", y.toFixed(2));
+      glyph.node.setAttribute("transform", `rotate(${angle.toFixed(2)} ${x.toFixed(2)} ${y.toFixed(2)})`);
+      glyph.node.setAttribute("opacity", (.18 + form * .82).toFixed(2));
+    }
 
-    const ribbonSegments = ["shoulders", "leftUpperArm", "leftForearm", "rightUpperArm", "rightForearm", "spine", "leftThigh", "leftShin", "rightThigh", "rightShin"];
-    const ribbonNodes = ribbonSegments.map((segment, index) => {
-      const path = document.createElementNS(SVG_NS, "path");
-      path.id = `ribbon-${index}`;
-      path.classList.add("ribbon-path");
-      ribbonLayer.append(path);
-      const text = document.createElementNS(SVG_NS, "text");
-      text.classList.add("ribbon-text");
-      if ([2, 4, 7, 9].includes(index)) text.classList.add("accent");
-      const textPath = document.createElementNS(SVG_NS, "textPath");
-      textPath.setAttribute("href", `#ribbon-${index}`);
-      textPath.setAttribute("startOffset", "4%");
-      textPath.textContent = ["# heading", "**strong**", "_flow_", "> quote", "[link]", "``` source", "- list", "* move", "[] form", "# way"][index];
-      text.append(textPath);
-      ribbonLayer.append(text);
-      return { segment, path, text };
-    });
+    function quadPoint(topLeft, topRight, bottomLeft, bottomRight, u, v) {
+      return pointMix(pointMix(topLeft, topRight, u), pointMix(bottomLeft, bottomRight, u), v);
+    }
 
-    const constellationLines = SEGMENTS.map(([segment]) => {
-      const path = document.createElementNS(SVG_NS, "path");
-      path.classList.add("constellation-line");
-      constellationLayer.append(path);
-      return { segment, path };
-    });
-    const constellationPoints = GLYPH_SPECS.map((spec, index) => {
+    function robeCorners(pose) {
+      return {
+        topBack: [pose.shoulderBack[0] - 8, pose.shoulderBack[1] - 5],
+        topFront: [pose.shoulderFront[0] + 10, pose.shoulderFront[1] - 2],
+        bottomBack: [pose.hipBack[0] - 42, pose.hipBack[1] + 119],
+        bottomFront: [pose.hipFront[0] + 43, pose.hipFront[1] + 119]
+      };
+    }
+
+    function renderRobeField(pose, form) {
+      const corners = robeCorners(pose);
+      robeGlyphs.forEach(glyph => {
+        const v = glyph.row / (WUDANG_PARTS.robe.rows - 1);
+        const inset = Math.sin(v * Math.PI) * .025;
+        const u = inset + (glyph.column / (WUDANG_PARTS.robe.columns - 1)) * (1 - inset * 2);
+        const point = quadPoint(corners.topBack, corners.topFront, corners.bottomBack, corners.bottomFront, u, v);
+        point[0] += Math.sin(glyph.row * 1.7 + glyph.column) * 2.1;
+        setGlyph(glyph, point, form, -.06 + v * .05);
+      });
+      document.querySelector("#robe-underlay").setAttribute("d", `M ${corners.topBack} Q ${pose.neck[0]} ${pose.neck[1] - 4} ${corners.topFront} L ${corners.bottomFront} Q ${(corners.bottomFront[0] + corners.bottomBack[0]) / 2} ${corners.bottomFront[1] + 10} ${corners.bottomBack} Z`);
+    }
+
+    function pointOnBentLimb(start, bend, end, along) {
+      if (along <= .5) return pointMix(start, bend, along * 2);
+      return pointMix(bend, end, (along - .5) * 2);
+    }
+
+    function tangentOnBentLimb(start, bend, end, along) {
+      const a = along <= .5 ? start : bend;
+      const b = along <= .5 ? bend : end;
+      const angle = Math.atan2(b[1] - a[1], b[0] - a[0]);
+      return { angle, perpendicular: [-Math.sin(angle), Math.cos(angle)] };
+    }
+
+    function limbTarget(pose, glyph, type) {
+      const prefix = glyph.limb;
+      const start = type === "arm" ? pose[`${prefix === "front" ? "shoulderFront" : "shoulderBack"}`] : pose[`${prefix === "front" ? "hipFront" : "hipBack"}`];
+      const bend = pose[`${prefix}${type === "arm" ? "Elbow" : "Knee"}`];
+      const end = pose[`${prefix}${type === "arm" ? "Hand" : "Foot"}`];
+      const along = glyph.along / (glyph.alongCount - 1);
+      const across = glyph.across / (glyph.acrossCount - 1) - .5;
+      const centre = pointOnBentLimb(start, bend, end, along);
+      const tangent = tangentOnBentLimb(start, bend, end, along);
+      const width = type === "arm" ? mix(31, 17, along) : mix(25, 17, along);
+      return { point: [centre[0] + tangent.perpendicular[0] * width * across, centre[1] + tangent.perpendicular[1] * width * across], angle: tangent.angle };
+    }
+
+    function renderSleeveField(pose, form) {
+      sleeveGlyphs.forEach(glyph => {
+        const target = limbTarget(pose, glyph, "arm");
+        setGlyph(glyph, target.point, form, target.angle);
+      });
+      document.querySelector("#back-sleeve-underlay").setAttribute("d", `M ${pose.shoulderBack} Q ${pose.backElbow} ${pose.backHand}`);
+      document.querySelector("#front-sleeve-underlay").setAttribute("d", `M ${pose.shoulderFront} Q ${pose.frontElbow} ${pose.frontHand}`);
+    }
+
+    function renderLegField(pose, form) {
+      legGlyphs.forEach(glyph => {
+        const target = limbTarget(pose, glyph, "leg");
+        setGlyph(glyph, target.point, form, target.angle);
+      });
+      document.querySelector("#back-leg-underlay").setAttribute("d", `M ${pose.hipBack} Q ${pose.backKnee} ${pose.backFoot}`);
+      document.querySelector("#front-leg-underlay").setAttribute("d", `M ${pose.hipFront} Q ${pose.frontKnee} ${pose.frontFoot}`);
+    }
+
+    function tailCorners(pose, tail) {
+      if (tail === "back") {
+        return {
+          topLeft: [pose.hipBack[0] - 22, pose.hipBack[1] - 6], topRight: [pose.hipFront[0] - 4, pose.hipFront[1] + 2],
+          bottomLeft: [pose.backKnee[0] - 39, pose.backKnee[1] + 49], bottomRight: [pose.backKnee[0] + 7, pose.backKnee[1] + 61]
+        };
+      }
+      return {
+        topLeft: [pose.hipBack[0] + 3, pose.hipBack[1]], topRight: [pose.hipFront[0] + 27, pose.hipFront[1] - 4],
+        bottomLeft: [pose.frontKnee[0] - 29, pose.frontKnee[1] + 44], bottomRight: [pose.frontKnee[0] + 22, pose.frontKnee[1] + 50]
+      };
+    }
+
+    function renderCoatTails(fabricPose, form) {
+      ["back", "front"].forEach(tail => {
+        const corners = tailCorners(fabricPose, tail);
+        tailGlyphs.filter(glyph => glyph.tail === tail).forEach(glyph => {
+          const u = glyph.column / (WUDANG_PARTS.coatTails.columns - 1);
+          const v = glyph.row / (WUDANG_PARTS.coatTails.rows - 1);
+          const point = quadPoint(corners.topLeft, corners.topRight, corners.bottomLeft, corners.bottomRight, u, v);
+          setGlyph(glyph, point, form, tail === "back" ? .14 : -.08);
+        });
+        document.querySelector(`#tail-underlay-${tail}`).setAttribute("d", `M ${corners.topLeft} L ${corners.topRight} L ${corners.bottomRight} Q ${(corners.bottomRight[0] + corners.bottomLeft[0]) / 2} ${corners.bottomRight[1] + 8} ${corners.bottomLeft} Z`);
+      });
+    }
+
+    function renderHead(pose, form) {
+      headGlyphs.forEach((glyph, index) => {
+        const angle = index / headGlyphs.length * Math.PI * 2 - Math.PI / 2;
+        const radiusX = index % 3 === 0 ? 18 : 13;
+        const radiusY = index % 3 === 0 ? 24 : 18;
+        const profileNudge = Math.cos(angle) > .65 ? 3.5 : 0;
+        setGlyph(glyph, [pose.head[0] + Math.cos(angle) * radiusX + profileNudge, pose.head[1] + Math.sin(angle) * radiusY], form, angle + Math.PI / 2);
+      });
+      topknotGlyphs.forEach((glyph, index) => {
+        const angle = index / topknotGlyphs.length * Math.PI * 2;
+        setGlyph(glyph, [pose.topknot[0] + Math.cos(angle) * 8, pose.topknot[1] + Math.sin(angle) * 7], form, angle);
+      });
+      const underlay = document.querySelector("#head-underlay");
+      underlay.setAttribute("cx", pose.head[0]);
+      underlay.setAttribute("cy", pose.head[1]);
+    }
+
+    const jointNodes = Object.keys(CRADLE).map(key => {
       const circle = document.createElementNS(SVG_NS, "circle");
-      circle.classList.add("constellation-point");
-      if (spec.accent) circle.classList.add("accent");
-      circle.setAttribute("r", index % 8 === 0 ? "3.2" : "2");
-      constellationLayer.append(circle);
-      return circle;
+      circle.classList.add("construction-joint");
+      circle.setAttribute("r", "2.8");
+      document.querySelector("#construction-joints").append(circle);
+      return { key, circle };
     });
 
-    const skeletonPaths = SEGMENTS.map(([segment]) => {
-      const path = document.createElementNS(SVG_NS, "path");
-      skeletonLayer.append(path);
-      return { segment, path };
-    });
-
-    function phaseAt(cycle) {
-      if (cycle < PHASE_SOURCE) return { name: "Source", form: 0, flow: 0 };
-      if (cycle < PHASE_COMPOSE) return { name: "Compose", form: ease((cycle - PHASE_SOURCE) / (PHASE_COMPOSE - PHASE_SOURCE)), flow: 0 };
-      if (cycle < PHASE_FLOW) return { name: "Flow", form: 1, flow: (cycle - PHASE_COMPOSE) / (PHASE_FLOW - PHASE_COMPOSE) };
-      return { name: "Release", form: 1 - ease((cycle - PHASE_FLOW) / (PHASE_RELEASE - PHASE_FLOW)), flow: 1 };
-    }
-
-    function currentPoint(spec, index, pose, form) {
-      const body = pointOnSegment(pose, spec.segment, spec.amount);
-      const source = sourcePoint(index);
-      return [mix(source[0], body[0], form), mix(source[1], body[1], form), mix(source[2], body[2], form)];
-    }
-
-    function pathForSegment(pose, segment) {
-      const spec = SEGMENTS.find(([name]) => name === segment);
-      const start = pose[spec[1]];
-      const end = pose[spec[2]];
-      const bend = segment.includes("Arm") || segment.includes("Forearm") ? -7 : segment.includes("Thigh") ? 5 : 0;
-      const middle = [(start[0] + end[0]) / 2 + bend, (start[1] + end[1]) / 2];
-      return `M ${start[0]} ${start[1]} Q ${middle[0]} ${middle[1]} ${end[0]} ${end[1]}`;
-    }
-
-    function renderGlyphBody(pose, form) {
-      glyphNodes.forEach((node, index) => {
-        const [x, y, angle] = currentPoint(GLYPH_SPECS[index], index, pose, form);
-        node.setAttribute("x", x.toFixed(2));
-        node.setAttribute("y", y.toFixed(2));
-        node.setAttribute("transform", `rotate(${angle * 180 / Math.PI} ${x} ${y})`);
-        node.setAttribute("opacity", (.28 + form * .72).toFixed(2));
+    function renderConstruction(pose) {
+      document.querySelector("#construction-spine").setAttribute("d", `M ${pose.head} L ${pose.neck} L ${(pose.hipBack[0] + pose.hipFront[0]) / 2} ${(pose.hipBack[1] + pose.hipFront[1]) / 2}`);
+      document.querySelector("#construction-back-arm").setAttribute("d", `M ${pose.shoulderBack} L ${pose.backElbow} L ${pose.backHand}`);
+      document.querySelector("#construction-front-arm").setAttribute("d", `M ${pose.shoulderFront} L ${pose.frontElbow} L ${pose.frontHand}`);
+      document.querySelector("#construction-back-leg").setAttribute("d", `M ${pose.hipBack} L ${pose.backKnee} L ${pose.backFoot}`);
+      document.querySelector("#construction-front-leg").setAttribute("d", `M ${pose.hipFront} L ${pose.frontKnee} L ${pose.frontFoot}`);
+      jointNodes.forEach(({ key, circle }) => {
+        circle.setAttribute("cx", pose[key][0]);
+        circle.setAttribute("cy", pose[key][1]);
       });
     }
 
-    function renderSyntaxRibbons(pose, form) {
-      ribbonNodes.forEach(({ segment, path, text }, index) => {
-        if (form < .08) {
-          const source = sourcePoint(index * 7);
-          path.setAttribute("d", `M ${source[0] - 25} ${source[1]} q 25 -12 50 0`);
-        } else {
-          path.setAttribute("d", pathForSegment(pose, segment));
-        }
-        text.setAttribute("opacity", (.18 + form * .82).toFixed(2));
-      });
-    }
-
-    function renderSourceConstellation(pose, form) {
-      constellationPoints.forEach((node, index) => {
-        const [x, y] = currentPoint(GLYPH_SPECS[index], index, pose, form);
-        node.setAttribute("cx", x.toFixed(2));
-        node.setAttribute("cy", y.toFixed(2));
-        node.setAttribute("opacity", (.3 + form * .55).toFixed(2));
-      });
-      constellationLines.forEach(({ segment, path }) => {
-        path.setAttribute("d", pathForSegment(pose, segment));
-        path.setAttribute("opacity", (form * .22).toFixed(2));
-      });
-    }
-
-    function renderSkeleton(pose) {
-      skeletonPaths.forEach(({ segment, path }) => path.setAttribute("d", pathForSegment(pose, segment)));
+    function renderAt(form, cycle) {
+      const body = sampleMovement(cycle);
+      const fabric = sampleMovement(cycle - FABRIC_LAG);
+      renderCoatTails(fabric.pose, form);
+      renderLegField(body.pose, form);
+      renderRobeField(body.pose, form);
+      renderSleeveField(fabric.pose, form);
+      renderHead(body.pose, form);
+      renderConstruction(body.pose);
+      phaseName.textContent = form < 1 ? "Compose" : body.name;
     }
 
     let startTime = performance.now();
     let pausedAt = null;
     let animationFrame = null;
-    let activeMode = "glyph-body";
-
-    function renderAt(cycle) {
-      const phase = phaseAt(cycle);
-      const pose = sampleFlow(phase.flow);
-      renderGlyphBody(pose, phase.form);
-      renderSyntaxRibbons(pose, phase.form);
-      renderSourceConstellation(pose, phase.form);
-      renderSkeleton(pose);
-      phaseName.textContent = phase.name;
-    }
 
     function tick(now) {
-      const cycle = ((now - startTime) % LOOP_MS) / LOOP_MS;
-      renderAt(cycle);
+      const elapsed = now - startTime;
+      const form = ease(clamp(elapsed / COMPOSE_ONCE_MS));
+      const movementElapsed = Math.max(0, elapsed - COMPOSE_ONCE_MS);
+      const cycle = (movementElapsed % MOVEMENT_LOOP_MS) / MOVEMENT_LOOP_MS;
+      renderAt(form, cycle);
       animationFrame = requestAnimationFrame(tick);
     }
-
-    function setMode(mode) {
-      activeMode = mode;
-      document.querySelectorAll("[data-mode]").forEach(button => button.setAttribute("aria-pressed", String(button.dataset.mode === mode)));
-      glyphLayer.toggleAttribute("hidden", mode !== "glyph-body");
-      ribbonLayer.toggleAttribute("hidden", mode !== "syntax-ribbons");
-      constellationLayer.toggleAttribute("hidden", mode !== "source-constellation");
-    }
-
-    document.querySelectorAll("[data-mode]").forEach(button => button.addEventListener("click", () => setMode(button.dataset.mode)));
 
     const pauseButton = document.querySelector("#pause-animation");
     pauseButton.addEventListener("click", () => {
@@ -525,7 +678,7 @@
     document.querySelector("#replay-animation").addEventListener("click", () => {
       startTime = performance.now();
       if (pausedAt !== null) pausedAt = startTime;
-      renderAt(0);
+      renderAt(0, 0);
     });
 
     document.querySelector("#toggle-skeleton").addEventListener("click", event => {
@@ -535,9 +688,8 @@
     });
 
     staticFigure.toggleAttribute("hidden", true);
-    setMode(activeMode);
     if (reducedMotion.matches) {
-      renderAt(.55);
+      renderAt(1, .72);
       phaseName.textContent = "Still pose · reduced motion";
       pauseButton.disabled = true;
     } else {

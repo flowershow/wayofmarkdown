@@ -12,23 +12,25 @@ try {
 
 const checks = [
   ["inline SVG stage", /<svg[^>]+id="motion-stage"/],
-  ["glyph body mode", /data-mode="glyph-body"/],
-  ["syntax ribbons mode", /data-mode="syntax-ribbons"/],
-  ["source constellation mode", /data-mode="source-constellation"/],
+  ["version 2 marker", /data-study-version="2"/],
+  ["named Wild Horse movement", /data-reference-movement="parting-wild-horse-mane"/],
   ["pause control", /id="pause-animation"/],
   ["replay control", /id="replay-animation"/],
   ["reduced-motion fallback", /prefers-reduced-motion:\s*reduce/],
-  ["source phase", /const\s+PHASE_SOURCE\s*=/],
-  ["compose phase", /const\s+PHASE_COMPOSE\s*=/],
-  ["flow phase", /const\s+PHASE_FLOW\s*=/],
-  ["release phase", /const\s+PHASE_RELEASE\s*=/],
-  ["body keyframes", /const\s+BODY_KEYFRAMES\s*=/],
+  ["one-time composition", /const\s+COMPOSE_ONCE_MS\s*=/],
+  ["continuous movement loop", /const\s+MOVEMENT_LOOP_MS\s*=/],
+  ["Wild Horse keyframes", /const\s+WILD_HORSE_KEYFRAMES\s*=/],
+  ["Wudang body regions", /const\s+WUDANG_PARTS\s*=/],
+  ["fabric lag", /const\s+FABRIC_LAG\s*=/],
   ["static fallback figure", /id="static-figure"/],
   ["static SVG fallback can be hidden", /#static-figure\[hidden\]\s*\{[^}]*display:\s*none/],
-  ["SVG mode visibility uses attributes", /toggleAttribute\("hidden",/],
-  ["glyph body renderer", /function\s+renderGlyphBody\s*\(/],
-  ["syntax ribbons renderer", /function\s+renderSyntaxRibbons\s*\(/],
-  ["source constellation renderer", /function\s+renderSourceConstellation\s*\(/],
+  ["robe field renderer", /function\s+renderRobeField\s*\(/],
+  ["sleeve field renderer", /function\s+renderSleeveField\s*\(/],
+  ["coat-tail renderer", /function\s+renderCoatTails\s*\(/],
+  ["topknot region", /data-region="topknot"/],
+  ["robe region", /data-region="robe"/],
+  ["sleeve regions", /data-region="sleeves"/],
+  ["coat-tail regions", /data-region="coat-tails"/],
   ["responsive mobile layout", /@media\s*\(max-width:\s*760px\)/],
   ["dark colour treatment", /@media\s*\(prefers-color-scheme:\s*dark\)/],
   ["labelled review controls", /aria-label="Animation review controls"/],
@@ -38,7 +40,7 @@ const failures = checks
   .filter(([, pattern]) => !pattern.test(source))
   .map(([label]) => label);
 
-if (/\b(?:glyphLayer|ribbonLayer|constellationLayer|staticFigure)\.hidden\s*=/.test(source)) {
+if (/\bstaticFigure\.hidden\s*=/.test(source)) {
   failures.push("SVG layers do not use the unsupported .hidden property");
 }
 
