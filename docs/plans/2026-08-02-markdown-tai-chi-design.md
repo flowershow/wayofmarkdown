@@ -7,6 +7,26 @@ publish: false
 
 Status: approved for standalone prototyping on 2026-08-02. Tracked in GitHub issue #71.
 
+## Version 3 decision: motion before figure, figure before syntax
+
+Version 2 solved the wrong problem. Adding a robe, a filled silhouette and more Markdown texture made the figure heavier and more detailed, while the desired mark is small, horizontal and light. The next study returns to the movement itself.
+
+Use a wide strip, approximately 1000 by 140 units, which can eventually sit at 50–100 pixels high in a homepage hero. A single figure travels from left to right in strict profile. Draw it as a Zen gesture study with only the essential curves: the line of the back and head, two arms, the grounded leg and the stepping leg. There is no costume, face, filled silhouette or three-quarter perspective.
+
+The figure moves through one short tai chi phrase as it crosses the strip. Sample earlier poses at their actual positions and let three or four of them dissolve continuously behind the live figure. This borrows the legibility of [Muybridge's sequential motion studies](https://www.metmuseum.org/art/collection/search/700109) without leaving a static row of clones. The traces should feel like drying brush marks rather than speed lines.
+
+Markdown syntax is deliberately postponed. First make the profile, weight transfer, hand arcs and timing beautiful as plain ink. Only after this works should we test replacing parts of the stroke with `#`, `_`, `>` and other source marks, or assembling the first pose from them.
+
+Version 3 review criteria:
+
+- the strip remains legible at 80–100 pixels high;
+- every pose is unmistakably side-on;
+- the head stays quiet while the hips travel and settle;
+- arms describe long, unbroken arcs without looking like waving;
+- feet show a grounded transfer of weight rather than a walk cycle;
+- old poses dissolve gracefully and never crowd the live figure;
+- the work still looks intentional with all text and controls hidden.
+
 ## Version 2 decision: form before syntax
 
 The first prototype established that SVG characters can gather into and animate with an articulated figure. It did not establish the visual identity: the sparse construction reads as a stick figure, the body has no beautiful outer contour, and the movement is generic rather than recognisably tai chi.
