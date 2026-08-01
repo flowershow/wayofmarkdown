@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Check wikilinks and relative markdown links across published site content.
 
-Usage: python3 scripts/link-check.py    (checks all site *.md; docs/, .claude/ excluded)
+Usage: python3 scripts/link-check.py    (checks published site *.md; internal paths excluded)
 Exit code 1 if any link is broken. Code spans/fences are ignored.
 """
 import glob
@@ -12,7 +12,7 @@ import sys
 
 def main():
     mdfiles = [f for f in glob.glob("**/*.md", recursive=True)
-               if not f.startswith((".", "docs/", "scripts/", "node_modules"))]
+               if not f.startswith((".", "docs/", "drafts/", "scripts/", "node_modules"))]
     names = set()
     for f in glob.glob("**/*", recursive=True):
         if os.path.isfile(f):
