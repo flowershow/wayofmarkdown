@@ -7,11 +7,26 @@ publish: false
 
 Status: approved for standalone prototyping on 2026-08-02. Tracked in GitHub issue #71.
 
+## Version 2 decision: form before syntax
+
+The first prototype established that SVG characters can gather into and animate with an articulated figure. It did not establish the visual identity: the sparse construction reads as a stick figure, the body has no beautiful outer contour, and the movement is generic rather than recognisably tai chi.
+
+Version 2 starts from two concrete references:
+
+- **Human form and clothing**: the dark-robed Wudang master in [Master Huangshan's Wudang tai chi demonstration](https://www.youtube.com/watch?v=ziP_Yra06mo). Use the long coat, broad sleeves, low centre of gravity, restrained topknot and trailing hem as visual cues. Create an original figure from those cues rather than tracing a video frame.
+- **Movement**: [Parting the Wild Horse's Mane](https://www.youtube.com/watch?v=ehOPk1lrPoU). It gives the short loop a clear sequence: cradle, sink, step, transfer weight, part the arms, settle.
+
+Show the master facing right, almost side-on but turned about 10–15 degrees towards the viewer. A strict profile causes the arms and legs to overlap; the slight turn preserves the side-on weight transfer while keeping the whole gesture legible.
+
+The body should become a full calligraphic silhouette rather than a decorated skeleton. Dense Markdown characters form the mass of the robe and limbs. Larger structural tokens define its outer contour. Sleeves and coat tails follow the hands and hips with a small delay, making the fabric part of the movement. The face stays minimal; posture, topknot and clothing carry the character.
+
+Characters assemble into the figure once when the study loads. The completed figure then repeats the movement without dissolving between loops. This lets the viewer watch the tai chi rather than waiting through an effect on every cycle.
+
 ## Purpose
 
 Create a memorable visual signature for The Way of Markdown: plain Markdown syntax composing into something expressive and useful. The first prototype stays separate from the homepage. We will decide how to integrate it only after the motion and visual language work on their own.
 
-## Core sequence
+## Version 1 core sequence
 
 The animation is a centred, self-contained “living mark” with a roughly eight-second loop:
 
@@ -54,6 +69,31 @@ The movement should feel balanced, deliberate and human: weight shifts before ar
 
 The loop should pause briefly at the fully formed pose so the figure and Markdown construction can be understood. Formation and release should be quieter than the central movement.
 
+## Version 2 movement keyframes
+
+The movement is a simplified, side-on study of Parting the Wild Horse's Mane rather than an instructional reproduction:
+
+1. **Cradle** — weight held over the rear leg; hands hold an implied ball near the torso.
+2. **Sink** — hips settle before anything reaches; the front heel becomes light.
+3. **Step** — the front foot glides forward while the hands cross and gather.
+4. **Part** — weight travels into the front leg; the leading forearm rises and opens while the trailing hand settles towards the hip.
+5. **Settle** — head quiet, shoulders dropped, sleeves and coat hem arriving just after the body.
+6. **Return** — the figure breathes back through the same pathway to the cradle pose.
+
+The torso should stay vertical and the head should travel only slightly. Most visible motion comes from the weight transfer, opening arms and delayed fabric. Use a ten- to twelve-second loop with short holds at cradle and settle.
+
+## Version 2 rendering model
+
+Keep the shared articulated skeleton, but use it only as hidden construction. Render broad body regions over it:
+
+- a tapered robe body between shoulders and hem;
+- two wide sleeves around the arm paths;
+- overlapping coat tails which lag the hips;
+- substantial trouser and lower-leg shapes;
+- a small head profile and topknot.
+
+Populate those regions with roughly 140–180 Markdown tokens. Torso tokens interpolate within the robe envelope; limb tokens sit in several rows across each segment instead of a single line. This preserves readable Markdown texture while creating enough mass for the person and clothing to read first.
+
 ## Prototype architecture
 
 Create one standalone file at `docs/prototypes/markdown-tai-chi.html` containing its HTML, CSS and JavaScript. Use inline SVG for crisp, responsive typography and paths. A small JavaScript animation loop interpolates a fixed set of body keyframes and maps glyphs to body segments. No framework or external dependency is needed.
@@ -86,4 +126,3 @@ The prototype succeeds when:
 - Rebuilding the homepage in HTML/Tailwind
 - Choosing a permanent logo
 - Adding an animation library before the motion direction is validated
-

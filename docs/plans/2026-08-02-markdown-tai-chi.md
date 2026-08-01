@@ -77,3 +77,52 @@
 
 **Step 3:** Push `main` and add a concise work-session comment to review log issue #57, with issue #71 linked.
 
+---
+
+## Version 2 revision: Wudang silhouette and named movement
+
+### Task 6: Replace the visual acceptance checks
+
+**Files:**
+- Modify: `scripts/check-markdown-tai-chi.mjs`
+- Test: `docs/prototypes/markdown-tai-chi.html`
+
+**Step 1:** Replace the three-treatment assertions with checks for the chosen Wudang silhouette, Parting the Wild Horse's Mane keyframes, broad robe/sleeve/coat-tail regions, one-time composition and a continuous movement loop.
+
+**Step 2:** Run `node scripts/check-markdown-tai-chi.mjs` and verify it fails against version 1.
+
+### Task 7: Build the full human silhouette
+
+**Files:**
+- Modify: `docs/prototypes/markdown-tai-chi.html`
+
+**Step 1:** Replace the sparse segment renderer with dense token fields for the robe, sleeves, legs, head and topknot. Keep the skeleton available only as a review overlay.
+
+**Step 2:** Give sleeves and coat tails their own delayed keyframe interpolation so fabric follows the body rather than moving as rigid limbs.
+
+**Step 3:** Render a deliberate static fallback using the settled silhouette.
+
+**Step 4:** Run the structural check and fix any missing version 2 requirements.
+
+### Task 8: Choreograph Parting the Wild Horse's Mane
+
+**Files:**
+- Modify: `docs/prototypes/markdown-tai-chi.html`
+
+**Step 1:** Add cradle, sink, step, part and settle poses viewed near-side-on and facing right.
+
+**Step 2:** Interpolate the weight transfer before the arm opening; keep the torso upright and the head quiet.
+
+**Step 3:** Compose the figure once on load, then loop the completed movement without releasing it back into particles.
+
+### Task 9: Review and commit version 2 locally
+
+**Files:**
+- Modify: `docs/prototypes/markdown-tai-chi.html`
+- Modify: `scripts/check-markdown-tai-chi.mjs`
+
+**Step 1:** Check the moving figure at desktop and 390px mobile sizes, including pause/replay, skeleton overlay and reduced-motion behaviour.
+
+**Step 2:** Run the prototype check, voice lint, link check and `git diff --check`.
+
+**Step 3:** Commit the HTML revision and its checks as a distinct local version. Do not integrate the homepage or push during the review phase.
