@@ -1,5 +1,5 @@
 ---
-title: "The Way of Markdown.<br/>Own the source. Compose with anything."
+title: "The Way of Markdown ...  Own the source. Compose with anything."
 description: "Websites, knowledge bases, blogs, even a Notion replacement — built from plain text files you own, with tools you can swap anytime. Markdown is quietly everywhere; here's the way to make it work for you."
 showHero: true
 cta:
