@@ -12,30 +12,27 @@ try {
 
 const checks = [
   ["inline SVG stage", /<svg[^>]+id="motion-stage"/],
-  ["version 2 marker", /data-study-version="2"/],
-  ["named Wild Horse movement", /data-reference-movement="parting-wild-horse-mane"/],
+  ["version 3 marker", /data-study-version="3"/],
+  ["wide shallow viewbox", /viewBox="0 0 1000 140"/],
+  ["gesture-first marker", /data-rendering="gesture-lines"/],
+  ["profile movement marker", /data-view="strict-profile"/],
   ["pause control", /id="pause-animation"/],
   ["replay control", /id="replay-animation"/],
   ["reduced-motion fallback", /prefers-reduced-motion:\s*reduce/],
-  ["one-time composition", /const\s+COMPOSE_ONCE_MS\s*=/],
   ["continuous movement loop", /const\s+MOVEMENT_LOOP_MS\s*=/],
-  ["Wild Horse keyframes", /const\s+WILD_HORSE_KEYFRAMES\s*=/],
-  ["Wudang body regions", /const\s+WUDANG_PARTS\s*=/],
-  ["fabric lag", /const\s+FABRIC_LAG\s*=/],
-  ["static fallback figure", /id="static-figure"/],
-  ["static SVG fallback can be hidden", /#static-figure\[hidden\]\s*\{[^}]*display:\s*none/],
-  ["robe field renderer", /function\s+renderRobeField\s*\(/],
-  ["sleeve field renderer", /function\s+renderSleeveField\s*\(/],
-  ["coat-tail renderer", /function\s+renderCoatTails\s*\(/],
-  ["hand renderer", /function\s+renderHands\s*\(/],
-  ["collar renderer", /function\s+renderCollar\s*\(/],
-  ["profiled head contour", /id="head-profile-underlay"/],
-  ["topknot region", /data-region="topknot"/],
-  ["robe region", /data-region="robe"/],
-  ["sleeve regions", /data-region="sleeves"/],
-  ["coat-tail regions", /data-region="coat-tails"/],
-  ["hand regions", /data-region="hands"/],
-  ["collar region", /data-region="collar"/],
+  ["dissolving trail lifetime", /const\s+TRAIL_LIFETIME_MS\s*=/],
+  ["trail sampling interval", /const\s+TRAIL_SAMPLE_MS\s*=/],
+  ["tai chi gesture keyframes", /const\s+TAI_CHI_KEYFRAMES\s*=/],
+  ["live gesture layer", /id="live-gesture"/],
+  ["dissolving trail layer", /id="gesture-trails"/],
+  ["spine gesture", /data-stroke="spine"/],
+  ["leading arm gesture", /data-stroke="lead-arm"/],
+  ["following arm gesture", /data-stroke="following-arm"/],
+  ["grounded leg gesture", /data-stroke="grounded-leg"/],
+  ["stepping leg gesture", /data-stroke="stepping-leg"/],
+  ["snapshot trail renderer", /function\s+captureTrail\s*\(/],
+  ["trail fade renderer", /function\s+renderTrails\s*\(/],
+  ["static reduced-motion pose", /id="static-gesture"/],
   ["responsive mobile layout", /@media\s*\(max-width:\s*760px\)/],
   ["dark colour treatment", /@media\s*\(prefers-color-scheme:\s*dark\)/],
   ["labelled review controls", /aria-label="Animation review controls"/],
@@ -45,8 +42,8 @@ const failures = checks
   .filter(([, pattern]) => !pattern.test(source))
   .map(([label]) => label);
 
-if (/\bstaticFigure\.hidden\s*=/.test(source)) {
-  failures.push("SVG layers do not use the unsupported .hidden property");
+if (/<text\b[^>]*class=["'][^"']*(?:glyph|token)/.test(source)) {
+  failures.push("version 3 postpones Markdown glyph rendering");
 }
 
 if (/<(?:script|link)[^>]+(?:src|href)=["']https?:\/\//.test(source)) {
