@@ -11,7 +11,7 @@ authors: ["Rufus Pollock"]
 
 Your filesystem is already a database. Most tools just don't treat it that way.
 
-This is the core insight behind one of the most useful — and underused — patterns in software: treating a collection of markdown files not as documents to be rendered, but as records in a database.
+This is the core insight behind one of the most useful (and underused) patterns in software: treating a collection of markdown files not as documents to be rendered, but as records in a database.
 
 Call it the **Markdown Database Pattern**.
 
@@ -19,7 +19,7 @@ Call it the **Markdown Database Pattern**.
 
 ## Why naming matters
 
-In software, naming a pattern is not a trivial act. Christopher Alexander, who pioneered the idea of design patterns in architecture, argued that naming a pattern gives you something to think *with* — a concept you can reach for, share, and build on. The Gang of Four did the same for object-oriented design. Martin Fowler for enterprise architecture.
+In software, naming a pattern is not a trivial act. Christopher Alexander, who pioneered the idea of design patterns in architecture, argued that naming a pattern gives you something to think *with*: a concept you can reach for, share, and build on. The Gang of Four did the same for object-oriented design. Martin Fowler for enterprise architecture.
 
 The Markdown Database Pattern deserves a name for the same reason: it is a recurring solution to a recurring problem, it works across many different contexts, and once you see it you start seeing it everywhere.
 

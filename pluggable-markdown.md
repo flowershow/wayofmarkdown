@@ -44,6 +44,6 @@ graph LR
 
 Most formats extend by growing their spec, and every tool must implement everything or fail. Markdown extends by *convention inside a container the spec already has*. The format stays tiny; the ecosystem grows unboundedly; nothing ever breaks. It's the same trick that made HTML's `<script>` tag world-changing, done in plain text.
 
-Add the other two extension points — [inline HTML when you need real layout](markdown-websites.md) and frontmatter for [structured data](markdown-database.md) — and "just a formatting syntax" turns out to be a small, stable core with three clean sockets for infinite capability. None of that is an accident of design. See [why markdown is eating the world](manifesto.md).
+Add the other two extension points ([inline HTML when you need real layout](markdown-websites.md) and frontmatter for [structured data](markdown-database.md)) and "just a formatting syntax" turns out to be a small, stable core with three clean sockets for infinite capability. None of that is an accident of design. See [why markdown is eating the world](manifesto.md).
 
 More syntax fundamentals: [Markdown Basics](basics.md) · the full [everywhere list](everywhere.md)
