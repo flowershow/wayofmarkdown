@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Markdown tai chi — motion study</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --paper: #f5f3ea;
+      --paper-deep: #e9eee5;
+      --ink: #183128;
+      --muted: #678078;
+      --line: rgba(24, 49, 40, .16);
+      --accent: #16a34a;
+      --accent-soft: rgba(34, 197, 94, .16);
+      --panel: rgba(255, 255, 255, .58);
+      --shadow: rgba(24, 49, 40, .12);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 50% 38%, rgba(255,255,255,.92) 0 18%, transparent 52%),
+        linear-gradient(145deg, var(--paper), var(--paper-deep));
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    main {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: clamp(1rem, 4vw, 3rem);
+    }
+
+    .study {
+      width: min(96vw, 68rem);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(15rem, 22rem);
+      gap: clamp(1.5rem, 4vw, 4.5rem);
+      align-items: center;
+    }
+
+    .stage-shell {
+      position: relative;
+      aspect-ratio: 1;
+      border: 1px solid var(--line);
+      border-radius: clamp(1.5rem, 4vw, 3rem);
+      overflow: hidden;
+      background: rgba(255,255,255,.26);
+      box-shadow: 0 2rem 5rem var(--shadow), inset 0 1px rgba(255,255,255,.72);
+    }
+
+    .stage-shell::before {
+      content: "";
+      position: absolute;
+      inset: 12%;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--accent-soft), transparent 68%);
+      filter: blur(16px);
+    }
+
+    #motion-stage {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .eyebrow {
+      margin: 0 0 .65rem;
+      color: var(--accent);
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 11ch;
+      margin: 0;
+      font-family: ui-serif, Georgia, Cambria, "Times New Roman", serif;
+      font-size: clamp(2.4rem, 6vw, 5.2rem);
+      font-weight: 500;
+      letter-spacing: -.055em;
+      line-height: .92;
+    }
+
+    .lede {
+      max-width: 31rem;
+      margin: 1.25rem 0 1.75rem;
+      color: var(--muted);
+      font-family: ui-sans-serif, system-ui, sans-serif;
+      font-size: clamp(.95rem, 2vw, 1.08rem);
+      line-height: 1.6;
+    }
+
+    .phase-readout {
+      display: flex;
+      align-items: center;
+      gap: .65rem;
+      min-height: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--muted);
+      font-size: .72rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .phase-dot {
+      width: .5rem;
+      height: .5rem;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 .35rem var(--accent-soft);
+    }
+
+    .controls { display: grid; gap: .75rem; }
+    .mode-controls, .playback-controls { display: flex; flex-wrap: wrap; gap: .5rem; }
+
+    button {
+      appearance: none;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: .58rem .8rem;
+      color: var(--ink);
+      background: var(--panel);
+      font: 650 .72rem/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+      cursor: pointer;
+      transition: border-color 150ms ease, background 150ms ease, transform 150ms ease;
+    }
+
+    button:hover { border-color: var(--accent); transform: translateY(-1px); }
+    button:focus-visible { outline: 3px solid var(--accent-soft); outline-offset: 2px; }
+    button[aria-pressed="true"] { border-color: var(--accent); background: var(--accent-soft); color: var(--accent); }
+
+    .hint {
+      margin: .9rem 0 0;
+      color: var(--muted);
+      font-family: ui-sans-serif, system-ui, sans-serif;
+      font-size: .75rem;
+      line-height: 1.45;
+    }
+
+    .orbit { fill: none; stroke: var(--line); stroke-width: 1; stroke-dasharray: 2 9; }
+    .ground { stroke: var(--line); stroke-width: 1.4; }
+    .ground-glow { stroke: var(--accent); stroke-width: 2; opacity: .13; filter: blur(4px); }
+    .glyph { fill: var(--ink); font-weight: 700; dominant-baseline: middle; text-anchor: middle; }
+    .glyph.accent { fill: var(--accent); }
+    .ribbon-path { fill: none; stroke: none; }
+    .ribbon-text { fill: var(--ink); font-size: 13px; font-weight: 650; letter-spacing: 2px; }
+    .ribbon-text.accent { fill: var(--accent); }
+    .constellation-line { fill: none; stroke: var(--ink); stroke-width: 1; opacity: .16; }
+    .constellation-point { fill: var(--ink); opacity: .76; }
+    .constellation-point.accent { fill: var(--accent); }
+    .skeleton { fill: none; stroke: #d97706; stroke-width: 1.5; stroke-dasharray: 4 6; opacity: 0; }
+    .show-skeleton .skeleton { opacity: .45; }
+    .mode-layer[hidden] { display: none; }
+    #static-figure[hidden] { display: none; }
+
+    #static-figure text { fill: var(--ink); font-weight: 700; text-anchor: middle; }
+    #static-figure .fallback-accent { fill: var(--accent); }
+
+    @media (max-width: 760px) {
+      main { align-items: start; }
+      .study { grid-template-columns: 1fr; width: min(96vw, 36rem); }
+      .stage-shell { order: 2; }
+      .copy { order: 1; padding: .5rem .2rem 0; }
+      h1 { max-width: 13ch; font-size: clamp(2.6rem, 13vw, 4.4rem); }
+      .lede { margin-bottom: 1.2rem; }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #0d1713;
+        --paper-deep: #14221c;
+        --ink: #e8f1eb;
+        --muted: #9cb0a7;
+        --line: rgba(232, 241, 235, .16);
+        --accent: #4ade80;
+        --accent-soft: rgba(74, 222, 128, .14);
+        --panel: rgba(13, 23, 19, .66);
+        --shadow: rgba(0, 0, 0, .28);
+      }
+      body { background: radial-gradient(circle at 50% 38%, rgba(32,55,45,.82), transparent 49%), linear-gradient(145deg, var(--paper), var(--paper-deep)); }
+      .stage-shell { background: rgba(8,14,12,.22); box-shadow: 0 2rem 5rem var(--shadow), inset 0 1px rgba(255,255,255,.06); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #motion-stage * { animation: none !important; transition: none !important; }
+      .phase-dot { box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="study" aria-labelledby="study-title">
+      <div class="stage-shell">
+        <svg id="motion-stage" viewBox="0 0 600 600" role="img" aria-label="Markdown characters forming a person doing tai chi">
+          <circle class="orbit" cx="300" cy="286" r="204"></circle>
+          <circle class="orbit" cx="300" cy="286" r="156"></circle>
+          <line class="ground-glow" x1="155" y1="500" x2="445" y2="500"></line>
+          <line class="ground" x1="155" y1="500" x2="445" y2="500"></line>
+
+          <g id="static-figure" aria-hidden="true">
+            <text x="300" y="145" font-size="24" class="fallback-accent">#</text>
+            <text x="300" y="178" font-size="19">[ ]</text>
+            <text x="300" y="218" font-size="18">**</text>
+            <text x="284" y="255" font-size="17">&gt;</text>
+            <text x="316" y="255" font-size="17">_</text>
+            <text x="270" y="302" font-size="16">[</text>
+            <text x="330" y="302" font-size="16">]</text>
+            <text x="238" y="246" font-size="18">*</text>
+            <text x="205" y="286" font-size="18" class="fallback-accent">#</text>
+            <text x="362" y="250" font-size="18">_</text>
+            <text x="405" y="235" font-size="18" class="fallback-accent">&gt;</text>
+            <text x="270" y="370" font-size="19">/</text>
+            <text x="244" y="425" font-size="19">/</text>
+            <text x="205" y="486" font-size="20" class="fallback-accent">_</text>
+            <text x="340" y="372" font-size="19">\</text>
+            <text x="373" y="427" font-size="19">\</text>
+            <text x="417" y="486" font-size="20" class="fallback-accent">_</text>
+          </g>
+
+          <g id="skeleton-layer" class="skeleton" aria-hidden="true"></g>
+          <g id="glyph-body-layer" class="mode-layer" aria-hidden="true"></g>
+          <g id="syntax-ribbons-layer" class="mode-layer" aria-hidden="true" hidden></g>
+          <g id="source-constellation-layer" class="mode-layer" aria-hidden="true" hidden></g>
+        </svg>
+      </div>
+
+      <div class="copy">
+        <p class="eyebrow">Motion study 01 · issue #71</p>
+        <h1 id="study-title">The source finds its form.</h1>
+        <p class="lede">Plain symbols gather, move as one, then return to source. Three treatments, one gesture.</p>
+
+        <div class="phase-readout" aria-live="polite">
+          <span class="phase-dot" aria-hidden="true"></span>
+          <span id="phase-name">Compose</span>
+        </div>
+
+        <div class="controls" aria-label="Animation review controls">
+          <div class="mode-controls">
+            <button type="button" data-mode="glyph-body" aria-pressed="true">Glyph body</button>
+            <button type="button" data-mode="syntax-ribbons" aria-pressed="false">Syntax ribbons</button>
+            <button type="button" data-mode="source-constellation" aria-pressed="false">Constellation</button>
+          </div>
+          <div class="playback-controls">
+            <button type="button" id="pause-animation">Pause</button>
+            <button type="button" id="replay-animation">Replay</button>
+            <button type="button" id="toggle-skeleton" aria-pressed="false">Show skeleton</button>
+          </div>
+        </div>
+        <p class="hint">Review prototype only. It is deliberately separate from the homepage.</p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const PHASE_SOURCE = 0.12;
+    const PHASE_COMPOSE = 0.32;
+    const PHASE_FLOW = 0.82;
+    const PHASE_RELEASE = 1;
+    const LOOP_MS = 9000;
+
+    const BODY_KEYFRAMES = [
+      {
+        head: [300, 142], neck: [300, 184], leftShoulder: [267, 210], rightShoulder: [333, 210],
+        leftElbow: [238, 250], leftHand: [213, 296], rightElbow: [368, 250], rightHand: [403, 230],
+        leftHip: [281, 326], rightHip: [319, 326], leftKnee: [267, 405], rightKnee: [352, 398],
+        leftFoot: [205, 492], rightFoot: [418, 492]
+      },
+      {
+        head: [285, 144], neck: [288, 185], leftShoulder: [254, 209], rightShoulder: [321, 216],
+        leftElbow: [218, 225], leftHand: [187, 263], rightElbow: [351, 270], rightHand: [386, 303],
+        leftHip: [264, 327], rightHip: [306, 331], leftKnee: [240, 401], rightKnee: [351, 407],
+        leftFoot: [190, 492], rightFoot: [412, 492]
+      },
+      {
+        head: [314, 142], neck: [311, 184], leftShoulder: [278, 217], rightShoulder: [344, 208],
+        leftElbow: [248, 273], leftHand: [214, 307], rightElbow: [380, 224], rightHand: [418, 261],
+        leftHip: [294, 331], rightHip: [336, 326], leftKnee: [254, 407], rightKnee: [368, 399],
+        leftFoot: [194, 492], rightFoot: [425, 492]
+      },
+      {
+        head: [300, 142], neck: [300, 184], leftShoulder: [267, 210], rightShoulder: [333, 210],
+        leftElbow: [236, 248], leftHand: [205, 275], rightElbow: [364, 248], rightHand: [397, 274],
+        leftHip: [281, 326], rightHip: [319, 326], leftKnee: [267, 405], rightKnee: [352, 398],
+        leftFoot: [205, 492], rightFoot: [418, 492]
+      }
+    ];
+
+    const SEGMENTS = [
+      ["shoulders", "leftShoulder", "rightShoulder", 6],
+      ["spine", "neck", "leftHip", 8],
+      ["chest", "neck", "rightHip", 8],
+      ["leftUpperArm", "leftShoulder", "leftElbow", 5],
+      ["leftForearm", "leftElbow", "leftHand", 5],
+      ["rightUpperArm", "rightShoulder", "rightElbow", 5],
+      ["rightForearm", "rightElbow", "rightHand", 5],
+      ["waist", "leftHip", "rightHip", 5],
+      ["leftThigh", "leftHip", "leftKnee", 6],
+      ["leftShin", "leftKnee", "leftFoot", 7],
+      ["rightThigh", "rightHip", "rightKnee", 6],
+      ["rightShin", "rightKnee", "rightFoot", 7]
+    ];
+
+    const TOKENS = ["#", "**", "_", ">", "[]", "`", "*", "-", "()", "!", "[", "]", "~"];
+    const SVG_NS = "http://www.w3.org/2000/svg";
+    const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
+    const stage = document.querySelector("#motion-stage");
+    const glyphLayer = document.querySelector("#glyph-body-layer");
+    const ribbonLayer = document.querySelector("#syntax-ribbons-layer");
+    const constellationLayer = document.querySelector("#source-constellation-layer");
+    const skeletonLayer = document.querySelector("#skeleton-layer");
+    const staticFigure = document.querySelector("#static-figure");
+    const phaseName = document.querySelector("#phase-name");
+
+    const clamp = (value, min = 0, max = 1) => Math.min(max, Math.max(min, value));
+    const mix = (a, b, amount) => a + (b - a) * amount;
+    const ease = value => value < .5 ? 4 * value ** 3 : 1 - ((-2 * value + 2) ** 3) / 2;
+
+    function mixPose(a, b, amount) {
+      return Object.fromEntries(Object.keys(a).map(key => [key, [mix(a[key][0], b[key][0], amount), mix(a[key][1], b[key][1], amount)]]));
+    }
+
+    function sampleFlow(progress) {
+      const scaled = clamp(progress) * (BODY_KEYFRAMES.length - 1);
+      const index = Math.min(BODY_KEYFRAMES.length - 2, Math.floor(scaled));
+      return mixPose(BODY_KEYFRAMES[index], BODY_KEYFRAMES[index + 1], ease(scaled - index));
+    }
+
+    function pointOnSegment(pose, segment, amount) {
+      if (segment === "head") {
+        const angle = amount * Math.PI * 2 - Math.PI / 2;
+        return [pose.head[0] + Math.cos(angle) * 22, pose.head[1] + Math.sin(angle) * 27, angle + Math.PI / 2];
+      }
+      const spec = SEGMENTS.find(([name]) => name === segment);
+      const start = pose[spec[1]];
+      const end = pose[spec[2]];
+      return [mix(start[0], end[0], amount), mix(start[1], end[1], amount), Math.atan2(end[1] - start[1], end[0] - start[0])];
+    }
+
+    const GLYPH_SPECS = [];
+    for (let index = 0; index < 10; index += 1) {
+      GLYPH_SPECS.push({ segment: "head", amount: index / 10, token: TOKENS[index % TOKENS.length], accent: index === 0 });
+    }
+    SEGMENTS.forEach(([segment,,, count], segmentIndex) => {
+      for (let index = 0; index < count; index += 1) {
+        GLYPH_SPECS.push({
+          segment,
+          amount: count === 1 ? .5 : index / (count - 1),
+          token: TOKENS[(segmentIndex * 3 + index) % TOKENS.length],
+          accent: index === count - 1 && [4, 6, 9, 11].includes(segmentIndex)
+        });
+      }
+    });
+
+    function sourcePoint(index) {
+      const angle = index * 2.399963 + .4;
+      const radius = 118 + (index % 9) * 14;
+      return [300 + Math.cos(angle) * radius, 292 + Math.sin(angle) * radius * .86, angle];
+    }
+
+    const glyphNodes = GLYPH_SPECS.map((spec, index) => {
+      const text = document.createElementNS(SVG_NS, "text");
+      text.classList.add("glyph");
+      if (spec.accent) text.classList.add("accent");
+      text.textContent = spec.token;
+      text.setAttribute("font-size", spec.token.length > 1 ? "13" : index % 7 === 0 ? "19" : "15");
+      glyphLayer.append(text);
+      return text;
+    });
+
+    const ribbonSegments = ["shoulders", "leftUpperArm", "leftForearm", "rightUpperArm", "rightForearm", "spine", "leftThigh", "leftShin", "rightThigh", "rightShin"];
+    const ribbonNodes = ribbonSegments.map((segment, index) => {
+      const path = document.createElementNS(SVG_NS, "path");
+      path.id = `ribbon-${index}`;
+      path.classList.add("ribbon-path");
+      ribbonLayer.append(path);
+      const text = document.createElementNS(SVG_NS, "text");
+      text.classList.add("ribbon-text");
+      if ([2, 4, 7, 9].includes(index)) text.classList.add("accent");
+      const textPath = document.createElementNS(SVG_NS, "textPath");
+      textPath.setAttribute("href", `#ribbon-${index}`);
+      textPath.setAttribute("startOffset", "4%");
+      textPath.textContent = ["# heading", "**strong**", "_flow_", "> quote", "[link]", "``` source", "- list", "* move", "[] form", "# way"][index];
+      text.append(textPath);
+      ribbonLayer.append(text);
+      return { segment, path, text };
+    });
+
+    const constellationLines = SEGMENTS.map(([segment]) => {
+      const path = document.createElementNS(SVG_NS, "path");
+      path.classList.add("constellation-line");
+      constellationLayer.append(path);
+      return { segment, path };
+    });
+    const constellationPoints = GLYPH_SPECS.map((spec, index) => {
+      const circle = document.createElementNS(SVG_NS, "circle");
+      circle.classList.add("constellation-point");
+      if (spec.accent) circle.classList.add("accent");
+      circle.setAttribute("r", index % 8 === 0 ? "3.2" : "2");
+      constellationLayer.append(circle);
+      return circle;
+    });
+
+    const skeletonPaths = SEGMENTS.map(([segment]) => {
+      const path = document.createElementNS(SVG_NS, "path");
+      skeletonLayer.append(path);
+      return { segment, path };
+    });
+
+    function phaseAt(cycle) {
+      if (cycle < PHASE_SOURCE) return { name: "Source", form: 0, flow: 0 };
+      if (cycle < PHASE_COMPOSE) return { name: "Compose", form: ease((cycle - PHASE_SOURCE) / (PHASE_COMPOSE - PHASE_SOURCE)), flow: 0 };
+      if (cycle < PHASE_FLOW) return { name: "Flow", form: 1, flow: (cycle - PHASE_COMPOSE) / (PHASE_FLOW - PHASE_COMPOSE) };
+      return { name: "Release", form: 1 - ease((cycle - PHASE_FLOW) / (PHASE_RELEASE - PHASE_FLOW)), flow: 1 };
+    }
+
+    function currentPoint(spec, index, pose, form) {
+      const body = pointOnSegment(pose, spec.segment, spec.amount);
+      const source = sourcePoint(index);
+      return [mix(source[0], body[0], form), mix(source[1], body[1], form), mix(source[2], body[2], form)];
+    }
+
+    function pathForSegment(pose, segment) {
+      const spec = SEGMENTS.find(([name]) => name === segment);
+      const start = pose[spec[1]];
+      const end = pose[spec[2]];
+      const bend = segment.includes("Arm") || segment.includes("Forearm") ? -7 : segment.includes("Thigh") ? 5 : 0;
+      const middle = [(start[0] + end[0]) / 2 + bend, (start[1] + end[1]) / 2];
+      return `M ${start[0]} ${start[1]} Q ${middle[0]} ${middle[1]} ${end[0]} ${end[1]}`;
+    }
+
+    function renderGlyphBody(pose, form) {
+      glyphNodes.forEach((node, index) => {
+        const [x, y, angle] = currentPoint(GLYPH_SPECS[index], index, pose, form);
+        node.setAttribute("x", x.toFixed(2));
+        node.setAttribute("y", y.toFixed(2));
+        node.setAttribute("transform", `rotate(${angle * 180 / Math.PI} ${x} ${y})`);
+        node.setAttribute("opacity", (.28 + form * .72).toFixed(2));
+      });
+    }
+
+    function renderSyntaxRibbons(pose, form) {
+      ribbonNodes.forEach(({ segment, path, text }, index) => {
+        if (form < .08) {
+          const source = sourcePoint(index * 7);
+          path.setAttribute("d", `M ${source[0] - 25} ${source[1]} q 25 -12 50 0`);
+        } else {
+          path.setAttribute("d", pathForSegment(pose, segment));
+        }
+        text.setAttribute("opacity", (.18 + form * .82).toFixed(2));
+      });
+    }
+
+    function renderSourceConstellation(pose, form) {
+      constellationPoints.forEach((node, index) => {
+        const [x, y] = currentPoint(GLYPH_SPECS[index], index, pose, form);
+        node.setAttribute("cx", x.toFixed(2));
+        node.setAttribute("cy", y.toFixed(2));
+        node.setAttribute("opacity", (.3 + form * .55).toFixed(2));
+      });
+      constellationLines.forEach(({ segment, path }) => {
+        path.setAttribute("d", pathForSegment(pose, segment));
+        path.setAttribute("opacity", (form * .22).toFixed(2));
+      });
+    }
+
+    function renderSkeleton(pose) {
+      skeletonPaths.forEach(({ segment, path }) => path.setAttribute("d", pathForSegment(pose, segment)));
+    }
+
+    let startTime = performance.now();
+    let pausedAt = null;
+    let animationFrame = null;
+    let activeMode = "glyph-body";
+
+    function renderAt(cycle) {
+      const phase = phaseAt(cycle);
+      const pose = sampleFlow(phase.flow);
+      renderGlyphBody(pose, phase.form);
+      renderSyntaxRibbons(pose, phase.form);
+      renderSourceConstellation(pose, phase.form);
+      renderSkeleton(pose);
+      phaseName.textContent = phase.name;
+    }
+
+    function tick(now) {
+      const cycle = ((now - startTime) % LOOP_MS) / LOOP_MS;
+      renderAt(cycle);
+      animationFrame = requestAnimationFrame(tick);
+    }
+
+    function setMode(mode) {
+      activeMode = mode;
+      document.querySelectorAll("[data-mode]").forEach(button => button.setAttribute("aria-pressed", String(button.dataset.mode === mode)));
+      glyphLayer.toggleAttribute("hidden", mode !== "glyph-body");
+      ribbonLayer.toggleAttribute("hidden", mode !== "syntax-ribbons");
+      constellationLayer.toggleAttribute("hidden", mode !== "source-constellation");
+    }
+
+    document.querySelectorAll("[data-mode]").forEach(button => button.addEventListener("click", () => setMode(button.dataset.mode)));
+
+    const pauseButton = document.querySelector("#pause-animation");
+    pauseButton.addEventListener("click", () => {
+      if (reducedMotion.matches) return;
+      if (pausedAt === null) {
+        pausedAt = performance.now();
+        cancelAnimationFrame(animationFrame);
+        pauseButton.textContent = "Continue";
+      } else {
+        startTime += performance.now() - pausedAt;
+        pausedAt = null;
+        pauseButton.textContent = "Pause";
+        animationFrame = requestAnimationFrame(tick);
+      }
+    });
+
+    document.querySelector("#replay-animation").addEventListener("click", () => {
+      startTime = performance.now();
+      if (pausedAt !== null) pausedAt = startTime;
+      renderAt(0);
+    });
+
+    document.querySelector("#toggle-skeleton").addEventListener("click", event => {
+      const pressed = event.currentTarget.getAttribute("aria-pressed") === "true";
+      event.currentTarget.setAttribute("aria-pressed", String(!pressed));
+      stage.classList.toggle("show-skeleton", !pressed);
+    });
+
+    staticFigure.toggleAttribute("hidden", true);
+    setMode(activeMode);
+    if (reducedMotion.matches) {
+      renderAt(.55);
+      phaseName.textContent = "Still pose · reduced motion";
+      pauseButton.disabled = true;
+    } else {
+      animationFrame = requestAnimationFrame(tick);
+    }
+  </script>
+</body>
+</html>
