@@ -84,9 +84,9 @@
 
     .figure-underlay {
       fill: var(--ink);
-      fill-opacity: .035;
+      fill-opacity: .07;
       stroke: var(--ink);
-      stroke-opacity: .11;
+      stroke-opacity: .2;
       stroke-width: 1.1;
       stroke-linejoin: round;
       transition: opacity 160ms ease;
@@ -95,7 +95,7 @@
     .limb-underlay {
       fill: none;
       stroke: var(--ink);
-      stroke-opacity: .055;
+      stroke-opacity: .1;
       stroke-linecap: round;
       stroke-linejoin: round;
     }
@@ -107,7 +107,7 @@
       text-anchor: middle;
       paint-order: stroke;
       stroke: rgba(242, 240, 231, .3);
-      stroke-width: .35px;
+      stroke-width: .18px;
     }
 
     .master-glyph.accent { fill: var(--accent); }
@@ -300,13 +300,20 @@
               <path id="robe-underlay" class="figure-underlay"></path>
               <g id="robe-glyphs"></g>
             </g>
+            <g data-region="collar">
+              <path id="collar-underlay" class="figure-underlay"></path>
+              <g id="collar-glyphs"></g>
+            </g>
             <g data-region="sleeves">
               <path id="back-sleeve-underlay" class="limb-underlay" stroke-width="42"></path>
               <path id="front-sleeve-underlay" class="limb-underlay" stroke-width="46"></path>
               <g id="sleeve-glyphs"></g>
             </g>
+            <g data-region="hands">
+              <g id="hand-glyphs"></g>
+            </g>
             <g data-region="head">
-              <ellipse id="head-underlay" class="figure-underlay" rx="19" ry="25"></ellipse>
+              <path id="head-profile-underlay" class="figure-underlay"></path>
               <g id="head-glyphs"></g>
             </g>
             <g data-region="topknot">
@@ -351,12 +358,14 @@
     const FABRIC_LAG = 0.032;
 
     const WUDANG_PARTS = {
-      robe: { rows: 9, columns: 6 },
-      sleeves: { along: 7, across: 3 },
-      legs: { along: 7, across: 3 },
-      coatTails: { rows: 6, columns: 2 },
-      head: { count: 15 },
-      topknot: { count: 7 }
+      robe: { rows: 10, columns: 7 },
+      sleeves: { along: 8, across: 4 },
+      legs: { along: 8, across: 3 },
+      coatTails: { rows: 7, columns: 3 },
+      hands: { count: 9 },
+      collar: { count: 9 },
+      head: { count: 17 },
+      topknot: { count: 5 }
     };
 
     const CRADLE = {
@@ -406,16 +415,18 @@
       { at: 1, name: "Cradle", pose: CRADLE }
     ];
 
-    const TOKENS = ["#", "**", "_", ">", "[]", "`", "*", "-", "()", "[", "]", "~", "##", "__"];
+    const TOKENS = ["#", "*", "_", ">", "[", "]", "`", "~", "-", "/", "\\", ".", ":", "()", "**", "[]"];
     const stage = document.querySelector("#motion-stage");
     const staticFigure = document.querySelector("#static-figure");
     const phaseName = document.querySelector("#phase-name");
     const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
 
     const robeGroup = document.querySelector("#robe-glyphs");
+    const collarGroup = document.querySelector("#collar-glyphs");
     const sleeveGroup = document.querySelector("#sleeve-glyphs");
     const legGroup = document.querySelector("#leg-glyphs");
     const tailGroup = document.querySelector("#tail-glyphs");
+    const handGroup = document.querySelector("#hand-glyphs");
     const headGroup = document.querySelector("#head-glyphs");
     const topknotGroup = document.querySelector("#topknot-glyphs");
 
@@ -444,7 +455,7 @@
       if (edge) node.classList.add("edge");
       if ((index + region.length) % 17 === 0) node.classList.add("accent");
       node.textContent = TOKENS[(index * 5 + region.length * 3) % TOKENS.length];
-      node.setAttribute("font-size", edge ? "15" : index % 9 === 0 ? "14" : "11.5");
+      node.setAttribute("font-size", edge ? "11.8" : index % 11 === 0 ? "10.6" : "9.3");
       group.append(node);
       return { node, index, region };
     }
@@ -482,9 +493,19 @@
       }
     });
 
+    const handGlyphs = [];
+    ["back", "front"].forEach(limb => {
+      for (let index = 0; index < WUDANG_PARTS.hands.count; index += 1) {
+        handGlyphs.push({ ...makeGlyph(handGroup, handGlyphs.length, "hands", index === 0 || index === 4), limb, handIndex: index });
+      }
+    });
+
+    const collarGlyphs = Array.from({ length: WUDANG_PARTS.collar.count }, (_, index) => makeGlyph(collarGroup, index, "collar", true));
+
     const headGlyphs = Array.from({ length: WUDANG_PARTS.head.count }, (_, index) => makeGlyph(headGroup, index, "head", index % 4 === 0));
     const topknotGlyphs = Array.from({ length: WUDANG_PARTS.topknot.count }, (_, index) => makeGlyph(topknotGroup, index, "topknot", true));
-    const allGlyphs = [...tailGlyphs, ...legGlyphs, ...robeGlyphs, ...sleeveGlyphs, ...headGlyphs, ...topknotGlyphs];
+    headGlyphs[3].node.textContent = ">";
+    const allGlyphs = [...tailGlyphs, ...legGlyphs, ...robeGlyphs, ...collarGlyphs, ...sleeveGlyphs, ...handGlyphs, ...headGlyphs, ...topknotGlyphs];
 
     function sourcePoint(index) {
       const angle = index * 2.399963 + .65;
@@ -527,6 +548,16 @@
         setGlyph(glyph, point, form, -.06 + v * .05);
       });
       document.querySelector("#robe-underlay").setAttribute("d", `M ${corners.topBack} Q ${pose.neck[0]} ${pose.neck[1] - 4} ${corners.topFront} L ${corners.bottomFront} Q ${(corners.bottomFront[0] + corners.bottomBack[0]) / 2} ${corners.bottomFront[1] + 10} ${corners.bottomBack} Z`);
+    }
+
+    function renderCollar(pose, form) {
+      const [x, y] = pose.neck;
+      const points = [
+        [x - 13, y - 3], [x - 8, y + 6], [x - 3, y + 15], [x + 3, y + 24],
+        [x + 9, y + 15], [x + 16, y + 5], [x + 8, y + 2], [x + 1, y + 11], [x - 6, y + 2]
+      ];
+      collarGlyphs.forEach((glyph, index) => setGlyph(glyph, points[index], form, index < 4 ? .7 : -.62));
+      document.querySelector("#collar-underlay").setAttribute("d", `M ${x - 15} ${y - 7} L ${x + 3} ${y + 25} L ${x + 19} ${y - 5} L ${x + 9} ${y - 10} L ${x + 1} ${y + 10} L ${x - 6} ${y - 10} Z`);
     }
 
     function pointOnBentLimb(start, bend, end, along) {
@@ -572,6 +603,21 @@
       document.querySelector("#front-leg-underlay").setAttribute("d", `M ${pose.hipFront} Q ${pose.frontKnee} ${pose.frontFoot}`);
     }
 
+    function renderHands(pose, form) {
+      handGlyphs.forEach(glyph => {
+        const hand = pose[`${glyph.limb}Hand`];
+        const elbow = pose[`${glyph.limb}Elbow`];
+        const armAngle = Math.atan2(hand[1] - elbow[1], hand[0] - elbow[0]);
+        const tangent = [Math.cos(armAngle), Math.sin(armAngle)];
+        const perpendicular = [-tangent[1], tangent[0]];
+        const fan = (glyph.handIndex - (WUDANG_PARTS.hands.count - 1) / 2) / ((WUDANG_PARTS.hands.count - 1) / 2);
+        const reach = 4 + Math.abs(fan) * 6;
+        const spread = fan * 8;
+        const point = [hand[0] + tangent[0] * reach + perpendicular[0] * spread, hand[1] + tangent[1] * reach + perpendicular[1] * spread];
+        setGlyph(glyph, point, form, armAngle + fan * .22);
+      });
+    }
+
     function tailCorners(pose, tail) {
       if (tail === "back") {
         return {
@@ -599,20 +645,21 @@
     }
 
     function renderHead(pose, form) {
+      const headPoints = [
+        [-.55,-.8], [0,-.94], [.5,-.72], [.92,-.3], [.68,-.02], [.82,.34], [.38,.77],
+        [-.18,.88], [-.7,.56], [-.88,.08], [-.75,-.42], [-.12,-.36], [.27,.02], [-.18,.28],
+        [.32,.43], [-.42,.08], [.08,.62]
+      ];
       headGlyphs.forEach((glyph, index) => {
-        const angle = index / headGlyphs.length * Math.PI * 2 - Math.PI / 2;
-        const radiusX = index % 3 === 0 ? 18 : 13;
-        const radiusY = index % 3 === 0 ? 24 : 18;
-        const profileNudge = Math.cos(angle) > .65 ? 3.5 : 0;
-        setGlyph(glyph, [pose.head[0] + Math.cos(angle) * radiusX + profileNudge, pose.head[1] + Math.sin(angle) * radiusY], form, angle + Math.PI / 2);
+        const [x, y] = headPoints[index];
+        setGlyph(glyph, [pose.head[0] + x * 19, pose.head[1] + y * 25], form, x * .18);
       });
       topknotGlyphs.forEach((glyph, index) => {
         const angle = index / topknotGlyphs.length * Math.PI * 2;
         setGlyph(glyph, [pose.topknot[0] + Math.cos(angle) * 8, pose.topknot[1] + Math.sin(angle) * 7], form, angle);
       });
-      const underlay = document.querySelector("#head-underlay");
-      underlay.setAttribute("cx", pose.head[0]);
-      underlay.setAttribute("cy", pose.head[1]);
+      const [x, y] = pose.head;
+      document.querySelector("#head-profile-underlay").setAttribute("d", `M ${x - 12} ${y - 24} Q ${x + 5} ${y - 28} ${x + 13} ${y - 16} L ${x + 19} ${y - 7} L ${x + 14} ${y - 2} Q ${x + 20} ${y + 6} ${x + 11} ${y + 12} Q ${x + 6} ${y + 24} ${x - 8} ${y + 24} Q ${x - 20} ${y + 8} ${x - 17} ${y - 12} Z`);
     }
 
     const jointNodes = Object.keys(CRADLE).map(key => {
@@ -641,7 +688,9 @@
       renderCoatTails(fabric.pose, form);
       renderLegField(body.pose, form);
       renderRobeField(body.pose, form);
+      renderCollar(body.pose, form);
       renderSleeveField(fabric.pose, form);
+      renderHands(body.pose, form);
       renderHead(body.pose, form);
       renderConstruction(body.pose);
       phaseName.textContent = form < 1 ? "Compose" : body.name;
