@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tai chi across the page — gesture study</title>
+  <title>Tai chi across the page — gesture study 04</title>
   <style>
     :root {
       color-scheme: light dark;
-      --paper: #f5f3eb;
-      --paper-deep: #ebe8dc;
-      --ink: #17342b;
-      --ink-soft: #65776f;
-      --line: rgba(23, 52, 43, .14);
+      --paper: #f6f3ea;
+      --paper-deep: #efebdd;
+      --ink: #1b2b24;
+      --ink-soft: #6b7c74;
+      --line: rgba(27, 43, 36, .13);
       --accent: #168a46;
-      --panel: rgba(255, 255, 255, .52);
+      --panel: rgba(255, 255, 255, .55);
     }
 
     * { box-sizing: border-box; }
@@ -22,30 +22,22 @@
       min-width: 320px;
       margin: 0;
       color: var(--ink);
-      background: linear-gradient(155deg, var(--paper), var(--paper-deep));
+      background: var(--paper);
       font-family: ui-sans-serif, system-ui, sans-serif;
     }
 
     main {
-      min-height: 100vh;
-      display: grid;
-      place-items: center;
-      padding: clamp(1.25rem, 5vw, 4.5rem);
+      max-width: 82rem;
+      margin: 0 auto;
+      padding: clamp(1.25rem, 5vw, 4rem) clamp(1rem, 4vw, 3rem) 5rem;
     }
 
-    .study {
-      width: min(96vw, 78rem);
-    }
-
-    .copy {
-      max-width: 42rem;
-      margin-bottom: clamp(2.5rem, 7vw, 6rem);
-    }
+    .copy { max-width: 40rem; margin-bottom: clamp(2rem, 6vw, 4rem); }
 
     .eyebrow {
       margin: 0 0 .7rem;
       color: var(--accent);
-      font: 750 .7rem/1.2 ui-monospace, SFMono-Regular, Menlo, monospace;
+      font: 750 .68rem/1.2 ui-monospace, SFMono-Regular, Menlo, monospace;
       letter-spacing: .15em;
       text-transform: uppercase;
     }
@@ -53,427 +45,684 @@
     h1 {
       margin: 0;
       font-family: ui-serif, Georgia, Cambria, "Times New Roman", serif;
-      font-size: clamp(2.5rem, 6vw, 5.1rem);
+      font-size: clamp(2.2rem, 5vw, 4rem);
       font-weight: 450;
-      letter-spacing: -.052em;
-      line-height: .95;
+      letter-spacing: -.05em;
+      line-height: .98;
     }
 
     .lede {
-      max-width: 37rem;
-      margin: 1.15rem 0 0;
+      max-width: 34rem;
+      margin: 1.1rem 0 0;
       color: var(--ink-soft);
-      font-size: clamp(.95rem, 2vw, 1.08rem);
+      font-size: clamp(.94rem, 2vw, 1.05rem);
       line-height: 1.55;
     }
 
-    .stage-shell {
-      width: 100%;
-      min-height: 80px;
-      overflow: hidden;
-      border-block: 1px solid var(--line);
-      background: rgba(255, 255, 255, .16);
-    }
-
-    #motion-stage {
-      display: block;
-      width: 100%;
-      height: auto;
-      min-height: 80px;
-      max-height: 140px;
-    }
-
-    .ink-stroke {
-      fill: none;
-      stroke: var(--ink);
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      vector-effect: non-scaling-stroke;
-    }
-
-    .spine { stroke-width: 2.85; }
-    .lead-arm { stroke-width: 2.35; }
-    .following-arm { stroke-width: 1.75; opacity: .56; }
-    .grounded-leg { stroke-width: 2.75; }
-    .stepping-leg { stroke-width: 2.2; }
-    .centre { stroke-width: 1.35; opacity: .52; }
-
-    #live-gesture {
-      filter: url(#ink-waver);
-    }
-
-    .trail-snapshot {
-      pointer-events: none;
-      filter: url(#dry-brush);
-    }
-
-    .trail-snapshot .ink-stroke {
-      stroke: var(--ink-soft);
-    }
-
-    #static-gesture { display: none; }
-
-    .review-bar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-
-    .phase {
-      display: flex;
-      align-items: center;
-      gap: .55rem;
-      min-width: 9rem;
+    h2 {
+      margin: 0 0 .8rem;
       color: var(--ink-soft);
       font: 700 .66rem/1 ui-monospace, SFMono-Regular, Menlo, monospace;
-      letter-spacing: .11em;
+      letter-spacing: .13em;
       text-transform: uppercase;
     }
 
-    .phase::before {
-      content: "";
-      width: 1.4rem;
-      height: 1px;
-      background: var(--accent);
+    .band { margin-bottom: clamp(2rem, 5vw, 3.5rem); }
+
+    .stage-shell {
+      width: 100%;
+      overflow: hidden;
+      border-block: 1px solid var(--line);
     }
 
-    .controls {
+    .tai-chi-stage {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    /* Real hero scale: the study has to work here, not when enlarged. The
+       stage height is fixed and the viewBox width is derived from it at
+       runtime, so the figure is the same size on a phone as on a desktop —
+       the narrow screen simply sees less of the strip. */
+    .band--hero .tai-chi-stage { height: 88px; }
+    .band--study .tai-chi-stage[data-stage] { height: 190px; }
+    .tai-chi-stage[data-sheet] { height: auto; }
+
+    @media (max-width: 640px) {
+      .band--hero .tai-chi-stage { height: 72px; }
+      .band--study .tai-chi-stage[data-stage] { height: 132px; }
+    }
+
+    .ink { fill: var(--ink); stroke: none; }
+    .ink--soft { opacity: .66; }
+    .ink--faint { opacity: .28; }
+
+    #trail-layer { pointer-events: none; }
+
+    .no-js-figure { display: none; }
+    .no-js .no-js-figure { display: inline; }
+
+    .review-bar {
       display: flex;
       flex-wrap: wrap;
-      justify-content: flex-end;
-      gap: .5rem;
+      align-items: center;
+      gap: .5rem .6rem;
+      margin-top: 1rem;
     }
 
     button {
       appearance: none;
       border: 1px solid var(--line);
       border-radius: 999px;
-      padding: .55rem .82rem;
+      padding: .5rem .8rem;
       color: var(--ink);
       background: var(--panel);
-      font: 700 .69rem/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+      font: 700 .68rem/1 ui-monospace, SFMono-Regular, Menlo, monospace;
       cursor: pointer;
     }
 
     button:hover { border-color: var(--accent); }
-    button:focus-visible { outline: 3px solid rgba(22, 138, 70, .18); outline-offset: 2px; }
-    button:disabled { cursor: default; opacity: .45; }
+    button:focus-visible { outline: 3px solid rgba(22, 138, 70, .2); outline-offset: 2px; }
+    button[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); }
 
-    .note {
-      margin: 1.7rem 0 0;
+    .scrub { display: flex; align-items: center; gap: .5rem; flex: 1 1 14rem; }
+
+    input[type="range"] { flex: 1; accent-color: var(--accent); }
+
+    .readout {
+      min-width: 5.5rem;
       color: var(--ink-soft);
-      font-size: .75rem;
-      line-height: 1.5;
+      font: 700 .64rem/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+      letter-spacing: .08em;
     }
 
-    @media (max-width: 760px) {
-      main { align-items: start; padding-inline: 1rem; }
-      .copy { margin-bottom: 3rem; }
-      .stage-shell { width: calc(100vw - 2rem); overflow: hidden; }
-      #motion-stage { width: 180%; max-width: none; }
-      .review-bar { align-items: flex-start; flex-direction: column; }
-      .controls { justify-content: flex-start; }
+    .note {
+      max-width: 40rem;
+      margin: 2rem 0 0;
+      color: var(--ink-soft);
+      font-size: .78rem;
+      line-height: 1.6;
     }
 
     @media (prefers-color-scheme: dark) {
       :root {
-        --paper: #0c1713;
-        --paper-deep: #13231c;
-        --ink: #e3eee7;
-        --ink-soft: #9bafa5;
-        --line: rgba(227, 238, 231, .15);
+        --paper: #0d1512;
+        --paper-deep: #121e18;
+        --ink: #e6efe9;
+        --ink-soft: #93a79d;
+        --line: rgba(230, 239, 233, .14);
         --accent: #4ade80;
-        --panel: rgba(8, 17, 13, .52);
+        --panel: rgba(8, 17, 13, .55);
       }
-      .stage-shell { background: rgba(255, 255, 255, .018); }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      #live-gesture,
-      #gesture-trails { display: none; }
-      #static-gesture { display: inline; }
+      .review-bar { display: none; }
     }
   </style>
 </head>
-<body data-study-version="3" data-rendering="gesture-lines" data-view="strict-profile">
+<body class="no-js" data-study-version="4" data-rendering="brush-strokes" data-view="strict-profile" data-movement="brush-knee-and-push">
   <main>
-    <section class="study" aria-labelledby="study-title">
-      <div class="copy">
-        <p class="eyebrow">Motion study 03 · ink before syntax</p>
-        <h1 id="study-title">A form unfolds.</h1>
-        <p class="lede">One side-on tai chi phrase crossing the page. Earlier gestures hang briefly in the air, then dissolve.</p>
-      </div>
+    <div class="copy">
+      <p class="eyebrow">Motion study 04 · ink before syntax</p>
+      <h1>A form crosses the page.</h1>
+      <p class="lede">One tai chi phrase, repeated step after step, travelling left to right in strict profile. Every few steps the settled stance stays behind as drying ink.</p>
+    </div>
 
+    <section class="band band--hero">
+      <h2>At hero size (88px)</h2>
       <div class="stage-shell">
-        <svg id="motion-stage" viewBox="0 0 1000 140" role="img" aria-label="A sparse side-profile figure performing tai chi as it travels from left to right">
-          <defs>
-            <filter id="ink-waver" x="-8%" y="-8%" width="116%" height="116%">
-              <feTurbulence type="fractalNoise" baseFrequency="0.018 0.11" numOctaves="2" seed="8" result="noise"></feTurbulence>
-              <feDisplacementMap in="SourceGraphic" in2="noise" scale="0.65" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap>
-            </filter>
-            <filter id="dry-brush" x="-8%" y="-8%" width="116%" height="116%">
-              <feTurbulence type="fractalNoise" baseFrequency="0.025 0.13" numOctaves="2" seed="13" result="noise"></feTurbulence>
-              <feDisplacementMap in="SourceGraphic" in2="noise" scale="0.9"></feDisplacementMap>
-            </filter>
-          </defs>
-
-          <g id="gesture-trails" aria-hidden="true"></g>
-
-          <g id="live-gesture" aria-hidden="true">
-            <path class="ink-stroke following-arm" data-stroke="following-arm"></path>
-            <path class="ink-stroke stepping-leg" data-stroke="stepping-leg"></path>
-            <path class="ink-stroke grounded-leg" data-stroke="grounded-leg"></path>
-            <path class="ink-stroke spine" data-stroke="spine"></path>
-            <path class="ink-stroke lead-arm" data-stroke="lead-arm"></path>
-            <path class="ink-stroke centre" data-stroke="centre"></path>
+        <svg class="tai-chi-stage" data-stage viewBox="0 16 1000 116" preserveAspectRatio="xMidYMax meet" role="img" aria-label="A brush-drawn figure in profile moving through a tai chi form from left to right">
+          <g class="trail-layer" data-trails aria-hidden="true"></g>
+          <g class="figure-layer" data-figure aria-hidden="true"></g>
+          <!-- Still fallback if the script never runs: the settled bow stance. -->
+          <g class="no-js-figure" data-static aria-hidden="true" transform="translate(470 0)">
+            <path class="ink" d="M-1 77.5L0 78L1.5 79.5L3 81L5 82.5L7 83.5L9.5 85L11.5 86L13.5 87.5L15.5 89L17.5 90.5L18.5 91.5L19.5 93L20.5 94.5L20.5 96.5L21 98.5L21 101L21 103.5L20.5 106L20.5 108.5L20 111L19.5 113.5L19.5 115.5L19 117L18.5 118.5L18 120L17.5 121L17 121.5L16.5 122L16 122.5L15 122.5L14.5 123L13.5 123L14.5 125L15 124.5L16.5 124.5L17 124L18 124L18.5 123.5L19.5 122.5L20 122L20.5 120.5L21 119.5L21.5 118L22 116L22.5 114L23 111.5L23.5 109L24 106.5L24.5 104L25 101L25 98.5L25 96L24.5 93.5L23.5 91L22.5 89L21 87L19 85L17 83L15 81.5L12.5 79.5L10.5 78L8 77L5.5 76.5L3.5 76L2 75L1 74.5Z"></path>
+            <path class="ink" d="M14 125.5L15.5 125.5L18.5 125.5L22 125.5L25 125L28 124.5L30 124.5L30 123.5L28 123.5L25 123L22 122.5L18.5 122.5L15.5 122.5L14 123Z"></path>
+            <path class="ink ink--soft" d="M-1 46L-1.5 47L-2 48.5L-3 50L-4 51.5L-4.5 53.5L-5.5 56L-6 58L-6.5 60L-7 62L-7 64L-7 66L-6.5 67.5L-5.5 68.5L-4.5 69.5L-3 70.5L-1.5 71L0.5 71L2 71.5L4 71.5L5.5 72L7 72L8.5 72L9.5 72L10.5 72L11 72.5L12 72.5L12.5 73L13.5 73L14 74L14.5 74.5L14.5 75.5L15 76L15.5 76.5L15.5 75.5L15.5 74.5L15.5 73.5L15.5 72.5L15 72L14.5 71.5L14 71L13 71L12 70.5L11 70.5L10 70L8.5 70L7 70L5.5 69.5L4 69.5L2.5 69L1 69L-0.5 68.5L-2 68L-3 67.5L-3.5 67L-4 66.5L-4 65.5L-4 64L-3.5 62.5L-3 61L-2.5 59L-2 57L-1 55L-0.5 53L0 51L0.5 49.5L0.5 48L1 46.5Z"></path>
+            <path class="ink" d="M-1.5 75.5L-2 76.5L-3 78L-4 80L-5 81.5L-6 84L-7 86.5L-7.5 88.5L-8.5 91L-9 93.5L-10 96L-11 98L-12 99.5L-13 101.5L-14.5 103L-16.5 105L-18 106.5L-20 108L-21.5 110L-23.5 111.5L-25 113L-27 114.5L-28.5 115.5L-30 117L-31 118L-32 119L-33 120L-33.5 120.5L-34 121L-34.5 121.5L-35 122L-36 122.5L-36.5 123L-37 123.5L-35.5 124.5L-35 124L-34.5 123.5L-33.5 123L-33 122.5L-32 122L-31.5 121.5L-30.5 121L-29.5 120L-28 119L-26.5 118L-25 116.5L-23.5 115.5L-21.5 114L-19.5 112.5L-17.5 111L-15.5 109.5L-13.5 107.5L-11.5 106L-10 104L-8.5 102L-7 100L-5.5 98L-4.5 95.5L-3 93.5L-2 91L-1 88.5L0 86L0.5 83.5L1 81.5L1 79.5L1 77.5L1.5 76.5Z"></path>
+            <path class="ink" d="M-36.5 125.5L-34.5 125.5L-31.5 125.5L-28.5 125.5L-25 125L-22 124.5L-20.5 124.5L-20.5 123.5L-22 123.5L-25 123L-28.5 122.5L-31.5 122.5L-34.5 122.5L-36.5 123Z"></path>
+            <path class="ink ink--faint" d="M4.5 43.5L5 44L5.5 44.5L6.5 45L7 46L7.5 47L8.5 48L9 49L10 50L10.5 51L11 52L11.5 52.5L12 53.5L12 54.5L12.5 55.5L12.5 57L12.5 58L12.5 59L12.5 60.5L12.5 61.5L12 62.5L11.5 64L11.5 65L11 66L10.5 66.5L10 67.5L9.5 68.5L9 69.5L8 70.5L7.5 71.5L7 72L6.5 73L6 73.5L6.5 74L7 73L7.5 72.5L8 72L9 71L9.5 70L10.5 69.5L11 68.5L11.5 67.5L12 66.5L12.5 65.5L13 64.5L13.5 63.5L13.5 62.5L14 62L14 61L14 60L14 59L14 58L14 57L14 56L14 55L14 54L13.5 53L13 52L12.5 51L11.5 50L11 49L10 48L9 47L8.5 46.5L7.5 45.5L7 44.5L6 44L5.5 43.5L5 43Z"></path>
+            <path class="ink" d="M1.5 75.5L1.5 74.5L1.5 73.5L1.5 72.5L1.5 71L1.5 70L1.5 69L1.5 68L1 67L1 66L1 65L1 64L1.5 62.5L2 61L2 60L2.5 58.5L2.5 57.5L3 56.5L3 55.5L3.5 54.5L4 53L4 52L4.5 51L4.5 50L4.5 48.5L5 47L5 46L5 45L4.5 44L4 42.5L3.5 41L3 40.5L2.5 39.5L2 39L1.5 38L1 37.5L0.5 36.5L0 35.5L0 34.5L-0.5 34L-0.5 33L0 32.5L0 31.5L0.5 31L1 30.5L1.5 30L2 29.5L2.5 29L3.5 28.5L4.5 28L5 28.5L6 29L6.5 29.5L7 30L7.5 30.5L9 29L8.5 28.5L8 28L7.5 27.5L7 27L6 26.5L5.5 26L4.5 26L3.5 26L2.5 26L2 26.5L1 27L0 27.5L-1 28L-1.5 28.5L-2 29L-2.5 30L-3 31L-3 32L-3.5 32.5L-3.5 33.5L-3.5 34.5L-3.5 35.5L-3 36L-2.5 37L-2.5 38L-2 38.5L-1.5 39L-1 40L-0.5 41L0 41.5L0.5 42.5L0.5 43.5L1 44L1 45L1 46.5L0.5 47L0.5 48L0 49L-0.5 50.5L-0.5 51.5L-1 52.5L-1 53.5L-1.5 54.5L-1.5 55.5L-2 56L-2.5 57L-3 58.5L-3.5 59L-3.5 60L-4 61L-4.5 62L-5 62.5L-5 63.5L-5.5 64.5L-5.5 66L-5.5 67L-5.5 68L-5 69L-5 70.5L-4.5 71.5L-4 72.5L-3.5 73L-3 74L-2.5 74.5L-2 75.5L-1.5 76Z"></path>
+            <path class="ink" d="M7.5 30L8 30.5L8.5 31L9 32L9.5 33L10 33.5L10.5 34L10 34.5L9.5 35L8.5 35.5L7.5 36L7.5 37L8 37.5L8 38.5L6.5 39L5 39.5L3.5 40L3 40.5L3.5 41.5L4 42L4.5 42.5L5 43L4.5 42.5L4 41.5L3.5 41L4 40.5L5.5 40L7 40L7.5 39.5L8.5 39.5L9 39L9.5 38L9 37.5L8.5 36.5L9.5 36.5L10 36L11 36L11.5 35L11.5 34L11 33L10.5 32L10 31L9.5 30L9 29.5Z"></path>
+            <path class="ink" d="M2.5 47L3 47.5L4 48.5L5.5 49.5L7 51L8.5 52L10.5 53L12.5 54L14.5 55L16.5 56L18 56.5L20 56.5L22 57L23.5 56.5L25 56L26.5 55L28 54.5L29 53L30.5 52L31.5 51L32.5 50L33.5 49L34.5 48L35 47L36 46.5L36.5 46L37 45.5L38 45.5L38.5 45L39 44.5L39 43.5L39.5 43L39 42L39 41L38.5 40.5L38 40L37.5 39L37 38L36.5 38.5L36.5 39.5L36.5 40.5L37 41L37 42L37 43L36.5 43.5L35.5 44L35 44.5L33.5 45.5L33 46L32 47L30.5 48L29.5 49L28.5 50L27.5 51L26 52L25 52.5L24 53L23 53.5L22 53.5L20.5 53.5L19.5 53L18 52L16 51.5L14.5 50.5L12.5 49L11 48L9 47L7.5 46.5L6 46L4.5 45.5L3.5 45Z"></path>
           </g>
+        </svg>
+      </div>
+    </section>
 
-          <g id="static-gesture" transform="translate(760 0)" aria-hidden="true">
-            <path class="ink-stroke following-arm" d="M -1 51 C 10 57 22 64 37 65 C 45 65 53 62 60 59"></path>
-            <path class="ink-stroke stepping-leg" d="M 1 78 C 11 91 19 102 22 113 C 30 118 40 119 49 118"></path>
-            <path class="ink-stroke grounded-leg" d="M -3 78 C -12 92 -17 105 -19 117 C -13 120 -6 120 1 119"></path>
-            <path class="ink-stroke spine" d="M -3 78 C -10 66 -9 53 -4 39 C -6 30 -4 20 1 17 C 5 14 10 16 11 21 C 13 24 14 26 15 27"></path>
-            <path class="ink-stroke lead-arm" d="M 1 51 C 16 47 31 43 43 36 C 51 31 58 28 67 28"></path>
-            <path class="ink-stroke centre" d="M 4 44 C 7 51 9 58 12 64"></path>
-          </g>
+    <section class="band band--study">
+      <h2>Enlarged for review</h2>
+      <div class="stage-shell">
+        <svg class="tai-chi-stage" data-stage viewBox="0 16 1000 116" preserveAspectRatio="xMidYMax meet" role="presentation" aria-hidden="true">
+          <g class="trail-layer" data-trails></g>
+          <g class="figure-layer" data-figure></g>
+          <g class="no-js-figure" data-static></g>
         </svg>
       </div>
 
       <div class="review-bar">
-        <div class="phase"><span id="phase-name">Gather</span></div>
-        <div class="controls" aria-label="Animation review controls">
-          <button type="button" id="pause-animation">Pause</button>
-          <button type="button" id="replay-animation">Replay</button>
+        <button type="button" data-action="toggle-play">Pause</button>
+        <button type="button" data-action="restart">Restart</button>
+        <button type="button" data-action="speed">Speed 1&times;</button>
+        <button type="button" data-action="toggle-trails" aria-pressed="true">Trails</button>
+        <div class="scrub">
+          <input type="range" data-scrub min="0" max="1000" value="0" step="1" aria-label="Scrub the movement">
+          <span class="readout" data-readout>step 1</span>
         </div>
       </div>
-      <p class="note">Gesture-only study. No Markdown marks yet; the homepage is unchanged.</p>
     </section>
+
+    <section class="band band--study">
+      <h2>The phrase, pose by pose</h2>
+      <div class="stage-shell">
+        <svg class="tai-chi-stage" data-sheet viewBox="0 16 1000 116" preserveAspectRatio="xMidYMax meet" role="presentation" aria-hidden="true"></svg>
+      </div>
+    </section>
+
+    <p class="note">Gesture study only. No Markdown marks yet, and the homepage is untouched. Under <code>prefers-reduced-motion</code> the strip settles into a single stance and the review controls are hidden.</p>
   </main>
 
   <script>
-    const MOVEMENT_LOOP_MS = 18000;
-    const TRAIL_LIFETIME_MS = 2800;
-    const TRAIL_SAMPLE_MS = 700;
-    const TRAVEL_START = 62;
-    const TRAVEL_END = 910;
+  (() => {
+    "use strict";
+    document.body.classList.remove("no-js");
 
-    const GATHER = {
-      hip: [-2, 85], back: [-9, 64], nape: [-4, 39], crown: [0, 17], brow: [10, 17], nose: [16, 25], chin: [11, 36], throat: [4, 45], chest: [2, 56],
-      leadShoulder: [1, 51], leadElbow: [16, 57], leadWrist: [29, 53], leadHand: [37, 48],
-      followingShoulder: [-1, 53], followingElbow: [10, 65], followingWrist: [25, 68], followingHand: [34, 65],
-      groundedKnee: [-15, 102], groundedAnkle: [-21, 117], groundedHeel: [-18, 120], groundedToe: [-7, 120],
-      steppingKnee: [12, 103], steppingAnkle: [24, 117], steppingHeel: [23, 120], steppingToe: [37, 120],
-      centreLeft: [-8, 73], centreRight: [10, 72]
-    };
+    /* geometry:start — everything to geometry:end is pure and DOM-free, so
+     * scripts/check-markdown-tai-chi.mjs can import and assert against it.
+     * ------------------------------------------------------------------ *
+     * Geometry helpers: brush strokes and two-bone IK.
+     * ------------------------------------------------------------------ */
 
-    const SINK = {
-      hip: [-1, 90], back: [-9, 68], nape: [-4, 43], crown: [0, 21], brow: [10, 21], nose: [16, 29], chin: [11, 40], throat: [4, 49], chest: [2, 60],
-      leadShoulder: [1, 55], leadElbow: [17, 62], leadWrist: [31, 57], leadHand: [39, 51],
-      followingShoulder: [-1, 57], followingElbow: [10, 69], followingWrist: [25, 72], followingHand: [35, 68],
-      groundedKnee: [-17, 104], groundedAnkle: [-23, 117], groundedHeel: [-20, 120], groundedToe: [-8, 120],
-      steppingKnee: [14, 106], steppingAnkle: [27, 117], steppingHeel: [26, 120], steppingToe: [40, 120],
-      centreLeft: [-8, 77], centreRight: [11, 76]
-    };
+    const clamp = (v, lo = 0, hi = 1) => Math.min(hi, Math.max(lo, v));
 
-    const STEP = {
-      hip: [-3, 87], back: [-10, 65], nape: [-4, 40], crown: [0, 18], brow: [10, 18], nose: [16, 26], chin: [11, 37], throat: [4, 46], chest: [2, 57],
-      leadShoulder: [1, 52], leadElbow: [18, 58], leadWrist: [34, 54], leadHand: [43, 48],
-      followingShoulder: [-1, 55], followingElbow: [11, 66], followingWrist: [28, 67], followingHand: [39, 62],
-      groundedKnee: [-17, 103], groundedAnkle: [-24, 117], groundedHeel: [-21, 120], groundedToe: [-8, 120],
-      steppingKnee: [18, 101], steppingAnkle: [38, 114], steppingHeel: [43, 117], steppingToe: [57, 117],
-      centreLeft: [-9, 74], centreRight: [11, 73]
-    };
-
-    const WARD = {
-      hip: [0, 85], back: [-8, 63], nape: [-3, 38], crown: [1, 16], brow: [11, 16], nose: [17, 24], chin: [12, 35], throat: [5, 44], chest: [3, 55],
-      leadShoulder: [2, 50], leadElbow: [19, 45], leadWrist: [37, 36], leadHand: [51, 31],
-      followingShoulder: [0, 53], followingElbow: [11, 61], followingWrist: [25, 68], followingHand: [36, 68],
-      groundedKnee: [-13, 102], groundedAnkle: [-19, 117], groundedHeel: [-17, 120], groundedToe: [-5, 120],
-      steppingKnee: [17, 99], steppingAnkle: [29, 114], steppingHeel: [27, 119], steppingToe: [45, 119],
-      centreLeft: [-7, 72], centreRight: [12, 71]
-    };
-
-    const PRESS = {
-      hip: [2, 84], back: [-6, 61], nape: [-2, 37], crown: [2, 15], brow: [12, 15], nose: [18, 23], chin: [13, 34], throat: [6, 43], chest: [4, 54],
-      leadShoulder: [3, 49], leadElbow: [20, 47], leadWrist: [39, 42], leadHand: [54, 37],
-      followingShoulder: [1, 52], followingElbow: [18, 56], followingWrist: [35, 50], followingHand: [48, 43],
-      groundedKnee: [-10, 101], groundedAnkle: [-16, 117], groundedHeel: [-14, 120], groundedToe: [-2, 120],
-      steppingKnee: [18, 98], steppingAnkle: [28, 114], steppingHeel: [26, 119], steppingToe: [45, 119],
-      centreLeft: [-5, 71], centreRight: [14, 70]
-    };
-
-    const PUSH = {
-      hip: [4, 84], back: [-4, 61], nape: [0, 37], crown: [4, 15], brow: [14, 15], nose: [20, 23], chin: [15, 34], throat: [8, 43], chest: [6, 54],
-      leadShoulder: [5, 49], leadElbow: [24, 47], leadWrist: [45, 41], leadHand: [62, 35],
-      followingShoulder: [3, 52], followingElbow: [21, 54], followingWrist: [41, 48], followingHand: [58, 41],
-      groundedKnee: [-7, 100], groundedAnkle: [-13, 117], groundedHeel: [-11, 120], groundedToe: [1, 120],
-      steppingKnee: [19, 97], steppingAnkle: [29, 114], steppingHeel: [27, 119], steppingToe: [46, 119],
-      centreLeft: [-3, 71], centreRight: [16, 70]
-    };
-
-    const TAI_CHI_KEYFRAMES = [
-      { at: 0, name: "Gather", pose: GATHER },
-      { at: .13, name: "Gather", pose: GATHER },
-      { at: .27, name: "Sink", pose: SINK },
-      { at: .44, name: "Step", pose: STEP },
-      { at: .62, name: "Ward", pose: WARD },
-      { at: .79, name: "Press", pose: PRESS },
-      { at: .92, name: "Push", pose: PUSH },
-      { at: 1, name: "Settle", pose: PUSH }
-    ];
-
-    const liveGesture = document.querySelector("#live-gesture");
-    const trailLayer = document.querySelector("#gesture-trails");
-    const phaseName = document.querySelector("#phase-name");
-    const pauseButton = document.querySelector("#pause-animation");
-    const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
-    const strokeNodes = Object.fromEntries([...liveGesture.querySelectorAll("[data-stroke]")].map(node => [node.dataset.stroke, node]));
-    const trails = [];
-
-    const mix = (a, b, amount) => a + (b - a) * amount;
-    const clamp = (value, min = 0, max = 1) => Math.min(max, Math.max(min, value));
-    const smooth = value => {
-      const x = clamp(value);
-      return x * x * (3 - 2 * x);
-    };
-    const pointMix = (a, b, amount) => [mix(a[0], b[0], amount), mix(a[1], b[1], amount)];
-
-    function mixPose(a, b, amount) {
-      return Object.fromEntries(Object.keys(a).map(key => [key, pointMix(a[key], b[key], amount)]));
+    // Catmull-Rom through the control points, sampled to a dense polyline.
+    function spline(points, per = 12) {
+      const pts = [points[0], ...points, points[points.length - 1]];
+      const out = [];
+      for (let i = 1; i < pts.length - 2; i += 1) {
+        const [p0, p1, p2, p3] = [pts[i - 1], pts[i], pts[i + 1], pts[i + 2]];
+        for (let j = 0; j < per; j += 1) {
+          const t = j / per, t2 = t * t, t3 = t2 * t;
+          out.push([
+            0.5 * (2 * p1[0] + (-p0[0] + p2[0]) * t + (2 * p0[0] - 5 * p1[0] + 4 * p2[0] - p3[0]) * t2 + (-p0[0] + 3 * p1[0] - 3 * p2[0] + p3[0]) * t3),
+            0.5 * (2 * p1[1] + (-p0[1] + p2[1]) * t + (2 * p0[1] - 5 * p1[1] + 4 * p2[1] - p3[1]) * t2 + (-p0[1] + 3 * p1[1] - 3 * p2[1] + p3[1]) * t3)
+          ]);
+        }
+      }
+      out.push(points[points.length - 1]);
+      return out;
     }
 
-    function samplePose(progress) {
-      let index = TAI_CHI_KEYFRAMES.findIndex(frame => frame.at >= progress);
-      if (index <= 0) index = 1;
-      const before = TAI_CHI_KEYFRAMES[index - 1];
-      const after = TAI_CHI_KEYFRAMES[index];
-      const span = after.at - before.at;
-      const local = smooth(span === 0 ? 0 : (progress - before.at) / span);
-      return { pose: mixPose(before.pose, after.pose, local), name: after.name };
+    // Piecewise-linear width profile along the stroke, in [u, width] stops.
+    function widthAt(stops, u) {
+      if (u <= stops[0][0]) return stops[0][1];
+      for (let i = 1; i < stops.length; i += 1) {
+        if (u <= stops[i][0]) {
+          const [u0, w0] = stops[i - 1];
+          const [u1, w1] = stops[i];
+          const k = u1 === u0 ? 0 : (u - u0) / (u1 - u0);
+          return w0 + (w1 - w0) * (k * k * (3 - 2 * k));
+        }
+      }
+      return stops[stops.length - 1][1];
     }
 
-    const p = point => `${point[0].toFixed(2)} ${point[1].toFixed(2)}`;
+    // A tapered brush stroke: the outline of a variable-width ribbon.
+    // This is what separates ink from a stick figure, so it is the core of
+    // the whole study.
+    function brush(points, stops, per = 12) {
+      const pts = spline(points, per);
+      const arc = [0];
+      for (let i = 1; i < pts.length; i += 1) {
+        arc[i] = arc[i - 1] + Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]);
+      }
+      const total = arc[arc.length - 1] || 1;
+      const left = [];
+      const right = [];
+      for (let i = 0; i < pts.length; i += 1) {
+        const a = pts[Math.max(0, i - 1)];
+        const b = pts[Math.min(pts.length - 1, i + 1)];
+        const len = Math.hypot(b[0] - a[0], b[1] - a[1]) || 1;
+        const nx = -(b[1] - a[1]) / len;
+        const ny = (b[0] - a[0]) / len;
+        const half = widthAt(stops, arc[i] / total) / 2;
+        left.push([pts[i][0] + nx * half, pts[i][1] + ny * half]);
+        right.push([pts[i][0] - nx * half, pts[i][1] - ny * half]);
+      }
+      const r = n => `${n.toFixed(1)}`;
+      let d = `M${r(left[0][0])} ${r(left[0][1])}`;
+      for (let i = 1; i < left.length; i += 1) d += `L${r(left[i][0])} ${r(left[i][1])}`;
+      for (let i = right.length - 1; i >= 0; i -= 1) d += `L${r(right[i][0])} ${r(right[i][1])}`;
+      return d + "Z";
+    }
 
-    function gesturePaths(pose) {
-      const brow = [pose.brow[0] - 3, pose.brow[1] + 1];
-      const nose = [pose.nose[0] - 5, pose.nose[1]];
-      const upperNape = [pose.nape[0] - 2, pose.nape[1] - 10];
-      const rearCrown = [pose.crown[0] - 4, pose.crown[1] + 1];
-      const softFront = [pose.centreRight[0] + 2, pose.centreRight[1] - 7];
-      const liftedHip = [pose.hip[0], pose.hip[1] - 7];
+    // Two-bone IK. Joints are derived rather than hand-placed, so limbs keep
+    // their length and the pose stays anatomically coherent all the way
+    // through the interpolation.
+    function ik(root, target, upper, lower, bend) {
+      const dx = target[0] - root[0];
+      const dy = target[1] - root[1];
+      const raw = Math.hypot(dx, dy) || 1e-6;
+      const ux = dx / raw;
+      const uy = dy / raw;
+      const d = clamp(raw, Math.abs(upper - lower) + 0.01, (upper + lower) - 0.01);
+      const along = (d * d + upper * upper - lower * lower) / (2 * d);
+      const off = Math.sqrt(Math.max(0, upper * upper - along * along));
+      let px = -uy;
+      let py = ux;
+      if (px * bend[0] + py * bend[1] < 0) { px = -px; py = -py; }
+      return [root[0] + ux * along + px * off, root[1] + uy * along + py * off];
+    }
+
+    /* ------------------------------------------------------------------ *
+     * Movement: one step of Brush Knee and Push, looped.
+     *
+     * Tracks are cyclic and interpolated with Catmull-Rom, so velocity is
+     * continuous across the step boundary: the figure never stops dead or
+     * snaps between keyframes. `wrap` is how much the value gains over one
+     * step, for tracks that advance rather than return.
+     * ------------------------------------------------------------------ */
+
+    const GROUND = 124;
+    const STRIDE = 50;
+    const THIGH = 27, SHIN = 27;
+    const UPPER_ARM = 21, FOREARM = 20;
+
+    function track(stops, t, wrap = 0) {
+      const n = stops.length;
+      let i = 0;
+      while (i < n - 2 && t > stops[i + 1][0]) i += 1;
+      const p1 = stops[i];
+      const p2 = stops[i + 1];
+      const p0 = i > 0 ? stops[i - 1] : [stops[n - 2][0] - 1, stops[n - 2][1] - wrap];
+      const p3 = i + 2 < n ? stops[i + 2] : [stops[1][0] + 1, stops[1][1] + wrap];
+      const h = (p2[0] - p1[0]) || 1e-6;
+      const u = clamp((t - p1[0]) / h);
+      const m1 = (p2[1] - p0[1]) / ((p2[0] - p0[0]) || 1e-6) * h;
+      const m2 = (p3[1] - p1[1]) / ((p3[0] - p1[0]) || 1e-6) * h;
+      const u2 = u * u, u3 = u2 * u;
+      return (2 * u3 - 3 * u2 + 1) * p1[1] + (u3 - 2 * u2 + u) * m1 + (-2 * u3 + 3 * u2) * p2[1] + (u3 - u2) * m2;
+    }
+
+    // Pelvis glide. It withdraws slightly before it commits: weight settles
+    // back, then travels into the front leg. That dip is the tai chi.
+    const TRAVEL = [[0, 0], [.30, -5], [.55, 3], [.95, 50], [1, 50]];
+    // The stepping foot, in world units relative to this step's origin.
+    const SWING = [[0, -30], [.30, -30], [.46, -10], [.62, 20], [.78, 54], [.88, 70], [1, 70]];
+    // The stepping foot skims the floor. Lift it any higher and the phrase
+    // turns into a march.
+    const LIFT = [[0, 0], [.30, 0], [.46, -2.6], [.62, -3], [.78, -1.2], [.88, 0], [1, 0]];
+    const FOOT_ANGLE = [[0, 0], [.30, 0], [.46, -11], [.62, -14], [.78, -9], [.88, 0], [1, 0]];
+    const HIP_Y = [[0, 76], [.30, 78.6], [.58, 78], [.82, 75.4], [1, 76]];
+    const LEAN = [[0, 1.6], [.30, -1.2], [.58, .2], [.82, 2.6], [1, 1.6]];
+
+    // Hand arcs. Each hand describes one continuous circle per step and the
+    // elbows follow from IK. The two circles are kept in separate bands of
+    // the body — upper hand at shoulder height, lower hand at the waist —
+    // because in strict profile two hands at the same height read as a knot
+    // rather than a gesture.
+    const HAND_A_X = [[0, 38], [.16, 33], [.34, 17], [.50, 11], [.62, 16], [.78, 29], [.90, 36], [1, 38]];
+    const HAND_A_Y = [[0, 44], [.16, 54], [.34, 59], [.50, 47], [.62, 35], [.78, 38], [.90, 42], [1, 44]];
+    const HAND_B_X = [[0, 19], [.18, 23], [.34, 28], [.50, 18], [.66, 25], [.80, 27], [.92, 22], [1, 19]];
+    const HAND_B_Y = [[0, 75], [.18, 64], [.34, 52], [.50, 57], [.66, 66], [.80, 73], [.92, 76], [1, 75]];
+
+    const rot = (p, o, deg) => {
+      const a = deg * Math.PI / 180;
+      const c = Math.cos(a), s = Math.sin(a);
+      const x = p[0] - o[0], y = p[1] - o[1];
+      return [o[0] + x * c - y * s, o[1] + x * s + y * c];
+    };
+
+    function foot(ankle, angleDeg) {
       return {
-        spine: `M ${p(liftedHip)} C ${p(pose.back)} ${p(pose.nape)} ${p(pose.nape)} C ${p(upperNape)} ${p(rearCrown)} ${p(pose.crown)} C ${p(brow)} ${p(brow)} ${p(nose)}`,
-        "lead-arm": `M ${p(pose.leadShoulder)} C ${p(pose.leadElbow)} ${p(pose.leadWrist)} ${p(pose.leadHand)}`,
-        "following-arm": `M ${p(pose.followingShoulder)} C ${p(pose.followingElbow)} ${p(pose.followingWrist)} ${p(pose.followingHand)}`,
-        "grounded-leg": `M ${p(liftedHip)} C ${p(pose.groundedKnee)} ${p(pose.groundedAnkle)} ${p(pose.groundedHeel)} Q ${p(pose.groundedHeel)} ${p(pose.groundedToe)}`,
-        "stepping-leg": `M ${p(liftedHip)} C ${p(pose.steppingKnee)} ${p(pose.steppingAnkle)} ${p(pose.steppingHeel)} Q ${p(pose.steppingHeel)} ${p(pose.steppingToe)}`,
-        centre: `M ${p(pose.throat)} C ${p(pose.chest)} ${p(pose.chest)} ${p(softFront)}`
+        heel: rot([ankle[0] - 6, ankle[1] + 5], ankle, angleDeg),
+        toe: rot([ankle[0] + 10, ankle[1] + 5], ankle, angleDeg)
       };
     }
 
-    function renderGesture(progress) {
-      const sampled = samplePose(progress);
-      const paths = gesturePaths(sampled.pose);
-      Object.entries(paths).forEach(([name, path]) => strokeNodes[name].setAttribute("d", path));
-      const x = mix(TRAVEL_START, TRAVEL_END, smooth(progress));
-      const fadeIn = smooth(progress / .055);
-      const fadeOut = 1 - smooth((progress - .93) / .07);
-      liveGesture.setAttribute("transform", `translate(${x.toFixed(2)} 0)`);
-      liveGesture.style.opacity = (fadeIn * fadeOut).toFixed(3);
-      phaseName.textContent = sampled.name;
-      return fadeIn * fadeOut;
+    // Everything below is in the pelvis frame; the caller translates by the
+    // travelled distance.
+    function pose(local, breath) {
+      const travel = track(TRAVEL, local, STRIDE);
+      const hipY = track(HIP_Y, local) + breath;
+      const lean = track(LEAN, local);
+      const hip = [0, hipY];
+
+      const plantedAnkle = [20 - travel, 119];
+      const swingAnkle = [track(SWING, local, 2 * STRIDE) - travel, 119 + track(LIFT, local)];
+      const plantedFoot = foot(plantedAnkle, 0);
+      const swingFoot = foot(swingAnkle, track(FOOT_ANGLE, local));
+
+      const kneePlanted = ik(hip, plantedAnkle, THIGH, SHIN, [1, 0]);
+      const kneeSwing = ik(hip, swingAnkle, THIGH, SHIN, [1, 0]);
+
+      // Upper body rides on the pelvis and leans a degree or two; the head
+      // stays quiet, which is most of what makes it read as tai chi.
+      const up = p => rot([p[0], p[1] - (76 - hipY)], hip, lean);
+      const waist = up([-2.5, 66]);
+      const chest = up([0, 56]);
+      const neck = up([2, 45]);
+      const nape = up([-1, 39]);
+      const occiput = up([-3.2, 34]);
+      const skull = up([-1.5, 29.5]);
+      const crown = up([3, 27]);
+      const forehead = up([7, 29.5]);
+      const brow = up([8.6, 32]);
+      const nose = up([9.1, 34.6]);
+      const lip = up([7, 36.2]);
+      const chin = up([7.4, 38.6]);
+      const jaw = up([2.5, 40.4]);
+      const throat = up([4, 43]);
+      const chestFront = up([12, 53]);
+      const belly = up([12, 64]);
+      const lowBelly = up([6, 74]);
+      const shoulderA = up([2, 46]);
+      const shoulderB = up([-1, 46.5]);
+
+      // Hand arcs are authored freely, then pulled back inside the arm's
+      // reach. Without this the IK silently clamps and the hand floats away
+      // from the wrist.
+      const reachable = (shoulder, target) => {
+        const dx = target[0] - shoulder[0];
+        const dy = target[1] - shoulder[1];
+        const d = Math.hypot(dx, dy) || 1e-6;
+        const max = (UPPER_ARM + FOREARM) * .985;
+        if (d <= max) return target;
+        return [shoulder[0] + dx / d * max, shoulder[1] + dy / d * max];
+      };
+
+      const handA = reachable(shoulderA, [track(HAND_A_X, local), track(HAND_A_Y, local) - (76 - hipY)]);
+      const handB = reachable(shoulderB, [track(HAND_B_X, local), track(HAND_B_Y, local) - (76 - hipY)]);
+      const elbowA = ik(shoulderA, handA, UPPER_ARM, FOREARM, [0, 1]);
+      const elbowB = ik(shoulderB, handB, UPPER_ARM, FOREARM, [0, 1]);
+      const wristA = [handA[0] - (handA[0] - elbowA[0]) * .18, handA[1] - (handA[1] - elbowA[1]) * .18];
+      const wristB = [handB[0] - (handB[0] - elbowB[0]) * .18, handB[1] - (handB[1] - elbowB[1]) * .18];
+
+      // The palm, cocked back at the wrist. In profile this one small mark
+      // is what reads as tai chi rather than as a person out walking, so
+      // the arm stroke runs on into it instead of tapering to a point.
+      const palm = (wrist, hand, turn, length) => {
+        const dx = hand[0] - wrist[0];
+        const dy = hand[1] - wrist[1];
+        const d = Math.hypot(dx, dy) || 1e-6;
+        const a = turn * Math.PI / 180;
+        const ux = dx / d, uy = dy / d;
+        return [hand[0] + (ux * Math.cos(a) - uy * Math.sin(a)) * length,
+                hand[1] + (ux * Math.sin(a) + uy * Math.cos(a)) * length];
+      };
+      const palmA = palm(wristA, handA, -68, 5.5);
+      const palmB = palm(wristB, handB, 58, 4.5);
+
+      return {
+        palmA, palmB,
+        travel, hip, waist, chest, neck, nape, occiput, skull, crown, forehead,
+        brow, nose, lip, chin, jaw, throat, chestFront, belly, lowBelly,
+        shoulderA, shoulderB,
+        handA, handB, elbowA, elbowB, wristA, wristB,
+        plantedAnkle, swingAnkle, plantedFoot, swingFoot, kneePlanted, kneeSwing
+      };
     }
 
-    function captureTrail(now, cycle) {
-      const snapshot = liveGesture.cloneNode(true);
-      snapshot.removeAttribute("id");
-      snapshot.classList.add("trail-snapshot");
-      snapshot.style.opacity = "0.25";
-      trailLayer.append(snapshot);
-      trails.push({ node: snapshot, born: now, cycle });
+    const LEG_W = [[0, 3.2], [.14, 6.4], [.5, 4.2], [.82, 2.8], [1, 1.9]];
+    const FOOT_W = [[0, 2.5], [.55, 2.6], [1, 1]];
+    const ARM_A_W = [[0, 2.6], [.16, 4.6], [.6, 2.9], [.84, 2.2], [.9, 2.4], [1, .9]];
+    const ARM_B_W = [[0, 1.9], [.16, 3.1], [.6, 2.1], [.85, 1.6], [.9, 1.8], [1, .7]];
+    // One unbroken stroke from the base of the spine, up the back, around
+    // the skull and over the crown: the "flow of the back into the head".
+    const SPINE_W = [[0, 3.2], [.12, 6.6], [.4, 4.6], [.62, 3.4], [.82, 3], [1, 1.9]];
+    // The face closes the head back to the throat. Kept fine so the head
+    // stays a mark rather than a portrait.
+    const FACE_W = [[0, 1.6], [.3, 1], [.62, .9], [1, .3]];
+    const FRONT_W = [[0, .6], [.4, 1.7], [.75, 1.4], [1, .4]];
+
+    function strokes(p) {
+      return [
+        { cls: "ink", d: brush([p.hip, p.kneeSwing, p.swingAnkle, p.swingFoot.heel], LEG_W) },
+        { cls: "ink", d: brush([p.swingFoot.heel, p.swingFoot.toe], FOOT_W, 6) },
+        { cls: "ink ink--soft", d: brush([p.shoulderB, p.elbowB, p.wristB, p.handB, p.palmB], ARM_B_W) },
+        { cls: "ink", d: brush([p.hip, p.kneePlanted, p.plantedAnkle, p.plantedFoot.heel], LEG_W) },
+        { cls: "ink", d: brush([p.plantedFoot.heel, p.plantedFoot.toe], FOOT_W, 6) },
+        { cls: "ink ink--faint", d: brush([p.throat, p.chestFront, p.belly, p.lowBelly], FRONT_W) },
+        { cls: "ink", d: brush([p.hip, p.waist, p.chest, p.neck, p.nape, p.occiput, p.skull, p.crown, p.forehead], SPINE_W) },
+        { cls: "ink", d: brush([p.forehead, p.brow, p.nose, p.lip, p.chin, p.jaw, p.throat], FACE_W, 8) },
+        { cls: "ink", d: brush([p.shoulderA, p.elbowA, p.wristA, p.handA, p.palmA], ARM_A_W) }
+      ];
     }
 
-    function renderTrails(now) {
-      for (let index = trails.length - 1; index >= 0; index -= 1) {
-        const trail = trails[index];
-        const age = now - trail.born;
-        if (age >= TRAIL_LIFETIME_MS) {
-          trail.node.remove();
-          trails.splice(index, 1);
+    /* geometry:end ----------------------------------------------------- *
+     * Staging: the figure crosses the strip one step at a time.
+     * ------------------------------------------------------------------ */
+
+    const SVG_NS = "http://www.w3.org/2000/svg";
+    const STEP_MS = 1900;
+    const START_X = -46;
+    const END_X = 1052;
+    const STEPS = Math.round((END_X - START_X) / STRIDE);
+    const LOOP_MS = STEPS * STEP_MS;
+    const TRAIL_EVERY = 2;
+    const TRAIL_LIFE_MS = 11000;
+    const TRAIL_PEAK = .96;
+
+    const stages = [...document.querySelectorAll("[data-stage]")].map(svg => {
+      const figure = svg.querySelector("[data-figure]");
+      const nodes = strokes(pose(0, 0)).map(s => {
+        const node = document.createElementNS(SVG_NS, "path");
+        node.setAttribute("class", s.cls);
+        figure.append(node);
+        return node;
+      });
+      return { svg, figure, nodes, trails: svg.querySelector("[data-trails]") };
+    });
+
+    // The stage height is fixed in CSS, so how much of the strip fits is a
+    // function of how wide the screen is. On a wide screen the whole
+    // crossing is visible at once. On a phone the figure stays exactly the
+    // same size and the camera travels with it instead — better than
+    // shrinking the figure to a smudge to fit the width.
+    const VIEW_TOP = 16;
+    const VIEW_HEIGHT = 116;
+    const STRIP = END_X - START_X;
+
+    function frameStage(stage, figureX) {
+      const box = stage.svg.getBoundingClientRect();
+      if (!box.height) return;
+      const viewWidth = VIEW_HEIGHT * (box.width / box.height);
+      const camera = viewWidth >= STRIP
+        ? START_X - (viewWidth - STRIP) / 2
+        : clamp(figureX - viewWidth * .45, START_X, END_X - viewWidth);
+      const next = `${camera.toFixed(1)} ${VIEW_TOP} ${viewWidth.toFixed(1)} ${VIEW_HEIGHT}`;
+      if (stage.viewBox !== next) {
+        stage.viewBox = next;
+        stage.svg.setAttribute("viewBox", next);
+      }
+    }
+
+    let paused = false;
+    let showTrails = true;
+    let rate = 1;
+    let clock = 0;
+    let lastFrame = null;
+    let lastTrailStep = -1;
+    const trails = [];
+
+    function drawFigure(elapsed) {
+      const t = (elapsed % LOOP_MS) / LOOP_MS;
+      const global = t * STEPS;
+      const step = Math.floor(global);
+      const local = global - step;
+      const breath = Math.sin(global * Math.PI) * .5;
+      const p = pose(local, breath);
+      const x = START_X + step * STRIDE + p.travel;
+      const shapes = strokes(p);
+      const alpha = Math.min(clamp((x - START_X) / 96), clamp((END_X - x) / 108));
+
+      stages.forEach(stage => {
+        stage.figure.setAttribute("transform", `translate(${x.toFixed(1)} 0)`);
+        stage.figure.style.opacity = alpha.toFixed(3);
+        shapes.forEach((s, i) => stage.nodes[i].setAttribute("d", s.d));
+        frameStage(stage, x);
+      });
+
+      return { step, local, x, alpha, shapes };
+    }
+
+    function dropTrail(frame) {
+      trails.push({ born: clock, x: frame.x, shapes: frame.shapes, groups: [] });
+      stages.forEach(stage => {
+        const g = document.createElementNS(SVG_NS, "g");
+        g.setAttribute("transform", `translate(${frame.x.toFixed(1)} 0)`);
+        frame.shapes.forEach(s => {
+          const node = document.createElementNS(SVG_NS, "path");
+          node.setAttribute("class", s.cls);
+          node.setAttribute("d", s.d);
+          g.append(node);
+        });
+        stage.trails.append(g);
+        trails[trails.length - 1].groups.push(g);
+      });
+    }
+
+    function ageTrails() {
+      for (let i = trails.length - 1; i >= 0; i -= 1) {
+        const life = (clock - trails[i].born) / TRAIL_LIFE_MS;
+        if (life >= 1 || !showTrails) {
+          trails[i].groups.forEach(g => g.remove());
+          trails.splice(i, 1);
           continue;
         }
-        const life = 1 - age / TRAIL_LIFETIME_MS;
-        trail.node.style.opacity = (life * life * .27).toFixed(3);
+        const fade = (1 - life) * (1 - life) * .34;
+        trails[i].groups.forEach(g => { g.style.opacity = fade.toFixed(3); });
       }
     }
 
-    function clearTrails() {
-      trails.splice(0).forEach(trail => trail.node.remove());
-    }
+    const readout = document.querySelector("[data-readout]");
+    const scrub = document.querySelector("[data-scrub]");
+    let scrubbing = false;
 
-    let startTime = performance.now();
-    let lastSample = startTime;
-    let previousCycle = -1;
-    let pausedAt = null;
-    let animationFrame = null;
+    function render() {
+      const frame = drawFigure(clock);
+      ageTrails();
+      if (showTrails && frame.local > TRAIL_PEAK && frame.step % TRAIL_EVERY === 0 && frame.step !== lastTrailStep && frame.alpha > .5) {
+        lastTrailStep = frame.step;
+        dropTrail(frame);
+      }
+      if (readout) readout.textContent = `step ${frame.step + 1}/${STEPS}`;
+      if (scrub && !scrubbing) scrub.value = String(Math.round((clock % LOOP_MS) / LOOP_MS * 1000));
+    }
 
     function tick(now) {
-      const elapsed = now - startTime;
-      const cycle = Math.floor(elapsed / MOVEMENT_LOOP_MS);
-      const progress = (elapsed % MOVEMENT_LOOP_MS) / MOVEMENT_LOOP_MS;
-
-      if (cycle !== previousCycle) {
-        clearTrails();
-        previousCycle = cycle;
-        lastSample = now;
-      }
-
-      const visibility = renderGesture(progress);
-      if (now - lastSample >= TRAIL_SAMPLE_MS && visibility > .45 && progress < .9) {
-        captureTrail(now, cycle);
-        lastSample = now;
-      }
-      renderTrails(now);
-      animationFrame = requestAnimationFrame(tick);
+      if (lastFrame !== null && !paused) clock += Math.min(64, now - lastFrame) * rate;
+      lastFrame = now;
+      render();
+      requestAnimationFrame(tick);
     }
 
-    pauseButton.addEventListener("click", () => {
-      if (reducedMotion.matches) return;
-      if (pausedAt === null) {
-        pausedAt = performance.now();
-        cancelAnimationFrame(animationFrame);
-        pauseButton.textContent = "Continue";
-      } else {
-        const now = performance.now();
-        const pauseLength = now - pausedAt;
-        startTime += pauseLength;
-        trails.forEach(trail => { trail.born += pauseLength; });
-        lastSample += pauseLength;
-        pausedAt = null;
-        pauseButton.textContent = "Pause";
-        animationFrame = requestAnimationFrame(tick);
+    /* ------------------------------------------------------------------ *
+     * Review controls and reduced motion.
+     * ------------------------------------------------------------------ */
+
+    const reduced = matchMedia("(prefers-reduced-motion: reduce)");
+    const playButton = document.querySelector('[data-action="toggle-play"]');
+    const speedButton = document.querySelector('[data-action="speed"]');
+    const trailButton = document.querySelector('[data-action="toggle-trails"]');
+
+    playButton.addEventListener("click", () => {
+      paused = !paused;
+      playButton.textContent = paused ? "Play" : "Pause";
+    });
+
+    document.querySelector('[data-action="restart"]').addEventListener("click", () => {
+      clock = 0;
+      lastTrailStep = -1;
+      trails.splice(0).forEach(t => t.groups.forEach(g => g.remove()));
+      render();
+    });
+
+    speedButton.addEventListener("click", () => {
+      rate = rate === 1 ? 2 : rate === 2 ? 4 : 1;
+      speedButton.textContent = `Speed ${rate}×`;
+    });
+
+    trailButton.addEventListener("click", () => {
+      showTrails = !showTrails;
+      trailButton.setAttribute("aria-pressed", String(showTrails));
+      lastTrailStep = -1;
+    });
+
+    // Fast-forward from the start so the trails that belong to a moment are
+    // actually there. Used by the scrub bar and by `#t=` deep links.
+    function seek(target) {
+      clock = 0;
+      lastTrailStep = -1;
+      trails.splice(0).forEach(t => t.groups.forEach(g => g.remove()));
+      const stepMs = 40;
+      for (let at = 0; at < target; at += stepMs) {
+        clock = Math.min(target, at + stepMs);
+        render();
       }
+      clock = target;
+      render();
+    }
+
+    addEventListener("resize", () => { stages.forEach(s => { s.viewBox = null; }); render(); });
+
+    scrub.addEventListener("pointerdown", () => { scrubbing = true; });
+    window.addEventListener("pointerup", () => { scrubbing = false; });
+    scrub.addEventListener("input", () => {
+      seek(Number(scrub.value) / 1000 * LOOP_MS);
     });
 
-    document.querySelector("#replay-animation").addEventListener("click", () => {
-      startTime = performance.now();
-      lastSample = startTime;
-      previousCycle = -1;
-      clearTrails();
-      renderGesture(0);
-      if (pausedAt !== null) pausedAt = startTime;
-    });
+    // A deliberate still mark for reduced motion and for the moment before
+    // the loop starts: the settled bow stance, mid-strip.
+    function renderStill() {
+      const p = pose(.99, 0);
+      const shapes = strokes(p);
+      stages.forEach(stage => {
+        stage.figure.setAttribute("transform", "translate(470 0)");
+        stage.figure.style.opacity = "1";
+        shapes.forEach((s, i) => stage.nodes[i].setAttribute("d", s.d));
+        frameStage(stage, 470);
+      });
+    }
 
-    if (reducedMotion.matches) {
-      renderGesture(.79);
-      liveGesture.style.display = "none";
-      phaseName.textContent = "Still pose";
-      pauseButton.disabled = true;
+    // Contact sheet: one step of the phrase, sampled evenly and laid out
+    // across the strip. This is how the movement gets judged.
+    (() => {
+      const sheet = document.querySelector("[data-sheet]");
+      if (!sheet) return;
+      const samples = 7;
+      for (let i = 0; i < samples; i += 1) {
+        const local = i / samples;
+        const p = pose(local, 0);
+        const g = document.createElementNS(SVG_NS, "g");
+        g.setAttribute("transform", `translate(${(80 + i * 140 - p.travel).toFixed(1)} 0)`);
+        g.style.opacity = i === 0 ? "1" : ".78";
+        strokes(p).forEach(s => {
+          const node = document.createElementNS(SVG_NS, "path");
+          node.setAttribute("class", s.cls);
+          node.setAttribute("d", s.d);
+          g.append(node);
+        });
+        sheet.append(g);
+      }
+    })();
+
+    const deepLink = new URLSearchParams(location.hash.slice(1));
+
+    if (reduced.matches) {
+      renderStill();
+    } else if (deepLink.has("t")) {
+      seek(clamp(Number(deepLink.get("t")), 0, .999) * LOOP_MS);
+      paused = true;
+      playButton.textContent = "Play";
+      requestAnimationFrame(tick);
     } else {
-      animationFrame = requestAnimationFrame(tick);
+      renderStill();
+      requestAnimationFrame(tick);
     }
+  })();
   </script>
 </body>
 </html>
