@@ -7,6 +7,8 @@ publish: false
 
 Status: approved for standalone prototyping on 2026-08-02. Tracked in GitHub issue #71.
 
+Canonical handoff brief: [Tai chi hero animation brief](2026-08-02-markdown-tai-chi-brief.md). This file records the design history and superseded experiments.
+
 ## Rufus's movement brief, lightly tidied
 
 I am imagining this ending up quite small, like 50 pixels high or 100 pixels. It is quite a small animation, and it flows left to right across the page. You really want the figure almost making a sequence of movements, going quite a way across the page, so the figures are not very high.
