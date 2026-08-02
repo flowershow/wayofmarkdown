@@ -7,6 +7,20 @@ publish: false
 
 Status: approved for standalone prototyping on 2026-08-02. Tracked in GitHub issue #71.
 
+## Rufus's original brief, lightly tidied
+
+I am imagining this ending up quite small: maybe 50 pixels high, perhaps 100 pixels. It is a small animation which flows from left to right across the page. The figure makes a sequence of movements and travels quite a way across the page.
+
+We really want a beautiful human figure and a beautiful tai chi movement. The figure should have the look of a tai chi or Zen master, in the sense of how the form flows. It should be graceful and sinuous. We need to identify both a beautiful image of the human form to follow and a beautiful movement to imitate.
+
+We see the movement completely side-on. There is no three-dimensionality. Think of Muybridge taking photographs of the horse: we see the flow of a whole sequence unfolding from left to right across an expanse of the page. Earlier poses should continuously dissolve behind the moving figure, if we can make that really beautiful.
+
+This should feel like a Zen sketch or a sketchbook of tai chi moves. We are not putting in the detail of a person, and it is not a full outline of them. We only see the essential lines: the arms, the flow of the back into the head, the legs and the weight of the movement. Start with beautiful curving lines and get the human form and movement right.
+
+Only after that should we turn it into syntax. At some point the figure might assemble at the beginning from Markdown-related items: the hash mark used for headings, for example, or points and other simple marks. The figure itself could eventually be made from those symbols. But do not begin with punctuation. First get the graceful line figure and the sequence of movement right.
+
+This is part of wanting stronger branding for The Way of Markdown, with something memorable in the hero. Prototype it separately in an HTML file and polish it there before deciding how to integrate it into the landing page. The possible move to a pure HTML and Tailwind homepage, and removing the homepage sidebar and Giscus comments, is a related but larger homepage item rather than part of this first animation study.
+
 ## Version 3 decision: motion before figure, figure before syntax
 
 Version 2 solved the wrong problem. Adding a robe, a filled silhouette and more Markdown texture made the figure heavier and more detailed, while the desired mark is small, horizontal and light. The next study returns to the movement itself.
