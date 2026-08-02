@@ -21,6 +21,22 @@ It should be graceful, like a Zen sketch. We are not putting in the detail of so
 
 Later we can turn it into syntax, but first get that right.
 
+## Version 4 decision: brush strokes, derived joints, real steps
+
+Version 3 had the right composition and the wrong drawing. Rufus's verdict was that it had no elegance, beauty or flow. Three specific causes, each fixed:
+
+**It was a stick figure by construction.** Every stroke was a uniform-width line run through the joint list. A body drawn that way cannot look like ink no matter how the poses are tuned. The figure is now built from tapered brush strokes: each limb is the filled outline of a variable-width ribbon, thick through the hips and thighs and drawn out to nothing at the extremities. One unbroken stroke runs from the base of the spine, up the back, around the skull and over the crown — the "flow of the back into the head" from the brief — and a second fine stroke closes the face back to the throat.
+
+**The poses were hand-placed joint by joint**, so limbs changed length as the animation interpolated between them. Joints are now derived by two-bone IK from a small number of authored targets: the hand arcs, the pelvis glide and the stepping foot. Bones keep their length automatically, and the movement is authored where it belongs — in the path each hand traces.
+
+**The figure never took a step.** It slid 850 units across the strip in a single phrase. It now performs one step of Brush Knee and Push and repeats it, advancing one stride each time, crossing the strip in twenty-two steps of about two seconds. The pelvis withdraws slightly before it commits, which is the weight transfer the earlier versions were missing entirely. Every couple of steps the settled stance is left behind as an ink ghost that dries out over eleven seconds.
+
+Two smaller decisions carry more weight than their size suggests. The hands are kept in separate bands of the body — upper hand at shoulder height, lower hand at the waist — because in strict profile two hands at the same height read as a knot rather than a gesture. And each arm stroke runs on past the wrist into a short palm mark, cocked back. That one mark is most of what makes the figure read as tai chi rather than as somebody out walking.
+
+The prototype also gained what the review needed: a preview at true hero size alongside the enlarged one, a pose-by-pose contact sheet of the phrase, a scrub bar, and `#t=` deep links so any moment can be captured or shared. On a screen too narrow to show the whole strip, the camera travels with the figure instead of shrinking it.
+
+Still open, and worth Rufus's eye before any syntax work: the crossing takes about forty seconds at its natural tempo, which is calm but long for a hero loop; and the phrase repeats on the same side rather than alternating left and right as the form proper does.
+
 ## Version 3 decision: motion before figure, figure before syntax
 
 Version 2 solved the wrong problem. Adding a robe, a filled silhouette and more Markdown texture made the figure heavier and more detailed, while the desired mark is small, horizontal and light. The next study returns to the movement itself.

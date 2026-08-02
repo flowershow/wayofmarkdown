@@ -126,3 +126,29 @@
 **Step 2:** Run the prototype check, voice lint, link check and `git diff --check`.
 
 **Step 3:** Commit the HTML revision and its checks as a distinct local version. Do not integrate the homepage or push during the review phase.
+
+---
+
+## Version 4 revision: brush strokes, derived joints, real steps
+
+Done on 2026-08-02 after Rufus judged version 3 to have no elegance or flow. Tasks 10 to 13 are complete; task 14 is the open one.
+
+### Task 10: Replace the drawing model — done
+
+Uniform-width polylines through the joint list gave a stick figure by construction. Added `brush()`, which outlines a variable-width ribbon along a Catmull-Rom spline, and `ik()`, which derives elbows and knees from two-bone inverse kinematics. The figure is now nine tapered strokes, with the spine running unbroken from the sacrum over the crown. The turbulence filters are gone; the taper does the work they were faking.
+
+### Task 11: Replace the sliding travel with real steps — done
+
+The figure performs one step of Brush Knee and Push and repeats it, advancing one stride per step and crossing the strip in twenty-two steps. Movement is authored as cyclic Catmull-Rom tracks — pelvis glide, foot swing, foot lift and angle, hip height, lean, and one arc per hand — so velocity is continuous across the step boundary. The pelvis withdraws about five units before it commits forward, which is the weight transfer earlier versions had no equivalent of.
+
+### Task 12: Make the movement verifiable — done
+
+Rewrote `scripts/check-markdown-tai-chi.mjs`. The prototype's movement code is fenced by `geometry:start` / `geometry:end` markers and is DOM-free, so the check imports it directly and asserts bone lengths hold, hands stay attached, feet stay on the floor, the head stays quiet, and every joint plus the hand velocity is continuous across the step boundary. Each assertion was verified by deliberately breaking the prototype and confirming it failed.
+
+### Task 13: Review affordances and responsive framing — done
+
+Added a preview at true hero size next to the enlarged one, a pose-by-pose contact sheet of the phrase, a scrub bar, a speed control and `#t=` deep links. The stage height is fixed and the viewBox width derived from it, so a narrow screen sees less of the strip rather than a smaller figure — the camera travels with the figure. Baked a still bow stance into the markup as the no-JS fallback.
+
+### Task 14: Rufus's call on tempo, alternation and syntax — open
+
+Two questions the study cannot settle on its own. The crossing takes about forty seconds at a natural tai chi tempo; calm, but long for a hero loop. And the phrase repeats on one side instead of alternating left and right as the form proper does — cheap to add, but it doubles the pose data and is barely visible in strict profile. Both are worth a look before any Markdown syntax work begins.

@@ -89,7 +89,11 @@ A denser figure used a dark robe, broad sleeves, coat tails, a topknot and a sli
 
 ### Version 3: travelling ink gesture
 
-The prototype was rebuilt as a 1000 by 140 SVG strip with an unfilled line figure, left-to-right travel and fading pose snapshots. This is the current technical and compositional direction, but the human drawing and tai chi phrase are still studies rather than an approved final form.
+The prototype was rebuilt as a 1000 by 140 SVG strip with an unfilled line figure, left-to-right travel and fading pose snapshots. The composition was right and the drawing was not: uniform-width lines run through a joint list, which is a stick figure however the poses are tuned, and the figure slid across the strip without ever taking a step.
+
+### Version 4: brush strokes and real steps
+
+The current state. Same strip, rebuilt three ways: tapered brush strokes instead of lines, joints derived by two-bone IK instead of hand-placed, and one step of Brush Knee and Push repeated across the page instead of a single slide. See the version 4 section of the design note for what each change fixed. Open questions are the forty-second crossing and the phrase repeating on one side rather than alternating.
 
 ## How to work on it
 
