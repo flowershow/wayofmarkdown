@@ -7,19 +7,17 @@ publish: false
 
 Status: approved for standalone prototyping on 2026-08-02. Tracked in GitHub issue #71.
 
-## Rufus's original brief, lightly tidied
+## Rufus's movement brief, lightly tidied
 
-I am imagining this ending up quite small: maybe 50 pixels high, perhaps 100 pixels. It is a small animation which flows from left to right across the page. The figure makes a sequence of movements and travels quite a way across the page.
+I am imagining this ending up quite small, like 50 pixels high or 100 pixels. It is quite a small animation, and it flows left to right across the page. You really want the figure almost making a sequence of movements, going quite a way across the page, so the figures are not very high.
 
-We really want a beautiful human figure and a beautiful tai chi movement. The figure should have the look of a tai chi or Zen master, in the sense of how the form flows. It should be graceful and sinuous. We need to identify both a beautiful image of the human form to follow and a beautiful movement to imitate.
+At some point it might assemble at the beginning out of different Markdown-related items: the hash mark used for headings, for example, or basically points and quite simple things. But maybe we do not start by doing this with punctuation symbols. Start by doing it with beautiful curving lines. Get the outline of a person right first.
 
-We see the movement completely side-on. There is no three-dimensionality. Think of Muybridge taking photographs of the horse: we see the flow of a whole sequence unfolding from left to right across an expanse of the page. Earlier poses should continuously dissolve behind the moving figure, if we can make that really beautiful.
+The movement is completely side-on. Think of the pictures of Muybridge taking a picture of the horse. There is no three-dimensionality: we are seeing the flow of the movement across the page.
 
-This should feel like a Zen sketch or a sketchbook of tai chi moves. We are not putting in the detail of a person, and it is not a full outline of them. We only see the essential lines: the arms, the flow of the back into the head, the legs and the weight of the movement. Start with beautiful curving lines and get the human form and movement right.
+It should be graceful, like a Zen sketch. We are not putting in the detail of someone. It is not a full outline of them; it is the essential movement of the arms, the flow of the back into the head and the shape of the body. It is like a sketchbook of tai chi moves, with the whole sequence unfolding from left to right across an expanse of the page. <!-- voice-lint-ok: Rufus's original description -->
 
-Only after that should we turn it into syntax. At some point the figure might assemble at the beginning from Markdown-related items: the hash mark used for headings, for example, or points and other simple marks. The figure itself could eventually be made from those symbols. But do not begin with punctuation. First get the graceful line figure and the sequence of movement right.
-
-This is part of wanting stronger branding for The Way of Markdown, with something memorable in the hero. Prototype it separately in an HTML file and polish it there before deciding how to integrate it into the landing page. The possible move to a pure HTML and Tailwind homepage, and removing the homepage sidebar and Giscus comments, is a related but larger homepage item rather than part of this first animation study.
+Later we can turn it into syntax, but first get that right.
 
 ## Version 3 decision: motion before figure, figure before syntax
 
