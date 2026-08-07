@@ -21,6 +21,20 @@ It should be graceful, like a Zen sketch. We are not putting in the detail of so
 
 Later we can turn it into syntax, but first get that right.
 
+## Version 5 decision: one movement, in place
+
+Rufus's call after version 4: drop the crossing entirely. No travel, no sequence, no repetition across the page. One movement, and something closer to push hands — a figure pressing both palms out in front of it.
+
+The movement is **An**, the press-and-push from Grasp Sparrow's Tail. The weight settles back onto the rear leg, both palms draw down and in toward the waist, then the weight rolls forward into the front leg and both hands press out together at chest height. The feet never move. Everything visible is the weight rolling back and forward between them.
+
+This turned out to fix a problem version 4 could not solve. The travelling version had a step cycle in it, and a step cycle read as walking however slowly it was played. Removing travel removes the walk, and what is left is unmistakably a tai chi gesture.
+
+Composition changes with it. The wide 1000-unit strip existed to give the figure somewhere to travel; with no travel it was mostly empty page. The mark is now a compact frame of roughly 200 by 118 units, sized to run at 56 to 104 pixels high, which can sit beside a headline rather than stretching under one. The dissolving pose-ghosts are gone too: with the figure staying put they would have piled on top of each other.
+
+Two drawing decisions carry the double push. The palms are offset — the far one lower, shorter and lighter — because in strict profile two hands at the same height read as one thick hand. And the far shoulder is dropped and brought forward so the far arm clears the torso and reads for its whole length instead of vanishing into the body and re-emerging as a stray forearm.
+
+The gesture loops rather than playing once. "One movement, no repetition" is about not repeating it across the page; the movement itself is a breath in and out, and it is natural for it to keep breathing. There are holds at each end so it settles rather than cycling like a machine. If Rufus wants it to play once and rest, that is a small change.
+
 ## Version 4 decision: brush strokes, derived joints, real steps
 
 Version 3 had the right composition and the wrong drawing. Rufus's verdict was that it had no elegance, beauty or flow. Three specific causes, each fixed:

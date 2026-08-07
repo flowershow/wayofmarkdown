@@ -35,9 +35,11 @@ Earlier poses should continuously dissolve behind the live figure, provided the 
 
 ### Scale and composition
 
-- A wide, shallow strip across much of the page.
+Superseded on 2026-08-08. The wide travelling strip below was the version 1 to 4 direction; from version 5 the mark stays in place. What still holds: roughly 50–100 pixels high, empty space as part of the composition, and not a card, illustration panel or large centred logo.
+
+- ~~A wide, shallow strip across much of the page.~~
 - Approximately 50–100 pixels high in its eventual hero setting; the working SVG may use a larger equivalent viewbox.
-- The figure travels through substantial horizontal space instead of performing in place.
+- ~~The figure travels through substantial horizontal space instead of performing in place.~~ It performs in place.
 - Empty space is part of the composition. This is not a card, illustration panel or large centred logo.
 
 ### Human form
@@ -93,7 +95,11 @@ The prototype was rebuilt as a 1000 by 140 SVG strip with an unfilled line figur
 
 ### Version 4: brush strokes and real steps
 
-The current state. Same strip, rebuilt three ways: tapered brush strokes instead of lines, joints derived by two-bone IK instead of hand-placed, and one step of Brush Knee and Push repeated across the page instead of a single slide. See the version 4 section of the design note for what each change fixed. Open questions are the forty-second crossing and the phrase repeating on one side rather than alternating.
+Same strip, rebuilt three ways: tapered brush strokes instead of lines, joints derived by two-bone IK instead of hand-placed, and one step of Brush Knee and Push repeated across the page instead of a single slide. The drawing became good; the crossing did not. Superseded.
+
+### Version 5: one movement, in place
+
+The current state, and a change of direction from Rufus: no crossing at all, one movement, and something closer to push hands. The movement is An — press and push — with both palms pressing out together and the feet planted throughout. Removing the travel also removed the step cycle that kept reading as walking. The wide strip is gone with it; the mark is now a compact frame sized to run at 56 to 104 pixels beside a headline.
 
 ## How to work on it
 

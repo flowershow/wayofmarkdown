@@ -3,12 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tai chi across the page — gesture study 04</title>
+  <title>Tai chi mark — press and push</title>
   <style>
     :root {
       color-scheme: light dark;
       --paper: #f6f3ea;
-      --paper-deep: #efebdd;
       --ink: #1b2b24;
       --ink-soft: #6b7c74;
       --line: rgba(27, 43, 36, .13);
@@ -27,12 +26,12 @@
     }
 
     main {
-      max-width: 82rem;
+      max-width: 74rem;
       margin: 0 auto;
       padding: clamp(1.25rem, 5vw, 4rem) clamp(1rem, 4vw, 3rem) 5rem;
     }
 
-    .copy { max-width: 40rem; margin-bottom: clamp(2rem, 6vw, 4rem); }
+    .copy { max-width: 40rem; margin-bottom: clamp(2rem, 6vw, 3.5rem); }
 
     .eyebrow {
       margin: 0 0 .7rem;
@@ -42,10 +41,10 @@
       text-transform: uppercase;
     }
 
-    h1 {
+    .copy h1 {
       margin: 0;
       font-family: ui-serif, Georgia, Cambria, "Times New Roman", serif;
-      font-size: clamp(2.2rem, 5vw, 4rem);
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
       font-weight: 450;
       letter-spacing: -.05em;
       line-height: .98;
@@ -60,45 +59,63 @@
     }
 
     h2 {
-      margin: 0 0 .8rem;
+      margin: 0 0 1rem;
       color: var(--ink-soft);
       font: 700 .66rem/1 ui-monospace, SFMono-Regular, Menlo, monospace;
       letter-spacing: .13em;
       text-transform: uppercase;
     }
 
-    .band { margin-bottom: clamp(2rem, 5vw, 3.5rem); }
+    .band { margin-bottom: clamp(2.5rem, 6vw, 4rem); }
 
-    .stage-shell {
-      width: 100%;
-      overflow: hidden;
+    .tai-chi-mark { display: block; height: auto; }
+
+    /* In place beside a headline, at the size it would actually run. */
+    .hero {
+      display: flex;
+      align-items: center;
+      gap: clamp(1rem, 4vw, 3rem);
+      padding-block: clamp(1.5rem, 4vw, 2.5rem);
       border-block: 1px solid var(--line);
     }
 
-    .tai-chi-stage {
+    .hero .tai-chi-mark { flex: none; height: 104px; }
+
+    .hero-title {
+      margin: 0;
+      font-family: ui-serif, Georgia, Cambria, "Times New Roman", serif;
+      font-size: clamp(1.5rem, 4.4vw, 3rem);
+      font-weight: 450;
+      letter-spacing: -.045em;
+      line-height: 1.02;
+    }
+
+    .hero-title span {
       display: block;
-      width: 100%;
-      height: auto;
+      margin-top: .7em;
+      color: var(--ink-soft);
+      font-size: .42em;
+      letter-spacing: -.01em;
     }
 
-    /* Real hero scale: the study has to work here, not when enlarged. The
-       stage height is fixed and the viewBox width is derived from it at
-       runtime, so the figure is the same size on a phone as on a desktop —
-       the narrow screen simply sees less of the strip. */
-    .band--hero .tai-chi-stage { height: 88px; }
-    .band--study .tai-chi-stage[data-stage] { height: 190px; }
-    .tai-chi-stage[data-sheet] { height: auto; }
+    .sizes { display: flex; align-items: flex-end; gap: clamp(1.5rem, 5vw, 3.5rem); flex-wrap: wrap; }
+    .sizes figure { margin: 0; }
 
-    @media (max-width: 640px) {
-      .band--hero .tai-chi-stage { height: 72px; }
-      .band--study .tai-chi-stage[data-stage] { height: 132px; }
+    .sizes figcaption {
+      margin-top: .6rem;
+      color: var(--ink-soft);
+      font: 700 .6rem/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+      letter-spacing: .1em;
     }
+
+    .size-56 .tai-chi-mark { height: 56px; }
+    .size-80 .tai-chi-mark { height: 80px; }
+    .size-104 .tai-chi-mark { height: 104px; }
+    .size-review .tai-chi-mark { height: 300px; }
 
     .ink { fill: var(--ink); stroke: none; }
-    .ink--soft { opacity: .66; }
-    .ink--faint { opacity: .28; }
-
-    #trail-layer { pointer-events: none; }
+    .ink--soft { opacity: .62; }
+    .ink--faint { opacity: .26; }
 
     .no-js-figure { display: none; }
     .no-js .no-js-figure { display: inline; }
@@ -108,7 +125,7 @@
       flex-wrap: wrap;
       align-items: center;
       gap: .5rem .6rem;
-      margin-top: 1rem;
+      margin-top: 1.5rem;
     }
 
     button {
@@ -124,14 +141,12 @@
 
     button:hover { border-color: var(--accent); }
     button:focus-visible { outline: 3px solid rgba(22, 138, 70, .2); outline-offset: 2px; }
-    button[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); }
 
     .scrub { display: flex; align-items: center; gap: .5rem; flex: 1 1 14rem; }
-
     input[type="range"] { flex: 1; accent-color: var(--accent); }
 
     .readout {
-      min-width: 5.5rem;
+      min-width: 6.5rem;
       color: var(--ink-soft);
       font: 700 .64rem/1 ui-monospace, SFMono-Regular, Menlo, monospace;
       letter-spacing: .08em;
@@ -148,7 +163,6 @@
     @media (prefers-color-scheme: dark) {
       :root {
         --paper: #0d1512;
-        --paper-deep: #121e18;
         --ink: #e6efe9;
         --ink-soft: #93a79d;
         --line: rgba(230, 239, 233, .14);
@@ -157,71 +171,93 @@
       }
     }
 
+    @media (max-width: 640px) {
+      .hero { flex-direction: column; align-items: flex-start; }
+      .size-review .tai-chi-mark { height: 200px; }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       .review-bar { display: none; }
     }
   </style>
 </head>
-<body class="no-js" data-study-version="4" data-rendering="brush-strokes" data-view="strict-profile" data-movement="brush-knee-and-push">
+<body class="no-js" data-study-version="5" data-rendering="brush-strokes" data-view="strict-profile" data-movement="press-and-push">
   <main>
     <div class="copy">
-      <p class="eyebrow">Motion study 04 · ink before syntax</p>
-      <h1>A form crosses the page.</h1>
-      <p class="lede">One tai chi phrase, repeated step after step, travelling left to right in strict profile. Every few steps the settled stance stays behind as drying ink.</p>
+      <p class="eyebrow">Motion study 05 · ink before syntax</p>
+      <h1>One movement, in place.</h1>
+      <p class="lede">Press and push. The weight settles back, both palms draw down and in, then the weight rolls forward and the hands press out together. No travel, no sequence, no repetition across the page.</p>
     </div>
 
-    <section class="band band--hero">
-      <h2>At hero size (88px)</h2>
-      <div class="stage-shell">
-        <svg class="tai-chi-stage" data-stage viewBox="0 16 1000 116" preserveAspectRatio="xMidYMax meet" role="img" aria-label="A brush-drawn figure in profile moving through a tai chi form from left to right">
-          <g class="trail-layer" data-trails aria-hidden="true"></g>
+    <section class="band">
+      <h2>In place, beside a headline</h2>
+      <div class="hero">
+        <svg class="tai-chi-mark" data-stage viewBox="0 14 200 118" role="img" aria-label="A brush-drawn figure in profile pressing both palms forward">
           <g class="figure-layer" data-figure aria-hidden="true"></g>
-          <!-- Still fallback if the script never runs: the settled bow stance. -->
-          <g class="no-js-figure" data-static aria-hidden="true" transform="translate(470 0)">
-            <path class="ink" d="M-1 77.5L0 78L1.5 79.5L3 81L5 82.5L7 83.5L9.5 85L11.5 86L13.5 87.5L15.5 89L17.5 90.5L18.5 91.5L19.5 93L20.5 94.5L20.5 96.5L21 98.5L21 101L21 103.5L20.5 106L20.5 108.5L20 111L19.5 113.5L19.5 115.5L19 117L18.5 118.5L18 120L17.5 121L17 121.5L16.5 122L16 122.5L15 122.5L14.5 123L13.5 123L14.5 125L15 124.5L16.5 124.5L17 124L18 124L18.5 123.5L19.5 122.5L20 122L20.5 120.5L21 119.5L21.5 118L22 116L22.5 114L23 111.5L23.5 109L24 106.5L24.5 104L25 101L25 98.5L25 96L24.5 93.5L23.5 91L22.5 89L21 87L19 85L17 83L15 81.5L12.5 79.5L10.5 78L8 77L5.5 76.5L3.5 76L2 75L1 74.5Z"></path>
-            <path class="ink" d="M14 125.5L15.5 125.5L18.5 125.5L22 125.5L25 125L28 124.5L30 124.5L30 123.5L28 123.5L25 123L22 122.5L18.5 122.5L15.5 122.5L14 123Z"></path>
-            <path class="ink ink--soft" d="M-1 46L-1.5 47L-2 48.5L-3 50L-4 51.5L-4.5 53.5L-5.5 56L-6 58L-6.5 60L-7 62L-7 64L-7 66L-6.5 67.5L-5.5 68.5L-4.5 69.5L-3 70.5L-1.5 71L0.5 71L2 71.5L4 71.5L5.5 72L7 72L8.5 72L9.5 72L10.5 72L11 72.5L12 72.5L12.5 73L13.5 73L14 74L14.5 74.5L14.5 75.5L15 76L15.5 76.5L15.5 75.5L15.5 74.5L15.5 73.5L15.5 72.5L15 72L14.5 71.5L14 71L13 71L12 70.5L11 70.5L10 70L8.5 70L7 70L5.5 69.5L4 69.5L2.5 69L1 69L-0.5 68.5L-2 68L-3 67.5L-3.5 67L-4 66.5L-4 65.5L-4 64L-3.5 62.5L-3 61L-2.5 59L-2 57L-1 55L-0.5 53L0 51L0.5 49.5L0.5 48L1 46.5Z"></path>
-            <path class="ink" d="M-1.5 75.5L-2 76.5L-3 78L-4 80L-5 81.5L-6 84L-7 86.5L-7.5 88.5L-8.5 91L-9 93.5L-10 96L-11 98L-12 99.5L-13 101.5L-14.5 103L-16.5 105L-18 106.5L-20 108L-21.5 110L-23.5 111.5L-25 113L-27 114.5L-28.5 115.5L-30 117L-31 118L-32 119L-33 120L-33.5 120.5L-34 121L-34.5 121.5L-35 122L-36 122.5L-36.5 123L-37 123.5L-35.5 124.5L-35 124L-34.5 123.5L-33.5 123L-33 122.5L-32 122L-31.5 121.5L-30.5 121L-29.5 120L-28 119L-26.5 118L-25 116.5L-23.5 115.5L-21.5 114L-19.5 112.5L-17.5 111L-15.5 109.5L-13.5 107.5L-11.5 106L-10 104L-8.5 102L-7 100L-5.5 98L-4.5 95.5L-3 93.5L-2 91L-1 88.5L0 86L0.5 83.5L1 81.5L1 79.5L1 77.5L1.5 76.5Z"></path>
-            <path class="ink" d="M-36.5 125.5L-34.5 125.5L-31.5 125.5L-28.5 125.5L-25 125L-22 124.5L-20.5 124.5L-20.5 123.5L-22 123.5L-25 123L-28.5 122.5L-31.5 122.5L-34.5 122.5L-36.5 123Z"></path>
-            <path class="ink ink--faint" d="M4.5 43.5L5 44L5.5 44.5L6.5 45L7 46L7.5 47L8.5 48L9 49L10 50L10.5 51L11 52L11.5 52.5L12 53.5L12 54.5L12.5 55.5L12.5 57L12.5 58L12.5 59L12.5 60.5L12.5 61.5L12 62.5L11.5 64L11.5 65L11 66L10.5 66.5L10 67.5L9.5 68.5L9 69.5L8 70.5L7.5 71.5L7 72L6.5 73L6 73.5L6.5 74L7 73L7.5 72.5L8 72L9 71L9.5 70L10.5 69.5L11 68.5L11.5 67.5L12 66.5L12.5 65.5L13 64.5L13.5 63.5L13.5 62.5L14 62L14 61L14 60L14 59L14 58L14 57L14 56L14 55L14 54L13.5 53L13 52L12.5 51L11.5 50L11 49L10 48L9 47L8.5 46.5L7.5 45.5L7 44.5L6 44L5.5 43.5L5 43Z"></path>
-            <path class="ink" d="M1.5 75.5L1.5 74.5L1.5 73.5L1.5 72.5L1.5 71L1.5 70L1.5 69L1.5 68L1 67L1 66L1 65L1 64L1.5 62.5L2 61L2 60L2.5 58.5L2.5 57.5L3 56.5L3 55.5L3.5 54.5L4 53L4 52L4.5 51L4.5 50L4.5 48.5L5 47L5 46L5 45L4.5 44L4 42.5L3.5 41L3 40.5L2.5 39.5L2 39L1.5 38L1 37.5L0.5 36.5L0 35.5L0 34.5L-0.5 34L-0.5 33L0 32.5L0 31.5L0.5 31L1 30.5L1.5 30L2 29.5L2.5 29L3.5 28.5L4.5 28L5 28.5L6 29L6.5 29.5L7 30L7.5 30.5L9 29L8.5 28.5L8 28L7.5 27.5L7 27L6 26.5L5.5 26L4.5 26L3.5 26L2.5 26L2 26.5L1 27L0 27.5L-1 28L-1.5 28.5L-2 29L-2.5 30L-3 31L-3 32L-3.5 32.5L-3.5 33.5L-3.5 34.5L-3.5 35.5L-3 36L-2.5 37L-2.5 38L-2 38.5L-1.5 39L-1 40L-0.5 41L0 41.5L0.5 42.5L0.5 43.5L1 44L1 45L1 46.5L0.5 47L0.5 48L0 49L-0.5 50.5L-0.5 51.5L-1 52.5L-1 53.5L-1.5 54.5L-1.5 55.5L-2 56L-2.5 57L-3 58.5L-3.5 59L-3.5 60L-4 61L-4.5 62L-5 62.5L-5 63.5L-5.5 64.5L-5.5 66L-5.5 67L-5.5 68L-5 69L-5 70.5L-4.5 71.5L-4 72.5L-3.5 73L-3 74L-2.5 74.5L-2 75.5L-1.5 76Z"></path>
-            <path class="ink" d="M7.5 30L8 30.5L8.5 31L9 32L9.5 33L10 33.5L10.5 34L10 34.5L9.5 35L8.5 35.5L7.5 36L7.5 37L8 37.5L8 38.5L6.5 39L5 39.5L3.5 40L3 40.5L3.5 41.5L4 42L4.5 42.5L5 43L4.5 42.5L4 41.5L3.5 41L4 40.5L5.5 40L7 40L7.5 39.5L8.5 39.5L9 39L9.5 38L9 37.5L8.5 36.5L9.5 36.5L10 36L11 36L11.5 35L11.5 34L11 33L10.5 32L10 31L9.5 30L9 29.5Z"></path>
-            <path class="ink" d="M2.5 47L3 47.5L4 48.5L5.5 49.5L7 51L8.5 52L10.5 53L12.5 54L14.5 55L16.5 56L18 56.5L20 56.5L22 57L23.5 56.5L25 56L26.5 55L28 54.5L29 53L30.5 52L31.5 51L32.5 50L33.5 49L34.5 48L35 47L36 46.5L36.5 46L37 45.5L38 45.5L38.5 45L39 44.5L39 43.5L39.5 43L39 42L39 41L38.5 40.5L38 40L37.5 39L37 38L36.5 38.5L36.5 39.5L36.5 40.5L37 41L37 42L37 43L36.5 43.5L35.5 44L35 44.5L33.5 45.5L33 46L32 47L30.5 48L29.5 49L28.5 50L27.5 51L26 52L25 52.5L24 53L23 53.5L22 53.5L20.5 53.5L19.5 53L18 52L16 51.5L14.5 50.5L12.5 49L11 48L9 47L7.5 46.5L6 46L4.5 45.5L3.5 45Z"></path>
+          <!-- Still fallback if the script never runs: the settled push. -->
+          <g class="no-js-figure" data-static aria-hidden="true" transform="translate(96 0)">
+            <path class="ink" d="M5.5 75.5L5 76.5L3.5 78L2.5 79.5L0.5 81L-0.5 83L-2 85L-3 87L-4.5 89.5L-5.5 91.5L-7 94L-8 96L-9.5 98L-11 99.5L-12.5 101.5L-14 103.5L-15.5 105L-17 107L-18.5 109L-20 111L-21.5 112.5L-23 114L-24.5 115.5L-26 117L-27 118L-28 119L-28.5 120L-29 120.5L-30 121L-30.5 121.5L-31 122L-31.5 122.5L-32 123L-31.5 125L-31 124.5L-30.5 124L-29.5 123.5L-29 123L-28 122L-27 121.5L-26 121L-25 120L-24 119L-22.5 117.5L-21 116L-19.5 114.5L-18 113L-16 111.5L-14.5 109.5L-12.5 108L-11 106L-9 104L-7.5 102.5L-6 100.5L-4.5 98.5L-3 96.5L-1 94.5L0.5 92.5L2 90.5L3.5 88L5 86L6 84L6.5 82L7 80L7.5 78.5L8.5 77.5Z"></path>
+            <path class="ink" d="M-32 125.5L-30 125.5L-27.5 125.5L-24 125.5L-20.5 125L-18 124.5L-16 124.5L-16 123.5L-18 123.5L-20.5 123L-24 122.5L-27.5 122.5L-30 122.5L-32 123Z"></path>
+            <path class="ink ink--soft" d="M8.5 50.5L9.5 51L10 52.5L11 54L11.5 55.5L13 57.5L14.5 59L16 60.5L17.5 62L19 63.5L20.5 65L22 65.5L23.5 66L25 66L26.5 66L28 65L29.5 64L31 63L32 62L33 60.5L34.5 59.5L35.5 58.5L36 57.5L37 56.5L37.5 56L38 55.5L38.5 55L39.5 55L40 54.5L40.5 54L41 53.5L41 52.5L41 51.5L40.5 51L40 50L39.5 49.5L39 48.5L38 48.5L38.5 49L38.5 50L39 50.5L39 51.5L39 52.5L38.5 53L38 53.5L37 54L36.5 54.5L35.5 55L35 56L34 57L32.5 58L31.5 59L30.5 60L29 61L28 62L27 63L26 63.5L25 63.5L24 63.5L23.5 63L22.5 62.5L21 61L20 60L18.5 58.5L17.5 56.5L16 55L14.5 53.5L13.5 52L12 50.5L11 49.5L10.5 49Z"></path>
+            <path class="ink" d="M6 78L7.5 78.5L8.5 80L10.5 81.5L12 83L14.5 84L16.5 85.5L19 86.5L21 88L23 89.5L24.5 90.5L26 92L27 93.5L27 94.5L27.5 96.5L27.5 98.5L27 101L27 103.5L26.5 106L26 108.5L25 111L24.5 113L24 115L23 117L23 118.5L22.5 119.5L22 120.5L21.5 121L21 121.5L20.5 122L20 122.5L19 122.5L18.5 123L17.5 123L18.5 125L19 124.5L20 124.5L21 124L22 124L22.5 123.5L23.5 122.5L24 122L24.5 120.5L25 119.5L26 118L26.5 116L27.5 114L28 112L29 109.5L30 107L30.5 104L31 101.5L31.5 99L31.5 96.5L31.5 94L31 91.5L29.5 89.5L28 87.5L26.5 85.5L24.5 83.5L22 81.5L20 80L17.5 78.5L15 77.5L13 77L10.5 76.5L9 76L8 75Z"></path>
+            <path class="ink" d="M18 125.5L20 125.5L22.5 125.5L26 125.5L29.5 125L32 124.5L34 124.5L34 123.5L32 123.5L29.5 123L26 122.5L22.5 122.5L20 122.5L18 123Z"></path>
+            <path class="ink ink--faint" d="M12 43.5L12.5 44L13 44.5L13.5 45L14 46L15 47L15.5 48L16.5 49L17 50L17.5 51L18.5 52L18.5 53L19 53.5L19.5 54.5L19.5 55.5L19.5 56.5L19.5 58L19.5 59L19.5 60L19.5 61.5L19 62.5L19 63.5L18.5 64L18.5 65L18 66L17.5 67L17 68L16.5 68.5L16 69.5L15 70.5L14.5 71.5L14 72.5L13.5 73L13 73.5L13 74.5L13.5 74L14 73.5L14.5 72.5L15 72L16 71L16.5 70.5L17.5 69.5L18 68.5L18.5 67.5L19.5 66.5L19.5 65.5L20 64.5L20.5 63.5L21 62L21 61L21 60L21.5 59L21.5 58L21.5 57L21.5 56L21 55L21 54L20.5 53L20 52L19.5 51L19 50L18 49L17.5 48L16.5 47.5L15.5 46.5L14.5 45.5L14 45L13.5 44L13 43.5L12.5 43Z"></path>
+            <path class="ink" d="M8.5 76L8.5 75L8.5 74L8.5 73L8.5 72L8.5 71L8.5 70L8.5 69L8.5 68L8 67.5L8 66.5L8 65.5L8 64L8.5 63.5L8.5 62.5L9 61L9.5 59.5L9.5 58.5L10 57.5L10 56.5L10 55.5L10.5 55L10.5 54L11 53L11 52L11.5 51L11.5 50L12 49L12 48L12 47L12 46L12 45L12 44L11.5 43.5L11.5 42.5L11 42L10.5 41L10 40.5L9.5 39.5L9 39L8.5 38L8 37L7.5 36L7 35L7 34L7 33L7 32L7.5 31.5L8 31L8.5 30L9 29.5L9.5 29L10.5 28.5L11 28L11.5 28.5L12.5 28.5L13 29L13.5 29.5L14 30L14.5 30.5L16 29L15 28.5L14.5 28L14 27.5L13.5 27L13 26.5L12.5 26L11 25.5L10 26L9 26L8.5 26.5L8 27L7 27.5L6.5 28L6 28.5L5.5 29L5 29.5L4.5 30.5L4 31.5L4 32.5L3.5 33.5L4 34.5L4 35.5L4.5 36.5L5 37.5L5 38.5L5.5 39L6 39.5L6.5 41L7 41.5L7.5 42L8 43L8 44L8 45L8 46.5L7.5 48L7.5 49L7 50L6.5 51.5L6 52.5L6 53.5L5.5 54.5L5.5 55.5L5 56L5 57L4.5 57.5L4 58.5L3.5 60L3 61L2.5 62L2 63.5L2 64.5L1.5 66L1.5 67L1.5 68L2 69.5L2 70.5L2.5 71.5L3 72.5L3.5 73.5L4 74.5L4.5 75L5 76L5.5 76.5Z"></path>
+            <path class="ink" d="M14.5 30.5L15 31L15.5 31.5L16 32L16.5 32.5L17 33L17 34L17 35L16.5 35.5L15.5 35.5L15 36L15 37L15.5 38L15 38.5L14.5 39L13 39.5L11.5 39.5L11 40L10.5 40.5L10.5 41.5L11 42L11.5 42.5L12 43L11.5 42L11 41.5L11 40.5L12 40.5L12.5 40L13.5 40L15 40L15.5 39.5L16 39L16.5 38.5L16 37.5L16 36.5L16.5 36L17.5 36L18 35.5L18 34.5L18 33.5L18 32.5L17.5 32L17.5 31L16.5 30.5L16 30Z"></path>
+            <path class="ink" d="M9.5 47.5L10.5 47.5L12 48L13 49L15 50L16.5 50.5L18.5 51.5L20.5 52L22.5 52.5L25 52.5L27 53L28.5 53L30.5 53L32 53L33.5 52.5L35.5 52L37 51.5L38.5 50.5L39.5 50L41 49.5L42.5 48.5L43.5 48L44.5 47L45.5 46.5L46.5 46L47.5 46L48.5 45.5L49.5 45.5L50 45L50.5 44L50.5 43L50.5 42L50 41.5L50 40.5L49.5 40L49.5 39L48.5 38.5L48.5 39.5L48.5 40.5L48 41L48 42L48 43L48.5 43.5L47.5 43.5L46.5 44L45 44.5L43.5 45L42 45.5L41 46L40 47L38.5 47.5L37 48L36 48.5L34.5 49L33 49.5L31.5 49.5L30.5 49.5L29 49.5L27.5 49L25.5 48.5L24 48L22 47.5L20 47L18 46.5L16 46L14.5 45.5L13 45.5L11.5 45L10.5 45Z"></path>
           </g>
         </svg>
+        <p class="hero-title">The Way of Markdown<span>Plain text, patiently practised.</span></p>
       </div>
     </section>
 
-    <section class="band band--study">
-      <h2>Enlarged for review</h2>
-      <div class="stage-shell">
-        <svg class="tai-chi-stage" data-stage viewBox="0 16 1000 116" preserveAspectRatio="xMidYMax meet" role="presentation" aria-hidden="true">
-          <g class="trail-layer" data-trails></g>
-          <g class="figure-layer" data-figure></g>
-          <g class="no-js-figure" data-static></g>
-        </svg>
+    <section class="band">
+      <h2>At size</h2>
+      <div class="sizes">
+        <figure class="size-56">
+          <svg class="tai-chi-mark" data-stage viewBox="0 14 200 118" role="presentation" aria-hidden="true">
+            <g class="figure-layer" data-figure></g>
+          </svg>
+          <figcaption>56px</figcaption>
+        </figure>
+        <figure class="size-80">
+          <svg class="tai-chi-mark" data-stage viewBox="0 14 200 118" role="presentation" aria-hidden="true">
+            <g class="figure-layer" data-figure></g>
+          </svg>
+          <figcaption>80px</figcaption>
+        </figure>
+        <figure class="size-104">
+          <svg class="tai-chi-mark" data-stage viewBox="0 14 200 118" role="presentation" aria-hidden="true">
+            <g class="figure-layer" data-figure></g>
+          </svg>
+          <figcaption>104px</figcaption>
+        </figure>
       </div>
+    </section>
+
+    <section class="band size-review">
+      <h2>Enlarged for review</h2>
+      <svg class="tai-chi-mark" data-stage viewBox="0 14 200 118" role="presentation" aria-hidden="true">
+        <g class="figure-layer" data-figure></g>
+      </svg>
 
       <div class="review-bar">
         <button type="button" data-action="toggle-play">Pause</button>
         <button type="button" data-action="restart">Restart</button>
         <button type="button" data-action="speed">Speed 1&times;</button>
-        <button type="button" data-action="toggle-trails" aria-pressed="true">Trails</button>
         <div class="scrub">
           <input type="range" data-scrub min="0" max="1000" value="0" step="1" aria-label="Scrub the movement">
-          <span class="readout" data-readout>step 1</span>
+          <span class="readout" data-readout>settled</span>
         </div>
       </div>
     </section>
 
-    <section class="band band--study">
-      <h2>The phrase, pose by pose</h2>
-      <div class="stage-shell">
-        <svg class="tai-chi-stage" data-sheet viewBox="0 16 1000 116" preserveAspectRatio="xMidYMax meet" role="presentation" aria-hidden="true"></svg>
-      </div>
+    <section class="band">
+      <h2>The movement, pose by pose</h2>
+      <svg class="tai-chi-mark" data-sheet viewBox="0 14 1120 118" style="width: 100%" role="presentation" aria-hidden="true"></svg>
     </section>
 
-    <p class="note">Gesture study only. No Markdown marks yet, and the homepage is untouched. Under <code>prefers-reduced-motion</code> the strip settles into a single stance and the review controls are hidden.</p>
+    <p class="note">Gesture study only. No Markdown marks yet, and the homepage is untouched. Under <code>prefers-reduced-motion</code> the mark holds the settled push and the review controls are hidden.</p>
   </main>
 
   <script>
@@ -255,7 +291,7 @@
       return out;
     }
 
-    // Piecewise-linear width profile along the stroke, in [u, width] stops.
+    // Piecewise width profile along the stroke, in [u, width] stops.
     function widthAt(stops, u) {
       if (u <= stops[0][0]) return stops[0][1];
       for (let i = 1; i < stops.length; i += 1) {
@@ -269,9 +305,9 @@
       return stops[stops.length - 1][1];
     }
 
-    // A tapered brush stroke: the outline of a variable-width ribbon.
-    // This is what separates ink from a stick figure, so it is the core of
-    // the whole study.
+    // A tapered brush stroke: the outline of a variable-width ribbon. This
+    // is what separates ink from a stick figure, so it is the core of the
+    // whole study.
     function brush(points, stops, per = 12) {
       const pts = spline(points, per);
       const arc = [0];
@@ -299,8 +335,7 @@
     }
 
     // Two-bone IK. Joints are derived rather than hand-placed, so limbs keep
-    // their length and the pose stays anatomically coherent all the way
-    // through the interpolation.
+    // their length and the pose stays coherent through the interpolation.
     function ik(root, target, upper, lower, bend) {
       const dx = target[0] - root[0];
       const dy = target[1] - root[1];
@@ -317,27 +352,33 @@
     }
 
     /* ------------------------------------------------------------------ *
-     * Movement: one step of Brush Knee and Push, looped.
+     * Movement: An — press and push — performed in place.
      *
-     * Tracks are cyclic and interpolated with Catmull-Rom, so velocity is
-     * continuous across the step boundary: the figure never stops dead or
-     * snaps between keyframes. `wrap` is how much the value gains over one
-     * step, for tracks that advance rather than return.
+     * The feet never move. All of it is the weight rolling back onto the
+     * rear leg and forward into the front one, with both palms drawing down
+     * and in, then pressing out together. Tracks are cyclic and
+     * interpolated with Catmull-Rom so velocity is continuous through the
+     * loop: the gesture breathes rather than restarting.
      * ------------------------------------------------------------------ */
 
     const GROUND = 124;
-    const STRIDE = 50;
+    const ANKLE_Y = 119;
     const THIGH = 27, SHIN = 27;
     const UPPER_ARM = 21, FOREARM = 20;
+    const BASE_HIP = 76.5;
 
-    function track(stops, t, wrap = 0) {
+    // Fixed bow stance. Rear foot behind, front foot ahead, both planted.
+    const REAR_ANKLE = [-26, ANKLE_Y];
+    const FRONT_ANKLE = [24, ANKLE_Y];
+
+    function track(stops, t) {
       const n = stops.length;
       let i = 0;
       while (i < n - 2 && t > stops[i + 1][0]) i += 1;
       const p1 = stops[i];
       const p2 = stops[i + 1];
-      const p0 = i > 0 ? stops[i - 1] : [stops[n - 2][0] - 1, stops[n - 2][1] - wrap];
-      const p3 = i + 2 < n ? stops[i + 2] : [stops[1][0] + 1, stops[1][1] + wrap];
+      const p0 = i > 0 ? stops[i - 1] : [stops[n - 2][0] - 1, stops[n - 2][1]];
+      const p3 = i + 2 < n ? stops[i + 2] : [stops[1][0] + 1, stops[1][1]];
       const h = (p2[0] - p1[0]) || 1e-6;
       const u = clamp((t - p1[0]) / h);
       const m1 = (p2[1] - p0[1]) / ((p2[0] - p0[0]) || 1e-6) * h;
@@ -346,27 +387,21 @@
       return (2 * u3 - 3 * u2 + 1) * p1[1] + (u3 - 2 * u2 + u) * m1 + (-2 * u3 + 3 * u2) * p2[1] + (u3 - u2) * m2;
     }
 
-    // Pelvis glide. It withdraws slightly before it commits: weight settles
-    // back, then travels into the front leg. That dip is the tai chi.
-    const TRAVEL = [[0, 0], [.30, -5], [.55, 3], [.95, 50], [1, 50]];
-    // The stepping foot, in world units relative to this step's origin.
-    const SWING = [[0, -30], [.30, -30], [.46, -10], [.62, 20], [.78, 54], [.88, 70], [1, 70]];
-    // The stepping foot skims the floor. Lift it any higher and the phrase
-    // turns into a march.
-    const LIFT = [[0, 0], [.30, 0], [.46, -2.6], [.62, -3], [.78, -1.2], [.88, 0], [1, 0]];
-    const FOOT_ANGLE = [[0, 0], [.30, 0], [.46, -11], [.62, -14], [.78, -9], [.88, 0], [1, 0]];
-    const HIP_Y = [[0, 76], [.30, 78.6], [.58, 78], [.82, 75.4], [1, 76]];
-    const LEAN = [[0, 1.6], [.30, -1.2], [.58, .2], [.82, 2.6], [1, 1.6]];
+    // The weight. This is the whole movement; everything else follows it.
+    // The holds at each end are what keep it from reading as a machine cycle.
+    const SHIFT = [[0, 7], [.10, 7], [.45, -6], [.56, -6], [.90, 7], [1, 7]];
+    const HIP_Y = [[0, 76.5], [.10, 76.5], [.45, 79.2], [.56, 79.2], [.90, 76.5], [1, 76.5]];
+    const LEAN = [[0, 2], [.10, 2], [.45, -1.6], [.56, -1.6], [.90, 2], [1, 2]];
+    // The front toe lifts a little as the weight comes off it.
+    const FRONT_TOE = [[0, 0], [.14, 0], [.45, -9], [.56, -9], [.86, 0], [1, 0]];
 
-    // Hand arcs. Each hand describes one continuous circle per step and the
-    // elbows follow from IK. The two circles are kept in separate bands of
-    // the body — upper hand at shoulder height, lower hand at the waist —
-    // because in strict profile two hands at the same height read as a knot
-    // rather than a gesture.
-    const HAND_A_X = [[0, 38], [.16, 33], [.34, 17], [.50, 11], [.62, 16], [.78, 29], [.90, 36], [1, 38]];
-    const HAND_A_Y = [[0, 44], [.16, 54], [.34, 59], [.50, 47], [.62, 35], [.78, 38], [.90, 42], [1, 44]];
-    const HAND_B_X = [[0, 19], [.18, 23], [.34, 28], [.50, 18], [.66, 25], [.80, 27], [.92, 22], [1, 19]];
-    const HAND_B_Y = [[0, 75], [.18, 64], [.34, 52], [.50, 57], [.66, 66], [.80, 73], [.92, 76], [1, 75]];
+    // Both palms trace the same arc, the far one trailing slightly low and
+    // behind. In strict profile two hands at identical height would read as
+    // one thick hand, so that offset is doing real work.
+    const HAND_A_X = [[0, 42], [.14, 39], [.30, 26], [.45, 15], [.56, 14], [.70, 25], [.86, 38], [1, 42]];
+    const HAND_A_Y = [[0, 44], [.14, 47], [.30, 56], [.45, 62], [.56, 60], [.70, 52], [.86, 45], [1, 44]];
+    const HAND_B_X = [[0, 33], [.14, 31], [.30, 21], [.45, 12], [.56, 11], [.70, 19], [.86, 29], [1, 33]];
+    const HAND_B_Y = [[0, 53], [.14, 55], [.30, 61], [.45, 67], [.56, 65], [.70, 59], [.86, 54], [1, 53]];
 
     const rot = (p, o, deg) => {
       const a = deg * Math.PI / 180;
@@ -382,33 +417,28 @@
       };
     }
 
-    // Everything below is in the pelvis frame; the caller translates by the
-    // travelled distance.
-    function pose(local, breath) {
-      const travel = track(TRAVEL, local, STRIDE);
-      const hipY = track(HIP_Y, local) + breath;
-      const lean = track(LEAN, local);
-      const hip = [0, hipY];
+    function pose(t, breath = 0) {
+      const hipX = track(SHIFT, t);
+      const hipY = track(HIP_Y, t) + breath;
+      const lean = track(LEAN, t);
+      const hip = [hipX, hipY];
 
-      const plantedAnkle = [20 - travel, 119];
-      const swingAnkle = [track(SWING, local, 2 * STRIDE) - travel, 119 + track(LIFT, local)];
-      const plantedFoot = foot(plantedAnkle, 0);
-      const swingFoot = foot(swingAnkle, track(FOOT_ANGLE, local));
+      const rearFoot = foot(REAR_ANKLE, 0);
+      const frontFoot = foot(FRONT_ANKLE, track(FRONT_TOE, t));
+      const kneeRear = ik(hip, REAR_ANKLE, THIGH, SHIN, [1, 0]);
+      const kneeFront = ik(hip, FRONT_ANKLE, THIGH, SHIN, [1, 0]);
 
-      const kneePlanted = ik(hip, plantedAnkle, THIGH, SHIN, [1, 0]);
-      const kneeSwing = ik(hip, swingAnkle, THIGH, SHIN, [1, 0]);
-
-      // Upper body rides on the pelvis and leans a degree or two; the head
-      // stays quiet, which is most of what makes it read as tai chi.
-      const up = p => rot([p[0], p[1] - (76 - hipY)], hip, lean);
+      // The upper body rides on the pelvis and leans a degree or two. The
+      // head stays quiet, which is most of what reads as tai chi.
+      const up = p => rot([p[0] + hipX, p[1] - (BASE_HIP - hipY)], hip, lean);
       const waist = up([-2.5, 66]);
       const chest = up([0, 56]);
       const neck = up([2, 45]);
       const nape = up([-1, 39]);
       const occiput = up([-3.2, 34]);
-      const skull = up([-1.5, 29.5]);
-      const crown = up([3, 27]);
-      const forehead = up([7, 29.5]);
+      const skull = up([-1.8, 29.8]);
+      const crown = up([2.4, 26.8]);
+      const forehead = up([6.6, 29.6]);
       const brow = up([8.6, 32]);
       const nose = up([9.1, 34.6]);
       const lip = up([7, 36.2]);
@@ -419,7 +449,7 @@
       const belly = up([12, 64]);
       const lowBelly = up([6, 74]);
       const shoulderA = up([2, 46]);
-      const shoulderB = up([-1, 46.5]);
+      const shoulderB = up([1.5, 49.5]);
 
       // Hand arcs are authored freely, then pulled back inside the arm's
       // reach. Without this the IK silently clamps and the hand floats away
@@ -433,16 +463,18 @@
         return [shoulder[0] + dx / d * max, shoulder[1] + dy / d * max];
       };
 
-      const handA = reachable(shoulderA, [track(HAND_A_X, local), track(HAND_A_Y, local) - (76 - hipY)]);
-      const handB = reachable(shoulderB, [track(HAND_B_X, local), track(HAND_B_Y, local) - (76 - hipY)]);
+      const lift = BASE_HIP - hipY;
+      const handA = reachable(shoulderA, [track(HAND_A_X, t) + hipX, track(HAND_A_Y, t) - lift]);
+      const handB = reachable(shoulderB, [track(HAND_B_X, t) + hipX, track(HAND_B_Y, t) - lift]);
       const elbowA = ik(shoulderA, handA, UPPER_ARM, FOREARM, [0, 1]);
       const elbowB = ik(shoulderB, handB, UPPER_ARM, FOREARM, [0, 1]);
       const wristA = [handA[0] - (handA[0] - elbowA[0]) * .18, handA[1] - (handA[1] - elbowA[1]) * .18];
       const wristB = [handB[0] - (handB[0] - elbowB[0]) * .18, handB[1] - (handB[1] - elbowB[1]) * .18];
 
       // The palm, cocked back at the wrist. In profile this one small mark
-      // is what reads as tai chi rather than as a person out walking, so
-      // the arm stroke runs on into it instead of tapering to a point.
+      // is most of what reads as tai chi rather than someone reaching for a
+      // door handle, so the arm stroke runs on into it instead of tapering
+      // away to a point.
       const palm = (wrist, hand, turn, length) => {
         const dx = hand[0] - wrist[0];
         const dy = hand[1] - wrist[1];
@@ -452,38 +484,35 @@
         return [hand[0] + (ux * Math.cos(a) - uy * Math.sin(a)) * length,
                 hand[1] + (ux * Math.sin(a) + uy * Math.cos(a)) * length];
       };
-      const palmA = palm(wristA, handA, -68, 5.5);
-      const palmB = palm(wristB, handB, 58, 4.5);
 
       return {
-        palmA, palmB,
-        travel, hip, waist, chest, neck, nape, occiput, skull, crown, forehead,
+        hip, waist, chest, neck, nape, occiput, skull, crown, forehead,
         brow, nose, lip, chin, jaw, throat, chestFront, belly, lowBelly,
-        shoulderA, shoulderB,
-        handA, handB, elbowA, elbowB, wristA, wristB,
-        plantedAnkle, swingAnkle, plantedFoot, swingFoot, kneePlanted, kneeSwing
+        shoulderA, shoulderB, handA, handB, elbowA, elbowB, wristA, wristB,
+        palmA: palm(wristA, handA, -70, 5.5),
+        palmB: palm(wristB, handB, -70, 5),
+        rearAnkle: REAR_ANKLE, frontAnkle: FRONT_ANKLE,
+        rearFoot, frontFoot, kneeRear, kneeFront
       };
     }
 
     const LEG_W = [[0, 3.2], [.14, 6.4], [.5, 4.2], [.82, 2.8], [1, 1.9]];
     const FOOT_W = [[0, 2.5], [.55, 2.6], [1, 1]];
     const ARM_A_W = [[0, 2.6], [.16, 4.6], [.6, 2.9], [.84, 2.2], [.9, 2.4], [1, .9]];
-    const ARM_B_W = [[0, 1.9], [.16, 3.1], [.6, 2.1], [.85, 1.6], [.9, 1.8], [1, .7]];
+    const ARM_B_W = [[0, 2.2], [.16, 3.9], [.6, 2.5], [.85, 1.9], [.9, 2.1], [1, .8]];
     // One unbroken stroke from the base of the spine, up the back, around
     // the skull and over the crown: the "flow of the back into the head".
     const SPINE_W = [[0, 3.2], [.12, 6.6], [.4, 4.6], [.62, 3.4], [.82, 3], [1, 1.9]];
-    // The face closes the head back to the throat. Kept fine so the head
-    // stays a mark rather than a portrait.
     const FACE_W = [[0, 1.6], [.3, 1], [.62, .9], [1, .3]];
     const FRONT_W = [[0, .6], [.4, 1.7], [.75, 1.4], [1, .4]];
 
     function strokes(p) {
       return [
-        { cls: "ink", d: brush([p.hip, p.kneeSwing, p.swingAnkle, p.swingFoot.heel], LEG_W) },
-        { cls: "ink", d: brush([p.swingFoot.heel, p.swingFoot.toe], FOOT_W, 6) },
+        { cls: "ink", d: brush([p.hip, p.kneeRear, p.rearAnkle, p.rearFoot.heel], LEG_W) },
+        { cls: "ink", d: brush([p.rearFoot.heel, p.rearFoot.toe], FOOT_W, 6) },
         { cls: "ink ink--soft", d: brush([p.shoulderB, p.elbowB, p.wristB, p.handB, p.palmB], ARM_B_W) },
-        { cls: "ink", d: brush([p.hip, p.kneePlanted, p.plantedAnkle, p.plantedFoot.heel], LEG_W) },
-        { cls: "ink", d: brush([p.plantedFoot.heel, p.plantedFoot.toe], FOOT_W, 6) },
+        { cls: "ink", d: brush([p.hip, p.kneeFront, p.frontAnkle, p.frontFoot.heel], LEG_W) },
+        { cls: "ink", d: brush([p.frontFoot.heel, p.frontFoot.toe], FOOT_W, 6) },
         { cls: "ink ink--faint", d: brush([p.throat, p.chestFront, p.belly, p.lowBelly], FRONT_W) },
         { cls: "ink", d: brush([p.hip, p.waist, p.chest, p.neck, p.nape, p.occiput, p.skull, p.crown, p.forehead], SPINE_W) },
         { cls: "ink", d: brush([p.forehead, p.brow, p.nose, p.lip, p.chin, p.jaw, p.throat], FACE_W, 8) },
@@ -492,124 +521,48 @@
     }
 
     /* geometry:end ----------------------------------------------------- *
-     * Staging: the figure crosses the strip one step at a time.
+     * Staging.
      * ------------------------------------------------------------------ */
 
     const SVG_NS = "http://www.w3.org/2000/svg";
-    const STEP_MS = 1900;
-    const START_X = -46;
-    const END_X = 1052;
-    const STEPS = Math.round((END_X - START_X) / STRIDE);
-    const LOOP_MS = STEPS * STEP_MS;
-    const TRAIL_EVERY = 2;
-    const TRAIL_LIFE_MS = 11000;
-    const TRAIL_PEAK = .96;
+    const LOOP_MS = 9000;
+    const FIGURE_X = 96;
 
     const stages = [...document.querySelectorAll("[data-stage]")].map(svg => {
       const figure = svg.querySelector("[data-figure]");
-      const nodes = strokes(pose(0, 0)).map(s => {
+      figure.setAttribute("transform", `translate(${FIGURE_X} 0)`);
+      const nodes = strokes(pose(0)).map(s => {
         const node = document.createElementNS(SVG_NS, "path");
         node.setAttribute("class", s.cls);
         figure.append(node);
         return node;
       });
-      return { svg, figure, nodes, trails: svg.querySelector("[data-trails]") };
+      return { nodes };
     });
 
-    // The stage height is fixed in CSS, so how much of the strip fits is a
-    // function of how wide the screen is. On a wide screen the whole
-    // crossing is visible at once. On a phone the figure stays exactly the
-    // same size and the camera travels with it instead — better than
-    // shrinking the figure to a smudge to fit the width.
-    const VIEW_TOP = 16;
-    const VIEW_HEIGHT = 116;
-    const STRIP = END_X - START_X;
-
-    function frameStage(stage, figureX) {
-      const box = stage.svg.getBoundingClientRect();
-      if (!box.height) return;
-      const viewWidth = VIEW_HEIGHT * (box.width / box.height);
-      const camera = viewWidth >= STRIP
-        ? START_X - (viewWidth - STRIP) / 2
-        : clamp(figureX - viewWidth * .45, START_X, END_X - viewWidth);
-      const next = `${camera.toFixed(1)} ${VIEW_TOP} ${viewWidth.toFixed(1)} ${VIEW_HEIGHT}`;
-      if (stage.viewBox !== next) {
-        stage.viewBox = next;
-        stage.svg.setAttribute("viewBox", next);
-      }
-    }
+    const PHASES = [[0, "settled"], [.14, "yielding"], [.34, "sitting back"], [.5, "gathered"], [.66, "pressing"], [.86, "pushing out"]];
 
     let paused = false;
-    let showTrails = true;
     let rate = 1;
     let clock = 0;
     let lastFrame = null;
-    let lastTrailStep = -1;
-    const trails = [];
-
-    function drawFigure(elapsed) {
-      const t = (elapsed % LOOP_MS) / LOOP_MS;
-      const global = t * STEPS;
-      const step = Math.floor(global);
-      const local = global - step;
-      const breath = Math.sin(global * Math.PI) * .5;
-      const p = pose(local, breath);
-      const x = START_X + step * STRIDE + p.travel;
-      const shapes = strokes(p);
-      const alpha = Math.min(clamp((x - START_X) / 96), clamp((END_X - x) / 108));
-
-      stages.forEach(stage => {
-        stage.figure.setAttribute("transform", `translate(${x.toFixed(1)} 0)`);
-        stage.figure.style.opacity = alpha.toFixed(3);
-        shapes.forEach((s, i) => stage.nodes[i].setAttribute("d", s.d));
-        frameStage(stage, x);
-      });
-
-      return { step, local, x, alpha, shapes };
-    }
-
-    function dropTrail(frame) {
-      trails.push({ born: clock, x: frame.x, shapes: frame.shapes, groups: [] });
-      stages.forEach(stage => {
-        const g = document.createElementNS(SVG_NS, "g");
-        g.setAttribute("transform", `translate(${frame.x.toFixed(1)} 0)`);
-        frame.shapes.forEach(s => {
-          const node = document.createElementNS(SVG_NS, "path");
-          node.setAttribute("class", s.cls);
-          node.setAttribute("d", s.d);
-          g.append(node);
-        });
-        stage.trails.append(g);
-        trails[trails.length - 1].groups.push(g);
-      });
-    }
-
-    function ageTrails() {
-      for (let i = trails.length - 1; i >= 0; i -= 1) {
-        const life = (clock - trails[i].born) / TRAIL_LIFE_MS;
-        if (life >= 1 || !showTrails) {
-          trails[i].groups.forEach(g => g.remove());
-          trails.splice(i, 1);
-          continue;
-        }
-        const fade = (1 - life) * (1 - life) * .34;
-        trails[i].groups.forEach(g => { g.style.opacity = fade.toFixed(3); });
-      }
-    }
 
     const readout = document.querySelector("[data-readout]");
     const scrub = document.querySelector("[data-scrub]");
     let scrubbing = false;
 
     function render() {
-      const frame = drawFigure(clock);
-      ageTrails();
-      if (showTrails && frame.local > TRAIL_PEAK && frame.step % TRAIL_EVERY === 0 && frame.step !== lastTrailStep && frame.alpha > .5) {
-        lastTrailStep = frame.step;
-        dropTrail(frame);
+      const t = (clock % LOOP_MS) / LOOP_MS;
+      // One slow breath per cycle, barely perceptible on its own.
+      const shapes = strokes(pose(t, Math.sin(t * Math.PI * 2) * .35));
+      stages.forEach(stage => shapes.forEach((s, i) => stage.nodes[i].setAttribute("d", s.d)));
+
+      if (readout) {
+        let name = PHASES[0][1];
+        for (const [at, label] of PHASES) if (t >= at) name = label;
+        readout.textContent = name;
       }
-      if (readout) readout.textContent = `step ${frame.step + 1}/${STEPS}`;
-      if (scrub && !scrubbing) scrub.value = String(Math.round((clock % LOOP_MS) / LOOP_MS * 1000));
+      if (scrub && !scrubbing) scrub.value = String(Math.round(t * 1000));
     }
 
     function tick(now) {
@@ -626,7 +579,6 @@
     const reduced = matchMedia("(prefers-reduced-motion: reduce)");
     const playButton = document.querySelector('[data-action="toggle-play"]');
     const speedButton = document.querySelector('[data-action="speed"]');
-    const trailButton = document.querySelector('[data-action="toggle-trails"]');
 
     playButton.addEventListener("click", () => {
       paused = !paused;
@@ -635,71 +587,32 @@
 
     document.querySelector('[data-action="restart"]').addEventListener("click", () => {
       clock = 0;
-      lastTrailStep = -1;
-      trails.splice(0).forEach(t => t.groups.forEach(g => g.remove()));
       render();
     });
 
     speedButton.addEventListener("click", () => {
-      rate = rate === 1 ? 2 : rate === 2 ? 4 : 1;
+      rate = rate === 1 ? .5 : rate === .5 ? 2 : 1;
       speedButton.textContent = `Speed ${rate}×`;
     });
 
-    trailButton.addEventListener("click", () => {
-      showTrails = !showTrails;
-      trailButton.setAttribute("aria-pressed", String(showTrails));
-      lastTrailStep = -1;
-    });
-
-    // Fast-forward from the start so the trails that belong to a moment are
-    // actually there. Used by the scrub bar and by `#t=` deep links.
-    function seek(target) {
-      clock = 0;
-      lastTrailStep = -1;
-      trails.splice(0).forEach(t => t.groups.forEach(g => g.remove()));
-      const stepMs = 40;
-      for (let at = 0; at < target; at += stepMs) {
-        clock = Math.min(target, at + stepMs);
-        render();
-      }
-      clock = target;
-      render();
-    }
-
-    addEventListener("resize", () => { stages.forEach(s => { s.viewBox = null; }); render(); });
-
     scrub.addEventListener("pointerdown", () => { scrubbing = true; });
-    window.addEventListener("pointerup", () => { scrubbing = false; });
+    addEventListener("pointerup", () => { scrubbing = false; });
     scrub.addEventListener("input", () => {
-      seek(Number(scrub.value) / 1000 * LOOP_MS);
+      clock = Number(scrub.value) / 1000 * LOOP_MS;
+      render();
     });
 
-    // A deliberate still mark for reduced motion and for the moment before
-    // the loop starts: the settled bow stance, mid-strip.
-    function renderStill() {
-      const p = pose(.99, 0);
-      const shapes = strokes(p);
-      stages.forEach(stage => {
-        stage.figure.setAttribute("transform", "translate(470 0)");
-        stage.figure.style.opacity = "1";
-        shapes.forEach((s, i) => stage.nodes[i].setAttribute("d", s.d));
-        frameStage(stage, 470);
-      });
-    }
-
-    // Contact sheet: one step of the phrase, sampled evenly and laid out
-    // across the strip. This is how the movement gets judged.
+    // Contact sheet: the movement sampled evenly. This is how the gesture
+    // gets judged.
     (() => {
       const sheet = document.querySelector("[data-sheet]");
       if (!sheet) return;
       const samples = 7;
       for (let i = 0; i < samples; i += 1) {
-        const local = i / samples;
-        const p = pose(local, 0);
         const g = document.createElementNS(SVG_NS, "g");
-        g.setAttribute("transform", `translate(${(80 + i * 140 - p.travel).toFixed(1)} 0)`);
-        g.style.opacity = i === 0 ? "1" : ".78";
-        strokes(p).forEach(s => {
+        g.setAttribute("transform", `translate(${60 + i * 155} 0)`);
+        g.style.opacity = i === 0 ? "1" : ".8";
+        strokes(pose(i / samples)).forEach(s => {
           const node = document.createElementNS(SVG_NS, "path");
           node.setAttribute("class", s.cls);
           node.setAttribute("d", s.d);
@@ -712,14 +625,14 @@
     const deepLink = new URLSearchParams(location.hash.slice(1));
 
     if (reduced.matches) {
-      renderStill();
-    } else if (deepLink.has("t")) {
-      seek(clamp(Number(deepLink.get("t")), 0, .999) * LOOP_MS);
-      paused = true;
-      playButton.textContent = "Play";
-      requestAnimationFrame(tick);
+      render();
     } else {
-      renderStill();
+      if (deepLink.has("t")) {
+        clock = clamp(Number(deepLink.get("t")), 0, .999) * LOOP_MS;
+        paused = true;
+        playButton.textContent = "Play";
+      }
+      render();
       requestAnimationFrame(tick);
     }
   })();

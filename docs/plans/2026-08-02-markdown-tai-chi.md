@@ -152,3 +152,29 @@ Added a preview at true hero size next to the enlarged one, a pose-by-pose conta
 ### Task 14: Rufus's call on tempo, alternation and syntax — open
 
 Two questions the study cannot settle on its own. The crossing takes about forty seconds at a natural tai chi tempo; calm, but long for a hero loop. And the phrase repeats on one side instead of alternating left and right as the form proper does — cheap to add, but it doubles the pose data and is barely visible in strict profile. Both are worth a look before any Markdown syntax work begins.
+
+---
+
+## Version 5 revision: one movement, in place
+
+Done on 2026-08-08 on Rufus's call: no crossing, one movement, something closer to push hands.
+
+### Task 15: Replace the movement — done
+
+The travelling Brush Knee and Push phrase is gone. In its place is An — press and push — performed in a fixed bow stance: weight settles back, both palms draw down and in, weight rolls forward, both palms press out together. The feet are constants; all visible motion is the weight rolling between them. This also removed the step cycle, which was what kept the earlier versions reading as walking.
+
+### Task 16: Rework the composition — done
+
+The 1000-unit strip existed to give the figure room to travel, so it went with the travel. The mark is now roughly 200 by 118 units, previewed at 56, 80 and 104 pixels and shown in place beside a headline. The dissolving pose-ghosts are gone: with the figure staying put they would have piled up on each other.
+
+### Task 17: Make the double push read — done
+
+Two fixes. The palms are offset, the far one lower, shorter and lighter, because in strict profile two hands at the same height read as one thick hand. And the far shoulder is dropped and brought forward so the far arm clears the torso instead of vanishing into it and re-emerging as a stray forearm.
+
+### Task 18: Retarget the checks — done
+
+`scripts/check-markdown-tai-chi.mjs` lost its stride and step-boundary assertions and gained ones that fit a gesture in place: the feet must not move at all, the palms must stay in the same band, the leading palm must finish well in front of the shoulder and travel a real distance, and the loop must be seamless in position and velocity. Stride and trail machinery are now asserted *absent* so they cannot creep back. Each assertion was verified by breaking the prototype, with a no-op control to confirm they do not simply fail on everything.
+
+### Task 19: Rufus's call on looping and syntax — open
+
+The gesture currently loops, on the reading that "no repetition" meant not repeating it across the page, and that a breath in and out naturally continues. If it should instead play once and rest in the settled push, that is a small change. Then: syntax.
