@@ -21,6 +21,16 @@ It should be graceful, like a Zen sketch. We are not putting in the detail of so
 
 Later we can turn it into syntax, but first get that right.
 
+## Version 8: the robe parked, the dissolution eased
+
+Rufus's verdict on the robe: the rear leg disconnects from it, and there is no sense of the cloth moving. Both true, and both traceable to how it was built.
+
+The hem is offset by a single lag taken from a pose sampled slightly earlier, so the whole skirt slides as one rigid shape rather than the cloth trailing through itself. Real flow needs progressive lag along the hem — the back trailing further than the front — and ideally a short settling chain rather than a fixed offset. The rear leg disconnects because the robe is a flat outline with no knowledge of a leg behind it; the hem would need to drape around the rear leg and be pushed by it. Neither is unreachable, but together they are a proper piece of work.
+
+Parked at `tai-chi-robe.html` rather than deleted. A prototype you can still look at on a phone is much more likely to be picked up again than one buried in a commit, and the file carries its own note on exactly what is unsolved. It is a frozen snapshot and will not follow later changes to the live study; that is stated in the file so nobody is misled by it later.
+
+The syntax dissolution was also slightly too quick. The scatter window is longer, the fade curve is less front-loaded, and the press now finishes a little earlier so there is a hold at full extension before the wind takes the characters.
+
 ## Version 7: the robe, and a tighter wind
 
 Three changes on Rufus's notes.

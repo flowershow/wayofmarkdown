@@ -58,7 +58,7 @@ markdown-in-*.md                    per-app articles
 learn/                              tutorials, howtos, onboarding path
 kb/                                 knowledge-base notes
 videos.md, llms.txt                 media index; AI-engine manifest
-playground.html, tai-chi.html       raw HTML pages, published but in contentHide
+playground.html, tai-chi*.html      raw HTML pages, published but in contentHide
 docs/                               internal: vision, naming, plans, launch kit, manifesto sources (NOT published)
 scripts/                            voice-lint.py, link-check.py, check-tai-chi.mjs
 .claude/skills/write-like-me/       voice skill + profile
