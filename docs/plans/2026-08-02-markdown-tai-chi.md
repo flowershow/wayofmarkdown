@@ -178,3 +178,29 @@ Two fixes. The palms are offset, the far one lower, shorter and lighter, because
 ### Task 19: Rufus's call on looping and syntax — open
 
 The gesture currently loops, on the reading that "no repetition" meant not repeating it across the page, and that a breath in and out naturally continues. If it should instead play once and rest in the settled push, that is a small change. Then: syntax.
+
+---
+
+## Version 6: the syntax figure
+
+Done on 2026-08-08. The ink version is untouched and stays above it on the page.
+
+### Task 20: One body, two renderings — done
+
+Split `figure()` out to return the stroke centrelines. `strokes()` outlines them as brush ribbons; the new glyph layout lays Markdown punctuation along them. Neither rendering owns the body, so they cannot diverge.
+
+### Task 21: Lay the characters — done
+
+Characters sit at fixed fractions of arc length so each keeps its identity and its place across the movement. Size follows brush width; spacing steps along the arc by each character's own size, which is what keeps the thick hips from blotting and the fine face line from falling apart. Ninety-four characters over fifteen marks.
+
+### Task 22: The wind — done
+
+Arrive from off-stage left with drift, settle, press, then scatter along the push's own line, accelerating and fading. Leading hand first, rear foot last, in both directions. The scatter vector is the leading hand's path from gathered to settled with the vertical damped to .45, because the hand rises more steeply than the push does.
+
+### Task 23: Checks — done
+
+Dropped the assertion that banned `<text>`. Added: the character set must be Markdown punctuation, the count must stay in a legible band, the layout must stay finite and stable across the movement, and every character must sit near the body. Verified by breaking each one; the count bound needed the spacing floor removed as well before it would fire.
+
+### Task 24: Open — which one, and where
+
+Whether the mark should be the ink figure, the syntax figure, or the syntax figure resolving into ink. And then homepage integration, which is still untouched.

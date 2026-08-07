@@ -21,6 +21,20 @@ It should be graceful, like a Zen sketch. We are not putting in the detail of so
 
 Later we can turn it into syntax, but first get that right.
 
+## Version 6: the figure written in Markdown
+
+The syntax version, added below the ink one rather than replacing it, so the two can be compared.
+
+Both figures are drawn from the same body. `figure()` returns the stroke centrelines; the ink version outlines them as tapered brush strokes and the syntax version lays characters along them. The syntax figure cannot drift away from the ink one, because there is nothing for it to drift from.
+
+Characters sit at fixed fractions of each stroke's arc length, so a given character keeps its identity and its place on the body for the whole movement rather than reshuffling every frame. Size follows the brush width, which carries the taper across into type: heavy structural marks — `#`, `>`, `*`, `+` — through the hips and thighs, fine punctuation out at the hands and face. Spacing steps along the arc by each character's own size. Keying it to the stroke average instead blotted the thick hips and thinned out the fine face line in the same figure; walking by local size gives even density everywhere. Ninety-four characters, spread across all fifteen marks in the set.
+
+The cycle is the one Rufus described. The characters blow in from off-stage left, drifting, and settle into the gathered pose. The figure presses both palms out. Then the push throws them off along its own line, accelerating and fanning as they go, and they fade. The leading hand goes first and the rear foot last — both arriving and leaving — so the figure fills and empties in the direction of the movement rather than all at once.
+
+The scatter direction comes from the leading hand's own path from gathered to settled, with the vertical component damped to just under half. Taken raw it threw the characters off at a noticeably steeper slope than the movement itself, because the hand rises more than the push does.
+
+This also answers the question left open in version 5. The movement now plays once per cycle, between the arrival and the scattering, so it no longer needs to loop as a breath.
+
 ## Version 5 decision: one movement, in place
 
 Rufus's call after version 4: drop the crossing entirely. No travel, no sequence, no repetition across the page. One movement, and something closer to push hands — a figure pressing both palms out in front of it.

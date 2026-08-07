@@ -32,7 +32,7 @@ try {
  * Structure
  * -------------------------------------------------------------------- */
 
-check(/data-study-version="5"/.test(source), "version 5 marker missing");
+check(/data-study-version="6"/.test(source), "version 6 marker missing");
 check(/data-movement="press-and-push"/.test(source), "movement marker missing");
 check(/data-view="strict-profile"/.test(source), "strict-profile marker missing");
 check(/<svg[^>]+data-stage/.test(source), "no SVG stage");
@@ -68,8 +68,11 @@ check(!/feTurbulence|feDisplacementMap/.test(source), "wobble filters are back")
 check(!/\bSTRIDE\b/.test(source), "stride is back: the movement should not travel");
 check(!/TRAIL_LIFE_MS|dropTrail/.test(source), "pose trails are back");
 
-// Markdown syntax is deliberately postponed until the gesture is right.
-check(!/<text\b/.test(source), "glyph rendering has arrived before the gesture is settled");
+// The syntax version: same body, written in Markdown punctuation.
+check(/data-glyph-stage/.test(source), "no syntax version stage");
+check(/GLYPH_PLAN/.test(source), "no glyph plan");
+check(/data-player="glyph"/.test(source), "syntax version has no review controls");
+check(/data-player="ink"/.test(source), "ink version has no review controls");
 
 for (const match of source.matchAll(/<script>([\s\S]*?)<\/script>/g)) {
   try {
@@ -90,7 +93,7 @@ if (!geometry) {
   const module = join(tmpdir(), `tai-chi-geometry-${process.pid}.mjs`);
   const body = geometry[1].replace(/^[\s\S]*?\*\//, "");
   await writeFile(module, `${body}
-export { pose, strokes, GROUND, THIGH, SHIN, UPPER_ARM, FOREARM, REAR_ANKLE, FRONT_ANKLE };
+export { pose, strokes, figure, glyphLayout, GLYPH_PLAN, GROUND, THIGH, SHIN, UPPER_ARM, FOREARM, REAR_ANKLE, FRONT_ANKLE };
 `);
 
   let g = null;
@@ -189,6 +192,35 @@ export { pose, strokes, GROUND, THIGH, SHIN, UPPER_ARM, FOREARM, REAR_ANKLE, FRO
     const speedAfter = dist(start.handA, startLater.handA);
     check(Math.abs(speedBefore - speedAfter) < 0.4,
       `palm speed jumps from ${speedBefore.toFixed(2)} to ${speedAfter.toFixed(2)} across the loop seam`);
+
+    // The syntax figure is laid on the same body as the ink figure, so it
+    // must track the pose rather than drift off on its own.
+    const MARKDOWN_CHARS = new Set(["#", ">", "*", "+", "_", "-", "|", "[", "]", "~", "=", ".", "`", "'", ","]);
+    check(g.GLYPH_PLAN.length > 40 && g.GLYPH_PLAN.length < 400,
+      `the syntax figure uses ${g.GLYPH_PLAN.length} characters; too few to read as a body or too many to read as characters`);
+    check(g.GLYPH_PLAN.every(p => MARKDOWN_CHARS.has(p.char)),
+      "the syntax figure uses characters that are not Markdown punctuation");
+
+    let glyphOffBody = 0;
+    let glyphCountDrift = false;
+    for (const { p } of [poses[0], poses[97], poses[201], poses[333]]) {
+      const seats = g.glyphLayout(p);
+      if (seats.length !== g.GLYPH_PLAN.length || seats.some(s => !s)) glyphCountDrift = true;
+      for (const seat of seats) {
+        if (!Number.isFinite(seat.x) || !Number.isFinite(seat.y) || !Number.isFinite(seat.angle)) {
+          glyphCountDrift = true;
+          break;
+        }
+        // Every character should sit on some part of the body, not float.
+        let nearest = Infinity;
+        for (const stroke of g.figure(p)) {
+          for (const pt of stroke.pts) nearest = Math.min(nearest, dist([seat.x, seat.y], pt));
+        }
+        glyphOffBody = Math.max(glyphOffBody, nearest);
+      }
+    }
+    check(!glyphCountDrift, "the glyph layout changes size or goes non-finite across the movement");
+    check(glyphOffBody < 30, `a character sits ${glyphOffBody.toFixed(1)} units from the nearest joint; it has come off the body`);
 
     // Every stroke is a closed, finite path.
     for (const { t, p } of [poses[0], poses[97], poses[201], poses[333]]) {
