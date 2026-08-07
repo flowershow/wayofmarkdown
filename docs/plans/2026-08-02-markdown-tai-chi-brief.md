@@ -112,8 +112,8 @@ The current state, and a change of direction from Rufus: no crossing at all, one
 
 Current files:
 
-- Prototype: `docs/prototypes/markdown-tai-chi.html`
-- Structural check: `scripts/check-markdown-tai-chi.mjs`
+- Prototype: `tai-chi.html` (live at `/tai-chi.html`)
+- Structural check: `scripts/check-tai-chi.mjs`
 - Design history: `docs/plans/2026-08-02-markdown-tai-chi-design.md`
 - Implementation notes: `docs/plans/2026-08-02-markdown-tai-chi.md`
 

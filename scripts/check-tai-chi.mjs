@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Checks for the tai chi gesture study at docs/prototypes/markdown-tai-chi.html.
+// Checks for the tai chi gesture study published at /tai-chi.html.
 //
 // Two halves. The first is structural: the prototype must stay a single
 // self-contained file with its review affordances intact. The second imports
@@ -14,7 +14,7 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import process from "node:process";
 
-const PROTOTYPE = "docs/prototypes/markdown-tai-chi.html";
+const PROTOTYPE = "tai-chi.html";
 const path = new URL(`../${PROTOTYPE}`, import.meta.url);
 
 const failures = [];
@@ -46,6 +46,9 @@ check(/data-scrub/.test(source), "no scrub control");
 check(/location\.hash/.test(source), "no #t= deep link for review");
 check(/prefers-reduced-motion/.test(source), "no reduced-motion handling");
 check(/prefers-color-scheme/.test(source), "no dark-scheme colours");
+// Published but deliberately unlisted: an unfinished study should not be
+// indexed, and the sitemap alone will not stop that.
+check(/name="robots"[^>]*noindex/.test(source), "published study is missing its noindex");
 
 // Self-contained.
 check(!/<script[^>]+\bsrc=/.test(source), "remote script tag");

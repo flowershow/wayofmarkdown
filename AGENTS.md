@@ -37,6 +37,7 @@ Published prose must sound like Rufus, not like AI. This is a hard requirement (
 - Flowershow publishes everything except: paths in `contentExclude` in `config.json` (currently `.claude/`, `docs/`, `scripts/`, README/AGENTS/CLAUDE) and pages with `publish: false` frontmatter. **Anything else you create will appear on the public site** — internal material goes in `docs/`.
 - `config.json` must stay valid JSON (`python3 -c "import json; json.load(open('config.json'))"`).
 - `llms.txt` exists for AI answer engines — extend it when major pages are added.
+- Raw `.html` files at the repo root are published verbatim, with no Flowershow chrome, at their `.html` URL only (`/playground.html` works, `/playground` 404s). List them in `contentHide` to keep them out of the sitemap and generated listings. `contentHide` is not privacy: anything unfinished also needs `<meta name="robots" content="noindex">`, because URLs get found whether or not they are in the sitemap.
 
 ## Checks before ending a work session
 
@@ -57,8 +58,9 @@ markdown-in-*.md                    per-app articles
 learn/                              tutorials, howtos, onboarding path
 kb/                                 knowledge-base notes
 videos.md, llms.txt                 media index; AI-engine manifest
+playground.html, tai-chi.html       raw HTML pages, published but in contentHide
 docs/                               internal: vision, naming, plans, launch kit, manifesto sources (NOT published)
-scripts/                            voice-lint.py, link-check.py
+scripts/                            voice-lint.py, link-check.py, check-tai-chi.mjs
 .claude/skills/write-like-me/       voice skill + profile
 ```
 

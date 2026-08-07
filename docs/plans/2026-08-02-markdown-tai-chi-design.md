@@ -160,7 +160,7 @@ Populate those regions with roughly 140–180 Markdown tokens. Torso tokens inte
 
 ## Prototype architecture
 
-Create one standalone file at `docs/prototypes/markdown-tai-chi.html` containing its HTML, CSS and JavaScript. Use inline SVG for crisp, responsive typography and paths. A small JavaScript animation loop interpolates a fixed set of body keyframes and maps glyphs to body segments. No framework or external dependency is needed.
+Create one standalone file at `tai-chi.html` (live at `/tai-chi.html`) containing its HTML, CSS and JavaScript. Use inline SVG for crisp, responsive typography and paths. A small JavaScript animation loop interpolates a fixed set of body keyframes and maps glyphs to body segments. No framework or external dependency is needed.
 
 The file should include simple development controls for switching visual treatments, pausing, replaying and showing the construction skeleton. These controls are for review and will not be part of any eventual homepage version.
 

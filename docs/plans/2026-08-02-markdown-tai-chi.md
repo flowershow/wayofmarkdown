@@ -13,22 +13,22 @@
 ### Task 1: Add structural prototype checks
 
 **Files:**
-- Create: `scripts/check-markdown-tai-chi.mjs`
-- Test: `docs/prototypes/markdown-tai-chi.html`
+- Create: `scripts/check-tai-chi.mjs`
+- Test: `tai-chi.html` (live at `/tai-chi.html`)
 
 **Step 1:** Write a Node script which reads the prototype and asserts that it contains an SVG stage, three named visual modes, pause/replay controls, a reduced-motion media query and no remote scripts or stylesheets.
 
-**Step 2:** Run `node scripts/check-markdown-tai-chi.mjs` and verify it fails because the prototype does not exist.
+**Step 2:** Run `node scripts/check-tai-chi.mjs` and verify it fails because the prototype does not exist.
 
 **Step 3:** Create the minimal HTML shell with the required semantic and review-control elements.
 
-**Step 4:** Run `node scripts/check-markdown-tai-chi.mjs` and verify it passes.
+**Step 4:** Run `node scripts/check-tai-chi.mjs` and verify it passes.
 
 ### Task 2: Build the shared figure and animation loop
 
 **Files:**
-- Modify: `docs/prototypes/markdown-tai-chi.html`
-- Modify: `scripts/check-markdown-tai-chi.mjs`
+- Modify: `tai-chi.html` (live at `/tai-chi.html`)
+- Modify: `scripts/check-tai-chi.mjs`
 
 **Step 1:** Extend the assertions to require source, compose, flow and release phase data plus a static fallback pose.
 
@@ -41,8 +41,8 @@
 ### Task 3: Add and tune three visual treatments
 
 **Files:**
-- Modify: `docs/prototypes/markdown-tai-chi.html`
-- Modify: `scripts/check-markdown-tai-chi.mjs`
+- Modify: `tai-chi.html` (live at `/tai-chi.html`)
+- Modify: `scripts/check-tai-chi.mjs`
 
 **Step 1:** Extend the check to require `glyph-body`, `syntax-ribbons` and `source-constellation` renderers.
 
@@ -55,8 +55,8 @@
 ### Task 4: Accessibility, responsive behaviour and visual review
 
 **Files:**
-- Modify: `docs/prototypes/markdown-tai-chi.html`
-- Modify: `scripts/check-markdown-tai-chi.mjs`
+- Modify: `tai-chi.html` (live at `/tai-chi.html`)
+- Modify: `scripts/check-tai-chi.mjs`
 
 **Step 1:** Add checks for a static reduced-motion state, keyboard-operable controls, responsive SVG sizing and light/dark colour tokens.
 
@@ -64,7 +64,7 @@
 
 **Step 3:** Complete those behaviours, open the file at desktop and mobile sizes, and tune timing, spacing and glyph density against the design review criteria.
 
-**Step 4:** Run `node scripts/check-markdown-tai-chi.mjs`, `python3 scripts/voice-lint.py` and `python3 scripts/link-check.py`; all must pass.
+**Step 4:** Run `node scripts/check-tai-chi.mjs`, `python3 scripts/voice-lint.py` and `python3 scripts/link-check.py`; all must pass.
 
 ### Task 5: Record and share the prototype
 
@@ -84,17 +84,17 @@
 ### Task 6: Replace the visual acceptance checks
 
 **Files:**
-- Modify: `scripts/check-markdown-tai-chi.mjs`
-- Test: `docs/prototypes/markdown-tai-chi.html`
+- Modify: `scripts/check-tai-chi.mjs`
+- Test: `tai-chi.html` (live at `/tai-chi.html`)
 
 **Step 1:** Replace the three-treatment assertions with checks for the chosen Wudang silhouette, Parting the Wild Horse's Mane keyframes, broad robe/sleeve/coat-tail regions, one-time composition and a continuous movement loop.
 
-**Step 2:** Run `node scripts/check-markdown-tai-chi.mjs` and verify it fails against version 1.
+**Step 2:** Run `node scripts/check-tai-chi.mjs` and verify it fails against version 1.
 
 ### Task 7: Build the full human silhouette
 
 **Files:**
-- Modify: `docs/prototypes/markdown-tai-chi.html`
+- Modify: `tai-chi.html` (live at `/tai-chi.html`)
 
 **Step 1:** Replace the sparse segment renderer with dense token fields for the robe, sleeves, legs, head and topknot. Keep the skeleton available only as a review overlay.
 
@@ -107,7 +107,7 @@
 ### Task 8: Choreograph Parting the Wild Horse's Mane
 
 **Files:**
-- Modify: `docs/prototypes/markdown-tai-chi.html`
+- Modify: `tai-chi.html` (live at `/tai-chi.html`)
 
 **Step 1:** Add cradle, sink, step, part and settle poses viewed near-side-on and facing right.
 
@@ -118,8 +118,8 @@
 ### Task 9: Review and commit version 2 locally
 
 **Files:**
-- Modify: `docs/prototypes/markdown-tai-chi.html`
-- Modify: `scripts/check-markdown-tai-chi.mjs`
+- Modify: `tai-chi.html` (live at `/tai-chi.html`)
+- Modify: `scripts/check-tai-chi.mjs`
 
 **Step 1:** Check the moving figure at desktop and 390px mobile sizes, including pause/replay, skeleton overlay and reduced-motion behaviour.
 
@@ -143,7 +143,7 @@ The figure performs one step of Brush Knee and Push and repeats it, advancing on
 
 ### Task 12: Make the movement verifiable — done
 
-Rewrote `scripts/check-markdown-tai-chi.mjs`. The prototype's movement code is fenced by `geometry:start` / `geometry:end` markers and is DOM-free, so the check imports it directly and asserts bone lengths hold, hands stay attached, feet stay on the floor, the head stays quiet, and every joint plus the hand velocity is continuous across the step boundary. Each assertion was verified by deliberately breaking the prototype and confirming it failed.
+Rewrote `scripts/check-tai-chi.mjs`. The prototype's movement code is fenced by `geometry:start` / `geometry:end` markers and is DOM-free, so the check imports it directly and asserts bone lengths hold, hands stay attached, feet stay on the floor, the head stays quiet, and every joint plus the hand velocity is continuous across the step boundary. Each assertion was verified by deliberately breaking the prototype and confirming it failed.
 
 ### Task 13: Review affordances and responsive framing — done
 
@@ -173,7 +173,7 @@ Two fixes. The palms are offset, the far one lower, shorter and lighter, because
 
 ### Task 18: Retarget the checks — done
 
-`scripts/check-markdown-tai-chi.mjs` lost its stride and step-boundary assertions and gained ones that fit a gesture in place: the feet must not move at all, the palms must stay in the same band, the leading palm must finish well in front of the shoulder and travel a real distance, and the loop must be seamless in position and velocity. Stride and trail machinery are now asserted *absent* so they cannot creep back. Each assertion was verified by breaking the prototype, with a no-op control to confirm they do not simply fail on everything.
+`scripts/check-tai-chi.mjs` lost its stride and step-boundary assertions and gained ones that fit a gesture in place: the feet must not move at all, the palms must stay in the same band, the leading palm must finish well in front of the shoulder and travel a real distance, and the loop must be seamless in position and velocity. Stride and trail machinery are now asserted *absent* so they cannot creep back. Each assertion was verified by breaking the prototype, with a no-op control to confirm they do not simply fail on everything.
 
 ### Task 19: Rufus's call on looping and syntax — open
 
