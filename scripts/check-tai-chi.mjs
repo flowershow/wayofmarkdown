@@ -74,6 +74,11 @@ check(/GLYPH_PLAN/.test(source), "no glyph plan");
 check(/data-player="glyph"/.test(source), "syntax version has no review controls");
 check(/data-player="ink"/.test(source), "ink version has no review controls");
 
+// The robed version.
+check(/data-robe-stage/.test(source), "no robed version stage");
+check(/data-player="robe"/.test(source), "robed version has no review controls");
+check(/function robeStrokes\(/.test(source), "no robe renderer");
+
 for (const match of source.matchAll(/<script>([\s\S]*?)<\/script>/g)) {
   try {
     new Function(match[1]);
@@ -93,7 +98,7 @@ if (!geometry) {
   const module = join(tmpdir(), `tai-chi-geometry-${process.pid}.mjs`);
   const body = geometry[1].replace(/^[\s\S]*?\*\//, "");
   await writeFile(module, `${body}
-export { pose, strokes, figure, glyphLayout, GLYPH_PLAN, GROUND, THIGH, SHIN, UPPER_ARM, FOREARM, REAR_ANKLE, FRONT_ANKLE };
+export { pose, strokes, figure, glyphLayout, GLYPH_PLAN, robeFigure, robeStrokes, HEM_Y, GROUND, THIGH, SHIN, UPPER_ARM, FOREARM, REAR_ANKLE, FRONT_ANKLE };
 `);
 
   let g = null;
@@ -221,6 +226,36 @@ export { pose, strokes, figure, glyphLayout, GLYPH_PLAN, GROUND, THIGH, SHIN, UP
     }
     check(!glyphCountDrift, "the glyph layout changes size or goes non-finite across the movement");
     check(glyphOffBody < 30, `a character sits ${glyphOffBody.toFixed(1)} units from the nearest joint; it has come off the body`);
+
+    // The robe hangs on the same body: the hem must stay between the hip
+    // and the floor, and the cloth must lag rather than lead.
+    let hemHigh = Infinity;
+    let hemLow = -Infinity;
+    let leads = 0;
+    for (let i = 0; i <= 40; i += 1) {
+      const t = i / 40;
+      const lagT = (t - .055 + 1) % 1;
+      const p = g.pose(t, 0);
+      const lag = g.pose(lagT, 0);
+      for (const s of g.robeStrokes(p, lag)) {
+        check(!/NaN|Infinity/.test(s.d), `non-finite robe path at t=${t.toFixed(2)}`);
+      }
+      for (const stroke of g.robeFigure(p, lag)) {
+        for (const pt of stroke.pts) {
+          if (!Number.isFinite(pt[0]) || !Number.isFinite(pt[1])) leads += 1;
+        }
+      }
+      const hem = g.robeFigure(p, lag).find(x => x.pts.length === 3 && x.pts[1][1] > g.HEM_Y);
+      if (hem) {
+        for (const pt of hem.pts) {
+          hemHigh = Math.min(hemHigh, pt[1]);
+          hemLow = Math.max(hemLow, pt[1]);
+        }
+      }
+    }
+    check(leads === 0, "the robe produced non-finite points");
+    check(hemHigh > 80, `the hem rides up to ${hemHigh.toFixed(1)}; it should stay below the hip`);
+    check(hemLow < g.GROUND, `the hem reaches ${hemLow.toFixed(1)}; it should stay off the floor`);
 
     // Every stroke is a closed, finite path.
     for (const { t, p } of [poses[0], poses[97], poses[201], poses[333]]) {

@@ -132,6 +132,8 @@
     .glyph--soft { opacity: .72; }
     .glyph--faint { opacity: .3; }
 
+    .size-robe-hero .tai-chi-mark { height: 104px; }
+    .size-robe-review .tai-chi-mark { height: 300px; }
     .size-glyph-hero .tai-chi-mark { height: 104px; }
     .size-glyph-review .tai-chi-mark { height: 300px; }
 
@@ -275,17 +277,45 @@
       <svg class="tai-chi-mark" data-sheet viewBox="0 14 1120 118" style="width: 100%" role="presentation" aria-hidden="true"></svg>
     </section>
 
+    <section class="band size-robe-hero">
+      <h2>The same movement, robed</h2>
+      <p class="lede" style="margin-bottom:1.5rem">A long robe over the same body. The hem hides the legs, and the hem and cuffs are placed from a slightly earlier moment than the body, so the cloth trails the weight rather than moving with it. That lag is where the flow comes from.</p>
+      <div class="hero">
+        <svg class="tai-chi-mark" data-robe-stage viewBox="0 14 200 118" role="img" aria-label="A robed figure in profile pressing both palms forward">
+          <g class="robe-layer" data-robe aria-hidden="true"></g>
+        </svg>
+        <p class="hero-title">The Way of Markdown<span>Plain text, patiently practised.</span></p>
+      </div>
+    </section>
+
+    <section class="band size-robe-review">
+      <h2>Robed, enlarged for review</h2>
+      <svg class="tai-chi-mark" data-robe-stage viewBox="0 14 200 118" role="presentation" aria-hidden="true">
+        <g class="robe-layer" data-robe></g>
+      </svg>
+
+      <div class="review-bar" data-player="robe">
+        <button type="button" data-action="toggle-play">Pause</button>
+        <button type="button" data-action="restart">Restart</button>
+        <button type="button" data-action="speed">Speed 1&times;</button>
+        <div class="scrub">
+          <input type="range" data-scrub min="0" max="1000" value="0" step="1" aria-label="Scrub the robed version">
+          <span class="readout" data-readout>settled</span>
+        </div>
+      </div>
+    </section>
+
     <section class="band size-glyph-hero">
       <h2>The same figure, written in Markdown</h2>
       <p class="lede" style="margin-bottom:1.5rem">The characters blow in from the left and gather into the pose, the figure presses both palms out, and the push throws them off along its own line. The leading hand goes first and the rear foot last, arriving and leaving, so the figure fills and empties in the direction of the movement.</p>
-      <svg class="tai-chi-mark" data-glyph-stage viewBox="0 14 380 118" role="img" aria-label="A figure in profile assembled from Markdown punctuation, pressing both palms forward before scattering on the wind">
+      <svg class="tai-chi-mark" data-glyph-stage viewBox="0 14 260 118" role="img" aria-label="A figure in profile assembled from Markdown punctuation, pressing both palms forward before scattering on the wind">
         <g class="glyph-layer" data-glyphs aria-hidden="true"></g>
       </svg>
     </section>
 
     <section class="band size-glyph-review">
       <h2>Enlarged for review</h2>
-      <svg class="tai-chi-mark" data-glyph-stage viewBox="0 14 380 118" role="presentation" aria-hidden="true">
+      <svg class="tai-chi-mark" data-glyph-stage viewBox="0 14 260 118" role="presentation" aria-hidden="true">
         <g class="glyph-layer" data-glyphs></g>
       </svg>
 
@@ -300,7 +330,7 @@
       </div>
     </section>
 
-    <p class="note">A working study for a <a href="/">Way of Markdown</a> brand mark, published so it can be looked at on a real screen. Not finished and not linked from anywhere. Both figures are drawn from the same body, so the syntax version cannot drift away from the ink one. Under <code>prefers-reduced-motion</code> both marks hold their settled pose and the review controls are hidden.</p>
+    <p class="note">A working study for a <a href="/">Way of Markdown</a> brand mark, published so it can be looked at on a real screen. Not finished and not linked from anywhere. All three versions are drawn from one shared body, so they cannot drift apart. Under <code>prefers-reduced-motion</code> each mark holds its settled pose and the review controls are hidden.</p>
   </main>
 
   <script>
@@ -437,7 +467,12 @@
     const HIP_Y = [[0, 76.5], [.10, 76.5], [.45, 79.2], [.56, 79.2], [.90, 76.5], [1, 76.5]];
     const LEAN = [[0, 2], [.10, 2], [.45, -1.6], [.56, -1.6], [.90, 2], [1, 2]];
     // The front toe lifts a little as the weight comes off it.
-    const FRONT_TOE = [[0, 0], [.14, 0], [.45, -9], [.56, -9], [.86, 0], [1, 0]];
+    const FRONT_TOE = [[0, 0], [.14, 0], [.45, -11], [.56, -11], [.86, 0], [1, 0]];
+    // The rear foot rolls: the heel lifts a little as the weight leaves it
+    // and presses back down through the push. Adding a step would be the
+    // other way to give the legs something to do, and it is the wrong way —
+    // a step cycle reads as walking however slowly it is played.
+    const REAR_TOE = [[0, 2.5], [.12, 2], [.45, -3.5], [.58, -3], [.88, 2.5], [1, 2.5]];
 
     // Both palms trace the same arc, the far one trailing slightly low and
     // behind. In strict profile two hands at identical height would read as
@@ -467,7 +502,7 @@
       const lean = track(LEAN, t);
       const hip = [hipX, hipY];
 
-      const rearFoot = foot(REAR_ANKLE, 0);
+      const rearFoot = foot(REAR_ANKLE, track(REAR_TOE, t));
       const frontFoot = foot(FRONT_ANKLE, track(FRONT_TOE, t));
       const kneeRear = ik(hip, REAR_ANKLE, THIGH, SHIN, [1, 0]);
       const kneeFront = ik(hip, FRONT_ANKLE, THIGH, SHIN, [1, 0]);
@@ -478,16 +513,20 @@
       const waist = up([-2.5, 66]);
       const chest = up([0, 56]);
       const neck = up([2, 45]);
-      const nape = up([-1, 39]);
-      const occiput = up([-3.2, 34]);
-      const skull = up([-1.8, 29.8]);
-      const crown = up([2.4, 26.8]);
-      const forehead = up([6.6, 29.6]);
-      const brow = up([8.6, 32]);
-      const nose = up([9.1, 34.6]);
-      const lip = up([7, 36.2]);
-      const chin = up([7.4, 38.6]);
-      const jaw = up([2.5, 40.4]);
+      const nape = up([-1.2, 39.4]);
+      const occiput = up([-4, 34]);
+      const skull = up([-2.6, 29]);
+      const crown = up([1.8, 26]);
+      const forehead = up([6.4, 28.6]);
+      const brow = up([8.8, 31.4]);
+      const nose = up([9.6, 34.4]);
+      const lip = up([7.2, 36]);
+      const chin = up([7.6, 38.6]);
+      const jaw = up([2.6, 40.6]);
+      // A small bound topknot. At 56px the bare skull reads as a smudge;
+      // this gives the head a silhouette to be recognised by.
+      const knotBase = up([-2.4, 30.4]);
+      const knot = up([-6.6, 27.6]);
       const throat = up([4, 43]);
       const chestFront = up([12, 53]);
       const belly = up([12, 64]);
@@ -532,6 +571,7 @@
       return {
         hip, waist, chest, neck, nape, occiput, skull, crown, forehead,
         brow, nose, lip, chin, jaw, throat, chestFront, belly, lowBelly,
+        knotBase, knot,
         shoulderA, shoulderB, handA, handB, elbowA, elbowB, wristA, wristB,
         palmA: palm(wristA, handA, -70, 5.5),
         palmB: palm(wristB, handB, -70, 5),
@@ -548,6 +588,7 @@
     // the skull and over the crown: the "flow of the back into the head".
     const SPINE_W = [[0, 3.2], [.12, 6.6], [.4, 4.6], [.62, 3.4], [.82, 3], [1, 1.9]];
     const FACE_W = [[0, 1.6], [.3, 1], [.62, .9], [1, .3]];
+    const KNOT_W = [[0, 2.2], [.5, 3], [1, 1.2]];
     const FRONT_W = [[0, .6], [.4, 1.7], [.75, 1.4], [1, .4]];
 
     // The body as a list of centrelines. Both renderings read from this, so
@@ -561,6 +602,7 @@
         { cls: "ink", pts: [p.frontFoot.heel, p.frontFoot.toe], w: FOOT_W, per: 6 },
         { cls: "ink ink--faint", pts: [p.throat, p.chestFront, p.belly, p.lowBelly], w: FRONT_W },
         { cls: "ink", pts: [p.hip, p.waist, p.chest, p.neck, p.nape, p.occiput, p.skull, p.crown, p.forehead], w: SPINE_W },
+        { cls: "ink", pts: [p.knotBase, p.knot], w: KNOT_W, per: 8 },
         { cls: "ink", pts: [p.forehead, p.brow, p.nose, p.lip, p.chin, p.jaw, p.throat], w: FACE_W, per: 8 },
         { cls: "ink", pts: [p.shoulderA, p.elbowA, p.wristA, p.handA, p.palmA], w: ARM_A_W }
       ];
@@ -568,6 +610,113 @@
 
     function strokes(p) {
       return figure(p).map(s => ({ cls: s.cls, d: brush(s.pts, s.w, s.per || 12) }));
+    }
+
+    /* ------------------------------------------------------------------ *
+     * The same body, in a tai chi robe.
+     *
+     * Drawn as outlines in the same brush language rather than as filled
+     * mass — a filled silhouette is what made the version 2 study heavy.
+     * The long hem hides the legs, which is where the bare figure is
+     * weakest, and the hem and cuffs are placed from a slightly earlier
+     * pose so the cloth lags the body. That lag is the flow: it is what a
+     * step would have been trying to buy, without the walk.
+     * ------------------------------------------------------------------ */
+
+    const HEM_Y = 103;
+    const ROBE_W = [[0, 1.3], [.1, 2.5], [.5, 2.2], [.9, 2.5], [1, 1.2]];
+    const SLEEVE_W = [[0, 1.4], [.1, 2.4], [.5, 2.1], [.9, 2.4], [1, 1.3]];
+    const SASH_W = [[0, 1.2], [.5, 3.4], [1, 1.2]];
+    const SHIN_W = [[0, 3.6], [.6, 2.7], [1, 2]];
+
+    const unit = (a, b) => {
+      const dx = b[0] - a[0];
+      const dy = b[1] - a[1];
+      const d = Math.hypot(dx, dy) || 1;
+      return [dx / d, dy / d];
+    };
+    const offset = (pt, dir, amt) => [pt[0] - dir[1] * amt, pt[1] + dir[0] * amt];
+    const lerpPt = (a, b, k) => [a[0] + (b[0] - a[0]) * k, a[1] + (b[1] - a[1]) * k];
+
+    // A wide sleeve ending at mid-forearm, so the wrists and palms stay bare.
+    // Three open edges rather than one closed outline: a single loop has to
+    // reverse at the cuff, and the spline overshoots that reversal into a
+    // scribble. The under edge sags when the arm is horizontal and tightens
+    // when it is not, which is most of what makes it read as cloth.
+    function sleeveEdges(shoulder, elbow, hand) {
+      const cuff = lerpPt(elbow, hand, .5);
+      const upper = unit(shoulder, elbow);
+      const fore = unit(elbow, cuff);
+      const sag = 3.2 * (1 - Math.abs(fore[1]));
+      const top = [offset(shoulder, upper, -5.2), offset(elbow, upper, -5.8), offset(cuff, fore, -5.6)];
+      const under = [offset(shoulder, upper, 4.8), offset(elbow, fore, 5.8 + sag * .7), offset(cuff, fore, 6 + sag)];
+      return { top, under, cuff: [top[2], under[2]] };
+    }
+
+    function robeFigure(p, lag) {
+      // Cloth trails the body. Amplified, because a hem swings further than
+      // the hips that carry it.
+      const trail = (lag.hip[0] - p.hip[0]) * 2.1;
+      const hx = p.hip[0];
+
+      const hemBack = [hx - 26 + trail, HEM_Y + 2];
+      const hemMid = [hx - 2 + trail * .6, HEM_Y + 6];
+      const hemFront = [hx + 22 + trail * .25, HEM_Y];
+
+      const collarBack = [p.nape[0] - 1, p.nape[1] + 3];
+      const shoulderBack = [p.nape[0] - 6, p.chest[1] - 4];
+      const waistBack = [p.waist[0] - 7, p.waist[1] + 2];
+      const hipBack = [p.hip[0] - 10, p.hip[1] + 3];
+
+      const collarFront = [p.throat[0] + 1, p.throat[1] + 2];
+      const lapel = [p.chestFront[0] + 1.5, p.chestFront[1] - 2];
+      const bellyFront = [p.belly[0] + 2, p.belly[1]];
+      const hipFront = [p.lowBelly[0] + 7, p.lowBelly[1] + 3];
+
+      const cuffA = lerpPt(p.elbowA, p.handA, .5);
+      const cuffB = lerpPt(p.elbowB, p.handB, .5);
+
+      // What shows below the hem.
+      const shin = ankle => [[ankle[0] - 1.5, HEM_Y + 2], ankle];
+
+      const sleeveA = sleeveEdges(p.shoulderA, p.elbowA, p.handA);
+      const sleeveB = sleeveEdges(p.shoulderB, p.elbowB, p.handB);
+
+      return [
+        // Far sleeve and far forearm sit behind the body.
+        { cls: "ink ink--soft", pts: sleeveB.top, w: SLEEVE_W, per: 10 },
+        { cls: "ink ink--soft", pts: sleeveB.under, w: SLEEVE_W, per: 10 },
+        { cls: "ink ink--soft", pts: sleeveB.cuff, w: SLEEVE_W, per: 6 },
+        { cls: "ink ink--soft", pts: [cuffB, p.wristB, p.handB, p.palmB], w: [[0, 3], [.5, 2.4], [.62, 2.6], [1, .9]] },
+
+        { cls: "ink", pts: shin(p.rearAnkle), w: SHIN_W, per: 8 },
+        { cls: "ink", pts: [p.rearFoot.heel, p.rearFoot.toe], w: FOOT_W, per: 6 },
+        { cls: "ink", pts: shin(p.frontAnkle), w: SHIN_W, per: 8 },
+        { cls: "ink", pts: [p.frontFoot.heel, p.frontFoot.toe], w: FOOT_W, per: 6 },
+
+        // The robe as three open edges — front, hem, back. As one closed
+        // outline the spline overshoots the turn at the hem, the same way
+        // the sleeves did.
+        { cls: "ink", pts: [collarBack, shoulderBack, waistBack, hipBack, hemBack], w: ROBE_W },
+        { cls: "ink", pts: [hemBack, hemMid, hemFront], w: [[0, 1.6], [.5, 2.8], [1, 1.6]], per: 14 },
+        { cls: "ink", pts: [collarFront, lapel, bellyFront, hipFront, hemFront], w: ROBE_W },
+        { cls: "ink", pts: [[p.waist[0] - 6, p.waist[1] + 3], [p.waist[0] + 6, p.waist[1] + 1], [p.belly[0] + 2, p.belly[1] - 5]], w: SASH_W, per: 8 },
+
+        // Head, face, topknot.
+        { cls: "ink", pts: [p.neck, p.nape, p.occiput, p.skull, p.crown, p.forehead], w: [[0, 3.6], [.35, 3.2], [.7, 2.9], [1, 1.8]] },
+        { cls: "ink", pts: [p.forehead, p.brow, p.nose, p.lip, p.chin, p.jaw, p.throat], w: FACE_W, per: 8 },
+        { cls: "ink", pts: [p.knotBase, p.knot], w: KNOT_W, per: 8 },
+
+        // Near sleeve and near forearm in front.
+        { cls: "ink", pts: sleeveA.top, w: SLEEVE_W, per: 10 },
+        { cls: "ink", pts: sleeveA.under, w: SLEEVE_W, per: 10 },
+        { cls: "ink", pts: sleeveA.cuff, w: SLEEVE_W, per: 6 },
+        { cls: "ink", pts: [cuffA, p.wristA, p.handA, p.palmA], w: [[0, 3.4], [.5, 2.7], [.62, 2.9], [1, 1]] }
+      ];
+    }
+
+    function robeStrokes(p, lag) {
+      return robeFigure(p, lag).map(s => ({ cls: s.cls, d: brush(s.pts, s.w, s.per || 12) }));
     }
 
     /* ------------------------------------------------------------------ *
@@ -815,6 +964,35 @@
     });
 
     /* ------------------------------------------------------------------ *
+     * The robed figure.
+     * ------------------------------------------------------------------ */
+
+    const ROBE_LAG = .055;
+
+    const robeStages = [...document.querySelectorAll("[data-robe-stage]")].map(svg => {
+      const layer = svg.querySelector("[data-robe]");
+      layer.setAttribute("transform", `translate(${INK_X} 0)`);
+      const nodes = robeStrokes(pose(0), pose(1 - ROBE_LAG)).map(s => {
+        const node = document.createElementNS(SVG_NS, "path");
+        node.setAttribute("class", s.cls);
+        layer.append(node);
+        return node;
+      });
+      return nodes;
+    });
+
+    makePlayer({
+      controls: '[data-player="robe"]',
+      loopMs: INK_LOOP_MS,
+      phases: [[0, "settled"], [.14, "yielding"], [.34, "sitting back"], [.5, "gathered"], [.66, "pressing"], [.86, "pushing out"]],
+      draw(t) {
+        const breath = Math.sin(t * Math.PI * 2) * .35;
+        const shapes = robeStrokes(pose(t, breath), pose((t - ROBE_LAG + 1) % 1, breath));
+        robeStages.forEach(nodes => shapes.forEach((s, i) => nodes[i].setAttribute("d", s.d)));
+      }
+    });
+
+    /* ------------------------------------------------------------------ *
      * The syntax figure, and the wind.
      *
      * One cycle: the characters blow in from the left and settle into the
@@ -825,12 +1003,14 @@
      * ------------------------------------------------------------------ */
 
     const GLYPH_LOOP_MS = 14000;
-    const GLYPH_X = 140;
+    const GLYPH_X = 118;
 
-    // Phase boundaries within the cycle.
-    const GATHER_AT = .30;     // characters are all home
+    // Phase boundaries within the cycle. The press starts while the last
+    // characters are still arriving, so the figure is already moving as they
+    // land — the wind flows into the movement rather than queueing behind it.
+    const MOVE_FROM = .17;
     const MOVE_TO = .80;       // press finished
-    const SCATTER_FROM = .83;  // wind takes them
+    const SCATTER_FROM = .84;  // wind takes them
 
     // The push travels forward and slightly up; the scatter follows it.
     const WIND = (() => {
@@ -862,7 +1042,7 @@
     function drawGlyphs(t) {
       // The body holds the gathered pose while the characters arrive, runs
       // the press, then holds the finished push while they blow away.
-      const moving = clamp((t - GATHER_AT) / (MOVE_TO - GATHER_AT));
+      const moving = clamp((t - MOVE_FROM) / (MOVE_TO - MOVE_FROM));
       const u = .45 + moving * .55;
       const seats = glyphLayout(pose(u % 1, Math.sin(t * Math.PI * 2) * .35));
       const gust = t * Math.PI * 2;
@@ -872,26 +1052,30 @@
         const g = seat.plan;
 
         // Arrive back-to-front, leave front-to-back.
-        const arriveAt = g.front * .12 + noise(i, 1) * .05;
-        const arrive = smooth(clamp((t - arriveAt) / .15));
-        const scatterAt = SCATTER_FROM + (1 - g.front) * .07 + noise(i, 2) * .03;
-        const scatter = smooth(clamp((t - scatterAt) / .12));
+        const arriveAt = g.front * .10 + noise(i, 1) * .04;
+        const arrive = smooth(clamp((t - arriveAt) / .13));
+        const scatterAt = SCATTER_FROM + (1 - g.front) * .05 + noise(i, 2) * .025;
+        const scatter = smooth(clamp((t - scatterAt) / .085));
 
-        // Blown in from off-stage left, drifting until they settle.
-        const fromX = seat.x - 150 - noise(i, 3) * 130;
-        const fromY = seat.y + (noise(i, 4) - .5) * 90;
+        // Blown in from the left, drifting until they settle. Close in:
+        // from far off-stage they read as a separate flock arriving rather
+        // than as the figure coming together.
+        const fromX = seat.x - 46 - noise(i, 3) * 52;
+        const fromY = seat.y + (noise(i, 4) - .5) * 52;
         const drift = (1 - arrive) * 5;
         let x = fromX + (seat.x - fromX) * arrive + Math.sin(gust * 1.6 + i) * drift;
         let y = fromY + (seat.y - fromY) * arrive + Math.cos(gust * 1.9 + i * .7) * drift;
 
-        // Carried off along the push, accelerating, fanning as they go.
-        const throwBy = (80 + noise(i, 5) * 170) * scatter * scatter;
-        x += WIND[0] * throwBy + (noise(i, 6) - .5) * 34 * scatter;
-        y += WIND[1] * throwBy + (noise(i, 8) - .5) * 44 * scatter;
+        // Carried off along the push. It disintegrates a short way and then
+        // goes, rather than streaming across the frame: the fade outruns the
+        // travel.
+        const throwBy = (26 + noise(i, 5) * 42) * scatter * scatter;
+        x += WIND[0] * throwBy + (noise(i, 6) - .5) * 16 * scatter;
+        y += WIND[1] * throwBy + (noise(i, 8) - .5) * 20 * scatter;
 
-        const spin = (noise(i, 9) - .5) * 300;
+        const spin = (noise(i, 9) - .5) * 190;
         const angle = seat.angle * arrive + (noise(i, 10) - .5) * 220 * (1 - arrive) + spin * scatter;
-        const alpha = arrive * (1 - scatter);
+        const alpha = arrive * (1 - smooth(scatter) ** .7);
 
         for (const nodes of glyphStages) {
           const node = nodes[i];
@@ -905,7 +1089,7 @@
       controls: '[data-player="glyph"]',
       loopMs: GLYPH_LOOP_MS,
       still: .55,
-      phases: [[0, "on the wind"], [GATHER_AT, "gathered"], [.42, "pressing"], [MOVE_TO, "settled"], [SCATTER_FROM, "carried off"]],
+      phases: [[0, "on the wind"], [MOVE_FROM, "pressing"], [MOVE_TO, "settled"], [SCATTER_FROM, "carried off"]],
       draw: drawGlyphs
     });
 

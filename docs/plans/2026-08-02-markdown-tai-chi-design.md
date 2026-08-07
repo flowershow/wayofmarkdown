@@ -21,6 +21,24 @@ It should be graceful, like a Zen sketch. We are not putting in the detail of so
 
 Later we can turn it into syntax, but first get that right.
 
+## Version 7: the robe, and a tighter wind
+
+Three changes on Rufus's notes.
+
+**The wind was overdone at both ends.** The characters were thrown 80 to 250 units to the right, which read as a stream crossing the frame rather than a figure coming apart. They now travel a third of that and the fade outruns the travel: it disintegrates a short way and then goes. Arrival was pulled in from off-stage too — from that far out the characters read as a separate flock arriving rather than as the figure gathering itself.
+
+**The arrival now flows into the movement.** The press starts at .17 while the last characters are still landing, so the body is already moving as they arrive and their targets are moving with it. Previously it assembled, paused, and then moved.
+
+**Stepping: no.** Rufus asked whether a step would add flow. In An and in fixed-step push hands there is no step — the feet stay planted and the power is in the weight transfer. Moving-step push hands exists, but version 4 established that a step *cycle* reads as walking however slowly it plays, and removing it is what made this read as tai chi. Instead the feet now articulate under the weight: the front toe lifts as the weight leaves it and the rear foot rolls, heel lifting and pressing back down through the push.
+
+**The robe.** A long robe over the same body, added below the bare figure rather than replacing it. It is drawn as outlines in the same brush language — a filled silhouette is what made the version 2 study heavy — and the hem hides the legs, which is where the bare figure is weakest and where the walking risk lived. The hem and cuffs are placed from a pose sampled 5.5% of a cycle earlier, so the cloth trails the weight instead of moving with it. That lag is the flow a step would have been trying to buy.
+
+Two construction notes worth keeping. Both the sleeves and the robe body were first drawn as single closed outlines, and both came out as scribbles: a closed path has to reverse at the cuff and at the hem, and the spline overshoots the reversal badly. Splitting each into open edges — sleeve top, under and cuff; robe front, hem and back — fixed it completely. And the hem had to be widened well past the hips: over a bow stance a narrow hem leaves the feet stranded outside it, looking detached from the figure.
+
+The head also gained a small bound topknot. At 56 pixels the bare skull read as a smudge; the knot gives it a silhouette to be recognised by.
+
+Still open: whether the mark is the bare figure, the robed figure, or either of them in syntax; and the syntax version of the robe, which Rufus deferred.
+
 ## Version 6: the figure written in Markdown
 
 The syntax version, added below the ink one rather than replacing it, so the two can be compared.
