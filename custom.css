@@ -157,3 +157,11 @@ article a code,
 @media (prefers-reduced-motion: reduce) {
   .wom-hero-mark iframe { animation: none; }
 }
+
+/* With showHero off, the theme falls back to rendering a page header with
+   the frontmatter title and description — which the custom hero already
+   says, so the homepage ended up with two h1s. Hide the theme's header only
+   on the page that carries the custom hero. */
+.page-main:has(.wom-hero) .page-header {
+  display: none;
+}
