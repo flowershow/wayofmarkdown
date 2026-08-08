@@ -23,6 +23,16 @@ Known limitation: the syntax mark wants about 80 pixels of height to read. The i
 
 Still open: homepage integration, which has been deliberately out of scope throughout.
 
+## Version 9: proportions
+
+Rufus asked whether the head was the right size and thought the legs looked long. Measuring rather than eyeballing settled it, and both instincts were right.
+
+The bow stance hides proportion, because the legs are bent and the hip is sunk. Measured standing — leg bone plus foot, against hip-to-crown — the figure was **8.55 heads tall with legs at 54% of its height**. A real adult is about 7.5 heads with legs at 47 to 50%; 8 heads is the idealised figure-drawing convention. It had drifted into fashion-illustration territory without anyone noticing, because every version had been judged in the stance.
+
+Corrected to 7.36 heads and 49.8%: the head scaled 11% about the base of the neck, the leg bones shortened from 27 to 23.5 each, the stance narrowed to suit, and the hip lowered so the feet stay planted. The arms were already right at 37.5% but had to come down slightly to stay right against the shorter body, and the leading hand's reach came in with them or the IK would have clamped and detached the hand. Landing a little under 7.5 is deliberate: a marginally large head reads better at 56 to 80 pixels, which is where this has to work.
+
+The check now asserts all three ratios, so a later pose edit cannot quietly drift back. The lesson is the general one: a figure in a deep stance will hide its own proportions from you, and the only way to see them is to measure the standing equivalent.
+
 ## What this cost us, and what was worth knowing
 
 Eight versions. The lessons that would transfer to the next thing like this:
@@ -46,6 +56,8 @@ Eight versions. The lessons that would transfer to the next thing like this:
 **A syntax treatment is forgiving, and that is a trap.** It hid the robe's rigid hem and disconnected leg almost entirely. Building it would have banked a foundation we already knew was wrong.
 
 **Make the motion assertable.** Fencing the pure geometry off behind markers so the check script can import it caught limbs stretching, hands detaching and loop seams that eyeballing a slow loop never would. Every assertion has to be verified by deliberately breaking the prototype: two of the first break-tests turned out to be no-ops that passed, which would have left the checks looking green and meaning nothing.
+
+**Measure proportions standing, not in the pose.** A deep stance hides them. Nine versions in, the figure turned out to be 8.55 heads tall with legs at 54% of height, and nobody had spotted it because it was only ever judged in a bow stance.
 
 **Being able to look at it mattered more than anything else.** Rendering each iteration with headless Chrome, and adding `#t=` deep links so any moment could be captured, is what turned this from guesswork into work.
 

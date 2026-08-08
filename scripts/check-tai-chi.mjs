@@ -173,6 +173,23 @@ export { pose, strokes, figure, glyphLayout, GLYPH_PLAN, GROUND, THIGH, SHIN, UP
     check(footDrift < 0.01, `a foot moves ${footDrift.toFixed(2)} units; the movement is in place`);
     check(handGap < 16, `the palms drift ${handGap.toFixed(1)} units apart; they should press as a pair`);
 
+    // Human proportions, measured standing rather than in the bow stance,
+    // which hides them. These drifted badly before anyone measured: the
+    // figure was 8.55 heads tall with legs at 54% of height.
+    const settledPose = g.pose(0, 0);
+    const legLength = g.THIGH + g.SHIN + 5;
+    const standing = legLength + (settledPose.hip[1] - settledPose.crown[1]);
+    const headHeight = settledPose.chin[1] - settledPose.crown[1];
+    const headsTall = standing / headHeight;
+    const legShare = legLength / standing;
+    const armShare = (g.UPPER_ARM + g.FOREARM) / standing;
+    check(headsTall > 7 && headsTall < 8,
+      `the figure is ${headsTall.toFixed(2)} heads tall; a real adult is about 7.5 and an idealised figure 8`);
+    check(legShare > .46 && legShare < .51,
+      `the legs are ${(legShare * 100).toFixed(1)}% of standing height; human is 47-50%`);
+    check(armShare > .35 && armShare < .39,
+      `the arms are ${(armShare * 100).toFixed(1)}% of standing height; human is 36-38%`);
+
     // The head stays quiet while the weight rolls back and forward.
     const bob = crownLow - crownHigh;
     check(bob < 7, `the head bobs ${bob.toFixed(1)} units; it should stay quiet`);
