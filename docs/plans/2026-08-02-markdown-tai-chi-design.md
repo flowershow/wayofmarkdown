@@ -57,6 +57,8 @@ Eight versions. The lessons that would transfer to the next thing like this:
 
 **Make the motion assertable.** Fencing the pure geometry off behind markers so the check script can import it caught limbs stretching, hands detaching and loop seams that eyeballing a slow loop never would. Every assertion has to be verified by deliberately breaking the prototype: two of the first break-tests turned out to be no-ops that passed, which would have left the checks looking green and meaning nothing.
 
+**Integrating into a themed site is a fight with someone else's CSS, and guessing at it wastes time.** Three things broke on the live homepage that no local preview could show, because all three were collisions with theme rules: the hero `h1` was hidden by `.rendered-mdx h1:first-child { display: none }`, the primary button's label was invisible because content links take the accent colour and that is the same green as the button, and the hero was squeezed into a third of the page by 16rem of padding reserved for a sidebar the site does not use. What finally worked was saving the live page, pointing it at the real stylesheets locally, and reading computed styles — `display`, `color`, `background` — instead of reasoning about specificity from the outside.
+
 **Measure proportions standing, not in the pose.** A deep stance hides them. Nine versions in, the figure turned out to be 8.55 heads tall with legs at 54% of height, and nobody had spotted it because it was only ever judged in a bow stance.
 
 **Being able to look at it mattered more than anything else.** Rendering each iteration with headless Chrome, and adding `#t=` deep links so any moment could be captured, is what turned this from guesswork into work.
