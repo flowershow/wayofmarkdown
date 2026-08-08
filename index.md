@@ -1,13 +1,23 @@
 ---
 title: "The Way of Markdown.  Own the source. Compose with anything."
 description: "Websites, knowledge bases, blogs, even a Notion replacement — built from plain text files you own, with tools you can swap anytime. Markdown is quietly everywhere; here's the way to make it work for you."
-showHero: true
-cta:
-  - href: /roadmap
-    label: "Start the roadmap 🗺️"
-  - href: /basics
-    label: "New here? Markdown in 10 minutes"
+showHero: false
 ---
+
+<div class="wom-hero">
+  <div class="wom-hero-mark">
+    <iframe src="/hero-mark.html" title="A figure in profile, written in Markdown punctuation, pressing both palms forward" loading="eager" scrolling="no" tabindex="-1" aria-hidden="true"></iframe>
+  </div>
+  <div class="wom-hero-copy">
+    <h1>The Way of Markdown</h1>
+    <p class="wom-hero-lede">Own the source. Compose with anything.</p>
+    <p class="wom-hero-sub">Websites, knowledge bases, blogs, even a Notion replacement — built from plain text files you own, with tools you can swap anytime. Markdown is quietly everywhere; here's the way to make it work for you.</p>
+    <div class="wom-hero-ctas">
+      <a class="wom-cta" href="/roadmap">Start the roadmap 🗺️</a>
+      <a class="wom-cta wom-cta--ghost" href="/basics">New here? Markdown in 10 minutes</a>
+    </div>
+  </div>
+</div>
 
 <div class="grid md:grid-cols-2 gap-4 my-8" style="align-items:stretch;">
   <div style="border:1px solid rgba(148,163,184,0.4); border-radius:12px; overflow:hidden;">

@@ -168,6 +168,8 @@
   "contentHide": [
     "playground.html",
     "tai-chi.html",
-    "tai-chi-robe.html"
-  ]
+    "tai-chi-robe.html",
+    "hero-mark.html"
+  ],
+  "logo": "/assets/brand/mark.svg"
 }

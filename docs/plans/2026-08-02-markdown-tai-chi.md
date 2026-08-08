@@ -222,3 +222,25 @@ Rufus's call. It reads as Markdown, which is the point of the site.
 ### Task 27: Homepage integration — open
 
 The only remaining piece, and out of scope from the beginning. Everything else on this plan is closed.
+
+---
+
+## Version 10: homepage integration
+
+Done on 2026-08-08. This closes the plan.
+
+### Task 27: The hero — done
+
+The Flowershow hero is generated from frontmatter and has nowhere to put a mark, so `index.md` sets `showHero: false` and rebuilds the hero in content: a `.wom-hero` block with the mark, an `h1`, the lede, and the two CTAs, styled from `custom.css`.
+
+The animation is embedded as an iframe to `/hero-mark.html`. Markdown reliably passes iframes through — the videos page proves it — but there is no evidence it passes `<script>`, and the homepage is the wrong place to find out. The iframe also isolates the animation from the page.
+
+The mark uses the brand green rather than ink because an iframe cannot see the parent's `data-theme`, so it cannot follow the site's light and dark modes. Green reads on both. `hero-mark.html` also gained the same `#t=` seek as the study, without which a headless browser cannot capture it at all — virtual time does not advance requestAnimationFrame.
+
+### Task 28: The navbar mark — done
+
+The navbar was still wearing Flowershow's default logo, served from their asset host. Replaced with `assets/brand/mark.svg`: the ink figure in the settled push, brand green, tightly cropped, set via `logo` in `config.json`.
+
+Static, not animated, and not a GIF. Motion in chrome is inescapable — it is on every page and cannot be scrolled past — and it contradicts a mark whose whole quality is slow and settled. The navbar renders at 32 pixels, well under the roughly 80 the syntax figure needs. So the identity is responsive: the animated syntax figure is the full mark at hero size, and a static ink silhouette is the small mark.
+
+One consequence worth noting: the `h1` is now "The Way of Markdown" alone, with "Own the source. Compose with anything." demoted to a lede. The `title` tag still carries the full string, so search results are unchanged, but the on-page `h1` is shorter than it was.
