@@ -11,17 +11,58 @@ Canonical handoff brief: [Tai chi hero animation brief](2026-08-02-markdown-tai-
 
 ## Where it landed
 
-**The mark is the syntax figure.** Decided 2026-08-08. It reads as Markdown, which is the whole point of the site, and the assembly is the idea rather than decoration on top of it.
+**The mark is the syntax figure** — the one written in Markdown punctuation. Decided 2026-08-08. It reads as Markdown, which is the whole point of the site, and the assembly is the idea rather than decoration on top of it.
 
-Live and reviewable at `/tai-chi.html`, published but unlisted and noindexed. Two renderings sit on that page — a brush-ink figure and the same figure written in Markdown punctuation — and both are generated from one shared set of stroke centrelines, so they cannot drift apart. A robed version is parked at `/tai-chi-robe.html` with its own note on what is unsolved.
+It is on the homepage, in the navbar and in a press kit. The effort is finished; what follows is a map of where everything is, so nobody has to re-derive it.
 
-The movement is An, the press-and-push from Grasp Sparrow's Tail, performed in place: the weight settles back, both palms draw down and in, then the weight rolls forward and the hands press out together. In the syntax version the characters blow in from the left, hold the figure long enough for it to make the move, and are thrown off along the push's own line.
+### What is where
 
-`scripts/check-tai-chi.mjs` imports the prototype's own movement code and asserts bone lengths, floor contact, planted feet, palm travel and loop continuity, plus that the characters are Markdown punctuation and stay on the body.
+| File | What it is |
+|---|---|
+| `hero-mark.html` | The animated mark. Source of truth for every rendered asset. Embedded by the homepage in an iframe; `contentHide`. Supports `#t=` to freeze a moment and `#c=` to override the colour. |
+| `tai-chi.html` | The full study: ink figure and syntax figure side by side, with contact sheets and review controls. Published, unlisted, noindexed. |
+| `tai-chi-robe.html` | The robed figure, parked. A frozen snapshot that does not track changes to the study. It carries its own note on what is unsolved. |
+| `scripts/check-tai-chi.mjs` | Imports the study's own movement code and asserts anatomy, proportions, planted feet, palm travel, loop continuity, the character set and the hair. Also lightly checks the parked robe file. |
+| `index.md` + `custom.css` | The homepage hero. `showHero: false` plus a `.wom-hero` block; the `.wom-*` and `:has(.wom-hero)` rules in `custom.css` do the rest. |
+| `assets/brand/` | Rendered assets: two GIFs, three SVGs, nine PNGs. All generated, none hand-drawn. |
+| `press.md` | The public press kit at `/press`, laying the assets out with guidance. |
+| `config.json` | `logo` points at `assets/brand/mark.svg` for the navbar. `contentHide` keeps the HTML studies out of listings. |
 
-Known limitation: the syntax mark wants about 80 pixels of height to read. The ink figure still holds at 56. If the mark has to run smaller than that, this is the thing that will bite.
+### Regenerating the brand assets
 
-Still open: homepage integration, which has been deliberately out of scope throughout.
+Everything in `assets/brand/` is a render of `hero-mark.html`. Nothing is drawn by hand, so a change to the figure means re-running this rather than editing files.
+
+Frames come from headless Chrome, because virtual time does not advance `requestAnimationFrame` — hence the `#t=` seek. The GIF is assembled by ffmpeg through a generated palette; the default palette is much worse.
+
+```bash
+# 48 frames of the animation at 600x300, green on white
+for i in $(seq 0 47); do
+  t=$(python3 -c "print(f'{$i/48:.5f}')")
+  "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless --disable-gpu \
+    --hide-scrollbars --window-size=600,300 --default-background-color=FFFFFFFF \
+    --virtual-time-budget=1100 --screenshot="frames/g_$(printf %03d $i).png" \
+    "file://$PWD/hero-mark.html#t=$t&c=16a34a"
+done
+ffmpeg -y -framerate 11 -i frames/g_%03d.png -vf "palettegen=max_colors=48:stats_mode=diff" pal.png
+ffmpeg -y -framerate 11 -i frames/g_%03d.png -i pal.png \
+  -lavfi "paletteuse=dither=bayer:bayer_scale=3" -loop 0 assets/brand/tai-chi-mark.gif
+```
+
+Use `c=111111` for the black GIF. The still PNGs are the same idea: an HTML page holding `<img src="mark-*.svg">` at a fixed height, screenshotted with `--default-background-color=00000000` for transparency. The SVG colour variants are a string replacement of the `fill` on `assets/brand/mark.svg`.
+
+Two things that bit and will bite again. The canvas has to be taller than the mark's own aspect ratio, or the figure's feet are clipped at the bottom edge — check an actual frame, do not trust the export. And GIF only has one-bit transparency, so the animation is rendered on white; anyone needing transparency wants the SVG or the PNGs.
+
+### The movement
+
+An, the press-and-push from Grasp Sparrow's Tail, performed in place: the weight settles back, both palms draw down and in, then the weight rolls forward and the hands press out together. In the syntax version the characters blow in from the left, hold the figure long enough for it to make the move, and are thrown off along the push's own line.
+
+### Known limitation
+
+The syntax mark wants about 80 pixels of height to read; below that the characters stop being characters. The ink figure still holds at 56, which is why the navbar and small sizes use the still ink mark rather than the syntax one, and why `press.md` says so out loud.
+
+### Still open
+
+Nothing on this plan. If the robe is ever picked up again, `/tai-chi-robe.html` says what it needs.
 
 ## Version 9: proportions
 
