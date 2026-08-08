@@ -165,3 +165,64 @@ article a code,
 .page-main:has(.wom-hero) .page-header {
   display: none;
 }
+
+/* Two theme rules have to be beaten here, both with more specificity than a
+   plain class, so these are scoped to #mdxpage rather than left to chance.
+   1. `.rendered-mdx h1:first-child { display: none }` — the theme hides the
+      first content h1 because its own page header normally shows the title.
+      Ours is the hero headline and has to show.
+   2. Content links take the accent colour, which is the same green as the
+      CTA background, so the primary button's label came out invisible. */
+#mdxpage .wom-hero h1 {
+  display: block;
+  margin: 0;
+  font-size: clamp(2rem, 5.2vw, 3.4rem);
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+}
+
+/* The anchor-link icon the theme adds to headings is noise in a hero. */
+#mdxpage .wom-hero h1 .heading-link { display: none; }
+
+#mdxpage a.wom-cta {
+  color: #fff;
+  text-decoration: none;
+}
+
+#mdxpage a.wom-cta--ghost { color: inherit; }
+
+/* The homepage layout, scoped to the page carrying the hero so every other
+   page is untouched. Three things were squeezing it:
+   1. `.layout-inner.has-toc` reserves 16rem of left padding for a sidebar
+      this site does not use (showSidebar is false), and a 240px TOC column.
+   2. The "On this page" rail costs the hero another chunk of width, and a
+      landing page does not need one.
+   3. Prose is capped at 65ch, which is right for reading and much too
+      narrow for a hero with a mark beside the headline.
+   The hero breaks out of the reading measure; everything after it is put
+   back to 65ch so the body still reads well. */
+.layout-inner.has-toc:has(.wom-hero) {
+  padding-left: 2rem;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.layout-inner:has(.wom-hero) .page-toc-container {
+  display: none;
+}
+
+.layout-inner:has(.wom-hero) .rendered-mdx:not(.is-plain) {
+  max-width: none;
+}
+
+#mdxpage .wom-hero {
+  max-width: 68rem;
+  margin-inline: auto;
+}
+
+/* Everything after the hero goes back to a reading measure, centred, so the
+   page does not read as a narrow column stranded under a wide hero. */
+#mdxpage .wom-hero ~ * {
+  max-width: 65ch;
+  margin-inline: auto;
+}
