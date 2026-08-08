@@ -204,3 +204,21 @@ Dropped the assertion that banned `<text>`. Added: the character set must be Mar
 ### Task 24: Open — which one, and where
 
 Whether the mark should be the ink figure, the syntax figure, or the syntax figure resolving into ink. And then homepage integration, which is still untouched.
+
+---
+
+## Version 8: head, and the decision
+
+Done on 2026-08-08.
+
+### Task 25: The skull — done
+
+The head was the weakest part of the syntax figure: the skull got few characters and read as a scatter. Three changes. The topknot became a chain of points down a tail with progressive lag, each link trailing a little more than the one above, so the hair moves through itself as the body moves — a small, controllable version of exactly what the robe hem needed and never got. A single `*` sits under the brow as an eye, carried by a new `single` flag on a stroke that always yields exactly one character. And the face and hair take a `density` factor so they get more characters than their width alone would earn.
+
+### Task 26: The mark is the syntax figure — decided
+
+Rufus's call. It reads as Markdown, which is the point of the site.
+
+### Task 27: Homepage integration — open
+
+The only remaining piece, and out of scope from the beginning. Everything else on this plan is closed.

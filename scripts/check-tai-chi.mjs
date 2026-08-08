@@ -74,6 +74,16 @@ check(/GLYPH_PLAN/.test(source), "no glyph plan");
 check(/data-player="glyph"/.test(source), "syntax version has no review controls");
 check(/data-player="ink"/.test(source), "ink version has no review controls");
 
+// The hair trails the head. HAIR_LAG sits in the staging code, outside the
+// block the movement checks can import, so it is checked here.
+const hairLag = source.match(/const HAIR_LAG = ([\d.]+);/);
+check(hairLag && Number(hairLag[1]) > 0.005,
+  "HAIR_LAG is zero or missing: the topknot would move rigidly with the head");
+check(/strokes\(pose\(t, breath\), trailing\(t, breath\)\)/.test(source),
+  "the ink figure is not given a trailing pose");
+check(/glyphLayout\(pose\(u % 1, breath\), trailing\(u % 1, breath\)\)/.test(source),
+  "the syntax figure is not given a trailing pose");
+
 
 for (const match of source.matchAll(/<script>([\s\S]*?)<\/script>/g)) {
   try {
@@ -221,6 +231,28 @@ export { pose, strokes, figure, glyphLayout, GLYPH_PLAN, GROUND, THIGH, SHIN, UP
       }
     }
     check(!glyphCountDrift, "the glyph layout changes size or goes non-finite across the movement");
+
+    // The topknot trails the head, and is attached to it. `glyphOffBody`
+    // above cannot catch hair flying off, because the hair's own control
+    // points are part of the body it measures against.
+    let hairReach = 0;
+    let hairSwing = 0;
+    for (let i = 0; i <= 60; i += 1) {
+      const t = i / 60;
+      const p = g.pose(t, 0);
+      const cloth = g.pose((t - .045 + 1) % 1, 0);
+      const tail = g.figure(p, cloth).find(x => x.pts.length === 5 && x.pts[0] === p.knotBase);
+      if (!tail) continue;
+      // Every link, not just the tip: a mid-chain overshoot walks straight
+      // past a check that only looks at the end of the tail.
+      for (let k = 1; k < tail.pts.length; k += 1) {
+        hairReach = Math.max(hairReach, dist(p.crown, tail.pts[k]));
+      }
+      hairSwing = Math.max(hairSwing, dist(p.knotTip, tail.pts[4]));
+    }
+    check(hairReach > 8 && hairReach < 26, `the topknot tail reaches ${hairReach.toFixed(1)} units from the crown; it should hang, not float away`);
+    check(hairSwing > 0.05, "the topknot does not trail the head at all; the lag is doing nothing");
+    check(hairSwing < 6, `the topknot lags ${hairSwing.toFixed(1)} units behind its own head; that is a detached ponytail`);
     check(glyphOffBody < 30, `a character sits ${glyphOffBody.toFixed(1)} units from the nearest joint; it has come off the body`);
 
     // Every stroke is a closed, finite path.

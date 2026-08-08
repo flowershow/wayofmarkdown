@@ -133,6 +133,9 @@
     .glyph--faint { opacity: .3; }
 
         .size-glyph-hero .tai-chi-mark { height: 104px; }
+    .size-glyph-56 .tai-chi-mark { height: 56px; }
+    .size-glyph-80 .tai-chi-mark { height: 80px; }
+    .size-glyph-104 .tai-chi-mark { height: 104px; }
     .size-glyph-review .tai-chi-mark { height: 300px; }
 
     .no-js-figure { display: none; }
@@ -281,6 +284,30 @@
       <svg class="tai-chi-mark" data-glyph-stage viewBox="0 14 260 118" role="img" aria-label="A figure in profile assembled from Markdown punctuation, pressing both palms forward before scattering on the wind">
         <g class="glyph-layer" data-glyphs aria-hidden="true"></g>
       </svg>
+    </section>
+
+    <section class="band">
+      <h2>The mark, at size</h2>
+      <div class="sizes">
+        <figure class="size-glyph-56">
+          <svg class="tai-chi-mark" data-glyph-stage viewBox="0 14 260 118" role="presentation" aria-hidden="true">
+            <g class="glyph-layer" data-glyphs></g>
+          </svg>
+          <figcaption>56px</figcaption>
+        </figure>
+        <figure class="size-glyph-80">
+          <svg class="tai-chi-mark" data-glyph-stage viewBox="0 14 260 118" role="presentation" aria-hidden="true">
+            <g class="glyph-layer" data-glyphs></g>
+          </svg>
+          <figcaption>80px</figcaption>
+        </figure>
+        <figure class="size-glyph-104">
+          <svg class="tai-chi-mark" data-glyph-stage viewBox="0 14 260 118" role="presentation" aria-hidden="true">
+            <g class="glyph-layer" data-glyphs></g>
+          </svg>
+          <figcaption>104px</figcaption>
+        </figure>
+      </div>
     </section>
 
     <section class="band size-glyph-review">
@@ -497,6 +524,15 @@
       // this gives the head a silhouette to be recognised by.
       const knotBase = up([-2.4, 30.4]);
       const knot = up([-6.6, 27.6]);
+      // The tail of the topknot, as a chain. Each link is given a little
+      // more lag than the one above it, so the hair trails through itself
+      // instead of swinging as one rigid piece — the thing the robe hem
+      // needed and never got.
+      const knot1 = up([-9.6, 30.4]);
+      const knot2 = up([-11, 35.4]);
+      const knotTip = up([-9.8, 40.6]);
+      // One mark for the eye, set back under the brow.
+      const eye = up([5.8, 32.2]);
       const throat = up([4, 43]);
       const chestFront = up([12, 53]);
       const belly = up([12, 64]);
@@ -541,7 +577,7 @@
       return {
         hip, waist, chest, neck, nape, occiput, skull, crown, forehead,
         brow, nose, lip, chin, jaw, throat, chestFront, belly, lowBelly,
-        knotBase, knot,
+        knotBase, knot, knot1, knot2, knotTip, eye,
         shoulderA, shoulderB, handA, handB, elbowA, elbowB, wristA, wristB,
         palmA: palm(wristA, handA, -70, 5.5),
         palmB: palm(wristB, handB, -70, 5),
@@ -558,12 +594,17 @@
     // the skull and over the crown: the "flow of the back into the head".
     const SPINE_W = [[0, 3.2], [.12, 6.6], [.4, 4.6], [.62, 3.4], [.82, 3], [1, 1.9]];
     const FACE_W = [[0, 1.6], [.3, 1], [.62, .9], [1, .3]];
-    const KNOT_W = [[0, 2.2], [.5, 3], [1, 1.2]];
+    const KNOT_W = [[0, 2.4], [.28, 3.4], [.62, 2.6], [1, .8]];
+    const EYE_W = [[0, 2.6], [1, 2.6]];
     const FRONT_W = [[0, .6], [.4, 1.7], [.75, 1.4], [1, .4]];
 
     // The body as a list of centrelines. Both renderings read from this, so
     // the ink figure and the syntax figure can never drift apart.
-    function figure(p) {
+    const mixPt = (a, b, k) => [a[0] + (b[0] - a[0]) * k, a[1] + (b[1] - a[1]) * k];
+
+    // `cloth` is the same body sampled slightly earlier. Anything that
+    // should trail the head rather than move with it is placed from it.
+    function figure(p, cloth = p) {
       return [
         { cls: "ink", pts: [p.hip, p.kneeRear, p.rearAnkle, p.rearFoot.heel], w: LEG_W },
         { cls: "ink", pts: [p.rearFoot.heel, p.rearFoot.toe], w: FOOT_W, per: 6 },
@@ -572,14 +613,21 @@
         { cls: "ink", pts: [p.frontFoot.heel, p.frontFoot.toe], w: FOOT_W, per: 6 },
         { cls: "ink ink--faint", pts: [p.throat, p.chestFront, p.belly, p.lowBelly], w: FRONT_W },
         { cls: "ink", pts: [p.hip, p.waist, p.chest, p.neck, p.nape, p.occiput, p.skull, p.crown, p.forehead], w: SPINE_W },
-        { cls: "ink", pts: [p.knotBase, p.knot], w: KNOT_W, per: 8 },
-        { cls: "ink", pts: [p.forehead, p.brow, p.nose, p.lip, p.chin, p.jaw, p.throat], w: FACE_W, per: 8 },
+        { cls: "ink", pts: [
+            p.knotBase,
+            p.knot,
+            mixPt(p.knot1, cloth.knot1, .45),
+            mixPt(p.knot2, cloth.knot2, .78),
+            cloth.knotTip
+          ], w: KNOT_W, density: .8 },
+        { cls: "ink", pts: [p.eye, [p.eye[0] + .7, p.eye[1] + .5]], w: EYE_W, per: 3, single: true },
+        { cls: "ink", pts: [p.forehead, p.brow, p.nose, p.lip, p.chin, p.jaw, p.throat], w: FACE_W, per: 8, density: .72 },
         { cls: "ink", pts: [p.shoulderA, p.elbowA, p.wristA, p.handA, p.palmA], w: ARM_A_W }
       ];
     }
 
-    function strokes(p) {
-      return figure(p).map(s => ({ cls: s.cls, d: brush(s.pts, s.w, s.per || 12) }));
+    function strokes(p, cloth = p) {
+      return figure(p, cloth).map(s => ({ cls: s.cls, d: brush(s.pts, s.w, s.per || 12) }));
     }
 
     /* ------------------------------------------------------------------ *
@@ -653,19 +701,26 @@
         // thin out the fine face line in the same figure.
         const sizeAt = u => clamp(widthAt(stroke.w, u) * 1.5, 3, 7);
         const fractions = [];
-        let walked = sizeAt(0) * .5;
-        while (walked < total) {
-          const u = walked / total;
-          fractions.push(u);
-          walked += Math.max(3.2, sizeAt(u) * GLYPH_SPACING);
+        if (stroke.single) {
+          // A mark that is one character, not a run of them: the eye.
+          fractions.push(.5);
+        } else {
+          const spread = GLYPH_SPACING * (stroke.density || 1);
+          let walked = sizeAt(0) * .5;
+          while (walked < total) {
+            const u = walked / total;
+            fractions.push(u);
+            walked += Math.max(3.2 * (stroke.density || 1), sizeAt(u) * spread);
+          }
+          if (fractions.length < 2) fractions.push(.5);
         }
-        if (fractions.length < 2) fractions.push(.5);
         const seats = alongStroke(stroke.pts, per, fractions);
 
         seats.forEach((seat, j) => {
           const width = widthAt(stroke.w, fractions[j]);
           const pick = width >= 3.8 ? HEAVY : width >= 2.2 ? MID : LIGHT;
           const g = plan.length;
+          const forced = stroke.single ? "*" : null;
           plan.push({
             index: g,
             stroke: k,
@@ -674,7 +729,7 @@
             // Capped: the widest brush strokes would otherwise set
             // characters so large they merge into a blot.
             size: clamp(width * 1.5, 3, 7),
-            char: pick[Math.floor(noise(g, 7) * pick.length) % pick.length],
+            char: forced || pick[Math.floor(noise(g, 7) * pick.length) % pick.length],
             faint: stroke.cls.includes("faint"),
             soft: stroke.cls.includes("soft"),
             x0: seat.x
@@ -704,8 +759,8 @@
 
     // Where every glyph sits on the body for a given pose. Returned in
     // GLYPH_PLAN order.
-    function glyphLayout(p) {
-      const body = figure(p);
+    function glyphLayout(p, cloth = p) {
+      const body = figure(p, cloth);
       const out = new Array(GLYPH_PLAN.length);
       for (const group of GLYPH_GROUPS) {
         const seats = alongStroke(body[group.stroke].pts, group.per, group.fractions);
@@ -802,6 +857,9 @@
 
     const INK_LOOP_MS = 9000;
     const INK_X = 96;
+    // How far the hair trails the head.
+    const HAIR_LAG = .045;
+    const trailing = (t, breath) => pose((t - HAIR_LAG + 1) % 1, breath);
 
     const inkStages = [...document.querySelectorAll("[data-stage]")].map(svg => {
       const layer = svg.querySelector("[data-figure]");
@@ -821,7 +879,8 @@
       phases: [[0, "settled"], [.14, "yielding"], [.34, "sitting back"], [.5, "gathered"], [.66, "pressing"], [.86, "pushing out"]],
       draw(t) {
         // One slow breath per cycle, barely perceptible on its own.
-        const shapes = strokes(pose(t, Math.sin(t * Math.PI * 2) * .35));
+        const breath = Math.sin(t * Math.PI * 2) * .35;
+        const shapes = strokes(pose(t, breath), trailing(t, breath));
         inkStages.forEach(nodes => shapes.forEach((s, i) => nodes[i].setAttribute("d", s.d)));
       }
     });
@@ -878,7 +937,8 @@
       // the press, then holds the finished push while they blow away.
       const moving = clamp((t - MOVE_FROM) / (MOVE_TO - MOVE_FROM));
       const u = .45 + moving * .55;
-      const seats = glyphLayout(pose(u % 1, Math.sin(t * Math.PI * 2) * .35));
+      const breath = Math.sin(t * Math.PI * 2) * .35;
+      const seats = glyphLayout(pose(u % 1, breath), trailing(u % 1, breath));
       const gust = t * Math.PI * 2;
 
       for (let i = 0; i < seats.length; i += 1) {
@@ -937,7 +997,7 @@
         const g = document.createElementNS(SVG_NS, "g");
         g.setAttribute("transform", `translate(${60 + i * 155} 0)`);
         g.style.opacity = i === 0 ? "1" : ".8";
-        strokes(pose(i / samples)).forEach(s => {
+        strokes(pose(i / samples), trailing(i / samples, 0)).forEach(s => {
           const node = document.createElementNS(SVG_NS, "path");
           node.setAttribute("class", s.cls);
           node.setAttribute("d", s.d);

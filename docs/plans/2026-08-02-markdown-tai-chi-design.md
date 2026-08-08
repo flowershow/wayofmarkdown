@@ -9,6 +9,46 @@ Status: approved for standalone prototyping on 2026-08-02. Tracked in GitHub iss
 
 Canonical handoff brief: [Tai chi hero animation brief](2026-08-02-markdown-tai-chi-brief.md). This file records the design history and superseded experiments.
 
+## Where it landed
+
+**The mark is the syntax figure.** Decided 2026-08-08. It reads as Markdown, which is the whole point of the site, and the assembly is the idea rather than decoration on top of it.
+
+Live and reviewable at `/tai-chi.html`, published but unlisted and noindexed. Two renderings sit on that page — a brush-ink figure and the same figure written in Markdown punctuation — and both are generated from one shared set of stroke centrelines, so they cannot drift apart. A robed version is parked at `/tai-chi-robe.html` with its own note on what is unsolved.
+
+The movement is An, the press-and-push from Grasp Sparrow's Tail, performed in place: the weight settles back, both palms draw down and in, then the weight rolls forward and the hands press out together. In the syntax version the characters blow in from the left, hold the figure long enough for it to make the move, and are thrown off along the push's own line.
+
+`scripts/check-tai-chi.mjs` imports the prototype's own movement code and asserts bone lengths, floor contact, planted feet, palm travel and loop continuity, plus that the characters are Markdown punctuation and stay on the body.
+
+Known limitation: the syntax mark wants about 80 pixels of height to read. The ink figure still holds at 56. If the mark has to run smaller than that, this is the thing that will bite.
+
+Still open: homepage integration, which has been deliberately out of scope throughout.
+
+## What this cost us, and what was worth knowing
+
+Eight versions. The lessons that would transfer to the next thing like this:
+
+**A stick figure is a property of the renderer, not the pose.** Versions 1 to 3 were tuned and re-tuned while every stroke was a uniform-width line run through the joint list. No amount of pose work can make that look like ink. Variable-width brush ribbons were the single biggest change in the whole effort, and they were available from the start.
+
+**Derive joints, do not place them.** Hand-authored joints drift in length the moment you interpolate between poses. Two-bone IK fixed that for free and, more usefully, moved the authoring to where the movement actually lives — the arc each hand traces.
+
+**Any step cycle reads as walking**, however slowly it is played. Removing travel altogether is what finally made the thing read as tai chi. This is also why the answer to "could it step?" stayed no.
+
+**In strict profile, two of anything at the same height read as one thing.** The two palms needed offsetting, and the far shoulder had to be dropped and brought forward before the far arm stopped disappearing into the torso and re-emerging as a stray forearm.
+
+**One small mark can carry the whole read.** The palm cocked back at the wrist is most of what says tai chi rather than somebody reaching for a door handle.
+
+**Closed outlines overshoot at reversals.** Both the sleeves and the robe body were first drawn as single closed paths and both came out as scribbles, because the path has to turn back on itself at the cuff and the hem. Splitting each into open edges fixed it completely, first time.
+
+**Even density beats even spacing.** Spacing the characters by each stroke's average width blotted the thick hips and thinned the fine face line in the same figure. Stepping along the arc by each character's own size fixed it.
+
+**Outlines do not survive translation into sparse characters.** The syntax figure works because its strokes *are* the body. The robe's strokes are the *boundary* of a body, and an outline made of gaps is mostly gaps. That is why the syntax robe was tried and dropped in ten minutes rather than argued about.
+
+**A syntax treatment is forgiving, and that is a trap.** It hid the robe's rigid hem and disconnected leg almost entirely. Building it would have banked a foundation we already knew was wrong.
+
+**Make the motion assertable.** Fencing the pure geometry off behind markers so the check script can import it caught limbs stretching, hands detaching and loop seams that eyeballing a slow loop never would. Every assertion has to be verified by deliberately breaking the prototype: two of the first break-tests turned out to be no-ops that passed, which would have left the checks looking green and meaning nothing.
+
+**Being able to look at it mattered more than anything else.** Rendering each iteration with headless Chrome, and adding `#t=` deep links so any moment could be captured, is what turned this from guesswork into work.
+
 ## Rufus's movement brief, lightly tidied
 
 I am imagining this ending up quite small, like 50 pixels high or 100 pixels. It is quite a small animation, and it flows left to right across the page. You really want the figure almost making a sequence of movements, going quite a way across the page, so the figures are not very high.

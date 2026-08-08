@@ -5,7 +5,9 @@ publish: false
 
 # Tai chi hero animation: canonical brief
 
-Status: current handoff brief as of 2026-08-02. Tracked in GitHub issue #71. Read this before the longer design history in `2026-08-02-markdown-tai-chi-design.md`.
+Status: **decided 2026-08-08 — the mark is the syntax figure.** Tracked in GitHub issue #71.
+
+The study is live at `/tai-chi.html` (published, unlisted, noindexed). What was achieved and what was learned is at the top of `2026-08-02-markdown-tai-chi-design.md`; read that first. The rest of this file is the original brief and the exploration history, kept because the criteria in it are still the ones the mark is judged against.
 
 ## The idea in one sentence
 
@@ -119,7 +121,7 @@ Current files:
 
 ## Definition of success
 
-The study is ready for a Markdown treatment when:
+Met on 2026-08-08, with one exception noted below. The study was ready for a Markdown treatment when:
 
 - the first glance reads as a graceful human figure;
 - the figure remains clear and elegant at roughly 50–100 pixels high;
@@ -130,4 +132,6 @@ The study is ready for a Markdown treatment when:
 - the line work is memorable with all labels, controls and explanatory copy hidden;
 - watching several loops remains calm rather than irritating.
 
-Only after those conditions are met should the work proceed to syntax experiments and homepage integration.
+The exception: the figure was required to be clear at roughly 50 to 100 pixels high. The ink figure holds at 56. The syntax figure — the one chosen as the mark — wants about 80. If it has to run smaller than that, this is what will bite.
+
+Syntax experiments are done. Homepage integration is the remaining piece and is still untouched.
