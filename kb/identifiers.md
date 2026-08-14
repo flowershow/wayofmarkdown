@@ -1,5 +1,6 @@
 ---
 title: Heading identifiers in Pandoc-style Markdown
+description: "Which Markdown tools support Pandoc-style heading identifiers like {#custom-id}, and which strip them."
 created: 2025-12-04
 ---
 

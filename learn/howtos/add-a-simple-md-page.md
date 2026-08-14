@@ -1,3 +1,7 @@
+---
+description: "Add a simple Markdown page to your website directly from GitHub — no coding or local setup needed."
+---
+
 # How to add a simple Markdown page
 
 Welcome to this howto on how to quickly add a simple Markdown-based page to your website. The steps here are designed for non-technical contributors. There's no need to know how to code!

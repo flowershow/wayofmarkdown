@@ -1,3 +1,7 @@
+---
+description: "Edit your Flowershow website locally with Obsidian and GitHub Desktop, then commit and push changes back to the live site."
+---
+
 # Tutorial 2: Edit your Flowershow website locally on your computer
 
 In this tutorial, we will walk you through the process of editing your Flowershow website locally on your computer. 

@@ -1,3 +1,7 @@
+---
+description: "What Markdown is, how it differs from WYSIWYG editors like Word or Google Docs, and why a Markdown-based approach is worth learning."
+---
+
 # Background and motivation
 
 There are many ways to build a website, from classic CMS and blogging platforms like wordpress, to wikis, etc.

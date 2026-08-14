@@ -1,3 +1,7 @@
+---
+description: "Answers to common GitHub questions — branches, commits, and pull requests — for people new to working in a repository."
+---
+
 # Github FAQs and Tips
 
 ### FAQ: When do I need to create a new branch vs committing directly to main?

@@ -1,3 +1,7 @@
+---
+description: "The full Learn track: build a Markdown-based website step by step with Obsidian, GitHub, and Flowershow."
+---
+
 # Learn: Build a Markdown-based Website 🚀
 
 Welcome! Here you can learn how to build markdown-based websites – and why a markdown-based approach is awesome 🦸‍♀️

@@ -1,5 +1,6 @@
 ---
 title: "Turndown: HTML to Markdown converter"
+description: "Turndown is an open-source JavaScript library that converts HTML into Markdown."
 source: "https://github.com/mixmark-io/turndown"
 created: 2025-10-18
 ---

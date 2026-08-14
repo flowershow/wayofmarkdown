@@ -1,3 +1,7 @@
+---
+description: "How to clone your site's repository and edit or add Markdown pages locally using GitHub Desktop and Obsidian."
+---
+
 # How to edit or add Markdown-based pages locally on your computer
 
 ## Intro

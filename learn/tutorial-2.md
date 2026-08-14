@@ -1,3 +1,7 @@
+---
+description: "Clone your website's repository and edit content locally with Obsidian and GitHub Desktop."
+---
+
 # Tutorial 2: Edit your website locally on your computer using Obsidian
 
 ## Introduction
