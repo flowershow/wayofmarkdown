@@ -27,13 +27,13 @@ The Markdown Database Pattern deserves a name for the same reason: it is a recur
 
 ## The problem
 
-The standard approach to content management forces a false choice.
+The standard approach to content management creates a false choice.
 
-On one side: a CMS. You get structured data — fields, types, queries — but your content is locked in a proprietary database, dependent on an admin interface, tied to a platform. The prose is second-class.
+**On one side: a CMS**. You get structured data — fields, types, queries — but your content is locked in a proprietary database, dependent on an admin interface, tied to a platform. The prose is second-class.
 
-On the other side: plain markdown files. You get freedom — plain text, version control, write in any editor, host anywhere. But you give up queryability. You cannot ask "show me everything tagged *research* written since January." You cannot filter, sort, or aggregate. You have documents, not data.
+**On the other side: plain markdown files**. You get freedom — plain text, version control, write in any editor, host anywhere. But you give up queryability. You cannot ask "show me everything tagged *research* written since January." You cannot filter, sort, or aggregate. You have documents, not data.
 
-The Markdown Database Pattern refuses this trade-off.
+The Markdown Database Pattern solves this trade-off and gives you **the best of both worlds: markdown files with metadata so you own the content, you get free text and you have structured metadata.**
 
 ---
 
