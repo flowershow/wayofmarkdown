@@ -17,6 +17,7 @@ Practical articles, tools and tips for working in markdown. Looking for how to *
 
 - [Using AI to edit Markdown notes in Obsidian](ai-editing) — Claude Code, Codex, and other AI tools with your vault
 - [Using Cursor with Obsidian](cursor-obsidian)
+- [Follow Builders, Not Influencers](follow-builders) — a daily/weekly AI builders digest via Claude Code or OpenClaw; tracks top AI builders on X and YouTube, remixes their content into summaries. No API keys needed.
 
 ## Essays
 
