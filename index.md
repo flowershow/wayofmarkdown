@@ -8,8 +8,8 @@ showHero: false
 <main class="wom-home mx-auto w-full max-w-6xl px-5 py-12 sm:px-8 sm:py-16 lg:px-10 lg:py-20">
   <section class="mx-auto flex max-w-4xl flex-col items-center text-center">
     <h1 class="m-0 text-4xl font-medium leading-none tracking-tight text-stone-800 dark:text-stone-100 sm:text-6xl lg:text-7xl">The Way of Markdown</h1>
-    <div class="mt-6 w-full max-w-sm sm:mt-8 sm:max-w-md" style="aspect-ratio:260/118;">
-      <iframe class="block h-full w-full border-0 bg-transparent" src="/hero-mark.html" title="A figure in profile, written in Markdown punctuation, pressing both palms forward" loading="eager" scrolling="no" tabindex="-1" aria-hidden="true"></iframe>
+    <div class="mt-6 w-full max-w-xl sm:mt-8" style="aspect-ratio:16/9;">
+      <video class="block h-full w-full" src="/assets/way-of-markdown.mp4" autoplay muted loop playsinline aria-label="A figure in profile, written in Markdown punctuation, performing a tai chi movement"></video>
     </div>
     <p class="mt-5 text-2xl font-medium leading-tight text-stone-700 dark:text-stone-200 sm:text-3xl">Own the source. Compose with anything.</p>
     <p class="mt-6 max-w-3xl text-lg leading-8 text-stone-600 dark:text-stone-300 sm:text-xl">Websites, knowledge bases, blogs, even a Notion replacement — built from plain text files you own, with tools you can swap anytime. Markdown is quietly everywhere; here's the way to make it work for you.</p>
