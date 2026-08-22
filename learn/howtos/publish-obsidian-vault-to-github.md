@@ -1,3 +1,7 @@
+---
+description: "How to turn your Obsidian vault into a GitHub repository for backup, version history, and collaboration."
+---
+
 # How to push an Obsidian vault to a GitHub repository
 
 This howto walks you through the process of setting up your Obsidian vault as a GitHub repository. Here are some of the benefits of doing so:

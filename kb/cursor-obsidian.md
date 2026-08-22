@@ -1,5 +1,6 @@
 ---
 title: Using Cursor with Obsidian
+description: "Use Cursor's AI editor on your Obsidian vault for multi-file search, rewriting, and restructuring your notes."
 ---
 
 # Using Cursor with Obsidian

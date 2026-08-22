@@ -1,3 +1,7 @@
+---
+description: "Create a working Markdown-based website from scratch and publish it with Flowershow — no installation required."
+---
+
 # Tutorial 1: Create a website from scratch using Markdown and Flowershow
 
 In this tutorial we will walk you through creating an elegant, fully functional website written in simple markdown and published with Flowershow.

@@ -1,3 +1,7 @@
+---
+description: "Step-by-step guide to building your first Markdown website and publishing it straight from GitHub."
+---
+
 # Tutorial 1: Create a website from scratch using Markdown
 
 ## Introduction

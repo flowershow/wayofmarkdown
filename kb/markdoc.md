@@ -1,5 +1,6 @@
 ---
 title: Markdoc
+description: "Markdoc is Stripe's Markdown-based authoring framework, extending plain Markdown with tags and components for docs sites."
 ---
 
 # Markdoc
