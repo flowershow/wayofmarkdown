@@ -108,6 +108,6 @@ graph LR
   </section>
 
   <footer class="mt-20 border-t border-stone-200 pt-8 text-center text-sm italic leading-6 text-stone-500 dark:border-stone-700 dark:text-stone-400 sm:mt-24">
-    Made by <a class="text-green-700 underline decoration-green-600/40 underline-offset-4 dark:text-green-400" href="/about">Rufus Pollock</a>, as markdown files <a class="text-green-700 underline decoration-green-600/40 underline-offset-4 dark:text-green-400" href="https://github.com/flowershow/wayofmarkdown">in the open</a>. This page is itself markdown with a little HTML in it — <a class="text-green-700 underline decoration-green-600/40 underline-offset-4 dark:text-green-400" href="/markdown-websites">which is rather the point</a>.
+    Made by <a class="text-green-700 underline decoration-green-600/40 underline-offset-4 dark:text-green-400" href="/about">Rufus Pollock</a> and <a class="text-green-700 underline decoration-green-600/40 underline-offset-4 dark:text-green-400" href="https://datopian.com/">folks at Datopian</a>, as markdown files <a class="text-green-700 underline decoration-green-600/40 underline-offset-4 dark:text-green-400" href="https://github.com/flowershow/wayofmarkdown">in the open</a>. This page is itself markdown with a little HTML in it — <a class="text-green-700 underline decoration-green-600/40 underline-offset-4 dark:text-green-400" href="/markdown-websites">which is rather the point</a>.
   </footer>
 </main>
