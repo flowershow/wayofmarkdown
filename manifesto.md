@@ -2,24 +2,13 @@
 title: "The Markdown Manifesto"
 description: "Markdown is eating the world. Choose markdown and you choose freedom, power and simplicity — and the most awesome ecosystem of tooling in the world."
 created: 2026-01-26
-authors: ["Rufus Pollock"]
 ---
 
 # The Markdown Manifesto
 
 *[Rufus Pollock](/about) · first drafted January 2026, evolving since — [history](https://github.com/flowershow/wayofmarkdown/commits/main/manifesto.md)*
 
-> X ❤️ markdown
-
-Use Markdown *everywhere*.
-
-Markdown is *eating the world*.
-
-So simple everyone can use it, so simple every tool can implement it.
-
----
-
-We believe markdown is *awesome*.
+We believe markdown is *awesome* 🕶️.
 
 We believe the markdown ecosystem can take over the world. It can become *the* standard format for sharing text-based information -- and even for creating mini-databases and catalogs. Move over Notion, markdown is here!
 
@@ -27,17 +16,17 @@ Choose markdown and you choose freedom, power and simplicity -- and the most awe
 
 Choosing markdown means *you* owning your content, rather than someone else's tool or platform owning you.
 
-AI ❤️ markdown
+AI  ❤️  markdown
 
-Version control ❤️ markdown
+Version control  ❤️  markdown
 
-Docs ❤️ markdown
+Docs  ❤️  markdown
 
 Yes, markdown started out as the geek underdog that just showed up in text areas on the internet. But it's like the punk teenager become slick yuppie adult. Markdown is sexy now. Markdown is slick. WYSIWYG markdown is everywhere (think Obsidian, think tiptap, think Substack).
 
 ## What is markdown?
 
-Wait, i hear you ask. What actually *is* markdown, and why is it so awesome?
+What actually *is* markdown, and why is it so awesome?
 
 Markdown is plain text plus a few conventions for formatting: `# heading`, `**bold**`, `[link](url)`. That's more or less it -- [ten minutes and you know it](basics.md).
 
@@ -80,7 +69,7 @@ That's why this site has a guide for each markdown-based X -- [websites, blogs, 
 - Every AI reads and writes it natively -- it's what they were trained on
 - Tool interoperability: you copy and paste into and out of AI chat *all the time*, and markdown is the format that survives the trip
 
-More on this: [markdown in ChatGPT, Claude and friends](markdown-in-chatgpt.md).
+More on this: [markdown in ChatGPT, Claude and friends](markdown-in-chatgpt).
 
 ## What "freedom" means here
 
@@ -99,14 +88,14 @@ Write in markdown. Store in markdown. Build on markdown.
 
 Own the source, and the whole ecosystem is yours. 🚀
 
-Agree? [Fly the badge](badges.md): **❤ Markdown**.
+Agree? [Fly the badge](badges): **❤ Markdown**.
 
 ## Want the argument rather than the declaration?
 
-This page is the loud version. There's a quieter one: [Why markdown-based](why.md) makes the same case slowly and carefully, including why nobody actually cares about markdown itself, what the ecosystem gives you that a platform can't, and why we recommend the MOGF stack (Markdown + Obsidian + GitHub + Flowershow) to start with. Read that one if you want to be persuaded rather than cheered at.
+This page is the loud version. There's a quieter one: [Why markdown-based](why.md) which goes into more detail including **why nobody should actually care about markdown itself**, what the ecosystem gives you that a platform can't, and why we recommend the MAG (Markdown, Apps and Git) and MOGF stack (Markdown + Obsidian + GitHub + Flowershow).
 
-Or skip both and [start building](markdown-based.md).
+Or skip to [starting building](markdown-based.md).
 
 ---
 
-*Credit where due: markdown was created by John Gruber with Aaron Swartz -- internet legends both.*
+*Credit where due: markdown was created by two internet legends John Gruber with Aaron Swartz.*
