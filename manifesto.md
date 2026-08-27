@@ -22,8 +22,6 @@ Version control  ❤️  markdown
 
 Docs  ❤️  markdown
 
-Yes, markdown started out as the geek underdog that just showed up in text areas on the internet. But it's like the punk teenager become slick yuppie adult. Markdown is sexy now. Markdown is slick. WYSIWYG markdown is everywhere (think Obsidian, think tiptap, think Substack).
-
 ## What is markdown?
 
 What actually *is* markdown, and why is it so awesome?
