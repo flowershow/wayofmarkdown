@@ -79,7 +79,7 @@ tags: [sci-fi, space-opera]
 A long time ago in a galaxy far, far away...
 ```
 
-You now have a movies database. Query it:
+That folder is a database. You just need a tool to read the structured layer. Point [MarkdownDB](https://github.com/flowershow/markdowndb) at it and you get `files` and `file_tags` tables to query:
 
 ```sql
 SELECT * FROM files WHERE year < 1980;
@@ -87,7 +87,15 @@ SELECT * FROM files WHERE director = 'George Lucas';
 SELECT * FROM file_tags WHERE tag = 'space-opera';
 ```
 
-The prose is still prose — readable, writable in any editor, stored in git. The structured layer is fully queryable. You did not have to choose.
+This isn't a live demo — nothing on this page runs the query. The point is that the query is *possible*: index the folder once and the structured layer is there. The prose is still prose — readable, writable in any editor, stored in git. You did not have to choose.
+
+## Seeing it without code
+
+SQL is one way in. The friendlier one: open the same folder in Obsidian and point a [Base](https://help.obsidian.md/bases) at it. The frontmatter shows up as a sortable, filterable table, no query language required.
+
+![[table2.png]]
+
+Here it's a handful of character files, rendered as a table. The [practical guide](markdown-databases-guide.md) covers the tools; the [step-by-step tutorial](learn/howtos/create-a-simple-catalog-of-anything.md) builds one from an empty folder in about 20 minutes.
 
 ---
 
@@ -125,6 +133,10 @@ Plain text has a long future. Markdown is everywhere. The data was always there.
 
 You just needed a name for it.
 
+---
+
+**Build one:** [Markdown-based databases & catalogs](markdown-databases-guide.md) — the practical guide to the tools and conventions, with a step-by-step tutorial at the end.
+
 ## Colophon
 
-Originally notes in https://github.com/flowershow/markdowndb/issues/7 and elsewhere
+Originally notes in the markdowndb project and elsewhere.

@@ -44,7 +44,7 @@ The guides. Each one follows the same shape: what the thing is, the markdown-bas
 - [Knowledge bases and second brains](markdown-knowledge-bases.md)
 - [Wikis and team handbooks](markdown-wikis.md)
 - [Digital gardens](markdown-digital-gardens.md)
-- [Databases and catalogs](markdown-databases.md)
+- [Databases and catalogs](markdown-databases-guide.md)
 - [Documentation sites](markdown-docs.md)
 - [Journals and daily notes](markdown-journals.md)
 - [Books and long-form writing](markdown-books.md)

@@ -169,7 +169,7 @@
         },
         {
           "label": "Database / catalog",
-          "url": "/markdown-databases",
+          "url": "/markdown-databases-guide",
           "status": "built",
           "side": "right"
         },

@@ -149,6 +149,10 @@
   },
   "redirects": [
     {
+      "from": "/markdown-databases",
+      "to": "/markdown-databases-guide"
+    },
+    {
       "from": "/kb/google-docs",
       "to": "/markdown-in-google-docs"
     },
