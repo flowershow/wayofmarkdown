@@ -5,7 +5,7 @@ description: "Who's behind The Way of Markdown, why it exists, and how the site 
 
 # About
 
-The Way of Markdown is made by **[Rufus Pollock](https://rufuspollock.com)**, economist, technologist, founder of [Open Knowledge Foundation](https://okfn.org) (the folks behind CKAN and much of the open data movement), and these days building [Flowershow](https://flowershow.app) and [Life Itself](https://lifeitself.org). I've spent twenty-something years on one theme in different costumes: **information should be open, and you should own yours.**
+The Way of Markdown is made by **[Rufus Pollock](https://rufuspollock.com)**, economist, technologist, founder of [Open Knowledge Foundation](https://okfn.org) (the folks behind CKAN and much of the open data movement), and these days building [[Flowershow](https://flowershow.app), [DataHub](https://datahub.io/) and [Life Itself](https://lifeitself.org). I've spent twenty-something years on one theme in different costumes: **information should be open, and you should own yours.**
 
 This site is that theme applied to everyday writing and knowledge. I kept explaining the same things to colleagues and friends — how to get out of Notion, why our team handbook is a git repo, how markdown plus a few tools replaces a stack of subscriptions — so I built the place that explains it once, properly. The [manifesto](manifesto.md) is the short version of what we believe; the [vision behind the site](why.md) is the argument.
 
@@ -18,6 +18,6 @@ Full disclosure, since it matters: I build Flowershow, so the guides mentioning 
 ## Get in touch
 
 - **Corrections, ideas, arguments**: [GitHub issues](https://github.com/flowershow/wayofmarkdown/issues) — genuinely welcome, especially disagreement
-- **Anything else**: rufus@lifeitself.org
+- **Anything else**: https://rufuspollock.com/contact
 
 If this site saves you from one proprietary format, it's done its job 🚀
