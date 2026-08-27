@@ -2,7 +2,6 @@
 title: "The Markdown Database Pattern"
 description: "Treat a folder of markdown files as records in a database — the pattern behind Obsidian Bases, Notion-style workflows without lock-in, and more."
 created: 2023-05-02
-authors: ["Rufus Pollock"]
 ---
 
 # The Markdown Database Pattern
