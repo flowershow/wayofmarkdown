@@ -1,3 +1,7 @@
+---
+description: "Build a searchable, structured catalog of anything — books, projects, characters — from Markdown files using Obsidian and Dataview."
+---
+
 # How to create a simple of catalog of anything using Markdown files in Obsidian
 
 ![[dataview.gif]]

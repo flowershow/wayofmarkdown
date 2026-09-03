@@ -1,5 +1,6 @@
 ---
 title: "into.md: Convert any webpage to Markdown"
+description: "into.md turns any webpage into clean Markdown by prefixing the URL — handy for feeding web content to LLMs."
 source: "https://into.md/"
 created: 2025-10-19
 ---

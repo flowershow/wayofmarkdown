@@ -1,3 +1,7 @@
+---
+description: "How to add and embed images on a Markdown page using Obsidian's attachment folder."
+---
+
 # How to add images to a Markdown-based page
 
 ## Intro

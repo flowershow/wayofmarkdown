@@ -1,3 +1,7 @@
+---
+description: "Spin up a working Markdown website in seconds with Flowershow Cloud — no local setup needed."
+---
+
 # How to quickly create a sandbox website
 
 By the end of this guide you will have a working markdown site you can edit, which gets published automatically online 🎉

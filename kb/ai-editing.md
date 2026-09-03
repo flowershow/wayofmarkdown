@@ -1,5 +1,6 @@
 ---
 title: Using AI to edit markdown notes in Obsidian (Claude Code, Codex)
+description: "Point Claude Code or Codex at your Obsidian vault to bulk-edit, tag, and reorganise your Markdown notes."
 ---
 
 # Using AI to edit Markdown notes in Obsidian
