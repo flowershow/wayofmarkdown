@@ -1,0 +1,54 @@
+<title>Reference Sites Gallery</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+/* Layout: three groups, each a two-up grid of screenshot cards that open the site in a new tab. */
+:root{--bg:#fbfbfa;--fg:#1a1a1a;--accent:#2449d8;--rule:#c9d2f0;--muted:#5b5f6b;--panel:#fff;
+  --serif:"Source Serif 4",Georgia,serif;--mono:"JetBrains Mono",ui-monospace,Menlo,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121419;--fg:#ececf1;--accent:#8ea2ff;--rule:#2d3450;--muted:#a3a8b8;--panel:#1a1d26;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#121419;--fg:#ececf1;--accent:#8ea2ff;--rule:#2d3450;--muted:#a3a8b8;--panel:#1a1d26;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--serif);font-size:16px;line-height:1.5;padding-block:0 60px;padding-inline:16px}
+.wrap{max-width:1180px;margin:0 auto}
+.top{border-bottom:1px solid var(--accent);padding:14px 0;margin-bottom:22px;font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+p.lead{max-width:70ch;margin:0 0 10px}
+h2{font-family:var(--mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-weight:500;margin:36px 0 14px;padding-top:20px;border-top:1px solid var(--rule)}
+h2::before{content:"## ";color:var(--accent);font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.card{display:block;background:var(--panel);border:1px solid var(--rule);text-decoration:none;color:inherit;min-width:0}
+.card:hover{border-color:var(--accent)}
+.card img{display:block;width:100%;height:auto;aspect-ratio:1280/900;object-fit:cover;object-position:top;border-bottom:1px solid var(--rule);background:#fff}
+.noshot{aspect-ratio:1280/900;display:flex;align-items:center;justify-content:center;padding:24px;text-align:center;color:var(--muted);font-family:var(--mono);font-size:12px;border-bottom:1px solid var(--rule)}
+.b{padding:12px 14px 14px}
+h3{font-size:17px;margin:0 0 4px;font-weight:600}
+.b p{margin:0 0 6px;font-size:14px;color:var(--fg)}
+.u{font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;color:var(--accent)}
+@media (max-width:760px){.grid{grid-template-columns:1fr}}
+</style>
+<div class="wrap">
+<div class="top"><b>Reference sites · candidates to tick or cross</b><span>2026-10-02 · screenshots taken today</span></div>
+<p class="lead">Eighteen candidates from the research pass, grouped. Click a card to open the site. Your own picks (makingsoftware, code.storage, Co-Star, cosmos.so, Wikimedia) are on the mood board, not repeated here.</p>
+<h2>Docs sites</h2><div class="grid">
+<a class="card" href="https://docs.stripe.com/" target="_blank" rel="noopener"><img src="gallery/stripe-docs.png" alt="Stripe Docs home page" loading="lazy"><div class="b"><h3>Stripe Docs</h3><p>the benchmark: light, three-column, inline diagrams, code beside prose, never busy</p><span class="u">docs.stripe.com/</span></div></a>
+<a class="card" href="https://linear.app/docs" target="_blank" rel="noopener"><img src="gallery/linear-docs.png" alt="Linear Docs home page" loading="lazy"><div class="b"><h3>Linear Docs</h3><p>spare and airy; one idea per screen, generous margins, quiet type</p><span class="u">linear.app/docs</span></div></a>
+<a class="card" href="https://developer.apple.com/design/human-interface-guidelines" target="_blank" rel="noopener"><img src="gallery/apple-hig.png" alt="Apple Human Interface Guidelines home page" loading="lazy"><div class="b"><h3>Apple Human Interface Guidelines</h3><p>light, big calm headlines, flat explanatory illustrations</p><span class="u">developer.apple.com/design/human-interface-guidelines</span></div></a>
+<a class="card" href="https://manual.raycast.com/" target="_blank" rel="noopener"><img src="gallery/raycast.png" alt="Raycast Manual home page" loading="lazy"><div class="b"><h3>Raycast Manual</h3><p>a real manual: light, screenshot-led, friendly</p><span class="u">manual.raycast.com/</span></div></a>
+<a class="card" href="https://tailwindcss.com/docs" target="_blank" rel="noopener"><img src="gallery/tailwind.png" alt="Tailwind Docs home page" loading="lazy"><div class="b"><h3>Tailwind Docs</h3><p>elegant type, live examples as figures, restrained colour on white</p><span class="u">tailwindcss.com/docs</span></div></a>
+<a class="card" href="https://teenage.engineering/guides" target="_blank" rel="noopener"><img src="gallery/teenage.png" alt="Teenage Engineering Guides home page" loading="lazy"><div class="b"><h3>Teenage Engineering Guides</h3><p>Swiss technical-manual look: mono caps, grids, product line drawings</p><span class="u">teenage.engineering/guides</span></div></a>
+</div>
+<h2>Explainers and visual essays</h2><div class="grid">
+<a class="card" href="https://www.redblobgames.com/" target="_blank" rel="noopener"><img src="gallery/redblob.png" alt="Red Blob Games home page" loading="lazy"><div class="b"><h3>Red Blob Games</h3><p>light, hand-built diagrams you can poke</p><span class="u">www.redblobgames.com/</span></div></a>
+<a class="card" href="https://www.inkandswitch.com/" target="_blank" rel="noopener"><img src="gallery/inkandswitch.png" alt="Ink & Switch home page" loading="lazy"><div class="b"><h3>Ink & Switch</h3><p>research essays: serif, paper-light, careful figures, ground-up explanation</p><span class="u">www.inkandswitch.com/</span></div></a>
+<a class="card" href="https://distill.pub/" target="_blank" rel="noopener"><img src="gallery/distill.png" alt="Distill home page" loading="lazy"><div class="b"><h3>Distill</h3><p>academic serif, numbered figures, light; archived but still the model</p><span class="u">distill.pub/</span></div></a>
+<a class="card" href="https://maggieappleton.com/" target="_blank" rel="noopener"><img src="gallery/appleton.png" alt="Maggie Appleton home page" loading="lazy"><div class="b"><h3>Maggie Appleton</h3><p>illustrated essays, warm paper tones, line drawings carry the argument</p><span class="u">maggieappleton.com/</span></div></a>
+<a class="card" href="https://pudding.cool/" target="_blank" rel="noopener"><img src="gallery/pudding.png" alt="The Pudding home page" loading="lazy"><div class="b"><h3>The Pudding</h3><p>editorial visual essays; light, playful, data as illustration</p><span class="u">pudding.cool/</span></div></a>
+<a class="card" href="https://www.joshwcomeau.com/" target="_blank" rel="noopener"><img src="gallery/comeau.png" alt="Josh Comeau home page" loading="lazy"><div class="b"><h3>Josh Comeau</h3><p>interactive explainers; whimsical, diagrams genuinely teach</p><span class="u">www.joshwcomeau.com/</span></div></a>
+</div>
+<h2>Out of the ordinary</h2><div class="grid">
+<a class="card" href="https://press.stripe.com/" target="_blank" rel="noopener"><div class="noshot">No screenshot (site blocks headless browsers). Open the link.</div><div class="b"><h3>Stripe Press</h3><p>one light screen, a 3D bookshelf, serif; renders in WebGL so no screenshot, open it</p><span class="u">press.stripe.com/</span></div></a>
+<a class="card" href="https://devouringdetails.com/" target="_blank" rel="noopener"><img src="gallery/devouring.png" alt="Devouring Details home page" loading="lazy"><div class="b"><h3>Devouring Details</h3><p>paper-light interaction-design textbook; cosmos.so air with worked examples</p><span class="u">devouringdetails.com/</span></div></a>
+<a class="card" href="https://usgraphics.com/" target="_blank" rel="noopener"><div class="noshot">No screenshot (site blocks headless browsers). Open the link.</div><div class="b"><h3>US Graphics</h3><p>dotted grid, mono caps, Swiss technical drawings; blocks bots, open it</p><span class="u">usgraphics.com/</span></div></a>
+<a class="card" href="https://www.c82.net/euclid/" target="_blank" rel="noopener"><div class="noshot">No screenshot (site blocks headless browsers). Open the link.</div><div class="b"><h3>Byrne's Euclid</h3><p>flat colour geometry diagrams, serif, one proposition per screen; blocks bots, open it</p><span class="u">www.c82.net/euclid/</span></div></a>
+<a class="card" href="https://notes.andymatuschak.org/" target="_blank" rel="noopener"><img src="gallery/matuschak.png" alt="Andy Matuschak's notes home page" loading="lazy"><div class="b"><h3>Andy Matuschak's notes</h3><p>light, sliding-pane notes; reads like a mind</p><span class="u">notes.andymatuschak.org/</span></div></a>
+<a class="card" href="https://sketchplanations.com/" target="_blank" rel="noopener"><div class="noshot">No screenshot (site blocks headless browsers). Open the link.</div><div class="b"><h3>Sketchplanations</h3><p>one hand-drawn explanation per screen, flat colour, white space</p><span class="u">sketchplanations.com/</span></div></a>
+</div>
+</div>
