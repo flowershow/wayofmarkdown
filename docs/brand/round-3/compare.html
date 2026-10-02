@@ -1,0 +1,33 @@
+<title>Way of Markdown Visual Round 3</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+/* Layout: a mono toolbar, then the three landing pages stacked at full size, each with a link to its content page. */
+:root{--bg:#fbfbfa;--fg:#1a1a1a;--accent:#2449d8;--rule:#c9d2f0;--muted:#5b5f6b;--panel:#fff;
+  --serif:"Source Serif 4",Georgia,serif;--mono:"JetBrains Mono",ui-monospace,Menlo,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121419;--fg:#ececf1;--accent:#8ea2ff;--rule:#2d3450;--muted:#a3a8b8;--panel:#1a1d26;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#121419;--fg:#ececf1;--accent:#8ea2ff;--rule:#2d3450;--muted:#a3a8b8;--panel:#1a1d26;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--serif);padding-block:0 40px;padding-inline:16px}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);border-bottom:1px solid var(--accent);padding:12px 0;margin:0 -16px 16px;padding-inline:16px;display:flex;gap:16px;align-items:center;flex-wrap:wrap;font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);z-index:2}
+.bar a{color:var(--accent);border:1px solid var(--accent);padding:6px 10px;text-decoration:none}
+.intro{max-width:72ch;font-size:16px;line-height:1.5;margin:0 0 18px}.intro p{margin:0 0 8px}
+.col{margin:0 0 48px}
+.col h2{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;margin:0 0 6px;color:var(--accent)}
+.col .d{font-size:15px;line-height:1.45;color:var(--muted);margin:0 0 10px;max-width:72ch}
+.col .d a{color:var(--accent)}
+.frame{border:1px solid var(--rule);background:#fbfbfa;overflow:hidden;position:relative;aspect-ratio:1280/3300;max-width:1280px}
+.frame iframe{border:0;width:1280px;height:3300px;transform-origin:0 0;position:absolute;left:0;top:0}
+.open{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin:8px 0 0}
+.open a{color:var(--accent);margin-right:16px}
+</style>
+<div class="bar"><b>Visual round 3 · three feels, two pages each</b><span><a href="#a">1</a> <a href="#b">2</a> <a href="#c">3</a></span></div>
+<div class="intro">
+  <p>Three front pages from three different references, stacked at full size. Each has the same headline shape and the same content, and each links to the same guide ("Replacing Notion with Markdown") rendered in its style. Open the guide links to judge the reading pages, which matter as much as the front.</p>
+</div>
+<div class="col" id="a"><h2>1 · The manual, warmed</h2><p class="d">From makingsoftware and the Wikimedia header. Blue, serif, numbered line figures, one isometric panel with people. The reference option. <a href="opt1/notion.html" target="_blank">Open the Notion guide in this style ↗</a></p><div class="frame"><iframe src="opt1/home.html" title="Option 1"></iframe></div><p class="open"><a href="opt1/home.html" target="_blank">Open front page on its own ↗</a></p></div>
+<div class="col" id="b"><h2>2 · The textbook</h2><p class="d">From Devouring Details. A white sheet on a grey ground, big grotesk, orange as the only colour (the one alternative to blue), a side ruler and a chip on the running line. <a href="opt2/notion.html" target="_blank">Open the Notion guide in this style ↗</a></p><div class="frame"><iframe src="opt2/home.html" title="Option 2"></iframe></div><p class="open"><a href="opt2/home.html" target="_blank">Open front page on its own ↗</a></p></div>
+<div class="col" id="c"><h2>3 · The sketchbook</h2><p class="d">From Sketchplanations. Clean white page and plain sans; every bit of personality and colour lives in hand-drawn sketches on cream cards. Hand lettering only inside the sketches. <a href="opt3/notion.html" target="_blank">Open the Notion guide in this style ↗</a></p><div class="frame"><iframe src="opt3/home.html" title="Option 3"></iframe></div><p class="open"><a href="opt3/home.html" target="_blank">Open front page on its own ↗</a></p></div>
+<script>
+(function(){function scale(){document.querySelectorAll('.frame').forEach(function(f){var s=f.clientWidth/1280;f.querySelector('iframe').style.transform='scale('+s+')';});}
+window.addEventListener('resize',scale);scale();})();
+</script>
