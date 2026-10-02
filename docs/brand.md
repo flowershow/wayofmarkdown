@@ -7,23 +7,59 @@ publish: false
 
 Brand, narrative and visual identity. Draft 3, 2026-10-02 (drafts 1 and 2 same day, superseded), distilled from [[vision]], [[naming]], the manifesto drafts, the voice profile and the tai chi work. Brief (draft 3: line, feel, three logos side by side, one full front page): https://claude.ai/artifact/Qq8iMaSEk3diuEihrcLhT6 Decisions still open are marked **[open]**.
 
-## Narrative
+**Start here (next session).** The visual work is ahead of the story. Before more design, resolve the Synthesis and Tensions sections below. Everything else in this doc is current, but downstream of that.
 
-Headline (agreed 2026-10-02): **Markdown is eating the world.**
+## Settled so far
 
-Subline **[open, recommended]**: "One open format, and an extraordinary ecosystem of tools around it, from AI chat to your website. Because the format is open, the tools work together. Here's the way."
+- **Name.** The Way of Markdown (2026-07, [[naming]]).
+- **Headline.** **Markdown is eating the world.** (agreed 2026-10-02)
+- **Feel.** Warm, clear, a bit geeky, open, made by a person who is excited about this. See Feel below.
+- **Not the point.** Markdown the syntax. Flowershow stays secondary ([[vision]]).
 
-The idea: **one open format, an ecosystem of tools that compose.** It is the Unix idea applied to documents: small tools that each do one thing well, with plain text between them. Write in one tool, publish with another, and let an AI edit the file in a third. Draft 2's "the format unlocks an ecosystem" was rightly met with "of what?". The answer is tools. "Compose with anything" was reaching for the Unix point.
+## What the site is for (Rufus, 2026-10-02)
 
-Sign-off **[open, recommended]**: **Openness is the way.** Footer line and the manifesto's closing line. "Own the source" stays inside the manifesto as an argument.
+You can learn markdown, and you can learn the tooling around it. But what will actually excite people is **seeing it applied to an area they care about**: how to switch from Notion to markdown, how Obsidian works, the note-taking ecosystem, publishing a site. People come for an application, not for a format. The job of the story is to make those application pages hang together as one coherent idea.
 
-Three threads (Rufus, 2026-10-02):
+## Synthesis **[open, the main open question]**
+
+Way Into AI has two areas (**Use AI**, **Understand AI**) and one sentence that pulls them together: "You can't make sense of AI without using it, and you can't use it well without making sense of it." This site needs the equivalent. Right now it has three threads and no sentence joining them.
+
+The three threads:
 
 - **Manifesto, why, vision.** Markdown is eating the world. Why open formats matter, file over app, the ecosystem map (bead wom-3m1).
-- **The way. The centre of the site.** Do your work on markdown: replace Notion, run your docs, publish a site, keep a garden, build a catalog.
+- **The way: applications.** The centre of the site, and per Rufus the thing people will get excited about. Leave Notion, how Obsidian works, notes, docs, a site, a garden, a catalog.
 - **Mechanics.** How text formats work and why markdown is extensible. Making Software register (bead wom-w74).
 
-Rufus's three-circle sketch is the promise: easy to publish, control your content, grows when you need it to. Markdown sits in the empty middle. It becomes the "Why it works" figure on the front page.
+Draft lines so far, none accepted:
+
+- "One open format, an ecosystem of tools that compose." (draft 3; the Unix idea applied to documents). Good as an explanation, but not what Rufus is trying to tell people.
+- "The format unlocks an ecosystem." (draft 2) Met with "of what?".
+
+Shapes worth trying next session, not yet tested:
+
+- **Arc.** Come for the thing you care about (Notion, notes, a site), learn the format on the way, and understand why it works. Application, then format, then why.
+- **Two areas, like WAI.** *Use markdown* (applications plus basics) and *Understand markdown* (mechanics plus manifesto), joined by one sentence. That collapses three threads into two.
+- **Promise first.** Rufus's three-circle sketch: easy to publish, control your content, grows when you need it to. Markdown sits in the empty middle, and each application page shows one corner of it.
+
+## Tensions to resolve
+
+1. **Manifesto headline versus practice name.** "Markdown is eating the world" is a big evangelist claim. "The Way of Markdown" is a craft tradition. The naming doc warned against manifesto-speak on the landing page; the agreed headline is exactly that. They can coexist if the site is "the claim, then the way", but that needs saying on purpose.
+2. **Format brand versus application content.** The logo, headings and headline are all about markdown, the format. The pages people will love are about Notion, Obsidian and notes. How much should the brand be about the format at all?
+3. **Three threads versus one story.** No synthesis sentence yet (see above).
+4. **Calm versus fun.** The attitude is "calm body, cheeky edge" (tai chi). The feel asks for Notion-level fun and accessibility, and Rufus liked the poster's energy. These pull in different directions.
+5. **Breadth versus entry.** The ecosystem thesis wants to show everything. Visitors arrive through one use case. The front page has to do both without becoming a directory.
+
+## Hero subline **[open]**
+
+Weak; bead wom-bm9. Draft 3's attempt: "One open format, and an extraordinary ecosystem of tools around it, from AI chat to your website. Because the format is open, the tools work together. Here's the way." Rewrite once the synthesis is settled.
+
+## Sign-off
+
+No sign-off decided. "Openness is the way" was an idea Rufus threw out, not a pick. "Own the source" stays inside the manifesto as an argument.
+
+## Promise sketch
+
+Rufus's three circles: easy to publish, control your content, grows when you need it to. Markdown sits in the empty middle. Drawn as "Why it works" on the draft-3 front page.
 
 ## Feel
 
@@ -45,13 +81,13 @@ Rufus. Position first, then the case. Enthusiasm unironic ("awesome"). Honest ab
 
 **The Way of Markdown.** Decided 2026-07 ([[naming]]): a practice tradition, not a movement. "Markdown is awesome" is landing-page energy, not the brand.
 
-Line: **Own the source.** Keep as the manifesto's closing line and the footer seal. The second half ("Compose with anything") is dropped from the hero; see Hero above.
+Former tagline "Own the source. Compose with anything." is retired from the hero. "Own the source" lives on inside the manifesto.
 
 ## Attitude: calm body, cheeky edge
 
 Decided 2026-10-02. The identity is a practice tradition: ink, paper, patience, craft. The edge comes from push hands. Tai chi does not fight; it yields and redirects. Markdown does not fight platforms either. They push, it lets them pass. The joke lands once, elegantly (the mark can redirect a platform block off the screen), then the site gets back to work. Manifesto energy lives in the voice, not the chrome.
 
-Not: kung fu, kicks, loud colour, "eating the world" in the header.
+Not: kung fu, kicks, loud colour. (This section originally also ruled out "eating the world" in the header; that line is now the agreed headline. See Tensions 1 and 4.)
 
 ## Illustration system
 
