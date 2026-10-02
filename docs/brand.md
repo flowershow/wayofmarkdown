@@ -43,19 +43,29 @@ Decided 2026-10-02. The identity is a practice tradition: ink, paper, patience, 
 
 Not: kung fu, kicks, loud colour, "eating the world" in the header.
 
+## Feel
+
+Added 2026-10-02 from Rufus's note. Fun and cool and accessible, the way Notion is. Slightly geekier than that, the way Wikipedia is slightly geekier than Britannica, and for the same reason: it is open, and much of its ecosystem is free. Not austere, not a terminal, not a developer docs site. The practice-tradition calm is the body; the fun is on the surface, in the illustrations, the mark and the voice.
+
+Reference for the surface: the Wikimedia "Thank You 2019" header (https://upload.wikimedia.org/wikipedia/donate/9/9a/Thank_You_2019_Header.svg). Flat vector, black ink outlines, four flat colours on warm grey, isometric panels full of small figures doing things.
+
+## Illustration system
+
+One per thing you can build: a site, a blog, a garden, a catalog, the Notion-shaped thing, a team's docs. Isometric panels in the Wikimedia style, ink outline, flat fills, small figures writing, linking and publishing. Hand-drawn SVG, versioned in the repo, never AI-generated. Illustrations may use two or three flat colours beyond the accent (indigo, green, orange are the Wikimedia set; ours to be chosen with the accent); the UI keeps to one accent. The same language draws the explainer video, so the two jobs share one style.
+
 ## Structure
 
 Unchanged. Mostly flat, SEO slugs: guides `markdown-<x>`, per-app `markdown-in-<x>`, tutorials in `learn/`, reference in `kb/`, philosophy at `why` and `manifesto`. See AGENTS.md.
 
 ## Visual identity: "the source"
 
-Direction **[open, recommended]**: the site shows its own source. Markdown is the one format where the raw text is already readable, so the design makes that visible instead of hiding it.
+Direction **[open, recommended]**: the site shows its own source. With the Feel note above, the open question is whether all-mono prose (A) is too austere against the fun aim; B (mono chrome, sans prose) plus the illustration system is the safe answer, A plus illustrations the bolder one. Markdown is the one format where the raw text is already readable, so the design makes that visible instead of hiding it.
 
 - **Type:** monospace carries the site, structure and prose alike. Geist Mono (Google Fonts), with a humanist sans (Source Sans 3) held in reserve for long prose if mono fatigues in testing. Headings show their `#` markers in the accent. No serif: that is Way Into AI's voice.
 - **Colour:** warm paper `#f7f5f0`, sumi ink `#1c1b19`, muted `#6b675f`, rule `#e4e0d8`. One accent, seal vermilion `#c43b2a` (wash `#f8e3df`), used the way a seal is used: once per page, to mark what is owned or chosen. Dark: paper `#141311`, ink `#ebe7df`, vermilion `#e8705f`. Green `#16a34a` is retired as the brand accent and kept only as the roadmap's "built" status colour.
 - **Form:** hairline rules, no cards, no shadows, square corners. Empty space is part of the composition. Raw and rendered side by side as the signature device, with a raw/rendered toggle where the page can carry one.
 - **Mark:** the ink tai chi figure (`assets/brand/mark.svg`) as a white figure on a vermilion seal square for navbar, favicon and social. The animated syntax figure stays the hero, redone (see Mark below).
-- **Not:** stock illustration, gradients, rounded cards, emoji as structure, AI-generated video.
+- **Not:** stock illustration, gradients, rounded cards, emoji as structure, AI-generated video or imagery. (Hand-drawn flat-vector illustration is in; see Illustration system.)
 
 Sibling rule: Way Into AI is mono structure, serif voice, cool paper, editor's blue, `##` markers. The Way of Markdown is mono throughout, warm paper, vermilion seal, `#` markers, ink figure. Same family, different person.
 
