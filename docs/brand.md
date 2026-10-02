@@ -9,7 +9,7 @@ Brand, narrative and visual identity. Draft 3, 2026-10-02 (drafts 1 and 2 same d
 
 **Sequence (beads under wom-b5o, each blocks the next):** 1 narrative (wom-b5o.1) → 2 visual round from direction 1 (wom-b5o.2) → 3 logo (wom-b5o.3) → 4 implement (wom-b5o.4). Subline (wom-bm9) and explainer (wom-b5o.6) wait on narrative; hero animation (wom-b5o.5) waits on logo.
 
-**Start here (next session).** The narrative is agreed (see Narrative below, 2026-10-02). Next in sequence is the visual round from direction 1 (wom-b5o.2), but Rufus is unsure about doing it next: ask first.
+**Start here (next session).** The narrative is agreed (see Narrative below, 2026-10-02). Next in sequence is the visual round from direction 1 (wom-b5o.2), Rufus gave the go-ahead (2026-10-02). Start it in a fresh session.
 
 **Visual baseline: direction 1, blue and clean.** Rufus likes it: `docs/brand/direction-1-manual.html` (screenshot alongside). It's from brief draft 2: Source Serif headline with an italic blue phrase, JetBrains Mono caps labels, cobalt `#2449d8` line diagram on a dotted grid, figure numbers. Draft 3 "warmed it up" and lost it; that was a misreading of his feedback. The next visual round starts from this file, not from draft 3. The brush `#` mark is unproven ("looks a bit unclean with the text"). The logo gets its own section, separate from page directions.
 

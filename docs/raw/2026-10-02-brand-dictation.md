@@ -7,6 +7,15 @@ publish: false
 
 Verbatim, unedited (voice dictation, so transcription slips are left in). Source material for [[brand]] (Narrative section), the explainer video (wom-b5o.6) and the blog post on how the tools caught up (wom-bc1). Quote from here rather than paraphrasing.
 
+**Key moments** (start here; the rest is context):
+
+- **§2 Every tool, not everyone.** The essence: so simple every tool can implement it, and it grows with you.
+- **§3 Innovator's dilemma and composability.** Raw material for the tools-caught-up post (wom-bc1). The "worse format" framing was later dropped (§5).
+- **§5 The tools caught up.** Why it's called the Way: the open tooling ecosystem, from web text box to Obsidian.
+- **§6 Two stories, two meanings of the Way, Notion as docs plus database.** The TCP/IP analogy, and the Tao as both philosophy and practice.
+- **§8 Two forces, not a line.** Simple for people and simple for tools; AI amplifies but didn't cause it.
+- **§9 The offer line.** "The tools are good now. You can switch, and you own your files." Own your files means files over app, not privacy.
+
 ## 1. On sublines and areas
 
 > i agree on A and in terms of hero subline still a bit lengthy / weak. (2) is poor. could be more intriguing: one open format created by a couple of geeks in a weekend is taking over the world. find out how and how you can use it ... (though this is a bit weak and more explainer-y - naturla questions is why). So not sure about that ...
