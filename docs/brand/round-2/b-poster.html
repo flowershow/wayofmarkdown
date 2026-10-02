@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>B. The poster</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="base.css">
+<style>
+/* B. THE POSTER. Direction 1's blue, serif and mono, with direction 4's energy: the headline is the page.
+   Idea: big type, full-bleed cobalt bands, the ASCII syntax picture as the only decoration. One column, few boxes. */
+.hero{padding-block:clamp(36px,6vw,90px) clamp(28px,4vw,56px);position:relative}
+.hero h1{font-size:clamp(56px,11.5vw,152px);line-height:.92;letter-spacing:-.03em;max-width:9ch}
+.hero .deck{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(20px,4vw,56px);align-items:end;margin-top:clamp(24px,4vw,48px)}
+.hero .offer{font-size:clamp(24px,3.2vw,40px);line-height:1.15;max-width:22ch}
+.hero .note{max-width:44ch}
+.syn{font-family:var(--mono);font-size:clamp(13px,1.9vw,24px);line-height:1.15;letter-spacing:.08em;color:var(--blue);white-space:pre;text-align:right;justify-self:end;margin:0}
+.hero .cta{margin-top:22px}
+.band{background:var(--blue);color:var(--white);padding-block:clamp(40px,6vw,88px)}
+.band h2{font-size:clamp(34px,5.5vw,72px);line-height:.98;letter-spacing:-.025em;color:var(--white);max-width:14ch}
+.band h2 em{color:var(--white);opacity:.75}
+.band .label{color:var(--white);opacity:.8}
+.swap{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,3vw,40px);margin-top:clamp(28px,4vw,48px);font-family:var(--mono);font-size:13px;line-height:1.6}
+.swap div{border-top:1px solid rgba(255,255,255,.5);padding-top:12px}
+.swap b{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;opacity:.8;margin-bottom:6px;font-weight:500}
+.swap span{display:block}
+.swap span::before{content:"→ ";opacity:.6}
+.build{padding-block:clamp(40px,6vw,88px)}
+.build h2{font-size:clamp(34px,5vw,64px);letter-spacing:-.025em;margin-bottom:clamp(20px,3vw,36px)}
+.list{border-top:1px solid var(--blue)}
+.list a{display:grid;grid-template-columns:4ch minmax(0,1fr) minmax(0,2fr) auto;gap:clamp(12px,3vw,40px);align-items:baseline;padding:18px 0;border-bottom:1px solid var(--blue);min-width:0}
+.list a:hover{background:var(--blue-soft)}
+.list .n{font-family:var(--mono);font-size:11px;color:var(--blue);letter-spacing:.1em}
+.list h3{font-size:clamp(22px,2.6vw,32px);font-weight:600;letter-spacing:-.02em}
+.list p{margin:0;font-size:15.5px;color:var(--muted);max-width:44ch}
+.list .arrow{font-family:var(--mono);color:var(--blue);font-size:14px}
+.story{padding-block:clamp(40px,6vw,88px);border-top:1px solid var(--blue)}
+.story .in{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(24px,5vw,72px);align-items:center}
+.story h2{font-size:clamp(34px,5vw,64px);letter-spacing:-.025em;margin-bottom:18px}
+.story p{font-size:clamp(17px,1.6vw,21px);max-width:38ch;margin:0 0 14px}
+.story .fig{background:var(--white)}
+.three{padding-block:clamp(40px,6vw,88px);background:var(--blue-soft);border-top:1px solid var(--blue)}
+.three .in{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,4vw,56px)}
+.three h3{font-size:clamp(26px,3vw,40px);letter-spacing:-.02em;margin:8px 0 10px}
+.three p{margin:0;font-size:16px;max-width:30ch}
+@media (max-width:760px){.hero .deck,.swap,.story .in,.three .in{grid-template-columns:1fr}.syn{text-align:left;justify-self:start}.list a{grid-template-columns:4ch minmax(0,1fr)}.list p,.list .arrow{grid-column:2}}
+</style></head><body>
+<nav class="nav"><b>The Way of Markdown</b><span class="links"><span>Use it</span><span>Learn it</span><span>Why</span><span>Manifesto</span></span></nav>
+
+<header class="hero grid-bg"><div class="wrap">
+  <h1>Markdown is eating <em>the world.</em></h1>
+  <div class="deck">
+    <div>
+      <p class="offer">The tools are good now. You can switch, and you own your files.<sup>*</sup></p>
+      <div class="cta"><a class="btn p" href="#build">See what you can do</a><a class="btn" href="#why">Find out why</a></div>
+      <p class="note"><sup>*</sup>Own the files and you can use any app you like, including the newest ones and the AI ones.</p>
+    </div>
+    <pre class="syn" aria-hidden="true">#  ##  ###
+**bold**  _it_
+- [x] done
+&gt; quote
+[[link]]  ```code```</pre>
+  </div>
+</div></header>
+
+<section class="band"><div class="wrap">
+  <p class="label">Use it</p>
+  <h2>Most of what you do in there, <em>you can do in files.</em></h2>
+  <div class="swap">
+    <div><b>Notion</b><span>Obsidian for notes and bases</span><span>a folder of files for the database</span><span>export is one click, and it's markdown</span></div>
+    <div><b>Google Docs</b><span>any editor, with live preview</span><span>Git or a shared folder for the team</span><span>import and export built in</span></div>
+    <div><b>WordPress</b><span>write pages in your editor</span><span>publish from the same folder</span><span>nothing to migrate next time</span></div>
+  </div>
+</div></section>
+
+<section class="build" id="build"><div class="wrap">
+  <p class="label">Pick a thing</p>
+  <h2>What will you <em>build?</em></h2>
+  <div class="list">
+    <a href="#"><span class="n">01</span><h3>Notes</h3><p>Obsidian and friends. Links, daily notes, a second brain that's just files.</p><span class="arrow">→</span></a>
+    <a href="#"><span class="n">02</span><h3>A website</h3><p>From a folder of pages to a live site, with nothing to migrate later.</p><span class="arrow">→</span></a>
+    <a href="#"><span class="n">03</span><h3>A blog</h3><p>Write in your editor, publish from the same files, keep the archive forever.</p><span class="arrow">→</span></a>
+    <a href="#"><span class="n">04</span><h3>Team docs</h3><p>Shared docs in a repo. Reviewable, searchable, never locked in a workspace.</p><span class="arrow">→</span></a>
+    <a href="#"><span class="n">05</span><h3>A catalogue</h3><p>A database of things, one file each, with frontmatter for the fields.</p><span class="arrow">→</span></a>
+    <a href="#"><span class="n">06</span><h3>Leave Notion</h3><p>Most of what you do there, done with files. Honest about the rest.</p><span class="arrow">→</span></a>
+  </div>
+</div></section>
+
+<section class="story" id="why"><div class="wrap in">
+  <div>
+    <p class="label">Why</p>
+    <h2>How it ate <em>the world.</em></h2>
+    <p>It started as a shortcut for web text boxes. People could write it by hand, so tools took it as their format. Tools took it, so more people wrote it.</p>
+    <p>That loop ran for twenty years and the tools got good. AI arrived late and speaks it by default.</p>
+    <div class="cta"><a class="btn" href="#">The whole story</a><a class="btn" href="#">The manifesto</a></div>
+  </div>
+  <div class="fig"><span class="fl">FIG.001 · TWO FORCES</span><svg viewBox="0 0 420 300" fill="none" stroke="#2449d8" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" font-size="9" aria-label="Diagram: a loop. Simple for people leads to more people writing it, which leads to more tools supporting it, which is simple for tools, and round again. AI joins the loop from the side.">
+  <g opacity=".35"><path d="M20 60h380M20 100h380M20 140h380M20 180h380M20 220h380M20 260h380" stroke="#c9d2f0"/><path d="M60 20v260M110 20v260M160 20v260M210 20v260M260 20v260M310 20v260M360 20v260" stroke="#c9d2f0"/></g>
+  <path d="M110 92 A110 110 0 0 1 310 92" stroke-width="2"/><path d="M302 84l8 8-10 5"/>
+  <path d="M310 208 A110 110 0 0 1 110 208" stroke-width="2"/><path d="M118 216l-8-8 10-5"/>
+  <g fill="#fff"><rect x="40" y="110" width="110" height="80"/><rect x="270" y="110" width="110" height="80"/></g>
+  <g fill="#2449d8" stroke="none" text-anchor="middle" font-weight="700"><text x="95" y="146">SIMPLE FOR</text><text x="95" y="160">PEOPLE</text><text x="325" y="146">SIMPLE FOR</text><text x="325" y="160">TOOLS</text></g>
+  <rect x="100" y="52" width="220" height="14" fill="#fff" stroke="none"/><rect x="100" y="238" width="220" height="14" fill="#fff" stroke="none"/><g fill="#1a1a1a" stroke="none" text-anchor="middle" font-size="8.5"><text x="210" y="62">more people write it, so more tools read it</text><text x="210" y="248">more tools read it, so more people write it</text></g>
+  <g stroke-dasharray="3 3"><path d="M210 92v38"/></g>
+  <rect x="180" y="130" width="60" height="30" fill="#fff"/>
+  <g fill="#2449d8" stroke="none" text-anchor="middle"><text x="210" y="149" font-weight="700">AI CHAT</text></g>
+  <text x="210" y="178" fill="#5b5f6b" stroke="none" text-anchor="middle" font-size="8">joins late, speaks it by default</text>
+  <path d="M22 28h8M22 28v8"/><path d="M398 28h-8M398 28v8"/><path d="M22 280h8M22 280v-8"/><path d="M398 280h-8M398 280v-8"/>
+</svg></div>
+</div></section>
+
+<section class="three"><div class="wrap in">
+  <div><p class="label">Easy</p><h3>Ten minutes to learn.</h3><p>A hash, some stars, a dash. AI writes it for you anyway. Then it goes further than you'd think.</p></div>
+  <div><p class="label">A whole ecosystem</p><h3>Good tools for every job.</h3><p>Notes, docs, a site, a catalogue. Combine them instead of living inside one app.</p></div>
+  <div><p class="label">Yours</p><h3>It grows with you.</h3><p>Plain files. Switch, upgrade, adapt. From a note to a site to a database, same format.</p></div>
+</div></section>
+
+<footer><span>The Way of Markdown</span><span>Use it · Learn it · Why · Manifesto</span><span>A site by Rufus Pollock</span></footer>
+</body></html>

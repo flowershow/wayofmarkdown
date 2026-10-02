@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>C. The source</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="base.css">
+<style>
+/* C. THE SOURCE. Direction 1's blue, serif and mono, and the page is itself a markdown file.
+   Idea: the front page reads as index.md, half raw, half rendered. Frontmatter masthead, # headings, > for the offer,
+   a table for the things you can build, [[links]]. One reading column like a document, not a marketing grid. */
+body{background-image:radial-gradient(var(--dot) 1px,transparent 1px);background-size:14px 14px}
+.doc{max-width:860px;margin:0 auto;padding-inline:var(--gutter)}
+.fm{font-family:var(--mono);font-size:12.5px;line-height:1.7;color:var(--blue);padding:18px 0 0;white-space:pre;overflow-x:auto}
+.fm .k{color:var(--muted)}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;border:1px solid var(--blue);background:var(--white);margin-top:22px}
+.hero > div{padding:clamp(18px,3vw,32px);min-width:0}
+.hero .raw{font-family:var(--mono);font-size:12.5px;padding-top:58px!important;line-height:1.7;color:var(--ink);border-right:1px solid var(--rule);white-space:pre-wrap;word-wrap:break-word;background:var(--paper)}
+.hero .raw .t{color:var(--blue);font-weight:700}
+.hero .raw .m{color:var(--blue)}
+.hero .raw .q{color:var(--muted)}
+.hero .ren h1{font-size:clamp(30px,3.6vw,44px);margin-bottom:14px}
+.hero .ren .offer{font-size:clamp(18px,1.8vw,21px);border-left:3px solid var(--blue);padding-left:14px;margin:0 0 14px;font-weight:400;font-style:italic}
+.hero .ren .offer sup{font-style:normal}
+.hero .ren p{font-size:16px;margin:0 0 12px}
+.hero .ren a.inl{color:var(--blue);text-decoration:underline;text-underline-offset:3px}
+.tabs{position:absolute;top:-1px;left:-1px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--blue);display:flex}
+.tabs span{padding:4px 8px;border:1px solid var(--blue);background:var(--white)}
+.tabs span.on{background:var(--blue);color:var(--white)}
+.hero{position:relative}
+.sec{padding-block:clamp(30px,4vw,52px)}
+.hr{font-family:var(--mono);color:var(--rule);letter-spacing:.3em;font-size:12px}
+h2.md{font-family:var(--mono);font-weight:700;font-size:clamp(20px,2.4vw,28px);letter-spacing:-.01em;line-height:1.2;margin-bottom:16px;text-transform:none}
+h2.md::before{content:"## ";color:var(--blue)}
+h2.md em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--blue)}
+.sec p{max-width:66ch;margin:0 0 12px}
+.sec a.inl{color:var(--blue)}
+.sec a.inl::before{content:"[";color:var(--muted)}.sec a.inl::after{content:"](→)";color:var(--muted)}
+table{border-collapse:collapse;width:100%;font-size:15px;background:var(--white);border:1px solid var(--blue);margin:16px 0 8px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);font-weight:500;border-bottom:1px solid var(--blue)}
+td:first-child{font-family:var(--mono);font-size:12px;color:var(--blue);white-space:nowrap}
+td b{font-weight:600}
+td:last-child{color:var(--muted)}
+tr:last-child td{border-bottom:0}
+.tw{overflow-x:auto}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(18px,3vw,36px);align-items:start}
+.two .fig{background:var(--white)}
+ul.md{list-style:none;padding:0;margin:0 0 12px;font-size:16px}
+ul.md li{padding-left:1.4em;position:relative;margin:4px 0}
+ul.md li::before{content:"-";position:absolute;left:0;color:var(--blue);font-family:var(--mono);font-weight:700}
+ul.md li b{font-weight:600}
+.task li::before{content:"- [ ]";letter-spacing:0}
+.task li{padding-left:3.2em}
+.task li.done::before{content:"- [x]"}
+.eof{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.1em;padding-block:20px}
+@media (max-width:760px){.hero,.two{grid-template-columns:1fr}.hero .raw{border-right:0;border-bottom:1px solid var(--rule)}}
+</style></head><body>
+<nav class="nav"><b>The Way of Markdown</b><span class="links"><span>Use it</span><span>Learn it</span><span>Why</span><span>Manifesto</span></span></nav>
+
+<div class="doc">
+<pre class="fm">---
+<span class="k">title:</span> The Way of Markdown
+<span class="k">description:</span> How to do the work you already do with markdown tools, and why it's showing up everywhere.
+<span class="k">file:</span> index.md
+---</pre>
+
+<header class="hero">
+  <div class="tabs" aria-hidden="true"><span class="on">RAW</span><span>RENDERED</span></div>
+  <div class="raw" aria-hidden="true"><span class="t"># Markdown is eating *the world.*</span>
+
+<span class="m">&gt;</span> <span class="q">The tools are good now. You can switch, and you own your files.[^1]</span>
+
+One plain-text format now runs your notes, your docs, your website and every AI chat. Here's the way to do your work on it, and why that's a good idea.
+
+<span class="m">[See what you can do](#use-it)</span>
+<span class="m">[Find out why](#why)</span>
+
+<span class="m">[^1]:</span> Own the files and you can use any app you like, including the newest and the AI ones.</div>
+  <div class="ren">
+    <h1>Markdown is eating <em>the world.</em></h1>
+    <p class="offer">The tools are good now. You can switch, and you own your files.<sup>1</sup></p>
+    <p>One plain-text format now runs your notes, your docs, your website and every AI chat. Here's the way to do your work on it, and why that's a good idea.</p>
+    <div class="cta"><a class="btn p" href="#use-it">See what you can do</a><a class="btn" href="#why">Find out why</a></div>
+    <p class="note"><sup>1</sup> Own the files and you can use any app you like, including the newest ones and the AI ones.</p>
+  </div>
+</header>
+
+<section class="sec" id="use-it">
+  <h2 class="md">What will you <em>build?</em></h2>
+  <p>Whatever you want to do, there are good markdown tools for it now. Pick the thing. Each guide says what works, and what doesn't yet.</p>
+  <div class="tw"><table>
+    <thead><tr><th>#</th><th>Thing</th><th>Tools</th><th>The honest bit</th></tr></thead>
+    <tbody>
+      <tr><td>01</td><td><b>Notes</b></td><td>Obsidian, Logseq, any editor</td><td>Best in class. Start here.</td></tr>
+      <tr><td>02</td><td><b>A website</b></td><td>a folder, a publisher, a domain</td><td>Simple sites, yes. Web apps, no.</td></tr>
+      <tr><td>03</td><td><b>A blog</b></td><td>same folder, same publisher</td><td>Comments need a plugin.</td></tr>
+      <tr><td>04</td><td><b>Team docs</b></td><td>a repo, an editor, a publisher</td><td>Real-time editing is still a step behind.</td></tr>
+      <tr><td>05</td><td><b>A catalogue</b></td><td>one file per thing, frontmatter for fields</td><td>Hundreds of items fine. Millions, use a database.</td></tr>
+      <tr><td>06</td><td><b>Leave Notion</b></td><td>export, then Obsidian or a repo</td><td>Most of it. Not the fancy databases.</td></tr>
+    </tbody>
+  </table></div>
+  <p><a class="inl" href="#">All the ways to use it</a></p>
+</section>
+
+<p class="hr">---</p>
+
+<section class="sec">
+  <h2 class="md">Ten minutes <em>to learn.</em></h2>
+  <div class="two">
+    <div>
+      <p>A hash for a heading, stars for bold, a dash for a list. That's most of it, and AI writes it for you anyway. Then it goes further than you'd think:</p>
+      <ul class="md"><li><b>Links</b> between notes, so a folder becomes a web</li><li><b>Tables</b>, like the one above</li><li><b>Fields</b> on a file, so a folder becomes a database</li><li><b>HTML</b> when you need it, because it's allowed</li></ul>
+      <p><a class="inl" href="#">The basics</a> · <a class="inl" href="#">Markdown in every app</a></p>
+    </div>
+    <div class="fig"><span class="fl">FIG.001 · ONE FILE, MANY TOOLS</span>{{FIG1}}</div>
+  </div>
+</section>
+
+<p class="hr">---</p>
+
+<section class="sec" id="why">
+  <h2 class="md">How it ate <em>the world.</em></h2>
+  <div class="two">
+    <div>
+      <p>It started as a shortcut for web text boxes. People could write it by hand, so tools took it as their format. Tools took it, so more people wrote it. That loop ran for twenty years, and the tools got good. AI arrived late and speaks it by default.</p>
+      <p>The result: most of what you do in Notion, Google Docs or WordPress, you can now do with markdown tools, combined how you like, keeping the files.</p>
+      <p><a class="inl" href="#">The whole story</a> · <a class="inl" href="#">The manifesto</a></p>
+    </div>
+    <div class="fig"><span class="fl">FIG.002 · TWO FORCES</span>{{FIG2}}</div>
+  </div>
+</section>
+
+<p class="hr">---</p>
+
+<section class="sec">
+  <h2 class="md">Start <em>here.</em></h2>
+  <ul class="md task">
+    <li class="done">Learn the basics. Ten minutes, in the playground.</li>
+    <li>Pick a tool. Obsidian for notes, a publisher for a site.</li>
+    <li>Move one thing. Export from Notion or Google Docs; both do markdown. A folder, not your whole life.</li>
+  </ul>
+  <p class="eof">EOF · 1 file · 0 lock-in</p>
+</section>
+</div>
+
+<footer><span>The Way of Markdown</span><span>Use it · Learn it · Why · Manifesto</span><span>A site by Rufus Pollock</span></footer>
+</body></html>
