@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Design basis · The Way of Markdown</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@1,8..60,400&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="site.css">
+<style>
+.sw{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin:0 0 24px}
+.sw div{border:1px solid var(--rule);padding:0 0 8px;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--muted)}
+.sw i{display:block;height:56px;margin-bottom:8px}
+.sw b{display:block;color:var(--ink);font-weight:500;padding:0 8px}
+.sw span{display:block;padding:0 8px}
+.spec{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.04em;margin:-8px 0 16px}
+.row2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:start;margin:0 0 24px}
+.ok{color:var(--acc)}
+ul.todo{padding-left:1.2em}ul.todo li{margin:6px 0}
+@media (max-width:860px){.row2{grid-template-columns:1fr}}
+</style>
+</head><body>
+<div class="ruler" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+<main class="sheet art">
+  <div class="head">
+    <div><span class="dot"></span><p class="brand"><a href="home.html">The Way of Markdown</a><span class="k">Design basis · 2026-10-02</span></p></div>
+    <nav class="nav"><a href="home.html">Front page</a><a href="notion.html">Guide page</a></nav>
+  </div>
+
+  <h1>Design basis</h1>
+  <p class="meta">What the mock is made of, so the next session can build from it. Full spec: <code>docs/brand.md</code> "Design direction". Values: <code>site.css</code>, <code>sketches.py</code>.</p>
+  <p class="lede">A white sheet on a grey ground, big quiet grotesk, one orange, and friendly explanatory drawings in the site's own fonts and lines.</p>
+
+  <h2>Colour</h2>
+  <div class="sw">
+    <div><i style="background:#ff5a00"></i><b>Orange</b><span>#ff5a00 · the one colour</span></div>
+    <div><i style="background:#ffd3bb"></i><b>Pale orange</b><span>#ffd3bb · fill in drawings</span></div>
+    <div><i style="background:#fff1e8"></i><b>Soft orange</b><span>#fff1e8 · honesty block</span></div>
+    <div><i style="background:#111"></i><b>Ink</b><span>#111 · text, lines</span></div>
+    <div><i style="background:#6b6b6b"></i><b>Muted</b><span>#6b6b6b · captions</span></div>
+    <div><i style="background:#dcdcdc"></i><b>Rule</b><span>#dcdcdc · table lines</span></div>
+    <div><i style="background:#f0f0f0;border-bottom:1px solid #dcdcdc"></i><b>Neutral fill</b><span>#f0f0f0 · in drawings</span></div>
+    <div><i style="background:#ececec"></i><b>Ground</b><span>#ececec · page behind sheet</span></div>
+    <div><i style="background:#fff radial-gradient(#d6d6d6 .9px,transparent .9px);background-size:9px 9px"></i><b>Dot grid</b><span>#d6d6d6 · 9px · panels, cards</span></div>
+  </div>
+  <p>Blue is retired from the UI. No cream, no pale blue, no green anywhere.</p>
+
+  <h2>Type</h2>
+  <p style="font-size:clamp(34px,5.2vw,58px);font-weight:500;line-height:1.08;letter-spacing:-.025em;margin:0 0 4px">The Way of Markdown</p>
+  <p class="spec">Inter 500 · H1 · up to 58px · -0.025em</p>
+  <p class="lead" style="margin-bottom:4px">There's a better way to do your notes, docs and site. <em>It's plain text.</em></p>
+  <p class="spec">Inter 400 · lead 21 to 27px · emphasised phrase in Source Serif 4 italic</p>
+  <h2 style="margin-top:0"><span class="n">Section label</span>Section heading</h2>
+  <p class="spec">JetBrains Mono 500 caps 11px with ## in orange · then Inter 500 26 to 34px</p>
+  <p style="margin-bottom:4px">Body text is Inter 400 at 19px, line-height 1.5, in a 62ch column. Links are <a class="inl" href="#">orange</a>. Emphasis in the body is <em class="s">serif italic</em>, once or twice a page.</p>
+  <p class="spec">Inter 400 · 19px · 1.5</p>
+  <p class="meta" style="margin-bottom:4px">Rufus Pollock · updated 2026 · guide</p>
+  <p class="spec">JetBrains Mono · metadata, figure titles, numbers, buttons · 10.5 to 11px caps · 0.08em</p>
+  <div class="btns" style="margin-bottom:4px"><a class="btn p" href="#">Primary button</a><a class="btn" href="#">Secondary button</a></div>
+  <p class="spec">Mono caps · 1px ink border · primary orange fill · no radius</p>
+
+  <h2>Components</h2>
+  <div class="row2">
+    <figure class="sketch"><p class="t">Figure panel</p>{{ICON_SITE}}<p class="cap">White with the dot grid, 1px orange edge, square corners. Mono title top left with an automatic FIG number. Caption below, one plain sentence.</p></figure>
+    <div class="cards" style="grid-template-columns:1fr;margin-top:0"><a class="card" href="#"><span class="n">01 · card</span>{{ICON_NOTES}}<h3>Card</h3><p>Same surface as the panel. Centred: mono number, icon, Inter 500 title, one line. Hover thickens the edge.</p></a></div>
+  </div>
+  <table class="map"><thead><tr><th>Table</th><th>Mono column</th><th>Note</th></tr></thead><tbody><tr><td>Mono caps header</td><td>a .md file</td><td>Orange rule under the header, light rules between rows.</td></tr><tr><td>First column 500</td><td>[[wiki-links]]</td><td>Second column mono 13px when it holds syntax.</td></tr></tbody></table>
+<pre><span class="d">---</span>
+<span class="k">title:</span> Code block
+<span class="d">---</span>
+Mono 14px on #fafafa, 12px radius, keys in orange.</pre>
+  <div class="honest"><p class="t">Honesty block</p><p style="margin:0">Soft orange, 14px radius, mono caps title. Used for "what you give up" and any place the site states a limit.</p></div>
+
+  <h2>Illustration</h2>
+  <div class="row2">
+    <figure class="sketch"><p class="t">Sketch, the main kind</p>{{FORCES}}<p class="cap">Ink 1.5px, round caps, no wobble, no hand lettering. Mono caps labels. Fills: white, neutral grey, pale orange. Stick figures stay, polish pending. Generated by sketches.py.</p></figure>
+    <figure class="sketch"><p class="t">Technical diagram, the rare kind</p>{{TWOVIEWS}}<p class="cap">Fine lines and boxes, for ground-up explainers only (what a format is, bytes, how markup works). Same panel, same fonts.</p></figure>
+  </div>
+
+  <h2>Open questions</h2>
+  <ul class="todo">
+    <li><span class="ok">Logo.</span> Own session. Brush # or the tai chi figure; how a mark sits in this masthead.</li>
+    <li><span class="ok">Nav bar.</span> Vertical list (here) or a horizontal mono bar. Undecided.</li>
+    <li><span class="ok">Dot grid.</span> Possibly finer than 9px.</li>
+    <li><span class="ok">Stick figures.</span> Keep, polish: proportions, hands, a small pose set.</li>
+    <li><span class="ok">Sketch library.</span> One scene per guide and Why page; a style note.</li>
+    <li><span class="ok">Side ruler.</span> Decoration, position indicator, or drop.</li>
+    <li><span class="ok">Guide page.</span> Detailed notes still to come.</li>
+    <li><span class="ok">Subline and sign-off wording.</span> Loose; not blocking.</li>
+  </ul>
+</main>
+<footer><span>The Way of Markdown</span><span><a href="home.html">Front page</a> · <a href="notion.html">Guide page</a></span><span>Design basis, 2026-10-02</span></footer>
+</body></html>
