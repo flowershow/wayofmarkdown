@@ -5,19 +5,27 @@ publish: false
 
 # The Way of Markdown
 
-Brand, narrative and visual identity. Draft 1, 2026-10-02, distilled from [[vision]], [[naming]], the manifesto drafts, the voice profile and the tai chi work. Brief with mood board and visual directions: https://claude.ai/artifact/Qq8iMaSEk3diuEihrcLhT6 Decisions still open are marked **[open]**.
+Brand, narrative and visual identity. Draft 2, 2026-10-02 (draft 1 same day, rejected on visuals), distilled from [[vision]], [[naming]], the manifesto drafts, the voice profile and the tai chi work. Brief (draft 2: story, hero, feel, mood board, six directions): https://claude.ai/artifact/Qq8iMaSEk3diuEihrcLhT6 Decisions still open are marked **[open]**.
 
 ## Narrative
 
-> Markdown is an amazing format. But what matters is what it permits: the website, the notes, the knowledge base, the thing that looks like Notion, all built from plain files you own, with tools you can swap. Markdown already won, quietly. This site shows the way to use it.
+> The format unlocks an ecosystem.
 
-Three threads, one practice:
+Markdown matters because of what grows on it. This site is not another guide to markdown; it is the guide to the markdown ecosystem and how to do your work on it. Three threads (Rufus, 2026-10-02):
 
-- **The syntax.** Ten minutes, reference-flavoured. Necessary, not the point.
-- **The way.** The real curriculum: how to use the ecosystem to build what you actually want, organised by use case (site, blog, garden, catalog, Notion replacement), not by tool.
-- **The proof.** Markdown is everywhere already: Google Docs, Apple Notes, Slack, GitHub, every AI chat. Ubiquity is the argument.
+- **Manifesto, why, vision.** Markdown is eating the world. Why open formats matter; file over app; why a common format lets tools and people connect. The manifesto, `why.md`, the ecosystem map (bead wom-3m1).
+- **The way. The centre of the site.** Do your work on markdown: replace Notion, run your docs, publish a site, keep a garden, build a catalog, from files you own. Guides by use case, tutorials, the roadmap, markdown in every app.
+- **Mechanics. How formats work.** What a text format is, why it sits between storage and tools, how markdown builds up from blocks, why it is extensible, where it stops. Making Software register (bead wom-w74).
 
-The ad-length version: *Markdown is great. But who cares about a format? What matters is what you can build with it, and that you own it afterwards.*
+Rufus's sketch: three circles, easy to publish / control your content / can extend and grow when you need to, with "nothing here" in the middle. Markdown-based work is what goes in the middle. That triad is the promise.
+
+Draft 1's narrative paragraph ("Markdown is a great format. What matters is what it lets you build...") was judged too long and weak for a hero. Kept here only as the ad-length explanation, not the headline.
+
+## Hero
+
+**[open, recommended]** Headline: **Markdown is eating the world.** Rufus's own line, already in the manifesto. Subline, first draft: "One plain-text format now runs your notes, your docs, your website and every AI chat. Here's the way to do your work on it, and why that's a good idea." One primary CTA (roadmap), one secondary (ten-minute basics). Alternatives in the brief: "Plain text with superpowers." (basics banner), "One format. Every tool.", "Own the source." (manifesto closing line).
+
+With a headline this strong the hero needs no two-part tagline; "Own the source" moves to the manifesto and footer.
 
 ## Promise
 
@@ -35,7 +43,7 @@ Rufus. Position first, then the case. Enthusiasm unironic ("awesome"). Honest ab
 
 **The Way of Markdown.** Decided 2026-07 ([[naming]]): a practice tradition, not a movement. "Markdown is awesome" is landing-page energy, not the brand.
 
-Tagline: **Own the source. Compose with anything.** First half is settled. Second half **[open]**: candidates in the brief (Use any tool / Build anything / Bring any tool / Plug in anything).
+Line: **Own the source.** Keep as the manifesto's closing line and the footer seal. The second half ("Compose with anything") is dropped from the hero; see Hero above.
 
 ## Attitude: calm body, cheeky edge
 
@@ -57,17 +65,15 @@ One per thing you can build: a site, a blog, a garden, a catalog, the Notion-sha
 
 Unchanged. Mostly flat, SEO slugs: guides `markdown-<x>`, per-app `markdown-in-<x>`, tutorials in `learn/`, reference in `kb/`, philosophy at `why` and `manifesto`. See AGENTS.md.
 
-## Visual identity: "the source"
+## Visual identity **[open]**
 
-Direction **[open, recommended]**: the site shows its own source. With the Feel note above, the open question is whether all-mono prose (A) is too austere against the fun aim; B (mono chrome, sans prose) plus the illustration system is the safe answer, A plus illustrations the bolder one. Markdown is the one format where the raw text is already readable, so the design makes that visible instead of hiding it.
+Draft 1 (all-mono, cream paper, vermilion seal) rejected 2026-10-02: colour dead next to the current green, directions too similar, no personality. Lesson: pair faces (structure in one, voice in another, as Way Into AI does), and use colour with life in it.
 
-- **Type:** monospace carries the site, structure and prose alike. Geist Mono (Google Fonts), with a humanist sans (Source Sans 3) held in reserve for long prose if mono fatigues in testing. Headings show their `#` markers in the accent. No serif: that is Way Into AI's voice.
-- **Colour:** warm paper `#f7f5f0`, sumi ink `#1c1b19`, muted `#6b675f`, rule `#e4e0d8`. One accent, seal vermilion `#c43b2a` (wash `#f8e3df`), used the way a seal is used: once per page, to mark what is owned or chosen. Dark: paper `#141311`, ink `#ebe7df`, vermilion `#e8705f`. Green `#16a34a` is retired as the brand accent and kept only as the roadmap's "built" status colour.
-- **Form:** hairline rules, no cards, no shadows, square corners. Empty space is part of the composition. Raw and rendered side by side as the signature device, with a raw/rendered toggle where the page can carry one.
-- **Mark:** the ink tai chi figure (`assets/brand/mark.svg`) as a white figure on a vermilion seal square for navbar, favicon and social. The animated syntax figure stays the hero, redone (see Mark below).
-- **Not:** stock illustration, gradients, rounded cards, emoji as structure, AI-generated video or imagery. (Hand-drawn flat-vector illustration is in; see Illustration system.)
+Draft 2 explores six directions, each a full hero in its own type and colour (brief, "Six directions"): 1 the manual (Making Software register: serif body, mono caps labels, cobalt line diagrams on dotted grid); 2 the field guide (Wikimedia flat-vector illustration, warm grey, indigo/orange/green/red, heavy sans); 3 the dojo (Instrument Serif, ink figure huge, vermilion seal); 4 the poster (Bricolage Grotesque on yellow, syntax as texture); 5 the notebook (ruled paper, Plex Mono, highlighter, hand-lettered annotations, Rufus's sketch as the language); 6 the editorial (WAI formula with Fraunces, teal, mustard).
 
-Sibling rule: Way Into AI is mono structure, serif voice, cool paper, editor's blue, `##` markers. The Way of Markdown is mono throughout, warm paper, vermilion seal, `#` markers, ink figure. Same family, different person.
+Recommended to develop: 1, 2, 5, with a 5+1 hybrid as the likely answer (notebook sketches for how ideas arrive, cobalt diagrams for how they get explained, field-guide illustrations atop use-case guides).
+
+Rules that survive from draft 1: hairlines over cards, no AI imagery, the site visibly made by a person, one accent in the UI with more colour allowed in illustration. Sibling rule: Way Into AI is mono structure, Newsreader serif, cool paper, editor's blue, `##` markers. Ours must differ in kind.
 
 ## Mark and animation
 
