@@ -2,7 +2,9 @@
   "title": "The Way of Markdown",
   "contentExclude": [
     ".claude",
+    ".beads",
     "docs",
+    "changelog",
     "drafts",
     "scripts",
     "README.md",

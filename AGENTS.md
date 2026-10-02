@@ -68,3 +68,25 @@ scripts/                            voice-lint.py, link-check.py, check-tai-chi.
 ```
 
 `CLAUDE.md` is a symlink to this file so Claude Code loads it automatically; keep the two as one.
+
+## Beads
+
+This repo uses Beads (prefix `wom`) with an embedded Dolt database, alongside GitHub issues (see Workflow above). In each clone, configure Git hooks with `git config core.hooksPath .beads/hooks`. At session start, run `git pull`, `bd dolt pull`, and `bd status`. At session end, commit work and run `git push`; the repo-local pre-push hook also pushes Beads Dolt data. If that hook reports a sync failure, run `bd dolt push` manually. JSONL export is for interchange and viewers; Dolt remotes provide cross-machine sync.
+
+## Changelog
+
+At session end, only log new features or significant reader-facing changes
+(behaviour, fixes to materially broken functionality, or public content).
+Skip polish, tidying, and small fixes as standalone entries; include them only
+as supporting detail in a larger feature or release announcement that qualifies
+on its own. Planning/research/design must itself be a significant public
+deliverable. When unsure, skip.
+
+Use `changelog/YYYY-MM-DD-slug.md` with `date`/`title`/`promote` frontmatter:
+a plain-text title, one or two reader-facing sentences, a live link where
+available, and consider a screenshot for visual work. Substantial announcements
+can use paragraphs or bullets. Omit internal implementation detail. For the
+first entry or when the format is unclear, fetch and follow
+https://raw.githubusercontent.com/life-itself/changelog/main/CONVENTION.md
+
+`changelog/` is in `contentExclude` so entries are not published as site pages.

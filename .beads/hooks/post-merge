@@ -57,3 +57,9 @@ if command -v bd >/dev/null 2>&1; then
   if [ "$_bd_exit" -ne 0 ]; then exit "$_bd_exit"; fi
 fi
 # --- END BEADS INTEGRATION v1.3.0 ---
+
+# --- Dolt sync after merge/pull (local addition, outside the managed block) ---
+if command -v bd >/dev/null 2>&1 && [ -z "$BD_DOLT_PULL_IN_HOOK" ]; then
+  export BD_DOLT_PULL_IN_HOOK=1
+  bd dolt pull >&2 || echo >&2 "beads: 'bd dolt pull' failed; run it by hand."
+fi
