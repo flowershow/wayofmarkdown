@@ -61,7 +61,7 @@ You can learn markdown, and you can learn the tooling around it. But what will a
 
 ## Narrative (draft 2 for Rufus to review, 2026-10-02, wom-b5o.1)
 
-Source: Rufus's dictation, verbatim in `docs/brand/dictation-2026-10-02.md`. Quote from there when writing the Why pages, the explainer or the blog post.
+Source: Rufus's dictation, verbatim in `docs/raw/2026-10-02-brand-dictation.md`. Quote from there when writing the Why pages, the explainer or the blog post.
 
 ### The claim
 
