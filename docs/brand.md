@@ -9,7 +9,11 @@ Brand, narrative and visual identity. Draft 3, 2026-10-02 (drafts 1 and 2 same d
 
 **Sequence (beads under wom-b5o, each blocks the next):** 1 narrative (wom-b5o.1) → 2 visual round from direction 1 (wom-b5o.2) → 3 logo (wom-b5o.3) → 4 implement (wom-b5o.4). Subline (wom-bm9) and explainer (wom-b5o.6) wait on narrative; hero animation (wom-b5o.5) waits on logo.
 
-**Start here (next session).** Visual round 2 is built and awaiting Rufus's pick (2026-10-02, wom-b5o.2): https://claude.ai/artifact/VdK76NQDZHArvnn7fy9u8Q (sources in `docs/brand/round-2/`, screenshots alongside). Three full front pages, all from direction 1, same headline and offer line: **A the manual** (direction 1 untouched, finished as a page of numbered figures), **B the poster** (direction 1's blue, serif and mono with direction 4's big type, a full-bleed cobalt band and the ASCII syntax picture), **C the source** (the front page is itself a markdown file: frontmatter masthead, raw and rendered hero, `##` headings, a table, a task list). Before acting on his feedback, restate it as keep / change / kill per option. Record the chosen direction below under "Visual identity".
+**Start here (next session).** Process reset 2026-10-02 (afternoon). Round 2 (three pages from direction 1, https://claude.ai/artifact/VdK76NQDZHArvnn7fy9u8Q) was too narrow: Rufus had liked direction 1 as *one option*, not as a decision. He asked for a proper design process: feel and references proposed by me, checked by him, then three full pages from three different feels. Mood board draft 1 is awaiting his marks: https://claude.ai/artifact/KyALRZTDrC7e5fEs4KX2s6 (source `docs/brand/mood.html`, screenshots `docs/brand/refs/`). It proposes the feel ("a well-made manual, written by someone who finds this genuinely exciting"), ten references with take/leave notes, three feels for the next round (1 manual, 2 plain text, 3 warm product) and five front-page headline candidates. Next: fold his marks in, then build three front pages, one per feel, stacked on one page, no switcher. Before acting on his feedback, restate it as keep / change / kill.
+
+**Headline reopened (2026-10-02).** "Markdown is eating the world" is the thesis and an essay title, for the Why page and a small kicker. It is not the front-page headline: it doesn't say what the site is, and it suggests chomping energy rather than the figure's. The front page must say what this is: the Way, the practical guide plus the philosophy. Candidates in the mood board; none chosen. The offer line ("the tools are good now...") also doesn't land alone on a page.
+
+**Visual baseline: direction 1 is one option, not the baseline.** Rufus likes it (`docs/brand/direction-1-manual.html`), and it stays in the set as feel 1. The next round also needs a Way Into AI-like option and a pure monospace option.
 
 **Visual baseline: direction 1, blue and clean.** Rufus likes it: `docs/brand/direction-1-manual.html` (screenshot alongside). It's from brief draft 2: Source Serif headline with an italic blue phrase, JetBrains Mono caps labels, cobalt `#2449d8` line diagram on a dotted grid, figure numbers. Draft 3 "warmed it up" and lost it; that was a misreading of his feedback. The next visual round starts from this file, not from draft 3. The brush `#` mark is unproven ("looks a bit unclean with the text"). The logo gets its own section, separate from page directions.
 
@@ -51,7 +55,7 @@ All drafts were published to one artifact link, redeployed each time: https://cl
 ## Settled so far
 
 - **Name.** The Way of Markdown (2026-07, [[naming]]).
-- **Headline.** **Markdown is eating the world.** (agreed 2026-10-02)
+- **Headline.** Reopened 2026-10-02 (see Start here). "Markdown is eating the world" is the thesis line, not the front-page headline.
 - **Narrative (draft 4).** Two forces (simple for people, simple for tools) fed each other until markdown was everywhere; the tools matured, so you can switch. See Narrative.
 - **Feel.** Warm, clear, a bit geeky, open, made by a person who is excited about this. See Feel below.
 - **Not the point.** Markdown the syntax. Flowershow stays secondary ([[vision]]).

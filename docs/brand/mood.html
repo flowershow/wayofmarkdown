@@ -1,0 +1,106 @@
+<title>Way of Markdown Mood Board</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+/* Layout: one reading column; references as a two-up grid of screenshots with take/leave notes; three feels as a strip. */
+:root{--bg:#fbfbfa;--fg:#1a1a1a;--accent:#2449d8;--rule:#c9d2f0;--muted:#5b5f6b;--panel:#fff;--soft:#eef1fb;
+  --serif:"Source Serif 4",Georgia,serif;--mono:"JetBrains Mono",ui-monospace,Menlo,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121419;--fg:#ececf1;--accent:#8ea2ff;--rule:#2d3450;--muted:#a3a8b8;--panel:#1a1d26;--soft:#1e2333;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#121419;--fg:#ececf1;--accent:#8ea2ff;--rule:#2d3450;--muted:#a3a8b8;--panel:#1a1d26;--soft:#1e2333;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--serif);font-size:17px;line-height:1.5;padding-block:0 60px;padding-inline:16px}
+.wrap{max-width:1100px;margin:0 auto}
+.top{border-bottom:1px solid var(--accent);padding:14px 0;margin-bottom:28px;font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+h1{font-size:clamp(30px,4vw,44px);line-height:1.05;letter-spacing:-.015em;margin:0 0 10px;font-weight:600;text-wrap:balance}
+h1 em,h2 em{font-style:italic;font-weight:400;color:var(--accent)}
+h2{font-family:var(--mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-weight:500;margin:48px 0 14px;padding-top:24px;border-top:1px solid var(--rule)}
+h2::before{content:"## ";color:var(--accent);font-weight:700}
+h3{font-size:20px;margin:0 0 6px;font-weight:600}
+p{max-width:68ch;margin:0 0 12px}
+.lead{font-size:19px}
+ul{max-width:68ch;padding-left:1.2em;margin:0 0 12px}li{margin:4px 0}
+.q{border-left:3px solid var(--accent);padding:4px 0 4px 14px;font-style:italic;max-width:60ch;margin:14px 0}
+.feel{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:16px}
+.feel div{background:var(--panel);border:1px solid var(--rule);padding:16px;min-width:0}
+.feel .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.feel p{font-size:15px;margin:6px 0 0}
+.refs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:8px}
+.ref{background:var(--panel);border:1px solid var(--rule);min-width:0}
+.ref img{display:block;width:100%;height:auto;border-bottom:1px solid var(--rule);background:#fff}
+.ref .b{padding:14px 16px 16px}
+.ref .b h3{font-size:17px}
+.ref .b h3 a{color:var(--accent);text-decoration:none}
+.ref .b p{font-size:14.5px;margin:0 0 6px;color:var(--fg)}
+.ref .b p b{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-right:6px}
+.ref .b .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.wide{grid-column:1/-1}
+.cands{list-style:none;padding:0;max-width:none}
+.cands li{display:grid;grid-template-columns:3ch minmax(0,1fr);gap:12px;padding:12px 0;border-bottom:1px solid var(--rule);margin:0}
+.cands .n{font-family:var(--mono);font-size:11px;color:var(--accent);padding-top:6px}
+.cands .h{font-size:clamp(20px,2.4vw,28px);font-weight:600;line-height:1.15;letter-spacing:-.015em}
+.cands .h em{font-style:italic;font-weight:400;color:var(--accent)}
+.cands .s{font-size:15px;color:var(--muted);margin:4px 0 0;max-width:70ch}
+.ask{background:var(--soft);border:1px solid var(--rule);padding:18px 20px;margin-top:16px}
+.ask ul{margin:0}
+@media (max-width:760px){.feel,.refs{grid-template-columns:1fr}}
+</style>
+<div class="wrap">
+<div class="top"><b>The Way of Markdown · mood board</b><span>Draft 1 · 2026-10-02 · for Rufus to mark up</span></div>
+
+<h1>What I think the feel is, and where I'd steal from. <em>You check.</em></h1>
+<p class="lead">Built from everything on file: the vision notes, the voice profile, your dictation, the tai chi work, the three draft briefs and what you said about each. Mark anything wrong. Ticks and crosses on the references are the most useful thing you can give back.</p>
+
+<h2>The feel, in one line</h2>
+<p class="lead"><strong>A well-made manual, written by someone who finds this genuinely exciting.</strong></p>
+<p>"Calm body, cheeky edge" is already decided. This is what I think it means on a page:</p>
+<ul>
+<li><strong>Plain text is the material, not the costume.</strong> Mono where the markdown shows: heading markers, code, labels, figure numbers. A proper reading face for the prose. Not all-mono, which you found boring, and not all-marketing, which hides what the site is.</li>
+<li><strong>Explain by showing.</strong> Figures, diagrams, raw-beside-rendered. The vision doc says "demonstrate, don't proclaim". makingsoftware and Ciechanowski are the model: the diagram is the argument.</li>
+<li><strong>One confident colour on light paper, plus ink.</strong> Blue is a candidate because you liked it, not a decision. The warmth comes from drawing (the ink figure, line illustrations), not from a peach palette.</li>
+<li><strong>A human in it.</strong> The tai chi figure is the site's character. Side-on, brush, flow. That's the energy, as you said: not something chomping.</li>
+<li><strong>Notion-level polish, Wikipedia-level honesty.</strong> Generous spacing, nothing cramped, and limits stated out loud.</li>
+<li><strong>The cheek lives in words and small details.</strong> Footnotes, figure captions, an "EOF" at the bottom, the manifesto's jokes. Never in the layout.</li>
+</ul>
+
+<h2>Three feels to mock next, with their references</h2>
+<p>Each is built from a different set of references, not from one baseline. Next round: three full front pages, one per feel, stacked on one page. Say which two or three to build, or swap one.</p>
+<div class="feel">
+  <div><span class="k">1 · The manual</span><h3>Explanatory, diagrams, one colour</h3><p>makingsoftware, Ciechanowski, Oxide. Figures with numbers, a dotted grid, serif prose. This round's A is the existing version. Risk: cold.</p></div>
+  <div><span class="k">2 · Plain text</span><h3>The page is a markdown file</h3><p>code.storage, 100 Rabbits, gwern. Mono-led, # headings, ASCII tables, ink drawings for warmth. The pure monospace option. Risk: boring unless the drawings carry it.</p></div>
+  <div><span class="k">3 · Warm product</span><h3>Friendly type, illustration, colour with life</h3><p>Way Into AI, Notion, Basecamp, PostHog, Wikimedia. Big readable headline, a drawn hero, two or three flat colours, cheek in the copy. The Way Into AI-like option. Risk: looks like every SaaS page.</p></div>
+</div>
+
+<h2>References</h2>
+<p>Screenshots taken today. For each: what I'd take, what I'd leave. Your references first, mine after. Way Into AI isn't here because I can't screenshot the artifact, but it's the model for feel 3 and for the process.</p>
+<div class="refs">
+  <div class="ref"><img src="refs/makingsoftware.png" alt="makingsoftware.com home page"><div class="b"><div class="tag">Yours · feel 1</div><h3><a href="https://www.makingsoftware.com/">makingsoftware.com</a></h3><p><b>Take</b>Numbered figures, the dotted grid, cobalt line drawings, serif prose beside them, the explanatory tone. Direction 1 came from here.</p><p><b>Leave</b>The pixel display face and the pure reference-manual structure. We have a front door to build, they don't.</p></div></div>
+  <div class="ref"><img src="refs/ciechanowski.png" alt="Bartosz Ciechanowski's site"><div class="b"><div class="tag">Mine · feel 1</div><h3><a href="https://ciechanow.ski/">ciechanow.ski</a></h3><p><b>Take</b>One strong blue, calm prose, and the idea that an interactive figure can do the explaining. The explainer and the tai chi figure sit in this tradition.</p><p><b>Leave</b>The plainness of the chrome. It's an essay site, not a guide with many doors.</p></div></div>
+  <div class="ref"><img src="refs/codestorage.png" alt="code.storage home page"><div class="b"><div class="tag">Yours · feel 2</div><h3><a href="https://code.storage/">code.storage</a></h3><p><b>Take</b>The page reads as markdown source: # headings, * bullets, ~*~ rules, mono throughout. On-message for us in a way it isn't for them.</p><p><b>Leave</b>The 3D blob (you said far too elaborate) and the uniform grey. All-mono needs a second element to not be boring.</p></div></div>
+  <div class="ref"><img src="refs/100r.png" alt="Hundred Rabbits home page"><div class="b"><div class="tag">Mine · feel 2</div><h3><a href="https://100r.co/">100r.co</a></h3><p><b>Take</b>Plain HTML with ink drawings doing all the warmth. A character in the nav. This is the "plain text plus a human" combination feel 2 needs.</p><p><b>Leave</b>The cartoon style. Ours is the brush figure, not a mascot.</p></div></div>
+  <div class="ref"><img src="refs/gwern.png" alt="gwern.net home page"><div class="b"><div class="tag">Mine · feel 2</div><h3><a href="https://gwern.net/">gwern.net</a></h3><p><b>Take</b>The essay-as-site stance, dense and honest, small-caps labels, everything a document. The Why area could live like this.</p><p><b>Leave</b>The density and the gothic. Non-technical readers bounce off this.</p></div></div>
+  <div class="ref"><img src="refs/oxide.png" alt="Oxide Computer home page"><div class="b"><div class="tag">Mine · feel 1</div><h3><a href="https://oxide.computer/">oxide.computer</a></h3><p><b>Take</b>"FIG. 1" labels on a product page, mono caps labels with a big plain headline, a terminal as a figure. Proof the manual feel can carry a front door.</p><p><b>Leave</b>Dark mode and the enterprise weight. We're light paper.</p></div></div>
+  <div class="ref"><img src="refs/notion.png" alt="Notion home page"><div class="b"><div class="tag">Yours · feel 3</div><h3><a href="https://www.notion.com/">notion.com</a></h3><p><b>Take</b>The bar for polish: one huge plain headline, lots of air, a drawn character in the corner, a real product shot. Accessible to anyone.</p><p><b>Leave</b>The pill highlight and the fact that nothing about it says "files". We need the page to show the thing itself.</p></div></div>
+  <div class="ref"><img src="refs/basecamp.png" alt="Basecamp home page"><div class="b"><div class="tag">Mine · feel 3</div><h3><a href="https://basecamp.com/">basecamp.com</a></h3><p><b>Take</b>The voice: "without all the nonsense", a letter on the front page, links with one-line glosses. Opinionated and warm at once. Closest to your register.</p><p><b>Leave</b>The product-shot hero. Ours would be a figure or a file.</p></div></div>
+  <div class="ref"><img src="refs/posthog.png" alt="PostHog home page"><div class="b"><div class="tag">Mine · feel 3</div><h3><a href="https://posthog.com/">posthog.com</a></h3><p><b>Take</b>Geeky and cheeky without losing polish. Desktop-window chrome, jokes in the cookie banner, illustration everywhere. The "cheeky edge" done by a real company.</p><p><b>Leave</b>Nearly all of it visually. Too much. Take the attitude only.</p></div></div>
+  <div class="ref"><img src="refs/obsidian.png" alt="Obsidian home page"><div class="b"><div class="tag">Mine · context</div><h3><a href="https://obsidian.md/">obsidian.md</a></h3><p><b>Take</b>Where our sweet-spot audience already lives. Headline is a promise ("Sharpen your thinking"), not a feature. Note how the file tree is the hero.</p><p><b>Leave</b>The dark gradient look. We shouldn't look like a tool vendor.</p></div></div>
+  <div class="ref wide"><img src="refs/wikimedia.png" alt="Wikimedia Thank You 2019 header illustration"><div class="b"><div class="tag">Yours · feel 3</div><h3><a href="https://upload.wikimedia.org/wikipedia/donate/9/9a/Thank_You_2019_Header.svg">Wikimedia Thank You 2019 header</a></h3><p><b>Take</b>Flat fills, ink outlines, three colours (indigo, green, orange) plus grey, isometric panels, small figures doing things. The illustration system in brand.md is this. It's fun and it's open-web, which is our tribe.</p><p><b>Leave</b>Nothing, but note it's a hand-drawn commission. We can do one panel at a time, not a mural.</p></div></div>
+</div>
+
+<h2>The headline question</h2>
+<p>You're right. "Markdown is eating the world" is the thesis and an essay title. It belongs on the Why page and in the kicker, not as the front-page type. The front page should say what this is: the Way, the practical guide plus the philosophy. Candidates for the front page, none chosen. The kicker above any of them can be small mono: <em>Markdown is eating the world.</em></p>
+<ul class="cands">
+  <li><span class="n">01</span><div><div class="h">The Way of Markdown</div><p class="s">Name as headline, like a book cover. Then one line that says what you get. The current site does this, and it answers "what is this?" before anything else.</p></div></li>
+  <li><span class="n">02</span><div><div class="h">Own the source. <em>Compose with anything.</em></div><p class="s">Your line, on the live site today. Philosophy and practice in six words. Weak point: "source" reads as code to non-technical people.</p></div></li>
+  <li><span class="n">03</span><div><div class="h">Notes, docs, a website, even a Notion replacement. <em>Plain files you own, tools you can swap.</em></div><p class="s">The value proposition as the headline. Says what you can do and why files. Long, but every word is a door.</p></div></li>
+  <li><span class="n">04</span><div><div class="h">There's a better way to do your notes, docs and site. <em>It's plain text.</em></div><p class="s">The Way as a promise, with the reveal. Cheeky, and it makes people ask the next question.</p></div></li>
+  <li><span class="n">05</span><div><div class="h">How to do what you already do, <em>with files you own.</em></div><p class="s">The offer in the reader's terms. Calm, honest, no jargon. Possibly too quiet for a front page.</p></div></li>
+</ul>
+<p>My pick, lightly held: 01 as the headline, 03 or 04 as the line under it, kicker above. The name is the brand, the line is the offer, the kicker is the hook.</p>
+
+<h2>What I need from you</h2>
+<div class="ask"><ul>
+<li>References: tick or cross each, one line if you like. Add any I've missed.</li>
+<li>Feels: which two or three to build next round. Or rename one.</li>
+<li>Headline: which candidate, or a line of your own. Rough is fine.</li>
+<li>Anything in the feel paragraph that's wrong.</li>
+</ul></div>
+</div>

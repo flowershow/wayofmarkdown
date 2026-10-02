@@ -13,18 +13,18 @@ body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--serif);padd
 .bar b{font-weight:700}
 .bar .tabs{display:flex;gap:6px;flex-wrap:wrap}
 .bar button{font:inherit;letter-spacing:inherit;text-transform:inherit;color:var(--accent);background:transparent;border:1px solid var(--accent);padding:6px 10px;cursor:pointer}
-.bar button[aria-pressed="true"]{background:var(--accent);color:#fff}
+.bar a{color:var(--accent);border:1px solid var(--accent);padding:6px 10px}
 .intro{max-width:72ch;font-size:16px;line-height:1.5;margin:0 0 18px}
 .intro p{margin:0 0 8px}
 .intro .q{border-left:3px solid var(--accent);padding-left:12px;font-style:italic}
-.cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.cols{display:grid;grid-template-columns:1fr;gap:40px}
 .col{min-width:0}
 .col h2{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;margin:0 0 6px;color:var(--accent)}
 .col h2 button{all:unset;cursor:pointer;color:inherit}
 .col h2 button:hover{text-decoration:underline}
-.col .d{font-size:14px;line-height:1.45;color:var(--muted);margin:0 0 10px;min-height:4.4em}
-.frame{border:1px solid var(--rule);background:#fbfbfa;overflow:hidden;position:relative;aspect-ratio:1280/3000}
-.frame iframe{border:0;width:1280px;height:3000px;transform-origin:0 0;position:absolute;left:0;top:0}
+.col .d{font-size:15px;line-height:1.45;color:var(--muted);margin:0 0 10px;max-width:72ch}
+.frame{border:1px solid var(--rule);background:#fbfbfa;overflow:hidden;position:relative;aspect-ratio:1280/3400;max-width:1280px}
+.frame iframe{border:0;width:1280px;height:3400px;transform-origin:0 0;position:absolute;left:0;top:0}
 .full .cols{display:block}
 .full .col{display:none}.full .col.on{display:block}
 .full .frame{aspect-ratio:auto;height:calc(100vh - 140px)}
@@ -35,34 +35,19 @@ body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--serif);padd
 button:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 </style>
 <div class="bar"><b>Visual round 2 · three front pages</b>
-  <span class="tabs"><button data-v="all" aria-pressed="true">Side by side</button><button data-v="a">A</button><button data-v="b">B</button><button data-v="c">C</button></span>
+  <span class="tabs"><a href="#a">A</a><a href="#b">B</a><a href="#c">C</a></span>
 </div>
 <div class="intro">
   <p>All three start from direction 1 (blue, clean, serif headline with the italic blue phrase, mono caps labels, dotted grid, numbered figures). Same headline, same offer line, same six things to build, same story. What differs is the idea of the page.</p>
   <p class="q">Markdown is eating the world. The tools are good now. You can switch, and you own your files.</p>
-  <p>No logo work here. Click a letter above, or a column title, to see that page full size and scroll it.</p>
+  <p>No logo work here. The three pages are stacked below at full size, A then B then C.</p>
 </div>
 <div class="cols" id="cols">
-  <div class="col on" data-c="a"><h2><button data-v="a">A · The manual</button></h2><p class="d">Direction 1 untouched, finished as a full page. A technical manual: each section is a figure and a short explanation. Grid of six for the things you can build. Calmest of the three.</p><div class="frame"><iframe src="a-manual.html" title="A. The manual" loading="eager"></iframe></div><p class="open"><a href="a-manual.html" target="_blank">Open A on its own ↗</a></p></div>
-  <div class="col" data-c="b"><h2><button data-v="b">B · The poster</button></h2><p class="d">Direction 1's blue, serif and mono with direction 4's energy. The headline is the page. Full-bleed cobalt band, the ASCII syntax picture as the one decoration, one column, few boxes. Loudest.</p><div class="frame"><iframe src="b-poster.html" title="B. The poster" loading="eager"></iframe></div><p class="open"><a href="b-poster.html" target="_blank">Open B on its own ↗</a></p></div>
-  <div class="col" data-c="c"><h2><button data-v="c">C · The source</button></h2><p class="d">The front page is itself a markdown file. Frontmatter masthead, the hero shown raw and rendered, ## headings, a table for the six things, a task list to start. One reading column, like a document. Geekiest.</p><div class="frame"><iframe src="c-source.html" title="C. The source" loading="eager"></iframe></div><p class="open"><a href="c-source.html" target="_blank">Open C on its own ↗</a></p></div>
+  <div class="col" data-c="a"><h2 id="a">A · The manual</h2><p class="d">Direction 1 untouched, finished as a full page. A technical manual: each section is a figure and a short explanation. Grid of six for the things you can build. Calmest of the three.</p><div class="frame"><iframe src="a-manual.html" title="A. The manual" loading="eager"></iframe></div><p class="open"><a href="a-manual.html" target="_blank">Open A on its own ↗</a></p></div>
+  <div class="col" data-c="b"><h2 id="b">B · The poster</h2><p class="d">Direction 1's blue, serif and mono with direction 4's energy. The headline is the page. Full-bleed cobalt band, the ASCII syntax picture as the one decoration, one column, few boxes. Loudest.</p><div class="frame"><iframe src="b-poster.html" title="B. The poster" loading="eager"></iframe></div><p class="open"><a href="b-poster.html" target="_blank">Open B on its own ↗</a></p></div>
+  <div class="col" data-c="c"><h2 id="c">C · The source</h2><p class="d">The front page is itself a markdown file. Frontmatter masthead, the hero shown raw and rendered, ## headings, a table for the six things, a task list to start. One reading column, like a document. Geekiest.</p><div class="frame"><iframe src="c-source.html" title="C. The source" loading="eager"></iframe></div><p class="open"><a href="c-source.html" target="_blank">Open C on its own ↗</a></p></div>
 </div>
 <script>
-(function(){
-  var cols=document.getElementById('cols'), body=document.body;
-  function scale(){
-    if(body.classList.contains('full')) return;
-    document.querySelectorAll('.frame').forEach(function(f){var s=f.clientWidth/1280;f.querySelector('iframe').style.transform='scale('+s+')';});
-  }
-  function view(v){
-    body.classList.toggle('full', v!=='all');
-    document.querySelectorAll('.col').forEach(function(c){c.classList.toggle('on', v==='all'||c.dataset.c===v);});
-    document.querySelectorAll('.bar button').forEach(function(b){b.setAttribute('aria-pressed', b.dataset.v===v?'true':'false');});
-    scale(); try{localStorage.setItem('wom-r2-view',v);}catch(e){}
-  }
-  document.querySelectorAll('button[data-v]').forEach(function(b){b.addEventListener('click',function(){view(b.dataset.v);});});
-  window.addEventListener('resize',scale);
-  var h=(location.hash||'').replace('#',''); var v=['a','b','c'].indexOf(h)>=0?h:'all';
-  view(v);
-})();
+(function(){function scale(){document.querySelectorAll('.frame').forEach(function(f){var s=f.clientWidth/1280;f.querySelector('iframe').style.transform='scale('+s+')';});}
+window.addEventListener('resize',scale);scale();})();
 </script>
