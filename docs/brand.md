@@ -9,7 +9,7 @@ Brand, narrative and visual identity. Draft 3, 2026-10-02 (drafts 1 and 2 same d
 
 **Sequence (beads under wom-b5o, each blocks the next):** 1 narrative (wom-b5o.1) → 2 visual round from direction 1 (wom-b5o.2) → 3 logo (wom-b5o.3) → 4 implement (wom-b5o.4). Subline (wom-bm9) and explainer (wom-b5o.6) wait on narrative; hero animation (wom-b5o.5) waits on logo.
 
-**Start here (next session).** The narrative is drafted (see Narrative below, 2026-10-02). Once Rufus signs it off, next is the visual round from direction 1 (wom-b5o.2).
+**Start here (next session).** The narrative is agreed (see Narrative below, 2026-10-02). Next in sequence is the visual round from direction 1 (wom-b5o.2), but Rufus is unsure about doing it next: ask first.
 
 **Visual baseline: direction 1, blue and clean.** Rufus likes it: `docs/brand/direction-1-manual.html` (screenshot alongside). It's from brief draft 2: Source Serif headline with an italic blue phrase, JetBrains Mono caps labels, cobalt `#2449d8` line diagram on a dotted grid, figure numbers. Draft 3 "warmed it up" and lost it; that was a misreading of his feedback. The next visual round starts from this file, not from draft 3. The brush `#` mark is unproven ("looks a bit unclean with the text"). The logo gets its own section, separate from page directions.
 
@@ -59,13 +59,21 @@ All drafts were published to one artifact link, redeployed each time: https://cl
 
 You can learn markdown, and you can learn the tooling around it. But what will actually excite people is **seeing it applied to an area they care about**: how to switch from Notion to markdown, how Obsidian works, the note-taking ecosystem, publishing a site. People come for an application, not for a format. The job of the story is to make those application pages hang together as one coherent idea.
 
-## Narrative (draft 4 for Rufus to review, 2026-10-02, wom-b5o.1)
+## Narrative (agreed 2026-10-02, wom-b5o.1; joining sentence still open)
 
 Source: Rufus's dictation, verbatim in `docs/raw/2026-10-02-brand-dictation.md`. Quote from there when writing the Why pages, the explainer or the blog post.
 
-### The joining sentence **[open: pick one]**
+### The offer line
 
-Previous draft ("simple enough that people can write it and every tool can build on it, and now the tools are good enough that you can switch") was too long. Short candidates:
+> The tools are good now. You can switch, and you own your files.
+
+Rufus, 2026-10-02: "the essence of the main offer we're making." This is the reason to care, in the reader's terms. The site shows people how to switch to markdown-based tools for the things they want to do, and gives the geeks something to send their friends.
+
+**"You own your files" means files over app.** It's about not being locked in. If you own the files, you can use any app you like, including the best ones and the latest AI, and you benefit as the ecosystem grows. Privacy people are welcome, but privacy isn't the point. Where the line appears, an asterisk or follow-up can say so.
+
+### The joining sentence **[open, deliberately]**
+
+The narrative doesn't depend on one sentence. That's why it's a narrative. Short candidates, for later:
 
 1. "Simple enough for people to write and every tool to speak. Now the tools are good enough to switch to."
 2. "Simple enough for people to write and every tool to speak, AI included."
@@ -91,6 +99,16 @@ More people writing it meant more tools supporting it, and more tools meant more
 **The result for you: you can switch.** The ecosystem has matured. Most of what you do in Notion, Google Docs or WordPress you can do with markdown tools, combining them instead of living inside one monolithic app, and keeping the files.
 
 The two forces belong on the Why page. The result leads on the front page.
+
+### Why this is hard to say
+
+Worth knowing before anyone tries to compress the story again. It took a day of back and forth (2026-10-02), and each failed version failed in one of these ways:
+
+1. **The core idea is a loop.** People could write markdown, so tools supported it. Tools supported it, so more people wrote it. That ran until critical mass, and the tools matured. Sentences are linear, so every compression distorted it ("everyone uses it", "the worse format won", "AI is why it's everywhere").
+2. **The cause and the payoff are for different people.** It happened for builders' reasons (simple, open, extensible). It matters to users for a different reason (the tools are good now, so you can switch and own your files). One line has to carry both the mechanism and the reason to care.
+3. **It's a paradox.** A format matters even though nobody cares about formats. People care about using the internet to bank or buy clothes, not about TCP/IP. Use that analogy lightly: the geeks get it, everyone else just wants the result.
+
+So: tell the loop as a picture (flywheel diagram, explainer animation), lead with the payoff for readers, and keep the mechanism for the Why area. Blog posts: wom-bc1 (how the tools caught up) and wom-d2x (why this is hard to say).
 
 ### Value proposition
 
