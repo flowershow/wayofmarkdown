@@ -94,3 +94,15 @@ On the three-circle sketch (`three-circles-sketch.png`):
 > The point in Notion, if we just want to do that comparison in detail on item 6, is: Notion is docs. Markdown can do that. Notion, what I think was docs plus: kind of catalogue, small databases, and the fact that files were the entries, like a record, this kind of flexibility. Similarly, Markdown has that, like Obsidian, when you have bases and catalogues. I've written up posts on this.
 >
 > I think it's that Markdown is database, Markdown is document, like that, and then the tooling that's been built on top of that, particularly Obsidian and Flowershow and other things, really makes this a competitor to Notion. You'd have to work through what Notion is. I think it's a combination of great UX, which is coming with Obsidian and Flowershow, and this structure of this kind of integration of wiki knowledge, personal knowledge base, and this flexibility to use for many cases (because it combined docs and spreadsheets or databases in a really simple, intriguing, very fluid way).
+
+## 7. Humans too, critical mass, the geeky audience, timing
+
+> few corrections: how it ate the world: it was also that it was simple for humans to use => which meants that textarea on web used it or somewhat geeky toolks used it (e.g. i authored markdown in 2006 ... many developer docs system used markdown as source format because humans could write it)
+>
+> so it was combo of both huamns writing and being easy for tools to work with ... => growing ecosystem of support and growing set of users (even non-tech folks format in whataps or discord or whatever ... so this growing critical mass of use/familiarity). etc
+
+> I think for the kind of early geeky readers, they might also discover things outside of their territory. They might be like, "Oh, I didn't know that," or "I didn't know that." I'm even sometimes looking for tools that support Markdown in some other area, or I want to send a link to my friends about how you can copy and paste Markdown from Google Docs, etc. That's the thing. This is true, by the way: the world is really shifting with AI.
+>
+> This website has been planned for years, and it's coming out now. AI has really changed the world, but it's still worth shipping and announcing it. I think at the moment, though, it would have been even more valuable two years ago, but hey, that's life.
+>
+> On that point, I'm pretty sure Notion supports it. I've used Notion to export Markdown. I think Dump, originally, was pure Markdown when you downloaded files, so yeah, I'm pretty sure it does.

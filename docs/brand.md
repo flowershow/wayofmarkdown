@@ -51,7 +51,7 @@ All drafts were published to one artifact link, redeployed each time: https://cl
 
 - **Name.** The Way of Markdown (2026-07, [[naming]]).
 - **Headline.** **Markdown is eating the world.** (agreed 2026-10-02)
-- **Narrative (draft 3).** "Markdown is simple enough that every tool can build on it, and now the tools are good enough that you can switch." See Narrative.
+- **Narrative (draft 3).** "Markdown is simple enough that people can write it and every tool can build on it, and now the tools are good enough that you can switch." See Narrative.
 - **Feel.** Warm, clear, a bit geeky, open, made by a person who is excited about this. See Feel below.
 - **Not the point.** Markdown the syntax. Flowershow stays secondary ([[vision]]).
 
@@ -65,7 +65,7 @@ Source: Rufus's dictation, verbatim in `docs/raw/2026-10-02-brand-dictation.md`.
 
 ### The joining sentence
 
-> Markdown is simple enough that every tool can build on it, and now the tools are good enough that you can switch.
+> Markdown is simple enough that people can write it and every tool can build on it, and now the tools are good enough that you can switch.
 
 (Draft, from the 2026-10-02 critique round.) The first half is why it's everywhere. The second half is why that matters to you. Every page on the site sits somewhere in that sentence.
 
@@ -77,13 +77,13 @@ Source: Rufus's dictation, verbatim in `docs/raw/2026-10-02-brand-dictation.md`.
 
 This is the key non-obvious point and the spine of the site. It's a candidate for the explainer animation (wom-b5o.6) and the blog post (wom-bc1). Nobody cares about formats, any more than they care about TCP/IP. You care about what it enables. Markdown is one of the rare cases where the format made the difference, because of what grew on top of it. The chain:
 
-1. **It was simple enough for every tool to support.** Plain, limited, closer to CSV than to JSON, and so hackable that any tool could add it. It started in the web's text boxes, READMEs and developer tools.
+1. **It was simple enough for people to write and for tools to support.** People could write it by hand, so web text areas and developer docs systems took it as their source format (Rufus was writing markdown in 2006). And it was plain, limited, closer to CSV than to JSON, and so hackable that any tool could add it. Both mattered: more tools supporting it meant more people using it, and more people knowing it meant more tools supporting it. Today even non-technical people format messages with markdown-style syntax in WhatsApp or Discord. That's critical mass of familiarity.
 2. **Builders chose it.** Easy to build on, open so no one controls it, and extensible so they could add what they needed (tables, frontmatter, wikilinks, fenced blocks, raw HTML) without breaking it for anyone else.
 3. **So the tools multiplied and kept getting better.** The first markdown UX was a bare text box. Now there's Obsidian with live preview and bases, WYSIWYG editors, publishers, Git hosting. Some of it is open source (Pandoc, static site generators, Git), some closed but file-based (Obsidian). Each tool may still be a step behind its closed rival, but the gap closes every year: compare Obsidian with what writing markdown looked like ten years ago.
 4. **Now AI.** Language models write markdown almost by default, and chat and voice are becoming a new interface to everything. That's the latest and biggest push, and the reason markdown is suddenly everywhere rather than only among geeks.
 5. **So you can switch.** The ecosystem has matured. You can do most of what you do in Notion, Google Docs or WordPress with markdown tools, combining them instead of living inside one monolithic app, and keep the files.
 
-Steps 1 and 2 are the builders' story, and Rufus's three circles (`docs/brand/three-circles-sketch.png`: easy, open, extensible, with markdown in the middle) are its figure, used on the Why page. Steps 3 to 5 are the reader's story and lead on the front page. A non-technical reader doesn't need steps 1 and 2 to act, and "simple enough to type by hand" sounds like a chore to them.
+Steps 1 and 2 are the builders' story, and Rufus's three circles (`docs/brand/three-circles-sketch.png`: easy, open, extensible, with markdown in the middle) are its figure, used on the Why page. Steps 3 to 5 are the reader's story and lead on the front page. A non-technical reader doesn't need steps 1 and 2 to act. (On the front page, "people can write it" reads as "you already half know it", not as "you'll have to type syntax".)
 
 ### Value proposition
 
@@ -116,7 +116,10 @@ People arrive through **Use it** or **Learn it** (a search for "Obsidian publish
 
 ### Audience on the page
 
-- **The early sweet spot** (Obsidian users, people partway in, evangelists) already believes the format story. What they get is the practical guide to go further, and the page they send their Notion-loving team. Write pages to be forwarded.
+Timing, honestly: the site has been planned for years and would have been even more useful two years ago. AI has changed the world since. It's still worth shipping now, and AI is part of why.
+
+
+- **The early sweet spot** (Obsidian users, people partway in, evangelists) already believes the format story. What they get: the practical guide to go further, discoveries outside their own territory ("I didn't know that tool supports markdown"), and links to send friends and colleagues (how to copy markdown out of Google Docs, how to leave Notion). Write pages to be forwarded.
 - **The wider non-technical audience** gets steps 3 to 5 and the value proposition first. The builders' story waits on the Why page for anyone who wonders why.
 
 ### Tone
@@ -141,7 +144,7 @@ Rejected: "Everything you do in Notion…" (untrue; most, not everything), "Here
 
 ### Claims status
 
-Confirmed by Rufus 2026-10-02: Google Docs imports and exports markdown; LLMs write markdown almost by default; you can learn the basics in under ten minutes; the tools gap closes every year. To check before publishing: Notion's current markdown import and export.
+Confirmed by Rufus 2026-10-02: Google Docs imports and exports markdown; Notion exports markdown (Rufus has used it); LLMs write markdown almost by default; you can learn the basics in under ten minutes; the tools gap closes every year. WhatsApp and Discord formatting is markdown-*style* (Discord is close to markdown; WhatsApp uses its own `*bold*` variant), so say "markdown-style" in print.
 
 ## Sign-off
 
