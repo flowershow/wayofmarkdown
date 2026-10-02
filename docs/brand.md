@@ -13,6 +13,40 @@ Brand, narrative and visual identity. Draft 3, 2026-10-02 (drafts 1 and 2 same d
 
 **Visual baseline: direction 1, blue and clean.** Rufus likes it: `docs/brand/direction-1-manual.html` (screenshot alongside). It's from brief draft 2: Source Serif headline with an italic blue phrase, JetBrains Mono caps labels, cobalt `#2449d8` line diagram on a dotted grid, figure numbers. Draft 3 "warmed it up" and lost it; that was a misreading of his feedback. The next visual round starts from this file, not from draft 3. The brush `#` mark is unproven ("looks a bit unclean with the text"). The logo gets its own section, separate from page directions.
 
+## Design history and Rufus's reactions (read before the visual round)
+
+All drafts were published to one artifact link, redeployed each time: https://claude.ai/artifact/Qq8iMaSEk3diuEihrcLhT6 (its version history keeps every draft). Sources are saved in `docs/brand/briefs/`. Open them locally in a browser.
+
+| Draft | What it was | Rufus's reaction |
+|---|---|---|
+| 1 (artifact v1–2) | All-mono "plain text" page, cream paper, vermilion seal, three near-identical directions. Source not kept. | Rejected. "The colour feels off, kind of boring." The directions didn't inspire. Way Into AI had more personality and better spacing, and its headings weren't just mono. |
+| 2 (v3) `briefs/2026-10-02-draft-2-six-directions.html` | Story, hero options, feel, mood board, six full-hero directions: 1 manual, 2 field guide, 3 dojo, 4 poster, 5 notebook, 6 editorial. | **Direction 1 (blue, clean) is the one he likes**; saved standalone at `docs/brand/direction-1-manual.html`. Direction 4 is interesting: the big type and the little ASCII syntax picture in the corner, but not the yellow. Bits of 5 could be used, but it didn't excite him. 2, 3 and 6 didn't land. Six options was too many. |
+| 3 (v4) `briefs/2026-10-02-draft-3-identity-first.html` | Line, feel, three logos side by side, one full front page (direction 1 "warmed up" with some of 4). | Rejected as a direction. Warming up 1 lost the blue clean look he liked. The three options varied only by logo. The brush `#` mark is "really interesting" and is kept as the live logo candidate, though it looks a bit unclean beside text. |
+
+**Keep**
+- Direction 1: blue `#2449d8`, clean, Source Serif headline with an italic blue phrase, JetBrains Mono caps labels, line diagram on a dotted grid, "Fig. 001" labels.
+- Way Into AI's markdown-style headings (`##` marker in the accent, mono heading text), its spacing and its personality.
+- Direction 4's ASCII syntax picture as a detail; maybe its headline energy.
+- The brush `#` as a logo candidate.
+- The headline "Markdown is eating the world."
+- His three-circle sketch (easy to publish / control your content / grows when you need it to) as a figure.
+
+**Kill**
+- Cream and vermilion.
+- All-mono everything.
+- Yellow pages.
+- Warming direction 1 into peach and green.
+- Elaborate 3D or WebGL animation.
+- More than three options at a time.
+- Options that differ only by logo.
+
+**References and what he took from each**
+- makingsoftware.com: elegant and explanatory, diagrams; "a really beautiful website". The model for a "how formats work" section (bead wom-w74).
+- Wikimedia Thank You 2019 header (https://upload.wikimedia.org/wikipedia/donate/9/9a/Thank_You_2019_Header.svg): the beautiful isometric illustration and its colour. Direction 2 didn't capture it.
+- code.storage: the page looks like markdown source, with `#` headings and ASCII tables. Its 3D blob is "far too elaborate for what we want".
+- Notion: the bar for polish and accessibility ("doesn't look anywhere near as good as Notion").
+- Way Into AI brief (https://claude.ai/artifact/DLpmX593GvBX214vHLxCb9): the process that worked. Directions side by side, story settled first.
+
 ## Settled so far
 
 - **Name.** The Way of Markdown (2026-07, [[naming]]).
