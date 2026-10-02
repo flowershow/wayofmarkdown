@@ -69,15 +69,15 @@ You can learn markdown, and you can learn the tooling around it. But what will a
 
 Markdown is in the empty middle of Rufus's three circles (sketch: `docs/brand/three-circles-sketch.png`). Other formats get two of the three. Markdown gets all of them:
 
-1. **Easy.** Easy to write, read and use, and easy to publish. The key part is less obvious: it's so simple that **every tool can implement it**. Any developer can add markdown support in an afternoon. "Everyone can use it" is the wrong version of this point, because for years most people didn't. It was geeky. Machines took to it first, and AI most of all.
+1. **Easy.** Easy to write, read and use, and easy to publish. The key part is less obvious: it's so simple that **every tool can implement it**. "Everyone can use it" is the wrong version of this point, because for years most people didn't. It was geeky. Machines took to it first, and AI most of all.
 2. **You own it.** It's plain text in files you hold, open, readable in fifty years, and no app can lock it up.
 3. **It grows when you need it to.** Tables, frontmatter, wikilinks, fenced blocks (mermaid, maths, data), raw HTML. You start with a note and end up with a site, a catalog or a database without changing format.
 
 The ecosystem follows from 1 and 2. Every tool can implement it and nobody owns it, so the tools multiply and they compose. You don't get one app that does everything. You chain tools: Obsidian to write, Git for history, a publisher to put it online. That gets you *most* of what Notion or WordPress does, and some things they can't, such as owning the files, versioning everything and swapping any piece. Honest limit: real-time co-editing and polished databases are still weaker.
 
-### The story: the worse format won
+### The story: the tools caught up (why it's called the Way)
 
-This is the innovator's dilemma (Christensen). Markdown was clearly less capable than Word, Google Docs or Notion. It spread anyway, through the web's text boxes, READMEs and developer tools, because it was cheap for every tool to support. Then AI arrived with a new interface to everything, and that interface speaks markdown. The underdog is now the default. This story goes in the Why area and in a blog post (wom-bc1). It explains the headline without lecturing.
+The format didn't change much. The tools around it did. Markdown's first UX was a text box on the web, plus READMEs and developer tools. Over twenty years an ecosystem of tools, much of it open source, kept improving: Obsidian with live preview, WYSIWYG editors, static site publishers, Git hosting, and now AI that writes markdown by default. Each tool may still be a bit behind its closed rival (Obsidian versus Notion, say), but it gets better every year. Together they compose into something no single app offers. That ecosystem, and the practice of putting it together to do what you need, is **the way** in the Way of Markdown. The story goes in the Why area and in a blog post (wom-bc1).
 
 ### Value proposition (for a visitor)
 
@@ -120,7 +120,7 @@ Headline agreed. The hero copy is the narrative above, compressed: easy to use, 
 - "It started as a geeky shortcut for web text boxes. Now AI speaks it and the tools keep coming. Find out how it won, and how to make it work for you."
 - "Easy to use, easy to extend, a huge ecosystem of tools, and you own it. Find out how to make it work for you."
 
-Rejected: "Everything you do in Notion…" (untrue; most, not everything), "Here's why" (didactic), "so simple everyone can use it" (wrong point), "one open format, an ecosystem of tools that compose" (explanation, not message), "the format unlocks an ecosystem" ("of what?").
+Rejected: "Everything you do in Notion…" (untrue; most, not everything), "Here's why" (didactic), "so simple everyone can use it" (wrong point), "one open format, an ecosystem of tools that compose" (explanation, not message), "the format unlocks an ecosystem" ("of what?"), "the worse format won" (compares absolutes; the story is the tools improving).
 
 ## Sign-off
 
