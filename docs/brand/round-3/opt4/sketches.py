@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """Hand-drawn style sketches for option 3. Ink lines with a wobble filter, pastel fills, Patrick Hand lettering."""
-INK="#161616"; SKY="#bfe0f5"; GRASS="#cfe8c6"; SAND="#f1dfae"; RED="#e4572e"; BLUE="#ff5a00"; WHITE="#fffdf5"
-HAND='font-family="Patrick Hand,Comic Sans MS,cursive"'
+INK="#111"; SKY="#ffd3bb"; GRASS="#ffe6d6"; SAND="#f3e6c3"; RED="#ff5a00"; BLUE="#ff5a00"; WHITE="#fff"
+HAND='font-family="JetBrains Mono,ui-monospace,Menlo,monospace"'
 DEFS='''<defs><filter id="wob" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="1.6" xChannelSelector="R" yChannelSelector="G"/></filter></defs>'''
 def svg(vb,body,label):
-    return f'<svg viewBox="{vb}" fill="none" stroke="{INK}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" {HAND} aria-label="{label}">{DEFS}<g filter="url(#wob)">{body}</g></svg>'
+    return f'<svg viewBox="{vb}" fill="none" stroke="{INK}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" {HAND} aria-label="{label}">{DEFS}<g>{body}</g></svg>'
 def fig(x,y,s=1.0,face=1,arm="down",shirt=None):
     """stick figure, head top at (x,y). s scale."""
     h=10*s
@@ -27,7 +27,7 @@ def arrow(x1,y1,x2,y2):
     a=math.atan2(y2-y1,x2-x1); l=7
     return f'<path d="M{x1} {y1} Q{(x1+x2)/2+6} {(y1+y2)/2-6} {x2} {y2}"/><path d="M{x2} {y2} l{-l*math.cos(a-0.5):.1f} {-l*math.sin(a-0.5):.1f} M{x2} {y2} l{-l*math.cos(a+0.5):.1f} {-l*math.sin(a+0.5):.1f}"/>'
 def label(x,y,t,size=11,anchor="middle",color=INK):
-    return f'<text x="{x}" y="{y}" font-size="{size}" text-anchor="{anchor}" fill="{color}" stroke="none">{t}</text>'
+    return f'<text x="{x}" y="{y}" font-size="{max(7.5,size-1.5)}" letter-spacing=".06em" text-anchor="{anchor}" fill="{color}" stroke="none">{t.upper() if size>=10 else t}</text>'
 
 out={}
 # HERO: one file, any tool, still yours
@@ -48,8 +48,7 @@ b.append(arrow(170,100,288,60)); b.append(arrow(172,108,298,118)); b.append(arro
 b.append(fig(540,120,0.9,-1,"up"))
 b.append(label(547,208,"!",14,"middle",RED))
 # caption in sketch
-b.append(label(300,250,"ONE FILE. ANY TOOL. STILL YOURS.",15))
-out["HERO"]=svg("0 0 600 262","".join(b),"Sketch: a person holds a file called notes.md; arrows lead from it to a website, Obsidian, a phone, an AI chat and a git history box; a second person reads the website.")
+out["HERO"]=svg("0 0 600 236","".join(b),"Sketch: a person holds a file called notes.md; arrows lead from it to a website, Obsidian, a phone, an AI chat and a git history box; a second person reads the website.")
 
 # FORCES: two people pushing a wheel
 b=[]
@@ -61,8 +60,7 @@ b.append(f'<path d="M150 40 q50 -30 100 0" /><path d="M250 40 l-8 -6 M250 40 l-9
 b.append(f'<path d="M250 200 q-50 30 -100 0" /><path d="M150 200 l8 6 M150 200 l9 -4"/>'+label(200,232,"MORE TOOLS",10))
 b.append(f'<rect x="362" y="118" width="34" height="30" rx="5" fill="{SAND}"/><circle cx="373" cy="130" r="2.4" fill="{INK}" stroke="none"/><circle cx="385" cy="130" r="2.4" fill="{INK}" stroke="none"/><path d="M370 140h14M379 118v-7"/>'+label(379,166,"AI, LATE",10)+label(379,178,"TO THE PARTY",9))
 b.append(f'<path d="M358 130 l-18 -4" stroke-dasharray="3 3"/>')
-b.append(label(200,262,"HOW A FORMAT ATE THE WORLD",14))
-out["FORCES"]=svg("0 0 420 272","".join(b),"Sketch: two people, labelled people and tools, push a wheel round between them; more writers lead to more tools and back; a small robot labelled AI joins late.")
+out["FORCES"]=svg("0 0 420 246","".join(b),"Sketch: two people, labelled people and tools, push a wheel round between them; more writers lead to more tools and back; a small robot labelled AI joins late.")
 
 # ICONS for six cards
 out["ICON_NOTION"]=svg("0 0 120 90",page(20,14,50,60,"",3)+f'<rect x="60" y="30" width="46" height="46" rx="3" fill="{SKY}"/><path d="M60 45h46M60 60h46M75 30v46M90 30v46" stroke-width="1.2"/>'+label(60,86,"docs + a little database",9),"Sketch: a page and a small table")
@@ -82,9 +80,7 @@ b.append(f'<rect x="160" y="60" width="300" height="26" fill="{SAND}" stroke="no
 for x,t in [(200,"FILE"),(290,"HOUSE"),(400,"PET")]: b.append(label(x,78,t,11))
 for i,(n,h,c) in enumerate([("malfoy","Slytherin","-"),("potter","Gryffindor","Hedwig (owl)"),("granger","Gryffindor","Crookshanks")]):
     y=104+i*26; b.append(label(200,y,n,10,"middle",BLUE)); b.append(label(290,y,h,10)); b.append(label(400,y,c,10))
-b.append(label(310,196,"THREE FILES = ONE TABLE",14))
-b.append(label(310,212,"(Obsidian Bases draws it. Dataview did for years.)",9))
-out["TABLE"]=svg("0 0 480 222","".join(b),"Sketch: three markdown files with frontmatter become one table with columns file, house and pet.")
+out["TABLE"]=svg("0 0 480 196","".join(b),"Sketch: three markdown files with frontmatter become one table with columns file, house and pet.")
 
 # SCALE sketch: what you give up
 b=[]
@@ -93,8 +89,7 @@ b.append(f'<path d="M80 90 l-30 50 h60 z" fill="{SAND}"/><path d="M280 70 l-30 5
 b.append(label(80,156,"YOU GIVE UP",11)); b.append(label(80,170,"live multiplayer",9)); b.append(label(80,182,"page permissions",9)); b.append(label(80,194,"huge databases",9))
 b.append(label(280,136,"YOU GET",11)); b.append(label(280,150,"your files, forever",9)); b.append(label(280,162,"any tool, any time",9)); b.append(label(280,174,"no rent, no export button",9))
 b.append(fig(368,140,0.7,-1,"up"))
-b.append(label(180,214,"HONESTLY, IT TIPS. BUT NOT FOR EVERYONE.",13))
-out["SCALE"]=svg("0 0 400 226","".join(b),"Sketch: a balance scale. The light side lists what you give up: live multiplayer, page permissions, huge databases. The heavy side lists what you get: your files forever, any tool any time, no rent.")
+out["SCALE"]=svg("0 0 400 206","".join(b),"Sketch: a balance scale. The light side lists what you give up: live multiplayer, page permissions, huge databases. The heavy side lists what you get: your files forever, any tool any time, no rent.")
 
 import pathlib
 pathlib.Path("sketches.html").write_text("\n".join(f"<!--{k}-->\n{v}\n<!--/{k}-->" for k,v in out.items()))
