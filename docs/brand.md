@@ -5,27 +5,29 @@ publish: false
 
 # The Way of Markdown
 
-Brand, narrative and visual identity. Draft 2, 2026-10-02 (draft 1 same day, rejected on visuals), distilled from [[vision]], [[naming]], the manifesto drafts, the voice profile and the tai chi work. Brief (draft 2: story, hero, feel, mood board, six directions): https://claude.ai/artifact/Qq8iMaSEk3diuEihrcLhT6 Decisions still open are marked **[open]**.
+Brand, narrative and visual identity. Draft 3, 2026-10-02 (drafts 1 and 2 same day, superseded), distilled from [[vision]], [[naming]], the manifesto drafts, the voice profile and the tai chi work. Brief (draft 3: line, feel, three logos side by side, one full front page): https://claude.ai/artifact/Qq8iMaSEk3diuEihrcLhT6 Decisions still open are marked **[open]**.
 
 ## Narrative
 
-> The format unlocks an ecosystem.
+Headline (agreed 2026-10-02): **Markdown is eating the world.**
 
-Markdown matters because of what grows on it. This site is not another guide to markdown; it is the guide to the markdown ecosystem and how to do your work on it. Three threads (Rufus, 2026-10-02):
+Subline **[open, recommended]**: "One open format, and an extraordinary ecosystem of tools around it, from AI chat to your website. Because the format is open, the tools work together. Here's the way."
 
-- **Manifesto, why, vision.** Markdown is eating the world. Why open formats matter; file over app; why a common format lets tools and people connect. The manifesto, `why.md`, the ecosystem map (bead wom-3m1).
-- **The way. The centre of the site.** Do your work on markdown: replace Notion, run your docs, publish a site, keep a garden, build a catalog, from files you own. Guides by use case, tutorials, the roadmap, markdown in every app.
-- **Mechanics. How formats work.** What a text format is, why it sits between storage and tools, how markdown builds up from blocks, why it is extensible, where it stops. Making Software register (bead wom-w74).
+The idea: **one open format, an ecosystem of tools that compose.** It is the Unix idea applied to documents: small tools that each do one thing well, with plain text between them. Write in one tool, publish with another, and let an AI edit the file in a third. Draft 2's "the format unlocks an ecosystem" was rightly met with "of what?". The answer is tools. "Compose with anything" was reaching for the Unix point.
 
-Rufus's sketch: three circles, easy to publish / control your content / can extend and grow when you need to, with "nothing here" in the middle. Markdown-based work is what goes in the middle. That triad is the promise.
+Sign-off **[open, recommended]**: **Openness is the way.** Footer line and the manifesto's closing line. "Own the source" stays inside the manifesto as an argument.
 
-Draft 1's narrative paragraph ("Markdown is a great format. What matters is what it lets you build...") was judged too long and weak for a hero. Kept here only as the ad-length explanation, not the headline.
+Three threads (Rufus, 2026-10-02):
 
-## Hero
+- **Manifesto, why, vision.** Markdown is eating the world. Why open formats matter, file over app, the ecosystem map (bead wom-3m1).
+- **The way. The centre of the site.** Do your work on markdown: replace Notion, run your docs, publish a site, keep a garden, build a catalog.
+- **Mechanics.** How text formats work and why markdown is extensible. Making Software register (bead wom-w74).
 
-**[open, recommended]** Headline: **Markdown is eating the world.** Rufus's own line, already in the manifesto. Subline, first draft: "One plain-text format now runs your notes, your docs, your website and every AI chat. Here's the way to do your work on it, and why that's a good idea." One primary CTA (roadmap), one secondary (ten-minute basics). Alternatives in the brief: "Plain text with superpowers." (basics banner), "One format. Every tool.", "Own the source." (manifesto closing line).
+Rufus's three-circle sketch is the promise: easy to publish, control your content, grows when you need it to. Markdown sits in the empty middle. It becomes the "Why it works" figure on the front page.
 
-With a headline this strong the hero needs no two-part tagline; "Own the source" moves to the manifesto and footer.
+## Feel
+
+Warm, clear, a bit geeky, open. Made by a person who is excited about this. Like Notion's friendliness, Wikipedia's openness, Making Software's clarity, and a poster's confidence in the headline. Not a technical manual, a terminal, a SaaS landing page, a monastery, or anything elaborate for its own sake (Rufus on code.storage: "far too elaborate for what we want").
 
 ## Promise
 
@@ -51,12 +53,6 @@ Decided 2026-10-02. The identity is a practice tradition: ink, paper, patience, 
 
 Not: kung fu, kicks, loud colour, "eating the world" in the header.
 
-## Feel
-
-Added 2026-10-02 from Rufus's note. Fun and cool and accessible, the way Notion is. Slightly geekier than that, the way Wikipedia is slightly geekier than Britannica, and for the same reason: it is open, and much of its ecosystem is free. Not austere, not a terminal, not a developer docs site. The practice-tradition calm is the body; the fun is on the surface, in the illustrations, the mark and the voice.
-
-Reference for the surface: the Wikimedia "Thank You 2019" header (https://upload.wikimedia.org/wikipedia/donate/9/9a/Thank_You_2019_Header.svg). Flat vector, black ink outlines, four flat colours on warm grey, isometric panels full of small figures doing things.
-
 ## Illustration system
 
 One per thing you can build: a site, a blog, a garden, a catalog, the Notion-shaped thing, a team's docs. Isometric panels in the Wikimedia style, ink outline, flat fills, small figures writing, linking and publishing. Hand-drawn SVG, versioned in the repo, never AI-generated. Illustrations may use two or three flat colours beyond the accent (indigo, green, orange are the Wikimedia set; ours to be chosen with the accent); the UI keeps to one accent. The same language draws the explainer video, so the two jobs share one style.
@@ -65,15 +61,27 @@ One per thing you can build: a site, a blog, a garden, a catalog, the Notion-sha
 
 Unchanged. Mostly flat, SEO slugs: guides `markdown-<x>`, per-app `markdown-in-<x>`, tutorials in `learn/`, reference in `kb/`, philosophy at `why` and `manifesto`. See AGENTS.md.
 
-## Visual identity **[open]**
+## Logo **[open, recommended A]**
 
-Draft 1 (all-mono, cream paper, vermilion seal) rejected 2026-10-02: colour dead next to the current green, directions too similar, no personality. Lesson: pair faces (structure in one, voice in another, as Way Into AI does), and use colour with life in it.
+Three options in the brief, side by side:
 
-Draft 2 explores six directions, each a full hero in its own type and colour (brief, "Six directions"): 1 the manual (Making Software register: serif body, mono caps labels, cobalt line diagrams on dotted grid); 2 the field guide (Wikimedia flat-vector illustration, warm grey, indigo/orange/green/red, heavy sans); 3 the dojo (Instrument Serif, ink figure huge, vermilion seal); 4 the poster (Bricolage Grotesque on yellow, syntax as texture); 5 the notebook (ruled paper, Plex Mono, highlighter, hand-lettered annotations, Rufus's sketch as the language); 6 the editorial (WAI formula with Fraunces, teal, mustard).
+- **A. Brush hash (recommended).** Markdown's `#`, written in four brush strokes with a loaded start and a dry tail. The `#` says markdown and the brush says "the way". It holds at 16 px. It writes itself once on load. The same glyph is the heading marker site-wide, so the logo is a system rather than a badge. Source: `docs/brand/hash-brush.svg`, generated by `docs/brand/hash-brush-gen.py`.
+- **B. Blocks.** Four glyph tiles (`#` `*` `>` `-`) in green, orange, indigo and mustard that rearrange into a line, a column and a square. It's fun, but tile logos are common and at 16 px no markdown is left in it.
+- **C. Practitioner.** The ink tai chi figure pressing out of an orange sun. It's warm and human, but it says nothing about markdown. Better as the site's character (hero, 404, manifesto, press kit) than as the logo.
 
-Recommended to develop: 1, 2, 5, with a 5+1 hybrid as the likely answer (notebook sketches for how ideas arrive, cobalt diagrams for how they get explained, field-guide illustrations atop use-case guides).
+## Visual identity **[open, recommended]**
 
-Rules that survive from draft 1: hairlines over cards, no AI imagery, the site visibly made by a person, one accent in the UI with more colour allowed in illustration. Sibling rule: Way Into AI is mono structure, Newsreader serif, cool paper, editor's blue, `##` markers. Ours must differ in kind.
+Drafts 1 and 2 are superseded. Draft 1 was all-mono with cream paper and a vermilion seal, and read as boring. Draft 2 showed six directions. Rufus found direction 1 (manual) the closest but cold, blue and technical. Direction 4 (poster) had energy and a good ASCII detail, though the yellow was too much. He wants no more than three options at a time, and judges best on full pages.
+
+Draft 3 front page is direction 1 combined with some of direction 4, warmed up:
+
+- **Type.** Bricolage Grotesque 800 for display (from 4). Source Serif 4 for body. JetBrains Mono for labels, code and headings.
+- **Headings.** Markdown-style, as on Way Into AI and code.storage: mono uppercase with the brush hash as the marker, coloured green, orange or indigo per section.
+- **Colour.** Warm paper `#fbf8f2`, ink `#1d1b19`, green `#1f8f62` as the UI accent, and orange `#ec7a3c` for highlights. Illustration fills are mint `#d3ecdf`, peach `#fbdcc8`, lavender `#dde0f4` and butter `#fff3d6`.
+- **Graphics.** Flat fills with ink outlines, figure labels ("Fig. 001"), a dotted grid behind the hero, and an ASCII ecosystem diagram. Motion is small: the mark draws itself, and a few glyphs travel along the hero diagram's lines.
+- **Sections.** Hero with the one-file-many-tools figure. "One open format" with the Unix paragraph, tool chips and the ASCII diagram. "What will you build?" as a six-cell grid with icons. "One file, two views" (raw and rendered). "Why it works" (the three-circle figure). "Start here" (three steps). Footer reads "~ Openness is the way ~".
+
+The sibling constraint with Way Into AI is dropped (Rufus: people won't visit both).
 
 ## Mark and animation
 
