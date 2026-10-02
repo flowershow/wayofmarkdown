@@ -7,6 +7,8 @@ publish: false
 
 Brand, narrative and visual identity. Draft 3, 2026-10-02 (drafts 1 and 2 same day, superseded), distilled from [[vision]], [[naming]], the manifesto drafts, the voice profile and the tai chi work. Brief (draft 3: line, feel, three logos side by side, one full front page): https://claude.ai/artifact/Qq8iMaSEk3diuEihrcLhT6 Decisions still open are marked **[open]**.
 
+**Sequence (beads under wom-b5o, each blocks the next):** 1 narrative (wom-b5o.1) → 2 visual round from direction 1 (wom-b5o.2) → 3 logo (wom-b5o.3) → 4 implement (wom-b5o.4). Subline (wom-bm9) and explainer (wom-b5o.6) wait on narrative; hero animation (wom-b5o.5) waits on logo.
+
 **Start here (next session).** The visual work is ahead of the story. Before more design, resolve the Synthesis and Tensions sections below. Everything else in this doc is current, but downstream of that.
 
 **Visual baseline: direction 1, blue and clean.** Rufus likes it: `docs/brand/direction-1-manual.html` (screenshot alongside). It's from brief draft 2: Source Serif headline with an italic blue phrase, JetBrains Mono caps labels, cobalt `#2449d8` line diagram on a dotted grid, figure numbers. Draft 3 "warmed it up" and lost it; that was a misreading of his feedback. The next visual round starts from this file, not from draft 3. The brush `#` mark is unproven ("looks a bit unclean with the text"). The logo gets its own section, separate from page directions.
@@ -101,7 +103,7 @@ Unchanged. Mostly flat, SEO slugs: guides `markdown-<x>`, per-app `markdown-in-<
 
 ## Logo **[open; nothing recommended]**
 
-Rufus on draft 3: the brush `#` might work at the top of the page but looks unclean beside text. Treat all three as unproven. The logo should be explored in its own section, after the page direction.
+Rufus on draft 3: the brush `#` is "really interesting", might work at the top of the page, but looks a bit unclean beside text. It's the live candidate to develop. The other two are unproven. The logo is explored in its own session, after the page direction (bead wom-b5o.3).
 
 
 Three options in the brief, side by side:
