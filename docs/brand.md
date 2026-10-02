@@ -51,7 +51,7 @@ All drafts were published to one artifact link, redeployed each time: https://cl
 
 - **Name.** The Way of Markdown (2026-07, [[naming]]).
 - **Headline.** **Markdown is eating the world.** (agreed 2026-10-02)
-- **Narrative (draft 2).** Two linked stories: builders chose the format (easy, open, extensible), so the tools grew up, so you can switch. "The Way" is both a guide and a philosophy. See Narrative.
+- **Narrative (draft 3).** "Markdown is simple enough that every tool can build on it, and now the tools are good enough that you can switch." See Narrative.
 - **Feel.** Warm, clear, a bit geeky, open, made by a person who is excited about this. See Feel below.
 - **Not the point.** Markdown the syntax. Flowershow stays secondary ([[vision]]).
 
@@ -59,64 +59,65 @@ All drafts were published to one artifact link, redeployed each time: https://cl
 
 You can learn markdown, and you can learn the tooling around it. But what will actually excite people is **seeing it applied to an area they care about**: how to switch from Notion to markdown, how Obsidian works, the note-taking ecosystem, publishing a site. People come for an application, not for a format. The job of the story is to make those application pages hang together as one coherent idea.
 
-## Narrative (draft 2 for Rufus to review, 2026-10-02, wom-b5o.1)
+## Narrative (draft 3 for Rufus to review, 2026-10-02, wom-b5o.1)
 
 Source: Rufus's dictation, verbatim in `docs/raw/2026-10-02-brand-dictation.md`. Quote from there when writing the Why pages, the explainer or the blog post.
 
+### The joining sentence
+
+> Markdown is simple enough that every tool can build on it, and now the tools are good enough that you can switch.
+
+(Draft, from the 2026-10-02 critique round.) The first half is why it's everywhere. The second half is why that matters to you. Every page on the site sits somewhere in that sentence.
+
 ### The claim
 
-**Markdown is eating the world.** It's meant to make people ask "what is that?". Underneath, the site is calmer and practical, and that gap is deliberate. The claim is checkable: AI chat answers in markdown, Notion and Google Docs import and export it, and GitHub, Obsidian and most docs tools run on it.
+**Markdown is eating the world.** It's meant to make people ask "what is that?". Underneath, the site is calmer and practical, and that gap is deliberate. The claim is checkable: AI chat answers in markdown, Google Docs imports and exports it, and GitHub, Obsidian and most docs tools run on it.
 
-### Two linked stories
+### The story: how it ate the world
 
-Nobody cares about formats, any more than they care about TCP/IP. You care about what it enables. Markdown is one of the rare cases where the format made the difference, because of what grew on top of it. Two stories, one leading into the other:
+This is the key non-obvious point and the spine of the site. It's a candidate for the explainer animation (wom-b5o.6) and the blog post (wom-bc1). Nobody cares about formats, any more than they care about TCP/IP. You care about what it enables. Markdown is one of the rare cases where the format made the difference, because of what grew on top of it. The chain:
 
-**1. Why builders chose it (the format story).** Rufus's three circles (`docs/brand/three-circles-sketch.png`) are really the builder's proposition. Markdown sits in the middle:
+1. **It was simple enough for every tool to support.** Plain, limited, closer to CSV than to JSON, and so hackable that any tool could add it. It started in the web's text boxes, READMEs and developer tools.
+2. **Builders chose it.** Easy to build on, open so no one controls it, and extensible so they could add what they needed (tables, frontmatter, wikilinks, fenced blocks, raw HTML) without breaking it for anyone else.
+3. **So the tools multiplied and kept getting better.** The first markdown UX was a bare text box. Now there's Obsidian with live preview and bases, WYSIWYG editors, publishers, Git hosting. Some of it is open source (Pandoc, static site generators, Git), some closed but file-based (Obsidian). Each tool may still be a step behind its closed rival, but the gap closes every year: compare Obsidian with what writing markdown looked like ten years ago.
+4. **Now AI.** Language models write markdown almost by default, and chat and voice are becoming a new interface to everything. That's the latest and biggest push, and the reason markdown is suddenly everywhere rather than only among geeks.
+5. **So you can switch.** The ecosystem has matured. You can do most of what you do in Notion, Google Docs or WordPress with markdown tools, combining them instead of living inside one monolithic app, and keep the files.
 
-- **Easy.** Simple enough that every tool can implement it, and simple enough for a person to type by hand. It's closer to CSV than to JSON: limited, plain and hackable, and the limits are why everyone could build on it.
-- **Open.** Nobody owns it. A tool builder isn't locked into a format someone else controls, and neither are the people using the tool.
-- **Extensible.** It grows: tables, frontmatter, wikilinks, fenced blocks (mermaid, maths, data), raw HTML. Builders can add what they need without breaking it for everyone else.
+Steps 1 and 2 are the builders' story, and Rufus's three circles (`docs/brand/three-circles-sketch.png`: easy, open, extensible, with markdown in the middle) are its figure, used on the Why page. Steps 3 to 5 are the reader's story and lead on the front page. A non-technical reader doesn't need steps 1 and 2 to act, and "simple enough to type by hand" sounds like a chore to them.
 
-**2. What that means for you (the tools story).** Because every tool could build on it, a big ecosystem grew: some of it open source (Pandoc, static site generators, Git), some closed but file-based (Obsidian). The tools started out worse. Markdown's first UX was a text box on the web. They kept improving: Obsidian with live preview and WYSIWYG editing, bases and catalogues, static site publishers, Git hosting. Some are still a step behind their closed rivals (Obsidian versus Notion, say), but the gap closes every year. **The ecosystem has now matured. You can switch.** That result is what a non-technical reader cares about.
+### Value proposition
 
-Telling these two stories in order, format then tools then you, is also the spine of the explainer animation (wom-b5o.6).
+The only public list. Everything else in this doc is internal structure.
 
-### AI: why now
+- **Easy.** You can learn it in under ten minutes, AI already writes it, and it goes further than you think.
+- **A whole ecosystem of tools.** Whatever you want to do (notes, docs, a site, a catalogue, a Notion replacement), there are good tools for it, and you can combine them instead of being stuck in one monolithic app.
+- **It's yours, and it grows with you.** Plain files you own, so you're free to switch, upgrade and adapt, and it grows from a note to a site to a database without changing format.
 
-AI is the latest and biggest chapter of story 2. Language models write markdown by default. Chat tools render it, agents read and write it, and voice and chat are becoming a new interface to everything, and that interface speaks markdown. If your stuff is in markdown, it's ready for AI. For some readers this is the only reason they'll come: they want the format because it's what AI speaks. That's a good way in.
+The offer, in Rufus's words: how to do the workflows you already want using markdown, and why it's showing up everywhere.
 
 ### Why "the Way" (two meanings)
 
 1. **A guide.** A practical way of organising your tooling: what to adopt and what to use for notes, docs, a site or a catalogue. The site is, at heart, a how-to guide, with an edge.
 2. **A philosophy.** Openness and simplicity, the Unix idea that simple pieces beat complex monoliths like Notion or Google Docs. If your stuff is in markdown, you're always free to upgrade, switch and adapt (to the next tool, or to AI). The Obsidian "file over app" idea.
 
-Like the Tao, it's a philosophy and also something you practise, and the site holds both. The way covers all the markdown-based ways to get things done, shown one application at a time, rather than one recipe for composing tools.
-
-### The Notion comparison
-
-Notion's trick was docs *plus*: small databases and catalogues where each page is a record, all in one fluid space for a wiki, a personal knowledge base and team docs. Markdown can do both halves. A markdown file is a document, and with frontmatter it's also a database record ([[markdown-database]]). Obsidian bases and Flowershow catalogues build on that, and their UX is catching up. So markdown is a real competitor to Notion for most of what people use it for ([[markdown-notion-alternative]]). The honest limits (real-time co-editing, how polished the databases feel) belong on that page, checked rather than assumed.
-
-### Value proposition (for a visitor)
-
-The result of the two stories, in the reader's terms:
-
-- **Easy to use.** Learn it in ten minutes, and AI already writes it.
-- **A mature ecosystem.** Whatever you want to do (notes, docs, a site, a catalogue, a Notion replacement) there are good tools for it, and they work together.
-- **You own it.** Plain files, so you're free to switch, upgrade and adapt.
-
-What the site gives you: the markdown-based ways to do what you already do, and enough of the why to choose well.
+Like the Tao, it's a philosophy and also something you practise. The way covers all the markdown-based ways to get things done, shown one application at a time, rather than one recipe for composing tools.
 
 ### Areas
 
-Three. The claim joins them: each area takes one angle on "markdown is eating the world".
+Three. Each maps to part of the joining sentence and to one meaning of the Way.
 
-| Area | What's in it | Visitor's question |
-|---|---|---|
-| **Use it** | Applications and switching: Obsidian, notes, publish a site, team docs, a catalogue, leave Notion. The centre of the site. | "Can I do my thing this way?" |
-| **Learn it** | The format, nuts and bolts: basics, extensions, markdown in each app, why AI speaks it. | "What is this, and how far does it go?" |
-| **Why** | The claim argued: manifesto, the two stories, AI, the ecosystem map (wom-3m1). | "What's going on, and why should I care?" |
+| Area | What's in it | Visitor's question | Maps to |
+|---|---|---|---|
+| **Use it** | Applications and switching: Obsidian, notes, publish a site, team docs, a catalogue, leave Notion. The centre of the site. | "Can I do my thing this way?" | "you can switch"; the Way as guide |
+| **Learn it** | The format, nuts and bolts: basics, extensions, markdown in each app, why AI speaks it. The ground floor of the guide. | "What is this, and how far does it go?" | "simple enough"; the Way as guide |
+| **Why** | The story above in full, the three circles, AI, the manifesto, the ecosystem map (wom-3m1). | "What's going on, and why should I care?" | "every tool can build on it"; the Way as philosophy |
 
-People arrive through **Use it** or **Learn it** (a search for "Obsidian publish" or "markdown for ChatGPT"), and some go on to **Why**. The front page reverses this: claim first, then the ways in.
+People arrive through **Use it** or **Learn it** (a search for "Obsidian publish" or "markdown for ChatGPT"), and some go on to **Why**. The front page reverses this: claim, then the reader's story, then the ways in.
+
+### Audience on the page
+
+- **The early sweet spot** (Obsidian users, people partway in, evangelists) already believes the format story. What they get is the practical guide to go further, and the page they send their Notion-loving team. Write pages to be forwarded.
+- **The wider non-technical audience** gets steps 3 to 5 and the value proposition first. The builders' story waits on the Why page for anyone who wonders why.
 
 ### Tone
 
@@ -124,20 +125,23 @@ Invitational, not didactic: "find out why", never "here's why". Intriguing over 
 
 ### Tensions, resolved
 
-1. **Manifesto headline versus practice name.** "The Way" carries both meanings: the philosophy (the claim, the Why area) and the practice (the guide, Use it). The headline is loud on purpose. The rest of the site is practical.
-2. **Format brand versus application content.** The format is the one thing every application page shares, and story 1 explains why it matters even to people who don't care about formats. The front page's first action is still an application.
-3. **Three threads versus one story.** Two linked stories (format, then tools) under one claim, presented as three areas.
+1. **Manifesto headline versus practice name.** "The Way" carries both meanings: the philosophy (the claim, the Why area) and the practice (the guide, Use it and Learn it). The headline is loud on purpose. The rest of the site is practical.
+2. **Format brand versus application content.** The story explains why the format matters even to people who don't care about formats. The front page's first action is still an application.
+3. **Three threads versus one story.** One joining sentence, one story (the chain above), three areas.
 4. **Calm versus fun.** Narrative side: fun lives in the headline, the story and the voice, and the body stays calm and practical. The visual split is for the visual round (wom-b5o.2).
 5. **Breadth versus entry.** One list does both jobs. The front page's list of things you can do is the evidence that markdown is eating the world, and each item is a way in.
 
 ### Hero
 
-Headline agreed. The hero compresses the narrative: easy to use, easy to extend, a huge ecosystem (easy for machines, especially AI), open so you own it. Exact subline wording is deliberately loose: it's easy to change, and wordsmithing it before the page exists was a dead end (2026-10-02). Candidates, none chosen:
+Headline agreed. Under it, the hero compresses the reader's story and the value proposition. Exact subline wording is deliberately loose: it's easy to change, and wordsmithing it before the page exists was a dead end (2026-10-02). The joining sentence is itself a subline candidate. Others, none chosen:
 
 - "It started as a geeky shortcut for web text boxes. Now AI speaks it and the tools keep coming. Find out how it happened, and how to make it work for you."
-- "Easy to use, easy to extend, a huge ecosystem of tools, and you own it. Find out how to make it work for you."
 
-Rejected: "Everything you do in Notion…" (untrue; most, not everything), "Here's why" (didactic), "so simple everyone can use it" (wrong point: every *tool*), "one open format, an ecosystem of tools that compose" (explanation, not message), "the format unlocks an ecosystem" ("of what?"), "the worse format won" (compares absolutes; the story is the tools improving), "the way is composing tools" (too narrow; the way is all the markdown-based ways of doing things).
+Rejected: "Everything you do in Notion…" (untrue; most, not everything), "Here's why" (didactic), "so simple everyone can use it" (wrong point: every *tool*), "one open format, an ecosystem of tools that compose" (explanation, not message), "the format unlocks an ecosystem" ("of what?"), "the worse format won" (compares absolutes; the story is the tools improving), "the way is composing tools" (too narrow), "created by a couple of geeks in a weekend" (unsourced; Gruber with Swartz's input, 2004).
+
+### Claims status
+
+Confirmed by Rufus 2026-10-02: Google Docs imports and exports markdown; LLMs write markdown almost by default; you can learn the basics in under ten minutes; the tools gap closes every year. To check before publishing: Notion's current markdown import and export.
 
 ## Sign-off
 
