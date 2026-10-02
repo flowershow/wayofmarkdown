@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Hand-drawn style sketches for option 3. Ink lines with a wobble filter, pastel fills, Patrick Hand lettering."""
-INK="#111"; SKY="#ffd3bb"; GRASS="#ffe6d6"; SAND="#f3e6c3"; RED="#ff5a00"; BLUE="#ff5a00"; WHITE="#fff"
+INK="#111"; SKY="#ffd3bb"; GRASS="#ffe6d6"; SAND="#f0f0f0"; RED="#ff5a00"; BLUE="#ff5a00"; WHITE="#fff"
 HAND='font-family="JetBrains Mono,ui-monospace,Menlo,monospace"'
 DEFS='''<defs><filter id="wob" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="1.6" xChannelSelector="R" yChannelSelector="G"/></filter></defs>'''
 def svg(vb,body,label):

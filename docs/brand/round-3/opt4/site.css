@@ -70,8 +70,8 @@ footer{max-width:1040px;margin:0 auto;padding:24px clamp(20px,8vw,96px);font-fam
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 
 /* sketches, cleaned up: cream panel, square corners, orange edge, site fonts */
-:root{--cream:#fdf7df;--cream-edge:#ff5a00}
-.sketch{background:var(--cream);border:1px solid var(--cream-edge);border-radius:0;padding:12px 14px 12px;margin:0}
+:root{--cream:#fff;--cream-edge:#ff5a00;--dot:#d6d6d6}
+.sketch{background:var(--cream) radial-gradient(var(--dot) .9px,transparent .9px);background-size:9px 9px;border:1px solid var(--cream-edge);border-radius:0;padding:12px 14px 12px;margin:0}
 .sketch .t{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;text-align:left;margin:0 0 8px;color:var(--acc);font-weight:500}
 .sketch .t::before{content:"FIG. " counter(fig) " · ";}
 .sketch{counter-increment:fig}
@@ -83,8 +83,8 @@ body{counter-reset:fig}
 .centre h2,.centre .sub{text-align:center}
 .centre .sub{margin-left:auto;margin-right:auto}
 .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:24px}
-.card{background:var(--cream);border:1px solid var(--cream-edge);padding:18px 18px 16px;min-width:0;display:flex;flex-direction:column;gap:6px;text-align:center}
-.card:hover{background:#fff3d8}
+.card{background:var(--cream) radial-gradient(var(--dot) .9px,transparent .9px);background-size:9px 9px;border:1px solid var(--cream-edge);padding:18px 18px 16px;min-width:0;display:flex;flex-direction:column;gap:6px;text-align:center}
+.card:hover{border-width:2px;padding:17px 17px 15px}
 .card .n{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--acc)}
 .card svg{height:96px;width:100%}
 .card svg text{display:none}
