@@ -10,24 +10,37 @@
 body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--serif);padding-block:0 40px;padding-inline:16px}
 .bar{position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);border-bottom:1px solid var(--accent);padding:12px 0;margin:0 -16px 16px;padding-inline:16px;display:flex;gap:16px;align-items:center;flex-wrap:wrap;font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);z-index:2}
 .bar a{color:var(--accent);border:1px solid var(--accent);padding:6px 10px;text-decoration:none}
+.bar button{font:inherit;letter-spacing:inherit;text-transform:inherit;color:var(--accent);background:transparent;border:1px solid var(--accent);padding:6px 10px;cursor:pointer}
+.bar button[aria-pressed="true"]{background:var(--accent);color:#fff}
+.bar .grp{display:flex;gap:6px;margin-left:auto}
+body.full .pair{grid-template-columns:1fr;max-width:none}
+body.full .frame{aspect-ratio:auto;height:calc(100vh - 120px);max-width:1280px}
+body.full .frame iframe{width:100%;height:100%;transform:none!important}
 .intro{max-width:72ch;font-size:16px;line-height:1.5;margin:0 0 18px}.intro p{margin:0 0 8px}
 .col{margin:0 0 48px}
 .col h2{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;margin:0 0 6px;color:var(--accent)}
 .col .d{font-size:15px;line-height:1.45;color:var(--muted);margin:0 0 10px;max-width:72ch}
 .col .d a{color:var(--accent)}
-.frame{border:1px solid var(--rule);background:#fbfbfa;overflow:hidden;position:relative;aspect-ratio:1280/3300;max-width:1280px}
+.pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;max-width:1280px}
+.pair h3{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;font-weight:500;color:var(--muted);margin:0 0 6px}
+.frame{border:1px solid var(--rule);background:#fbfbfa;overflow:hidden;position:relative;aspect-ratio:1280/3300}
 .frame iframe{border:0;width:1280px;height:3300px;transform-origin:0 0;position:absolute;left:0;top:0}
+@media (max-width:760px){.pair{grid-template-columns:1fr}}
 .open{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin:8px 0 0}
 .open a{color:var(--accent);margin-right:16px}
 </style>
-<div class="bar"><b>Visual round 3 · three feels, two pages each</b><span><a href="#a">1</a> <a href="#b">2</a> <a href="#c">3</a></span></div>
+<div class="bar"><b>Visual round 3 · three feels, two pages each</b><span><a href="#a">1</a> <a href="#b">2</a> <a href="#c">3</a></span><span class="grp"><button data-l="side" aria-pressed="true">Side by side</button><button data-l="full">Full size, one after another</button></span></div>
 <div class="intro">
-  <p>Three front pages from three different references, stacked at full size. Each has the same headline shape and the same content, and each links to the same guide ("Replacing Notion with Markdown") rendered in its style. Open the guide links to judge the reading pages, which matter as much as the front.</p>
+  <p>Three front pages from three different references, stacked at full size. Each has the same headline shape and the same content, and each links to the same guide ("Replacing Notion with Markdown") rendered in its style. Front page on the left, the guide on the right, both scaled to fit; the links below each pair open them full size.</p>
 </div>
-<div class="col" id="a"><h2>1 · The manual, warmed</h2><p class="d">From makingsoftware and the Wikimedia header. Blue, serif, numbered line figures, one isometric panel with people. The reference option. <a href="opt1/notion.html" target="_blank">Open the Notion guide in this style ↗</a></p><div class="frame"><iframe src="opt1/home.html" title="Option 1"></iframe></div><p class="open"><a href="opt1/home.html" target="_blank">Open front page on its own ↗</a></p></div>
-<div class="col" id="b"><h2>2 · The textbook</h2><p class="d">From Devouring Details. A white sheet on a grey ground, big grotesk, orange as the only colour (the one alternative to blue), a side ruler and a chip on the running line. <a href="opt2/notion.html" target="_blank">Open the Notion guide in this style ↗</a></p><div class="frame"><iframe src="opt2/home.html" title="Option 2"></iframe></div><p class="open"><a href="opt2/home.html" target="_blank">Open front page on its own ↗</a></p></div>
-<div class="col" id="c"><h2>3 · The sketchbook</h2><p class="d">From Sketchplanations. Clean white page and plain sans; every bit of personality and colour lives in hand-drawn sketches on cream cards. Hand lettering only inside the sketches. <a href="opt3/notion.html" target="_blank">Open the Notion guide in this style ↗</a></p><div class="frame"><iframe src="opt3/home.html" title="Option 3"></iframe></div><p class="open"><a href="opt3/home.html" target="_blank">Open front page on its own ↗</a></p></div>
+<div class="col" id="a"><h2>1 · The manual, warmed</h2><p class="d">From makingsoftware and the Wikimedia header. Blue, serif, numbered line figures, one isometric panel with people. The reference option.</p><div class="pair"><div><h3>Front page</h3><div class="frame"><iframe src="opt1/home.html" title="Option 1 front page"></iframe></div></div><div><h3>Guide page: Replacing Notion</h3><div class="frame"><iframe src="opt1/notion.html" title="Option 1 guide page"></iframe></div></div></div><p class="open"><a href="opt1/home.html" target="_blank">Front page full size ↗</a><a href="opt1/notion.html" target="_blank">Guide full size ↗</a></p></div>
+<div class="col" id="b"><h2>2 · The textbook</h2><p class="d">From Devouring Details. A white sheet on a grey ground, big grotesk, orange as the only colour (the one alternative to blue), a side ruler and a chip on the running line.</p><div class="pair"><div><h3>Front page</h3><div class="frame"><iframe src="opt2/home.html" title="Option 2 front page"></iframe></div></div><div><h3>Guide page: Replacing Notion</h3><div class="frame"><iframe src="opt2/notion.html" title="Option 2 guide page"></iframe></div></div></div><p class="open"><a href="opt2/home.html" target="_blank">Front page full size ↗</a><a href="opt2/notion.html" target="_blank">Guide full size ↗</a></p></div>
+<div class="col" id="c"><h2>3 · The sketchbook</h2><p class="d">From Sketchplanations. Clean white page and plain sans; every bit of personality and colour lives in hand-drawn sketches on cream cards. Hand lettering only inside the sketches.</p><div class="pair"><div><h3>Front page</h3><div class="frame"><iframe src="opt3/home.html" title="Option 3 front page"></iframe></div></div><div><h3>Guide page: Replacing Notion</h3><div class="frame"><iframe src="opt3/notion.html" title="Option 3 guide page"></iframe></div></div></div><p class="open"><a href="opt3/home.html" target="_blank">Front page full size ↗</a><a href="opt3/notion.html" target="_blank">Guide full size ↗</a></p></div>
 <script>
-(function(){function scale(){document.querySelectorAll('.frame').forEach(function(f){var s=f.clientWidth/1280;f.querySelector('iframe').style.transform='scale('+s+')';});}
-window.addEventListener('resize',scale);scale();})();
+(function(){
+function scale(){if(document.body.classList.contains('full'))return;document.querySelectorAll('.frame').forEach(function(f){var s=f.clientWidth/1280;f.querySelector('iframe').style.transform='scale('+s+')';});}
+function layout(l){document.body.classList.toggle('full',l==='full');document.querySelectorAll('.bar button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.l===l?'true':'false');});scale();try{localStorage.setItem('wom-r3-layout',l);}catch(e){}}
+document.querySelectorAll('.bar button').forEach(function(b){b.addEventListener('click',function(){layout(b.dataset.l);});});
+window.addEventListener('resize',scale);
+var l='side';try{l=localStorage.getItem('wom-r3-layout')||'side';}catch(e){}layout(l);})();
 </script>
