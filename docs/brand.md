@@ -9,7 +9,7 @@ Brand, narrative and visual identity. Draft 3, 2026-10-02 (drafts 1 and 2 same d
 
 **Sequence (beads under wom-b5o, each blocks the next):** 1 narrative (wom-b5o.1) → 2 visual round from direction 1 (wom-b5o.2) → 3 logo (wom-b5o.3) → 4 implement (wom-b5o.4). Subline (wom-bm9) and explainer (wom-b5o.6) wait on narrative; hero animation (wom-b5o.5) waits on logo.
 
-**Start here (next session).** The visual work is ahead of the story. Before more design, resolve the Synthesis and Tensions sections below. Everything else in this doc is current, but downstream of that.
+**Start here (next session).** The narrative is drafted (see Narrative below, 2026-10-02). Once Rufus signs it off, next is the visual round from direction 1 (wom-b5o.2).
 
 **Visual baseline: direction 1, blue and clean.** Rufus likes it: `docs/brand/direction-1-manual.html` (screenshot alongside). It's from brief draft 2: Source Serif headline with an italic blue phrase, JetBrains Mono caps labels, cobalt `#2449d8` line diagram on a dotted grid, figure numbers. Draft 3 "warmed it up" and lost it; that was a misreading of his feedback. The next visual round starts from this file, not from draft 3. The brush `#` mark is unproven ("looks a bit unclean with the text"). The logo gets its own section, separate from page directions.
 
@@ -51,6 +51,7 @@ All drafts were published to one artifact link, redeployed each time: https://cl
 
 - **Name.** The Way of Markdown (2026-07, [[naming]]).
 - **Headline.** **Markdown is eating the world.** (agreed 2026-10-02)
+- **Synthesis (draft).** Easy (so simple every tool can implement it), you own it, it grows when you need it to. See Narrative.
 - **Feel.** Warm, clear, a bit geeky, open, made by a person who is excited about this. See Feel below.
 - **Not the point.** Markdown the syntax. Flowershow stays secondary ([[vision]]).
 
@@ -58,54 +59,76 @@ All drafts were published to one artifact link, redeployed each time: https://cl
 
 You can learn markdown, and you can learn the tooling around it. But what will actually excite people is **seeing it applied to an area they care about**: how to switch from Notion to markdown, how Obsidian works, the note-taking ecosystem, publishing a site. People come for an application, not for a format. The job of the story is to make those application pages hang together as one coherent idea.
 
-## Synthesis **[open, the main open question]**
+## Narrative (draft for Rufus to review, 2026-10-02, wom-b5o.1)
 
-Way Into AI has two areas (**Use AI**, **Understand AI**) and one sentence that pulls them together: "You can't make sense of AI without using it, and you can't use it well without making sense of it." This site needs the equivalent. Right now it has three threads and no sentence joining them.
+### The claim
 
-The three threads:
+**Markdown is eating the world.** It's happening, and you can see it: AI chat answers in it, Notion and Google Docs import and export it, GitHub, Obsidian and every docs tool run on it. The headline states something you can check. It isn't a call to arms.
 
-- **Manifesto, why, vision.** Markdown is eating the world. Why open formats matter, file over app, the ecosystem map (bead wom-3m1).
-- **The way: applications.** The centre of the site, and per Rufus the thing people will get excited about. Leave Notion, how Obsidian works, notes, docs, a site, a garden, a catalog.
-- **Mechanics.** How text formats work and why markdown is extensible. Making Software register (bead wom-w74).
+### Why it's winning
 
-Draft lines so far, none accepted:
+Markdown is in the empty middle of Rufus's three circles (sketch: `docs/brand/three-circles-sketch.png`). Other formats get two of the three. Markdown gets all of them:
 
-- "One open format, an ecosystem of tools that compose." (draft 3; the Unix idea applied to documents). Good as an explanation, but not what Rufus is trying to tell people.
-- "The format unlocks an ecosystem." (draft 2) Met with "of what?".
+1. **Easy.** Easy to write, read and use, and easy to publish. The key part is less obvious: it's so simple that **every tool can implement it**. Any developer can add markdown support in an afternoon. "Everyone can use it" is the wrong version of this point, because for years most people didn't. It was geeky. Machines took to it first, and AI most of all.
+2. **You own it.** It's plain text in files you hold, open, readable in fifty years, and no app can lock it up.
+3. **It grows when you need it to.** Tables, frontmatter, wikilinks, fenced blocks (mermaid, maths, data), raw HTML. You start with a note and end up with a site, a catalog or a database without changing format.
 
-Shapes worth trying next session, not yet tested:
+The ecosystem follows from 1 and 2. Every tool can implement it and nobody owns it, so the tools multiply and they compose. You don't get one app that does everything. You chain tools: Obsidian to write, Git for history, a publisher to put it online. That gets you *most* of what Notion or WordPress does, and some things they can't, such as owning the files, versioning everything and swapping any piece. Honest limit: real-time co-editing and polished databases are still weaker.
 
-- **Arc.** Come for the thing you care about (Notion, notes, a site), learn the format on the way, and understand why it works. Application, then format, then why.
-- **Two areas, like WAI.** *Use markdown* (applications plus basics) and *Understand markdown* (mechanics plus manifesto), joined by one sentence. That collapses three threads into two.
-- **Promise first.** Rufus's three-circle sketch: easy to publish, control your content, grows when you need it to. Markdown sits in the empty middle, and each application page shows one corner of it.
+### The story: the worse format won
 
-## Tensions to resolve
+This is the innovator's dilemma (Christensen). Markdown was clearly less capable than Word, Google Docs or Notion. It spread anyway, through the web's text boxes, READMEs and developer tools, because it was cheap for every tool to support. Then AI arrived with a new interface to everything, and that interface speaks markdown. The underdog is now the default. This story goes in the Why area and in a blog post (wom-bc1). It explains the headline without lecturing.
 
-1. **Manifesto headline versus practice name.** "Markdown is eating the world" is a big evangelist claim. "The Way of Markdown" is a craft tradition. The naming doc warned against manifesto-speak on the landing page; the agreed headline is exactly that. They can coexist if the site is "the claim, then the way", but that needs saying on purpose.
-2. **Format brand versus application content.** The logo, headings and headline are all about markdown, the format. The pages people will love are about Notion, Obsidian and notes. How much should the brand be about the format at all?
-3. **Three threads versus one story.** No synthesis sentence yet (see above).
-4. **Calm versus fun.** The attitude is "calm body, cheeky edge" (tai chi). The feel asks for Notion-level fun and accessibility, and Rufus liked the poster's energy. These pull in different directions.
-5. **Breadth versus entry.** The ecosystem thesis wants to show everything. Visitors arrive through one use case. The front page has to do both without becoming a directory.
+### Value proposition (for a visitor)
 
-## Hero subline **[open]**
+What you get by working this way:
 
-Weak; bead wom-bm9. Draft 3's attempt: "One open format, and an extraordinary ecosystem of tools around it, from AI chat to your website. Because the format is open, the tools work together. Here's the way." Rewrite once the synthesis is settled.
+- **Easy to use.** Learn it in ten minutes, and AI already writes it for you.
+- **A huge ecosystem.** Whatever you want to do, there's a tool for it, and the tools work together.
+- **You own it.** Your files, any tool, no lock-in.
+
+What the site gives you: the way to do the things you already do (notes, docs, a website, a team wiki, leaving Notion) with markdown tools, plus enough understanding of the format and why it's winning to make good choices.
+
+### Areas
+
+Three, following Rufus's list. The claim joins them: each area takes one angle on "markdown is eating the world".
+
+| Area | What's in it | Visitor's question |
+|---|---|---|
+| **Use it** | Applications and switching: leave Notion, how Obsidian works, notes, publish a site, team docs, a catalog. The centre of the site. | "Can I do my thing this way?" |
+| **Learn it** | The format, nuts and bolts: basics, extensions, how markdown appears in each app, why AI speaks it. | "What is this, and how far does it go?" |
+| **Why** | The claim argued: manifesto, vision, the worse-format-won story, the ecosystem map (wom-3m1). | "Why is this happening, and why should I care?" |
+
+People arrive through **Use it** (a search for "Notion to markdown"), pick up **Learn it** along the way, and some go on to **Why**. The front page reverses this: claim first, then the ways in.
+
+### Tone
+
+Invitational, not didactic. "Find out why", never "here's why". Intriguing over explanatory: a line should make people want the next one. Honest limits, always ("most of what Notion does", never "everything"). The excitement is unironic, Rufus's own.
+
+### Tensions, resolved
+
+1. **Manifesto headline versus practice name.** The order is claim, then way. The headline observes what's happening, and the rest of the site is the practice of joining in. Manifesto energy stays in the headline and the Why area. The other areas are practical.
+2. **Format brand versus application content.** The brand is about the format because the format is the one thing all the application pages share. The front page's first action is an application, so the format brand never stands between a visitor and what they came for.
+3. **Three threads versus one story.** Three areas joined by the claim (above).
+4. **Calm versus fun.** Narrative side: fun lives in the headline, the story and the voice, and the body stays calm and practical. How that splits in the visuals is for the visual round (wom-b5o.2).
+5. **Breadth versus entry.** One list does both jobs. The front page's list of things you can do is the evidence that markdown is eating the world, and each item is a way in.
+
+### Hero
+
+Headline agreed. The hero copy is the narrative above, compressed: easy to use, easy to extend, a huge ecosystem (easy for machines, especially AI), open so you own it. Exact subline wording is deliberately loose. It's easy to change, and wordsmithing it before the page exists was a dead end (2026-10-02). Candidates so far, none chosen:
+
+- "It started as a geeky shortcut for web text boxes. Now AI speaks it and the tools keep coming. Find out how it won, and how to make it work for you."
+- "Easy to use, easy to extend, a huge ecosystem of tools, and you own it. Find out how to make it work for you."
+
+Rejected: "Everything you do in Notion…" (untrue; most, not everything), "Here's why" (didactic), "so simple everyone can use it" (wrong point), "one open format, an ecosystem of tools that compose" (explanation, not message), "the format unlocks an ecosystem" ("of what?").
 
 ## Sign-off
 
 No sign-off decided. "Openness is the way" was an idea Rufus threw out, not a pick. "Own the source" stays inside the manifesto as an argument.
 
-## Promise sketch
-
-Rufus's three circles: easy to publish, control your content, grows when you need it to. Markdown sits in the empty middle. Drawn as "Why it works" on the draft-3 front page.
-
 ## Feel
 
 Warm, clear, a bit geeky, open. Made by a person who is excited about this. Like Notion's friendliness, Wikipedia's openness, Making Software's clarity, and a poster's confidence in the headline. Not a technical manual, a terminal, a SaaS landing page, a monastery, or anything elaborate for its own sake (Rufus on code.storage: "far too elaborate for what we want").
-
-## Promise
-
-Go from zero to a published thing you own, and understand why that was a good idea.
 
 ## Audience
 
