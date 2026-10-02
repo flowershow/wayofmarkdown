@@ -106,3 +106,11 @@ On the three-circle sketch (`three-circles-sketch.png`):
 > This website has been planned for years, and it's coming out now. AI has really changed the world, but it's still worth shipping and announcing it. I think at the moment, though, it would have been even more valuable two years ago, but hey, that's life.
 >
 > On that point, I'm pretty sure Notion supports it. I've used Notion to export Markdown. I think Dump, originally, was pure Markdown when you downloaded files, so yeah, I'm pretty sure it does.
+
+## 8. Joining sentence too long; two forces, not a line; AI didn't cause it
+
+> The joining sentence seems to have got really long now. The old joining sentence, I thought, was shorter. This joining sentence: Markdown is simple enough that people can write it. Every tool, I thought, was clear. Even a stronger one is that every tool can write and talk Markdown, especially AI. Now the tools are good enough that you can switch to Markdown-based tooling for a lot of things. That's weak: for a lot of things. I don't know.
+>
+> When I said TLDR, I meant really the concise stuff here. You've given me a lot, but okay. The point of trying to tell the story is that it's not a linear story. It's like two things coming together. It's simple for people and for tools: two distinct things, but I get it that you have to do a linear 1, 2, 3, 4, 5. It's not really like 4. I don't think AI is mean. Why is it everywhere? I'm not sure people are even noticing. Honestly, I don't think that's the case with AI. Why am I suddenly everywhere? No, it was everywhere before AI. I wrote this story before AI happened. I'm not sure AI makes it even easier.
+>
+> By the way, some people may arrive from the "why" just to say, "Comment on three errors." I think some people, more in the markdown area, which is actually quite an initial core group, would actually come to this site for the story, that kind of argument, and the thesis and the inspiration of that. The point about the site would have been even more useful two years ago. It's just about a change of what's happening with AI, and I'm not sure we need to mention that on the site, or if it needs to be in this brand narrative.

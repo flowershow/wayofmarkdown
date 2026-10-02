@@ -51,7 +51,7 @@ All drafts were published to one artifact link, redeployed each time: https://cl
 
 - **Name.** The Way of Markdown (2026-07, [[naming]]).
 - **Headline.** **Markdown is eating the world.** (agreed 2026-10-02)
-- **Narrative (draft 3).** "Markdown is simple enough that people can write it and every tool can build on it, and now the tools are good enough that you can switch." See Narrative.
+- **Narrative (draft 4).** Two forces (simple for people, simple for tools) fed each other until markdown was everywhere; the tools matured, so you can switch. See Narrative.
 - **Feel.** Warm, clear, a bit geeky, open, made by a person who is excited about this. See Feel below.
 - **Not the point.** Markdown the syntax. Flowershow stays secondary ([[vision]]).
 
@@ -59,15 +59,17 @@ All drafts were published to one artifact link, redeployed each time: https://cl
 
 You can learn markdown, and you can learn the tooling around it. But what will actually excite people is **seeing it applied to an area they care about**: how to switch from Notion to markdown, how Obsidian works, the note-taking ecosystem, publishing a site. People come for an application, not for a format. The job of the story is to make those application pages hang together as one coherent idea.
 
-## Narrative (draft 3 for Rufus to review, 2026-10-02, wom-b5o.1)
+## Narrative (draft 4 for Rufus to review, 2026-10-02, wom-b5o.1)
 
 Source: Rufus's dictation, verbatim in `docs/raw/2026-10-02-brand-dictation.md`. Quote from there when writing the Why pages, the explainer or the blog post.
 
-### The joining sentence
+### The joining sentence **[open: pick one]**
 
-> Markdown is simple enough that people can write it and every tool can build on it, and now the tools are good enough that you can switch.
+Previous draft ("simple enough that people can write it and every tool can build on it, and now the tools are good enough that you can switch") was too long. Short candidates:
 
-(Draft, from the 2026-10-02 critique round.) The first half is why it's everywhere. The second half is why that matters to you. Every page on the site sits somewhere in that sentence.
+1. "Simple enough for people to write and every tool to speak. Now the tools are good enough to switch to."
+2. "Simple enough for people to write and every tool to speak, AI included."
+3. "Everyone's tools speak markdown now. Time to switch."
 
 ### The claim
 
@@ -75,15 +77,20 @@ Source: Rufus's dictation, verbatim in `docs/raw/2026-10-02-brand-dictation.md`.
 
 ### The story: how it ate the world
 
-This is the key non-obvious point and the spine of the site. It's a candidate for the explainer animation (wom-b5o.6) and the blog post (wom-bc1). Nobody cares about formats, any more than they care about TCP/IP. You care about what it enables. Markdown is one of the rare cases where the format made the difference, because of what grew on top of it. The chain:
+This is the key non-obvious point and the spine of the site. It's a candidate for the explainer animation (wom-b5o.6) and the blog post (wom-bc1). Nobody cares about formats, any more than they care about TCP/IP. You care about what it enables. Markdown is one of the rare cases where the format made the difference.
 
-1. **It was simple enough for people to write and for tools to support.** People could write it by hand, so web text areas and developer docs systems took it as their source format (Rufus was writing markdown in 2006). And it was plain, limited, closer to CSV than to JSON, and so hackable that any tool could add it. Both mattered: more tools supporting it meant more people using it, and more people knowing it meant more tools supporting it. Today even non-technical people format messages with markdown-style syntax in WhatsApp or Discord. That's critical mass of familiarity.
-2. **Builders chose it.** Easy to build on, open so no one controls it, and extensible so they could add what they needed (tables, frontmatter, wikilinks, fenced blocks, raw HTML) without breaking it for anyone else.
-3. **So the tools multiplied and kept getting better.** The first markdown UX was a bare text box. Now there's Obsidian with live preview and bases, WYSIWYG editors, publishers, Git hosting. Some of it is open source (Pandoc, static site generators, Git), some closed but file-based (Obsidian). Each tool may still be a step behind its closed rival, but the gap closes every year: compare Obsidian with what writing markdown looked like ten years ago.
-4. **Now AI.** Language models write markdown almost by default, and chat and voice are becoming a new interface to everything. That's the latest and biggest push, and the reason markdown is suddenly everywhere rather than only among geeks.
-5. **So you can switch.** The ecosystem has matured. You can do most of what you do in Notion, Google Docs or WordPress with markdown tools, combining them instead of living inside one monolithic app, and keep the files.
+It isn't a straight line. **Two forces met and fed each other:**
 
-Steps 1 and 2 are the builders' story, and Rufus's three circles (`docs/brand/three-circles-sketch.png`: easy, open, extensible, with markdown in the middle) are its figure, used on the Why page. Steps 3 to 5 are the reader's story and lead on the front page. A non-technical reader doesn't need steps 1 and 2 to act. (On the front page, "people can write it" reads as "you already half know it", not as "you'll have to type syntax".)
+- **Simple for people.** Humans could write it by hand, so web text areas and developer docs systems took it as their source format (Rufus was writing markdown in 2006). Familiarity spread: today even non-technical people use markdown-style formatting in WhatsApp or Discord.
+- **Simple for tools.** Plain, limited, closer to CSV than to JSON, open so nobody controls it, extensible so builders could add what they needed. Any tool could support it. Rufus's three circles (`docs/brand/three-circles-sketch.png`: easy, open, extensible) are the builder's view of this.
+
+More people writing it meant more tools supporting it, and more tools meant more people writing it. That flywheel reached critical mass well before AI. Meanwhile the tools kept improving: the first markdown UX was a bare text box, and now there's Obsidian with live preview and bases, WYSIWYG editors, publishers and Git hosting. Some of it is open source (Pandoc, static site generators, Git), some closed but file-based (Obsidian). Each may still be a step behind its closed rival, but the gap closes every year.
+
+**AI amplifies it, and didn't cause it.** Markdown was everywhere before AI. Language models now write it almost by default, which adds one more huge tool that speaks it. That's worth a big item on the site, without claiming AI is the reason.
+
+**The result for you: you can switch.** The ecosystem has matured. Most of what you do in Notion, Google Docs or WordPress you can do with markdown tools, combining them instead of living inside one monolithic app, and keeping the files.
+
+The two forces belong on the Why page. The result leads on the front page.
 
 ### Value proposition
 
@@ -116,10 +123,9 @@ People arrive through **Use it** or **Learn it** (a search for "Obsidian publish
 
 ### Audience on the page
 
-Timing, honestly: the site has been planned for years and would have been even more useful two years ago. AI has changed the world since. It's still worth shipping now, and AI is part of why.
-
 
 - **The early sweet spot** (Obsidian users, people partway in, evangelists) already believes the format story. What they get: the practical guide to go further, discoveries outside their own territory ("I didn't know that tool supports markdown"), and links to send friends and colleagues (how to copy markdown out of Google Docs, how to leave Notion). Write pages to be forwarded.
+- **The markdown core group** (an important early audience) may come for the Why itself: the thesis, the story, the inspiration. The Why area is a destination, not only background.
 - **The wider non-technical audience** gets steps 3 to 5 and the value proposition first. The builders' story waits on the Why page for anyone who wonders why.
 
 ### Tone
