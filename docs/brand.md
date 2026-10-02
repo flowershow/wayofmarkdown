@@ -71,13 +71,13 @@ Source: Rufus's dictation, verbatim in `docs/raw/2026-10-02-brand-dictation.md`.
 
 Nobody cares about formats, any more than they care about TCP/IP. You care about what it enables. Markdown is one of the rare cases where the format made the difference, because of what grew on top of it. Two stories, one leading into the other:
 
-**1. Why builders chose it (the format story).** Rufus's three circles (`docs/brand/three-circles-sketch.png`) are really the builder's proposition. Markdown is the only thing in the middle:
+**1. Why builders chose it (the format story).** Rufus's three circles (`docs/brand/three-circles-sketch.png`) are really the builder's proposition. Markdown sits in the middle:
 
 - **Easy.** Simple enough that every tool can implement it, and simple enough for a person to type by hand. It's closer to CSV than to JSON: limited, plain and hackable, and the limits are why everyone could build on it.
 - **Open.** Nobody owns it. A tool builder isn't locked into a format someone else controls, and neither are the people using the tool.
 - **Extensible.** It grows: tables, frontmatter, wikilinks, fenced blocks (mermaid, maths, data), raw HTML. Builders can add what they need without breaking it for everyone else.
 
-**2. What that means for you (the tools story).** Because every tool could build on it, a big ecosystem grew, much of it open source. The tools started out worse. Markdown's first UX was a text box on the web. They kept improving: Obsidian with live preview and WYSIWYG editing, bases and catalogues, static site publishers, Git hosting. Some are still a step behind their closed rivals (Obsidian versus Notion, say), but the gap closes every year. **The ecosystem has now matured. You can switch.** That result is what a non-technical reader cares about.
+**2. What that means for you (the tools story).** Because every tool could build on it, a big ecosystem grew: some of it open source (Pandoc, static site generators, Git), some closed but file-based (Obsidian). The tools started out worse. Markdown's first UX was a text box on the web. They kept improving: Obsidian with live preview and WYSIWYG editing, bases and catalogues, static site publishers, Git hosting. Some are still a step behind their closed rivals (Obsidian versus Notion, say), but the gap closes every year. **The ecosystem has now matured. You can switch.** That result is what a non-technical reader cares about.
 
 Telling these two stories in order, format then tools then you, is also the spine of the explainer animation (wom-b5o.6).
 
@@ -90,7 +90,7 @@ AI is the latest and biggest chapter of story 2. Language models write markdown 
 1. **A guide.** A practical way of organising your tooling: what to adopt and what to use for notes, docs, a site or a catalogue. The site is, at heart, a how-to guide, with an edge.
 2. **A philosophy.** Openness and simplicity, the Unix idea that simple pieces beat complex monoliths like Notion or Google Docs. If your stuff is in markdown, you're always free to upgrade, switch and adapt (to the next tool, or to AI). The Obsidian "file over app" idea.
 
-Like the Tao, it's a philosophy and also something you practise, and the site holds both. The way isn't one recipe for composing tools. It's all the markdown-based ways to get things done, shown one application at a time.
+Like the Tao, it's a philosophy and also something you practise, and the site holds both. The way covers all the markdown-based ways to get things done, shown one application at a time, rather than one recipe for composing tools.
 
 ### The Notion comparison
 
