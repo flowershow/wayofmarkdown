@@ -9,6 +9,8 @@ Brand, narrative and visual identity. Draft 3, 2026-10-02 (drafts 1 and 2 same d
 
 **Start here (next session).** The visual work is ahead of the story. Before more design, resolve the Synthesis and Tensions sections below. Everything else in this doc is current, but downstream of that.
 
+**Visual baseline: direction 1, blue and clean.** Rufus likes it: `docs/brand/direction-1-manual.html` (screenshot alongside). It's from brief draft 2: Source Serif headline with an italic blue phrase, JetBrains Mono caps labels, cobalt `#2449d8` line diagram on a dotted grid, figure numbers. Draft 3 "warmed it up" and lost it; that was a misreading of his feedback. The next visual round starts from this file, not from draft 3. The brush `#` mark is unproven ("looks a bit unclean with the text"). The logo gets its own section, separate from page directions.
+
 ## Settled so far
 
 - **Name.** The Way of Markdown (2026-07, [[naming]]).
@@ -97,7 +99,10 @@ One per thing you can build: a site, a blog, a garden, a catalog, the Notion-sha
 
 Unchanged. Mostly flat, SEO slugs: guides `markdown-<x>`, per-app `markdown-in-<x>`, tutorials in `learn/`, reference in `kb/`, philosophy at `why` and `manifesto`. See AGENTS.md.
 
-## Logo **[open, recommended A]**
+## Logo **[open; nothing recommended]**
+
+Rufus on draft 3: the brush `#` might work at the top of the page but looks unclean beside text. Treat all three as unproven. The logo should be explored in its own section, after the page direction.
+
 
 Three options in the brief, side by side:
 
@@ -105,7 +110,7 @@ Three options in the brief, side by side:
 - **B. Blocks.** Four glyph tiles (`#` `*` `>` `-`) in green, orange, indigo and mustard that rearrange into a line, a column and a square. It's fun, but tile logos are common and at 16 px no markdown is left in it.
 - **C. Practitioner.** The ink tai chi figure pressing out of an orange sun. It's warm and human, but it says nothing about markdown. Better as the site's character (hero, 404, manifesto, press kit) than as the logo.
 
-## Visual identity **[open, recommended]**
+## Visual identity **[open; baseline is direction 1]**
 
 Drafts 1 and 2 are superseded. Draft 1 was all-mono with cream paper and a vermilion seal, and read as boring. Draft 2 showed six directions. Rufus found direction 1 (manual) the closest but cold, blue and technical. Direction 4 (poster) had energy and a good ASCII detail, though the yellow was too much. He wants no more than three options at a time, and judges best on full pages.
 
