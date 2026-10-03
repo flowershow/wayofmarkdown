@@ -3,87 +3,68 @@
 
 Usage: python3 scripts/roadmap-gen.py            # regenerates the SVG inside roadmap.md
 The map is data (scripts/roadmap-map.json); the picture is a generated view of it.
-Status colours: built (solid green), partial (dashed amber), planned (dotted grey).
+Drawn in the site diagram language (scripts/isokit.py): built is a solid orange line,\npartial dashed, planned dotted grey.
 """
 import json
 import html
 import os
 
+import re
+import sys
+sys.path.insert(0, os.path.dirname(__file__))
+from isokit import CSS, Iso, plate, text_on, leader  # noqa: E402
+
 W = 920
 CX = W // 2
-SPINE_W, SPINE_H = 270, 58
-BR_W, BR_H = 205, 42
-STAGE_GAP = 40
-BR_GAP = 12
-BR_XOFF = 90  # gap between spine box edge and branch cluster
-
-STATUS_STYLE = {
-    "built":   'class="rm-node rm-built"',
-    "partial": 'class="rm-node rm-partial"',
-    "planned": 'class="rm-node rm-planned"',
-}
-
-CSS = """
-  .rm-node rect { fill: rgba(34,197,94,0.10); stroke: #22c55e; stroke-width: 2; }
-  .rm-partial rect { fill: rgba(245,158,11,0.10); stroke: #f59e0b; stroke-dasharray: 7 4; }
-  .rm-planned rect { fill: rgba(148,163,184,0.10); stroke: #94a3b8; stroke-dasharray: 2 4; }
-  .rm-node text { fill: currentColor; font: 600 15px system-ui, sans-serif; }
-  .rm-branch text { font-weight: 500; font-size: 13px; }
-  .rm-edge { fill: none; stroke: #94a3b8; stroke-width: 1.5; opacity: 0.7; }
-  .rm-spine-edge { fill: none; stroke: #64748b; stroke-width: 3; }
-  .rm-node:hover rect { stroke-width: 3.5; }
-"""
+PW = 210          # plate length along its x axis (the stage title runs this way)
+THICK = 6
+STAGE_GAP = 16    # vertical space between one plate's bottom and the next plate's top
+LX_LEFT, LX_RIGHT = 214, 706   # where the branch labels' leaders end
+CIRCLED = dict(zip("⓪①②③④⑤⑥⑦⑧⑨", "0123456789"))
+EMOJI = re.compile("[\U0001F000-\U0001FFFF\u2600-\u27BF\u2B00-\u2BFF\uFE0F\u2728]")
 
 
-def node(x, y, w, h, label, url, status, branch=False):
-    cls = STATUS_STYLE[status]
-    extra = " rm-branch" if branch else ""
-    cls = cls.replace('rm-node', 'rm-node' + extra)
-    lines = label.split("\\n")
-    tspans = ""
-    n = len(lines)
-    for i, line in enumerate(lines):
-        dy = y + h / 2 + (i - (n - 1) / 2) * 16 + 5
-        tspans += f'<text x="{x + w / 2}" y="{dy:.0f}" text-anchor="middle">{html.escape(line)}</text>'
-    rect = f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="10"/>'
-    return f'<a href="{url}">{f"<g {cls}>"}{rect}{tspans}</g></a>'
-
-
-def edge(x1, y1, x2, y2, spine=False):
-    cls = "rm-spine-edge" if spine else "rm-edge"
-    if spine:
-        return f'<path class="{cls}" d="M {x1} {y1} L {x2} {y2}"/>'
-    mx = (x1 + x2) / 2
-    return f'<path class="{cls}" d="M {x1} {y1} C {mx} {y1}, {mx} {y2}, {x2} {y2}"/>'
+def clean(label):
+    """Drop emoji; the diagram is mono type and orange line, nothing else."""
+    return EMOJI.sub("", label).strip()
 
 
 def main():
     here = os.path.dirname(__file__)
     data = json.load(open(os.path.join(here, "roadmap-map.json")))
-    parts, y = [], 30
+    parts, y = [], 24
     for stage in data["stages"]:
-        left = [b for b in stage.get("branches", []) if b.get("side") == "left"]
-        right = [b for b in stage.get("branches", []) if b.get("side") != "left"]
-        cluster_h = max(len(left), len(right)) * (BR_H + BR_GAP) - BR_GAP if (left or right) else 0
-        stage_h = max(SPINE_H, cluster_h)
-        sy = y + (stage_h - SPINE_H) / 2
-        if parts:  # spine connector from previous stage
-            parts.append(edge(CX, prev_bottom, CX, sy, spine=True))
-        parts.append(node(CX - SPINE_W / 2, sy, SPINE_W, SPINE_H, stage["label"], stage["url"], stage["status"]))
-        prev_bottom = sy + SPINE_H
-        for side, items in (("left", left), ("right", right)):
-            by = y + (stage_h - (len(items) * (BR_H + BR_GAP) - BR_GAP)) / 2 if items else 0
-            for b in items:
-                bx = CX - SPINE_W / 2 - BR_XOFF - BR_W if side == "left" else CX + SPINE_W / 2 + BR_XOFF
-                ex1 = CX - SPINE_W / 2 if side == "left" else CX + SPINE_W / 2
-                ex2 = bx + BR_W if side == "left" else bx
-                parts.append(edge(ex1, sy + SPINE_H / 2, ex2, by + BR_H / 2))
-                parts.append(node(bx, by, BR_W, BR_H, b["label"], b["url"], b["status"], branch=True))
-                by += BR_H + BR_GAP
-        y += stage_h + STAGE_GAP
-    svg = (f'<svg viewBox="0 0 {W} {y}" xmlns="http://www.w3.org/2000/svg" role="img" '
-           f'aria-label="The Markdown Roadmap" style="width:100%;height:auto;max-width:{W}px">'
-           f'<style>{CSS}</style>{"".join(parts)}</svg>')
+        branches = stage.get("branches", [])
+        left = [b for b in branches if b.get("side") == "left"]
+        right = [b for b in branches if b.get("side") != "left"]
+        k = max(len(left), len(right), 1)
+        pd = max(120, 36 * (k + 1))                # plate depth grows with its branches
+        iso = Iso(CX - (PW - pd) * 0.866 / 2, y)   # centre the plate on the page
+        status = stage["status"]
+        title = clean(stage["label"])
+        num = CIRCLED.get(title[:1], "")
+        title = title[1:].strip() if num else title
+        lines = title.split("\\n")
+        g = [plate(iso, PW, pd, 0, THICK)]
+        if num:
+            g.append(text_on(iso, 18, 34, 0, num, 30, "num"))
+        for i, line in enumerate(lines):
+            g.append(text_on(iso, 18, 56 + i * 17, 0, html.escape(line), 12.5))
+        parts.append(f'<a href="{stage["url"]}"><g class="{status}">{"".join(g)}</g></a>')
+        for side, items in (("L", left), ("R", right)):
+            for i, b in enumerate(items):
+                yy = pd * (i + 1) / (len(items) + 1)
+                px, py = iso.P(0, yy) if side == "L" else iso.P(PW, yy)
+                lx = LX_LEFT if side == "L" else LX_RIGHT
+                lab = leader(px, py, lx, html.escape(clean(b["label"])), side)
+                parts.append(f'<a href="{b["url"]}"><g class="{b["status"]}">{lab}</g></a>')
+        y += (PW + pd) * 0.5 + THICK + STAGE_GAP
+    y -= STAGE_GAP - 24
+    spine = f'<line class="spine" x1="{CX}" y1="40" x2="{CX}" y2="{y - 60:.0f}"/>'
+    svg = (f'<svg class="ik" viewBox="0 0 {W} {y:.0f}" xmlns="http://www.w3.org/2000/svg" role="img" '
+           f'aria-label="The Markdown Roadmap: seven stages from why bother to build your thing, each with side trips" '
+           f'style="width:100%;height:auto;max-width:{W}px">'
+           f'<style>{CSS}</style>{spine}{"".join(parts)}</svg>')
     block = f"""<!-- ROADMAP-SVG-START (generated by scripts/roadmap-gen.py from scripts/roadmap-map.json — edit the data, then regenerate; do not edit the SVG by hand) -->
 <div style="overflow-x:auto">
 {svg}
@@ -95,7 +76,7 @@ def main():
     new = _re.sub(r"<!-- ROADMAP-SVG-START.*?<!-- ROADMAP-SVG-END -->", lambda m: block, page, flags=_re.S)
     assert "ROADMAP-SVG-START" in new, "markers missing in roadmap.md"
     open(out, "w").write(new)
-    print(f"updated roadmap.md ({y}px tall, {sum(len(s.get('branches', [])) + 1 for s in data['stages'])} nodes)")
+    print(f"updated roadmap.md ({y:.0f}px tall, {sum(len(s.get('branches', [])) + 1 for s in data['stages'])} nodes)")
 
 
 if __name__ == "__main__":
