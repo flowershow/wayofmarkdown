@@ -2,7 +2,7 @@
 title: "The Way of Markdown is live"
 description: "A new site about markdown and everything you can build on it — guides, a visual roadmap, a manifesto, and the big list of every app that speaks markdown."
 date: 2026-07-18
-authors: ["Rufus Pollock"]
+authors: ["rufus"]
 ---
 
 # The Way of Markdown is live 🚀

@@ -2,7 +2,7 @@
 title: "New: the visual roadmap (and where it came from)"
 description: "The site's whole learning path is now one clickable, colour-coded picture — generated from a plain-text data file, naturally."
 date: 2026-07-18
-authors: ["Rufus Pollock"]
+authors: ["rufus"]
 ---
 
 # New: the visual roadmap
