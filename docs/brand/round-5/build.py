@@ -31,6 +31,13 @@ def brush(cls, px=None):
     size = f' width="{px}" height="{px}"' if px else ""
     return f'<svg class="{cls}" viewBox="0 0 100 100"{size} aria-hidden="true"><use href="#hash" width="100" height="100" style="fill:var(--ink)"/></svg>'
 
+def bseal(cls, px=None):
+    size = f' width="{px}" height="{px}"' if px else ""
+    return (f'<svg class="{cls}" viewBox="0 0 100 100"{size} aria-hidden="true"><rect width="100" height="100" style="fill:var(--acc)"/>'
+            f'<use href="#hash" x="12" y="12" width="76" height="76" style="fill:#fff"/></svg>')
+F["BSEAL"] = bseal("mk")
+for px in (32, 16):
+    F[f"BSEAL_{px}"] = bseal("fv", px)
 F["PIX"] = pix("mk")
 F["SEAL"] = pix("mk", seal=True)
 F["BRUSH"] = brush("mk")
