@@ -23,6 +23,6 @@ In use: the homepage figure (`docs/brand/round-4/makingsoftware/iso.py`, to be m
 
 ## Motion
 
-Map diagrams can move, gently: the rail's dashes flow downhill, a ball runs the route (round the edge of each stop), dots run out to side trips now and then, and a burst of tracers marks the destination. One loop, about 12 seconds, with rest at the end. Everything moving sits in `<g class="moving">` and is hidden under `prefers-reduced-motion`.
+Map diagrams can move, gently, while the drawing itself stays still: one ball runs the route (round the edge of each stop), each stop lights up as the ball arrives and stays lit, dots run out to that stop's side trips at the same speed (about 80px a second), and a burst of tracers marks the destination. Then a short rest, everything resets, and the loop restarts (about 37 seconds for the roadmap). Everything moving sits in `<g class="moving">` and is hidden under `prefers-reduced-motion`.
 
 **CSS animation only.** SVG's own animation tags (`<animate>`, `<animateMotion>`) break Flowershow pages: the renderer lower-cases them and the rest of the page after the diagram disappears (found 2026-10-03, reverted). Use CSS keyframes, `offset-path` for things that travel along a line, and `stroke-dashoffset` for tracers. See `animation()` in `scripts/roadmap-gen.py`.
