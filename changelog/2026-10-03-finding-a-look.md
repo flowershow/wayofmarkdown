@@ -9,8 +9,6 @@ promote: true
 
 The site has a new look. One orange, a serif for reading and a monospace for structure, headings marked with a `##` the way you'd type them, and a brush-stroke `#` in an orange square for a logo.
 
-![The new front page](/assets/blog/2026-10-03/home.png)
-
 Getting here took two days and more wrong turns than I'd like to admit, so here's the story. Partly because it's useful to me to write down, and partly because "how do you find a look for a thing" is a question I get asked and rarely answer honestly.
 
 ## Where we started
