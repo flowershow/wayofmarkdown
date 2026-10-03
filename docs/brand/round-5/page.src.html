@@ -1,0 +1,382 @@
+<title>Way of Markdown Round 5</title>
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Silkscreen&display=swap">
+<style>
+/* Layout: Way Into AI's system on one grid (text column left, figure right,
+   hairlines between sections), plus three things from Making Software: the
+   dotted-leader contents, the guide sidebar with the pixel name top left, and
+   the exploded figure. Orange: #ff5a00 for marks and drawings, a darker
+   orange for text so links stay readable. */
+:root{
+  --paper:#fbfbf9; --ink:#1b1b1d; --muted:#5f5f66; --rule:#e2e2de; --code:#f2f2ee; --desk:#ecebe7;
+  --acc:#ff5a00; --acc-text:#cc4400;
+  --sheet:#fff;
+  --tint:color-mix(in srgb,var(--acc) 12%,#fff);
+  --tint2:color-mix(in srgb,var(--acc) 26%,#fff);
+  --acc-ink:var(--acc-text);
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --serif:"Newsreader","Iowan Old Style",Charter,Georgia,serif;
+  --pixel:"Silkscreen","IBM Plex Mono",ui-monospace,monospace;
+  color-scheme:light;
+}
+/* One deliberate light look: a mock of a light site. */
+*,*::before,*::after{box-sizing:border-box}
+body{background:var(--desk);color:var(--ink);font-family:var(--mono);font-size:14px;line-height:1.65;margin:0;padding-inline:16px;padding-block:0 64px}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+::selection{background:color-mix(in srgb,var(--acc) 18%,transparent)}
+h1,h2,h3{text-wrap:balance}
+
+/* ---------- brief around the mocks ---------- */
+.brief{max-width:1180px;margin:0 auto}
+.label{color:var(--muted);font-size:.78rem;letter-spacing:.08em;margin:0;text-transform:uppercase}
+.bhead{padding:clamp(2.5rem,6vw,4rem) 0 2rem;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:clamp(2rem,5vw,4rem);border-bottom:1px solid var(--rule)}
+.bhead h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.1rem,4.4vw,3.2rem);line-height:1.08;letter-spacing:-.015em;margin:.8rem 0 1.1rem;max-width:20ch}
+.bhead p.lede{font-family:var(--serif);font-size:1.18rem;line-height:1.5;color:var(--muted);margin:0 0 .8rem;max-width:52ch}
+.checks{list-style:none;margin:.9rem 0 0;padding:0;display:grid;gap:.8rem}
+.checks li{display:grid;grid-template-columns:2.2rem 1fr;gap:0 .5rem}
+.checks li::before{content:"[x]";color:var(--acc-text);font-size:.8rem;grid-row:span 2;padding-top:.1rem}
+.checks li.q::before{content:"[?]"}
+.checks strong{font-weight:600}
+.checks span{color:var(--muted)}
+.bsec{padding:2.5rem 0 1rem}
+.bsec>h2{font-family:var(--mono);font-size:.95rem;font-weight:600;margin:0 0 .5rem}
+.bsec>h2::before{content:"## ";color:var(--acc)}
+.bsec>p{font-family:var(--serif);font-size:1.15rem;line-height:1.5;max-width:64ch;margin:0 0 1.2rem;color:var(--muted)}
+.frame{background:var(--paper);border:1px solid #cfcec9;box-shadow:0 1px 0 #d8d7d2,0 18px 40px -28px rgba(0,0,0,.35);margin:0 0 1rem;overflow:hidden}
+.chrome{display:flex;gap:.6rem;align-items:center;padding:.45rem .8rem;border-bottom:1px solid var(--rule);background:#f4f4f1;font-size:.72rem;color:var(--muted)}
+.chrome i{width:.55rem;height:.55rem;border-radius:50%;background:#d6d5d0;display:inline-block}
+.chrome .tab{display:inline-flex;align-items:center;gap:.4rem;margin-left:.6rem;background:var(--paper);border:1px solid var(--rule);padding:.1rem .6rem;min-width:0;overflow:hidden;white-space:nowrap;color:var(--ink)}
+
+/* ---------- the site ---------- */
+.site{color:var(--ink);font-family:var(--mono);font-size:14px;line-height:1.65;counter-reset:fig}
+.nav{display:flex;flex-wrap:wrap;gap:.6rem 1.6rem;align-items:center;justify-content:space-between;padding:.95rem clamp(1rem,4vw,3rem);border-bottom:1px solid var(--rule)}
+.logo{display:inline-flex;align-items:center;gap:.6rem;text-decoration:none;color:var(--ink)}
+.logo .mk{width:1.25rem;height:1.25rem;flex:none}
+.logo .px{font-family:var(--pixel);font-size:.95rem;letter-spacing:.04em;text-transform:uppercase;line-height:1}
+.logo .px.o{color:var(--acc)}
+.logo .mn{font-weight:600;font-size:.9rem}
+.navlinks{display:flex;flex-wrap:wrap;gap:.3rem 1.4rem;font-size:.82rem}
+.navlinks a{text-decoration:none}
+.navlinks a:hover,.navlinks a.hi{color:var(--acc-text)}
+.sheet{max-width:1120px;margin:0 auto;padding:0 clamp(1rem,5vw,4rem) clamp(2.5rem,5vw,4rem)}
+.site h2.s{font-family:var(--mono);font-size:.95rem;font-weight:600;margin:0 0 1.1rem}
+.site h2.s::before{content:"## ";color:var(--acc)}
+.site .lbl{color:var(--muted);font-size:.78rem;letter-spacing:.08em;margin:0;text-transform:uppercase}
+.site .lbl .m{color:var(--acc)}
+/* one grid for every section: text left, figure right */
+.row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(2rem,5vw,4rem);align-items:center}
+.hero{padding:clamp(2.5rem,6vw,4rem) 0 clamp(2rem,4vw,3rem)}
+.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.4rem,5.2vw,3.9rem);letter-spacing:-.015em;line-height:1.04;margin:.9rem 0 1rem}
+.hero .say{font-family:var(--serif);font-size:clamp(1.35rem,2.4vw,1.75rem);line-height:1.3;margin:0 0 1rem;max-width:24ch}
+.hero .say em{color:var(--acc-text)}
+.lede{color:var(--muted);font-family:var(--serif);font-size:clamp(1.1rem,1.8vw,1.25rem);line-height:1.5;margin:0 0 1.6rem;max-width:44ch}
+.ctas{display:flex;flex-wrap:wrap;gap:.6rem 1.4rem;align-items:center;margin:0}
+.btn{background:var(--ink);color:var(--paper);text-decoration:none;padding:.7rem 1.1rem;font-weight:500}
+.btn:hover{background:var(--acc)}
+.cta{color:var(--acc-text);text-decoration:none}
+.cta::after{content:" →"}
+.cta:hover{text-decoration:underline}
+.sec{border-top:1px solid var(--rule);padding:clamp(2rem,4vw,2.75rem) 0}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem clamp(1.5rem,3vw,2.5rem);list-style:none;margin:0;padding:0;counter-reset:st}
+.steps li{counter-increment:st;display:grid;gap:.3rem}
+.steps li::before{content:counter(st);font-family:var(--serif);font-size:2rem;line-height:1;color:var(--acc)}
+.steps strong{font-family:var(--serif);font-weight:400;font-size:1.35rem;line-height:1.2}
+.steps span{color:var(--muted)}
+.copy p{font-family:var(--serif);font-size:1.2rem;line-height:1.5;margin:0 0 .85rem;max-width:52ch}
+.copy p.more{font-family:var(--mono);font-size:.9rem;display:flex;flex-wrap:wrap;gap:.4rem 1.4rem;margin-top:1.1rem}
+.copy em{color:var(--acc-text)}
+/* dotted-leader contents, after Making Software */
+.contents{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2rem clamp(1.5rem,3vw,2.75rem)}
+.contents h3{font-family:var(--mono);font-weight:500;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;margin:0 0 .8rem;color:var(--muted)}
+.contents h3 b{color:var(--acc);font-weight:500;margin-right:.5rem}
+.contents ul{list-style:none;margin:0;padding:0;display:grid;gap:.55rem}
+.contents li a{display:flex;align-items:baseline;gap:.5rem;text-decoration:none;min-width:0}
+.contents .t{font-family:var(--serif);font-size:1.15rem;line-height:1.3}
+.contents .dots{flex:1;border-bottom:1.5px dotted #b9b8b2;transform:translateY(-.3rem);min-width:1rem}
+.contents .k{font-size:.72rem;letter-spacing:.06em;color:var(--muted);white-space:nowrap}
+.contents li.first .k{color:var(--acc-text)}
+.contents a:hover .t{color:var(--acc-text)}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem 2rem;border-top:1px solid var(--rule);padding:1.2rem clamp(1rem,4vw,3rem);font-size:.8rem;color:var(--muted)}
+
+/* figures: dot-grid panel, orange edge; the opt4 sketches recoloured from the token */
+.fig{margin:0;counter-increment:fig;min-width:0}
+.fig .ft{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 .5rem}
+.fig .ft::before{content:"Fig. " counter(fig) " · ";color:var(--acc)}
+.panel{background:#fff radial-gradient(#d9d8d3 .9px,transparent .9px);background-size:9px 9px;border:1px solid var(--acc);padding:12px 14px}
+.panel svg{display:block;width:100%;height:auto}
+.fig figcaption{color:var(--muted);font-family:var(--serif);font-size:1rem;line-height:1.45;margin:.6rem 0 0;max-width:60ch}
+.site svg [fill="#ff5a00"]{fill:var(--acc)}
+.site svg [stroke="#ff5a00"]{stroke:var(--acc)}
+.site svg [fill="#ffd3bb"]{fill:var(--tint2)}
+.site svg [fill="#ffe6d6"]{fill:var(--tint)}
+.site svg [font-family^="JetBrains"]{font-family:var(--mono)}
+.site svg text[font-family^="Inter"]{font-family:var(--serif)}
+/* the exploded figure (from the round-4 Making Software mock) */
+.iso .side{fill:var(--tint2);stroke:var(--acc);stroke-width:1}
+.iso .pl,.iso .top{fill:var(--sheet);fill-opacity:.94;stroke:var(--acc);stroke-width:1.2}
+.iso .base{fill:var(--tint);stroke:var(--acc);stroke-width:1.2}
+.iso .tint{fill:var(--tint);stroke:var(--acc);stroke-width:1}
+.iso .ln{stroke:var(--acc);stroke-width:1.4;stroke-linecap:round}
+.iso .ln.soft{stroke-opacity:.55}
+.iso .node{fill:var(--tint);stroke:var(--acc);stroke-width:1.2}
+.iso .guide{stroke:var(--acc);stroke-width:1;stroke-dasharray:5 5;opacity:.7}
+.iso .lead{stroke:var(--acc);stroke-width:1}
+.iso .arr{fill:var(--acc)}
+.iso .on{fill:var(--acc-ink);font-family:var(--mono)}
+.iso .lab{fill:var(--acc-ink);font-family:var(--mono);font-size:10px;letter-spacing:.08em}
+
+/* ---------- guide page: Making Software's sidebar, Way Into AI's article ---------- */
+.gp{display:grid;grid-template-columns:15rem minmax(0,44rem);gap:clamp(2rem,5vw,4.5rem);padding:clamp(1.5rem,4vw,2.5rem) clamp(1rem,4vw,3rem) clamp(2.5rem,5vw,4rem)}
+.gside{position:sticky;top:1.5rem;align-self:start;font-size:.85rem}
+.gside .logo{flex-direction:column;align-items:flex-start;gap:.7rem;margin-bottom:2rem}
+.gside .logo .mk{width:1.6rem;height:1.6rem}
+.gside .logo .px{font-size:1.25rem;line-height:1.15;color:var(--acc)}
+.gside h5{font-family:var(--mono);font-weight:500;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:1.4rem 0 .5rem}
+.gside h5 b{color:var(--acc);font-weight:500;margin-right:.4rem}
+.gside ul{list-style:none;margin:0;padding:0;display:grid;gap:.3rem}
+.gside a{text-decoration:none}
+.gside a:hover{color:var(--acc-text)}
+.gside a.on{color:var(--acc-text);font-weight:600}
+.gside ul.sub{margin:.35rem 0 .3rem .9rem;padding-left:.7rem;border-left:1px solid var(--acc);gap:.2rem;font-size:.78rem}
+.gside ul.sub a{color:var(--muted)}
+.ph .crumb{font-size:.8rem;color:var(--muted);margin:0 0 .9rem}
+.ph .crumb a{color:var(--acc-text);text-decoration:none}
+.ph h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.1rem,4.4vw,3.2rem);line-height:1.1;letter-spacing:-.01em;margin:0 0 .8rem}
+.ph .desc{font-family:var(--serif);color:var(--muted);font-size:1.25rem;line-height:1.45;margin:0 0 .9rem}
+.ph .meta{font-size:.8rem;color:var(--muted);margin:0 0 2rem;padding-bottom:1.2rem;border-bottom:1px solid var(--rule)}
+.prose{font-family:var(--serif)}
+.prose :where(p,li){font-size:1.125rem;line-height:1.6}
+.prose p{margin:0 0 1.1em}
+.prose h2{font-family:var(--mono);font-weight:600;font-size:1.05rem;line-height:1.35;margin:2.5em 0 .8em}
+.prose h2::before{content:"## ";color:var(--acc)}
+.prose a{color:var(--acc-text);text-decoration-thickness:1px;text-underline-offset:.18em}
+.prose a:hover{text-decoration-thickness:2px}
+.prose .tw{overflow-x:auto;margin:0 0 1.4em}
+.prose table{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:.85rem;min-width:30rem}
+.prose th{text-align:left;font-weight:600;border-bottom:1px solid var(--ink);padding:.4rem .7rem .4rem 0}
+.prose td{border-bottom:1px solid var(--rule);padding:.5rem .7rem .5rem 0;vertical-align:top}
+.prose td:nth-child(2){white-space:nowrap;color:var(--acc-text)}
+.prose pre{background:var(--code);font-family:var(--mono);font-size:.85rem;line-height:1.6;padding:1rem 1.1rem;overflow-x:auto;margin:0 0 1.4em}
+.prose pre .k{color:var(--acc-text)}
+.prose pre .d{color:var(--muted)}
+.prose .fig{margin:.4em 0 1.8em}
+.prose blockquote{border-left:2px solid var(--acc);margin:0 0 1.4em;padding:.2rem 0 .2rem 1.2rem}
+.prose blockquote ol{padding-left:1.2rem;margin:.4rem 0 .8rem}
+.prose blockquote li{margin-bottom:.5em}
+.prose blockquote .bt{font-family:var(--mono);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 .4rem}
+
+/* ---------- logo comparison ---------- */
+.navs{display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.navrow{background:var(--paper);display:grid;grid-template-columns:minmax(0,1fr) 12rem;align-items:stretch}
+.navrow .nav{border-bottom:0}
+.navrow .fav{display:flex;align-items:center;gap:.8rem;justify-content:flex-end;padding:.6rem 1rem;border-left:1px solid var(--rule);color:var(--muted);font-size:.7rem}
+.navrow .fav span{display:flex;flex-direction:column;align-items:center;gap:.2rem}
+.navrow .what{grid-column:1/-1;border-top:1px solid var(--rule);padding:.7rem clamp(1rem,4vw,3rem) .9rem;font-family:var(--serif);font-size:1.02rem;color:var(--muted);line-height:1.45}
+.navrow .what b{font-family:var(--mono);font-size:.78rem;color:var(--acc);margin-right:.5rem}
+.fv{display:block}
+
+/* ---------- notes ---------- */
+.notes{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.6rem 2.4rem;border-top:1px solid var(--rule);padding-top:1.4rem}
+.notes h3{font-family:var(--serif);font-weight:400;font-size:1.25rem;margin:.3rem 0 .4rem}
+.notes p{margin:0;color:var(--muted);font-family:var(--serif);font-size:1.05rem;line-height:1.45}
+
+@media (max-width:860px){
+  .bhead,.row{grid-template-columns:1fr}
+  .steps,.contents{grid-template-columns:1fr}
+  .gp{grid-template-columns:1fr}
+  .gside{position:static}
+  .navrow{grid-template-columns:1fr}
+  .navrow .fav{border-left:0;border-top:1px solid var(--rule);justify-content:flex-start}
+}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">{{HASH_SYMBOL}}</svg>
+
+<div class="brief">
+ <header class="bhead">
+  <div>
+   <p class="label">The Way of Markdown · visual direction · round 5 · 3 Oct 2026</p>
+   <h1>The direction I'd take: Way Into AI's base, in orange, with three things from Making Software.</h1>
+   <p class="lede">This is my recommendation built out so you can judge it. The front page now sits on one grid, so the old layout and Way Into AI's no longer fight. The guide page takes Making Software's sidebar, with the pixel name top left.</p>
+   <p class="lede">The logo has moved off the brush. It's a pixel # in the same face as the name, so the mark and the name match. The brush is at the bottom for comparison.</p>
+  </div>
+  <div>
+   <p class="label">What's in it</p>
+   <ul class="checks">
+    <li><strong>Way Into AI's type and spacing</strong><span>Newsreader, Plex Mono, ## marks, hairlines, 44rem column.</span></li>
+    <li><strong>Orange, two shades</strong><span>#ff5a00 for marks and drawings, a darker orange for link text.</span></li>
+    <li><strong>The dotted-leader contents</strong><span>Replaces the guide cards on the front page.</span></li>
+    <li><strong>The guide sidebar</strong><span>Pixel name top left, chapters below, this page's sections nested.</span></li>
+    <li><strong>The exploded markdown file</strong><span>As the front-page figure. Other sketches as before.</span></li>
+    <li class="q"><strong>Pixel # logo</strong><span>Three versions in the nav, with the brush for comparison.</span></li>
+   </ul>
+  </div>
+ </header>
+
+ <section class="bsec" id="front">
+  <h2>Front page</h2>
+  <p>Every section uses the same two columns: words left, figure right. The start-here steps get their own row, and the guides are a contents page.</p>
+  <div class="frame"><div class="chrome"><i></i><i></i><i></i><span class="tab">{{PIX_16}}The Way of Markdown</span></div>
+  <div class="site">
+   <nav class="nav"><a class="logo" href="#front">{{PIX}}<span class="px">The Way of Markdown</span></a>
+    <span class="navlinks"><a href="#guide">Use it</a><a href="#front">Learn it</a><a href="#front">Why</a><a href="#front">Manifesto</a><a class="hi" href="#front">Playground</a></span></nav>
+   <main class="sheet">
+    <section class="hero row">
+     <div>
+      <p class="lbl"><span class="m">#</span> Markdown is eating the world</p>
+      <h1>The Way of Markdown</h1>
+      <p class="say">There's a better way to do your notes, docs and site. <em>It's plain text.</em></p>
+      <p class="lede">A practical guide to doing it with files you own, and the philosophy underneath: simple, open, yours.</p>
+      <p class="ctas"><a class="btn" href="#guide">Replace Notion, step by step</a><a class="cta" href="#front">Find out why</a></p>
+     </div>
+     <figure class="fig"><p class="ft">Inside a markdown file</p><div class="panel">{{ISO}}</div><figcaption>A plain text file, its fields, its headings and lists, its links, and the page any tool can show from it.</figcaption></figure>
+    </section>
+
+    <section class="sec">
+     <h2 class="s">Start here</h2>
+     <ol class="steps">
+      <li><strong>Learn the basics</strong><span>Ten minutes. Headings, lists, links. Try it in the playground.</span></li>
+      <li><strong>Pick a tool</strong><span>Obsidian for notes, a publisher for a site. Each guide says what it's good at, and what it isn't.</span></li>
+      <li><strong>Move one thing</strong><span>Export from Notion or Google Docs. Start with one folder, not your whole life.</span></li>
+     </ol>
+    </section>
+
+    <section class="sec">
+     <h2 class="s">Contents</h2>
+     <div class="contents">
+      <div><h3><b>1.</b>Use it</h3><ul>
+       <li class="first"><a href="#guide"><span class="t">A markdown Notion</span><span class="dots"></span><span class="k">start here</span></a></li>
+       <li><a href="#front"><span class="t">Notes</span><span class="dots"></span><span class="k">guide</span></a></li>
+       <li><a href="#front"><span class="t">A website</span><span class="dots"></span><span class="k">guide</span></a></li>
+       <li><a href="#front"><span class="t">A blog</span><span class="dots"></span><span class="k">guide</span></a></li>
+       <li><a href="#front"><span class="t">Team docs and wikis</span><span class="dots"></span><span class="k">guide</span></a></li>
+       <li><a href="#front"><span class="t">A catalogue or database</span><span class="dots"></span><span class="k">guide</span></a></li>
+      </ul></div>
+      <div><h3><b>2.</b>Learn it</h3><ul>
+       <li><a href="#front"><span class="t">The basics</span><span class="dots"></span><span class="k">10 min</span></a></li>
+       <li><a href="#front"><span class="t">The playground</span><span class="dots"></span><span class="k">tool</span></a></li>
+       <li><a href="#front"><span class="t">Markdown in every app</span><span class="dots"></span><span class="k">hub</span></a></li>
+       <li><a href="#front"><span class="t">The markdown database</span><span class="dots"></span><span class="k">pattern</span></a></li>
+      </ul></div>
+      <div><h3><b>3.</b>Why</h3><ul>
+       <li><a href="#front"><span class="t">How a shortcut ate the world</span><span class="dots"></span><span class="k">essay</span></a></li>
+       <li><a href="#front"><span class="t">The manifesto</span><span class="dots"></span><span class="k">essay</span></a></li>
+       <li><a href="#front"><span class="t">Notion vs markdown</span><span class="dots"></span><span class="k">scorecard</span></a></li>
+      </ul></div>
+     </div>
+    </section>
+
+    <section class="sec row">
+     <div class="copy"><h2 class="s">Learn it</h2><p>A hash for a heading, stars for bold, a dash for a list. That's most of it, and AI already writes it for you. Then: tables, links between notes, fields on a file, HTML when you need it.</p><p>It's already in more places than you've noticed: Google Docs, Obsidian, GitHub, Slack, every AI chat.</p><p class="more"><a class="cta" href="#front">The basics</a><a class="cta" href="#front">Markdown in every app</a></p></div>
+     <figure class="fig"><p class="ft">One file, two views</p><div class="panel">{{TWOVIEWS}}</div><figcaption>What you type on the left, what you see on the right. Same file.</figcaption></figure>
+    </section>
+
+    <section class="sec row">
+     <div class="copy"><h2 class="s">Why</h2><p>Nobody cares about formats, any more than they care about TCP/IP. You care about what they let you do. Markdown is the rare case where the format made the difference, and it wasn't a straight line.</p><p>People could write it by hand, so tools took it as their format. Tools took it, so more people wrote it. Twenty years of that, and the tools got good. AI arrived late and speaks it by default.</p><p>That's the whole philosophy: <em>simple pieces you own beat one monolith you rent.</em></p><p class="more"><a class="cta" href="#front">The whole story</a><a class="cta" href="#front">The manifesto</a></p></div>
+     <figure class="fig"><p class="ft">Two forces</p><div class="panel">{{FORCES}}</div><figcaption>More people writing it meant more tools reading it, and back again. AI joined late.</figcaption></figure>
+    </section>
+   </main>
+   <footer class="foot"><span>The Way of Markdown</span><span>Use it · Learn it · Why · Manifesto</span><span>A site by Rufus Pollock</span></footer>
+  </div></div>
+ </section>
+
+ <section class="bsec" id="guide">
+  <h2>Guide page</h2>
+  <p>Making Software's shape: the name top left, the chapters under it, this page's sections nested under its entry. The article itself stays Way Into AI's: left-aligned title, serif prose, mono headings.</p>
+  <div class="frame"><div class="chrome"><i></i><i></i><i></i><span class="tab">{{PIX_16}}Replacing Notion with Markdown</span></div>
+  <div class="site">
+   <div class="gp">
+    <aside class="gside">
+     <a class="logo" href="#front">{{PIX}}<span class="px">The Way of Markdown</span></a>
+     <h5><b>1.</b>Use it</h5>
+     <ul>
+      <li><a class="on" href="#guide">A markdown Notion</a>
+       <ul class="sub"><li><a href="#g-map">The mapping</a></li><li><a href="#g-honest">What you give up</a></li><li><a href="#g-escape">The escape, step by step</a></li></ul></li>
+      <li><a href="#front">Notes</a></li><li><a href="#front">A website</a></li><li><a href="#front">A blog</a></li><li><a href="#front">Team docs and wikis</a></li><li><a href="#front">A catalogue or database</a></li>
+     </ul>
+     <h5><b>2.</b>Learn it</h5>
+     <ul><li><a href="#front">The basics</a></li><li><a href="#front">Markdown in every app</a></li><li><a href="#front">The database pattern</a></li></ul>
+     <h5><b>3.</b>Why</h5>
+     <ul><li><a href="#front">How a shortcut ate the world</a></li><li><a href="#front">The manifesto</a></li></ul>
+    </aside>
+    <article>
+     <header class="ph">
+      <p class="crumb"><a href="#front">Use it</a> / guide 1</p>
+      <h1>Replacing Notion with Markdown</h1>
+      <p class="desc">How to move docs, wikis and light databases out of Notion into plain files you own, and what you give up.</p>
+      <p class="meta">Rufus Pollock · updated 2026 · 8 min read</p>
+     </header>
+     <div class="prose">
+      <p>Still weighing it up? The feature-by-feature scorecard is at <a href="#guide">Notion vs Markdown</a>; this page is the <em>how</em>, for when you've decided.</p>
+      <p>Let me be clear upfront: Notion is genuinely good software. The blocks editor is slick, the databases are clever, and teams get real value from it. If it's working for you and the trade-offs below don't bother you, carry on.</p>
+      <p>But Notion is also a proprietary blocks database that owns your notes, your wiki and your little databases, rented back to you monthly. Your "pages" aren't files; they're rows in someone else's system. And most people don't realise that most of what they use Notion for works in plain markdown files. Not with heroic effort. With a nice editor and a couple of conventions.</p>
+      <h2 id="g-map">The mapping</h2>
+      <p>Take the things you actually do in Notion, one at a time:</p>
+      <div class="tw"><table><thead><tr><th>In Notion</th><th>In markdown</th><th>With</th></tr></thead><tbody>
+       <tr><td>Docs and notes</td><td>a .md file</td><td>Obsidian over a folder you own: live preview, slash commands, the lot.</td></tr>
+       <tr><td>Wikis</td><td>[[wiki-links]]</td><td>Obsidian for backlinks and graph; add GitHub for review and history.</td></tr>
+       <tr><td>Databases</td><td>frontmatter fields</td><td>A folder of files is a table. Obsidian Bases gives views, filters, cards.</td></tr>
+       <tr><td>Public pages</td><td>publish the folder</td><td>Flowershow or any static site tool. A real site on your domain.</td></tr>
+      </tbody></table></div>
+      <p><strong>Databases</strong> are the interesting one, and the reason people think they're stuck. A Notion database is records with fields and views. But a markdown file with frontmatter <em>is</em> a record with fields:</p>
+<pre><span class="d">---</span>
+<span class="k">title:</span> The Dispossessed
+<span class="k">author:</span> Ursula K. Le Guin
+<span class="k">status:</span> read
+<span class="k">rating:</span> 5
+<span class="d">---</span>
+Anarchist moon physics. Loved it.</pre>
+      <p>A folder of these is a table. Here's one, three markdown files rendered as a live table in Obsidian:</p>
+      <figure class="fig"><p class="ft">Three files, one table</p><div class="panel">{{TABLE}}</div><figcaption>Three plain files become one table. Obsidian Bases draws it; Dataview did for years before.</figcaption></figure>
+      <h2 id="g-honest">What you give up, honestly</h2>
+      <figure class="fig"><p class="ft">Not a free lunch</p><div class="panel">{{SCALE}}</div><figcaption>Honestly, it tips. But not for everyone.</figcaption></figure>
+      <blockquote><p class="bt">Not a free lunch</p><ol>
+       <li><strong>Real-time multiplayer editing.</strong> Git-based collaboration is asynchronous: commit, push, review. Fine for docs and knowledge; wrong for six people live-editing one meeting note.</li>
+       <li><strong>Granular permissions.</strong> A repo is shared or it isn't.</li>
+       <li><strong>Heavy relational databases.</strong> Thousands of records and rollups want an actual database. (Though ask yourself honestly whether you have that, or four lists and a books catalogue.)</li>
+      </ol><p>If those three are your core use, stay on Notion, sincerely. If, like most people, what you have is notes, docs, links and lists: you can own all of it.</p></blockquote>
+      <h2 id="g-escape">The escape, step by step</h2>
+      <ol>
+       <li><strong>Export.</strong> Notion Settings → Export all workspace content → <em>Markdown &amp; CSV</em>.</li>
+       <li><strong>Tidy.</strong> Notion appends ugly ID hashes to filenames; a rename pass fixes it.</li>
+       <li><strong>Open in Obsidian.</strong> Point it at the folder. That's it, you're operational.</li>
+       <li><strong>Add git when ready.</strong> <a href="#guide">Push the vault to GitHub</a> for history, sync and collaboration.</li>
+       <li><strong>Publish if you want.</strong> <a href="#guide">Tutorial</a>.</li>
+      </ol>
+      <p>That's the actual point. Not that Notion is bad, but that <a href="#guide">your content shouldn't need an export button</a>.</p>
+     </div>
+    </article>
+   </div>
+  </div></div>
+ </section>
+
+ <section class="bsec" id="logo">
+  <h2>Logo in the nav</h2>
+  <p>You said the brush doesn't sit well next to a plain title. So the mark is a pixel #, drawn on an 8 by 8 grid in the same face as the name. Whole pixels only, so it stays sharp at 16px. Silkscreen is a free stand-in for Making Software's pixel face.</p>
+  <div class="navs site">
+   <div class="navrow"><nav class="nav"><a class="logo" href="#logo">{{PIX}}<span class="px">The Way of Markdown</span></a><span class="navlinks"><a href="#logo">Use it</a><a href="#logo">Learn it</a><a href="#logo">Why</a></span></nav>
+    <div class="fav"><span>{{PIX_32}}32</span><span>{{PIX_16}}16</span></div>
+    <p class="what"><b>A</b>Orange pixel #, name in ink. The one I've used above. The orange is in the mark only, so the nav stays calm.</p></div>
+   <div class="navrow"><nav class="nav"><a class="logo" href="#logo">{{SEAL}}<span class="px o">The Way of Markdown</span></a><span class="navlinks"><a href="#logo">Use it</a><a href="#logo">Learn it</a><a href="#logo">Why</a></span></nav>
+    <div class="fav"><span>{{SEAL_32}}32</span><span>{{SEAL_16}}16</span></div>
+    <p class="what"><b>B</b>White # on an orange square, name in orange. Closer to Making Software's all-orange wordmark. The square is the strongest favicon of the three.</p></div>
+   <div class="navrow"><nav class="nav"><a class="logo" href="#logo">{{PIX}}<span class="mn">The Way of Markdown</span></a><span class="navlinks"><a href="#logo">Use it</a><a href="#logo">Learn it</a><a href="#logo">Why</a></span></nav>
+    <div class="fav"><span>{{PIX_32}}32</span><span>{{PIX_16}}16</span></div>
+    <p class="what"><b>C</b>Pixel # with the name in Plex Mono, like Way Into AI's nav. Quieter; the pixel face is in the mark only.</p></div>
+   <div class="navrow"><nav class="nav"><a class="logo" href="#logo">{{BRUSH}}<span class="mn">The Way of Markdown</span></a><span class="navlinks"><a href="#logo">Use it</a><a href="#logo">Learn it</a><a href="#logo">Why</a></span></nav>
+    <div class="fav"><span>{{BRUSH_32}}32</span><span>{{BRUSH_16}}16</span></div>
+    <p class="what"><b>was</b>The brush # for comparison. Expressive on its own, but it is a different hand from everything around it.</p></div>
+  </div>
+ </section>
+
+ <section class="bsec" id="notes">
+  <h2>Your notes, not built yet</h2>
+  <div class="notes">
+   <div><p class="label">front page</p><h3>A long, written-through landing page</h3><p>Making Software's front page reads like a chapter: text runs down beside big figures. You found it intriguing, if a bit heavy. Worth an experiment, perhaps on one guide first (you mentioned the Notes guide).</p></div>
+   <div><p class="label">type</p><h3>Arizona, or something like it</h3><p>Making Software's serif, set larger than they use it. Still parked. Literata was the free stand-in in round 4.</p></div>
+   <div><p class="label">wom-b5o.15</p><h3>Sketches and diagrams</h3><p>The exploded file shows where diagrams could go. The thread decides between that and better stick figures, and whether anything moves.</p></div>
+   <div><p class="label">implementation</p><h3>Flowershow fit</h3><p>The guide sidebar replaces the top nav on inner pages. Flowershow has a sidebar, so this should be CSS, but it needs checking before we commit.</p></div>
+  </div>
+ </section>
+</div>
