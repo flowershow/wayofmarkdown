@@ -102,8 +102,6 @@ showComments: false
 <figcaption>More people writing it meant more tools reading it, and back again. AI joined late.</figcaption>
 </figure>
 </section>
-<section class="wom__section">
-<p class="wom__label">Made by <a href="/about">Rufus Pollock</a> and <a href="https://datopian.com/">folks at Datopian</a>, as markdown files <a href="https://github.com/flowershow/wayofmarkdown">in the open</a>. This page is itself markdown with a little HTML in it, <a href="/markdown-websites">which is rather the point</a>.</p>
-</section>
+<p class="wom__credit">Made by <a href="/about">Rufus Pollock</a> and <a href="https://datopian.com/">folks at Datopian</a>, as markdown files <a href="https://github.com/flowershow/wayofmarkdown">in the open</a>. This page is itself markdown with a little HTML in it, <a href="/markdown-websites">which is rather the point</a>.</p>
 </main>
 </div>

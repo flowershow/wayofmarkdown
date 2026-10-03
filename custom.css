@@ -36,7 +36,8 @@ body { background: var(--color-background); }
 @media (min-width: 640px) { .site-navbar-inner { padding-inline: 2.5rem; } }
 @media (min-width: 1024px) { .site-navbar-inner { padding-inline: 3rem; } }
 .site-navbar { background: var(--color-background); border-bottom: 1px solid var(--site-rule); box-shadow: none; }
-.site-navbar-site-title { font-family: var(--wom-mono); font-size: 0.9rem; font-weight: 600; letter-spacing: 0; text-transform: none; }
+.site-navbar-site-title, .site-navbar-site-name { font-family: var(--wom-mono); font-size: 0.95rem; font-weight: 600; letter-spacing: 0; text-transform: none; }
+.site-navbar-site-logo { height: 1.6rem; width: 1.6rem; }
 .site-navbar-link, .mobile-nav-link { font-family: var(--wom-mono); font-size: 0.82rem; letter-spacing: 0; text-transform: none; }
 .site-navbar-link:hover, .mobile-nav-link:hover { color: var(--color-accent); }
 .site-footer { border-top: 1px solid var(--site-rule); font-family: var(--wom-mono); font-size: 0.8rem; }
@@ -157,9 +158,12 @@ body { background: var(--color-background); }
 .wom__steps { counter-reset: st; display: grid; gap: 1.5rem clamp(1.5rem, 3vw, 2.5rem); grid-template-columns: repeat(3, minmax(0, 1fr)); list-style: none; margin: 0; padding: 0; }
 .wom__steps li { counter-increment: st; display: grid; gap: 0.3rem; margin: 0; }
 .wom__steps li::before { color: var(--wom-mark); content: counter(st); font-family: var(--wom-serif); font-size: 2rem; line-height: 1; }
-.wom__steps a { font-family: var(--wom-serif); font-size: 1.35rem; line-height: 1.2; text-decoration: none; }
-.wom__steps a:hover { color: var(--wom-text); }
+.wom__steps > li > a { font-family: var(--wom-serif); font-size: 1.35rem; line-height: 1.2; text-decoration: none; }
+.wom__steps > li > a:hover { color: var(--wom-text); }
 .wom__steps span { color: var(--wom-muted); }
+.wom__credit { border-top: 1px solid var(--wom-rule); color: var(--wom-muted); font-size: 0.82rem; margin: 0; padding-top: 1.5rem; }
+.wom__credit a { color: var(--wom-text) !important; text-decoration: none; }
+.wom__credit a:hover { text-decoration: underline; }
 
 .wom__contents { display: grid; gap: 2rem clamp(1.5rem, 3vw, 2.75rem); grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .wom__contents h3 { color: var(--wom-muted); font-family: var(--wom-mono); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em; margin: 0 0 0.8rem; text-transform: uppercase; }
