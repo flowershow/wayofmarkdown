@@ -1,6 +1,6 @@
 ---
 title: Using Cursor with Obsidian
-authors: ["Rufus Pollock"]
+authors: ["rufus"]
 date: 2026-07-18
 ---
 

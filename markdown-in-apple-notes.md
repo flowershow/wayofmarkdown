@@ -1,7 +1,7 @@
 ---
 title: "Markdown in Apple Notes (and the iPad breakthrough)"
 description: "Apple Notes still lacks native markdown on the Mac — ProNotes fixes it — while iPad Notes finally added markdown import and export. The full Apple-and-markdown saga."
-authors: ["Rufus Pollock"]
+authors: ["rufus"]
 date: 2026-07-18
 ---
 

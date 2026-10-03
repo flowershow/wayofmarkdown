@@ -1,7 +1,7 @@
 ---
 title: Heading identifiers in Pandoc-style Markdown
 created: 2025-12-04
-authors: ["Rufus Pollock"]
+authors: ["rufus"]
 date: 2025-12-04
 ---
 

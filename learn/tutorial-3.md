@@ -1,6 +1,8 @@
 ---
 title: "Tutorial 3: Collaborating with others on your website project"
 description: "Branches, pull requests, review and merging — collaborate on a markdown site with GitHub, no developer required. Full step-by-step tutorial."
+authors: ["elisapaka", "rufus"]
+date: 2024-01-05
 ---
 
 # Tutorial 3: Collaborating with others on your website project

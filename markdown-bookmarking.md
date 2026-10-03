@@ -1,7 +1,7 @@
 ---
 title: "Markdown-based Bookmarking & Web Clipping"
 description: "Save the web as markdown you own: clip pages to clean text with Obsidian Web Clipper or into.md, annotate them, and search them forever."
-authors: ["Rufus Pollock"]
+authors: ["rufus"]
 date: 2026-07-18
 ---
 

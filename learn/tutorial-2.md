@@ -1,3 +1,8 @@
+---
+authors: ["elisapaka", "rufus"]
+date: 2024-01-05
+---
+
 # Tutorial 2: Edit your website locally on your computer using Obsidian
 
 ## Introduction

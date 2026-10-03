@@ -1,7 +1,7 @@
 ---
 title: "Markdown-based Digital Gardens"
 description: "What a digital garden is — notes published while still growing — and how to grow one from your markdown notes with Obsidian and Flowershow."
-authors: ["Rufus Pollock"]
+authors: ["rufus"]
 date: 2026-07-18
 ---
 

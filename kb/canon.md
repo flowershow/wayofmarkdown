@@ -1,7 +1,7 @@
 ---
 title: "The Markdown Canon — the essential texts"
 description: "The documents that made markdown: Gruber's original spec, Aaron Swartz's posts, the CommonMark story, File over app, and the best of the rest — annotated."
-authors: ["Rufus Pollock"]
+authors: ["rufus"]
 date: 2026-07-18
 ---
 

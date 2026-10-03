@@ -1,3 +1,8 @@
+---
+authors: ["elisapaka", "rufus"]
+date: 2024-01-05
+---
+
 # Tutorial 4: Customising your website locally and previewing your changes locally
 
 > [!info]

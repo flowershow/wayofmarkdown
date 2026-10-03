@@ -1,3 +1,8 @@
+---
+authors: ["elisapaka", "rufus"]
+date: 2024-01-05
+---
+
 # Learn: Build a Markdown-based Website 🚀
 
 Welcome! Here you can learn how to build markdown-based websites – and why a markdown-based approach is awesome 🦸‍♀️

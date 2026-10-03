@@ -1,7 +1,7 @@
 ---
 title: "Markdown Editors"
 description: "A short list of Markdown editors for writing, previewing and working with Markdown files."
-authors: ["Rufus Pollock"]
+authors: ["rufus"]
 date: 2026-08-08
 ---
 

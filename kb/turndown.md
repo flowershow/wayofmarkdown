@@ -2,7 +2,7 @@
 title: "Turndown: HTML to Markdown converter"
 source: "https://github.com/mixmark-io/turndown"
 created: 2025-10-18
-authors: ["Rufus Pollock"]
+authors: ["rufus"]
 date: 2026-07-18
 ---
 

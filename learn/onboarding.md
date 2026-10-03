@@ -1,7 +1,7 @@
 ---
 title: "Team onboarding: zero to markdown (and GitHub, and knowledge bases)"
 description: "A step-by-step path for new team members: learn markdown, get working with GitHub, and start contributing to markdown knowledge bases and websites."
-authors: ["Rufus Pollock"]
+authors: ["rufus"]
 date: 2026-07-18
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Markdoc
-authors: ["Rufus Pollock"]
+authors: ["rufus"]
 date: 2026-07-18
 ---
 

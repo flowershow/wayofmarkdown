@@ -1,7 +1,7 @@
 ---
 title: "Markdown-based Journals & Daily Notes"
 description: "One markdown file per day: the simplest journaling system, durable for decades, private by default, searchable forever — and reviewable with AI."
-authors: ["Rufus Pollock"]
+authors: ["rufus"]
 date: 2026-07-18
 ---
 

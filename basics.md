@@ -1,7 +1,7 @@
 ---
 title: Markdown Basics
 description: "Learn markdown in ten minutes: headings, bold, links, lists, code, tables, frontmatter. The complete beginner's guide with examples."
-authors: ["Rufus Pollock"]
+authors: ["rufus"]
 date: 2026-07-18
 ---
 

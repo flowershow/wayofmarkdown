@@ -1,3 +1,8 @@
+---
+authors: ["elisapaka", "rufus"]
+date: 2024-01-05
+---
+
 # Background and motivation
 
 There are many ways to build a website, from classic CMS and blogging platforms like wordpress, to wikis, etc.

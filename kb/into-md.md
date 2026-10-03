@@ -2,7 +2,7 @@
 title: "into.md: Convert any webpage to Markdown"
 source: "https://into.md/"
 created: 2025-10-19
-authors: ["Rufus Pollock"]
+authors: ["rufus"]
 date: 2026-07-18
 ---
 

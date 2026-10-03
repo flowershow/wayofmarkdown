@@ -1,7 +1,7 @@
 ---
 title: "Markdown-based Databases & Catalogs"
 description: "Build small databases and catalogs from markdown files: frontmatter as fields, folders as tables, Obsidian Bases for views, markdowndb for queries. The practical guide."
-authors: ["Rufus Pollock"]
+authors: ["rufus"]
 date: 2026-07-18
 ---
 

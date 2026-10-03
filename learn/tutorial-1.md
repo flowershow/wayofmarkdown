@@ -1,3 +1,8 @@
+---
+authors: ["elisapaka", "rufus"]
+date: 2024-01-05
+---
+
 # Tutorial 1: Create a website from scratch using Markdown
 
 ## Introduction

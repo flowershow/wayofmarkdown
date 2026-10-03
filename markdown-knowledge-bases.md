@@ -1,7 +1,7 @@
 ---
 title: "Markdown-based Knowledge Bases & Second Brains"
 description: "Build a knowledge base from plain markdown files: Obsidian, wiki-links, backlinks, structure that emerges as you go — and publishing when you're ready. The full guide."
-authors: ["Rufus Pollock"]
+authors: ["rufus"]
 date: 2026-07-18
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "How to use Markdown in Google Docs — enable, paste, export"
 description: "Google Docs has real markdown support now: paste from markdown, copy as markdown, import and export .md files. How to switch it on, plus export quirks to know."
-authors: ["Rufus Pollock"]
+authors: ["rufus"]
 date: 2025-01-15
 ---
 

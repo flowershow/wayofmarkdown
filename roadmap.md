@@ -1,7 +1,7 @@
 ---
 title: "The Markdown Roadmap — from zero to building anything"
 description: "The visual map of the way of markdown: learn the basics, publish your first page, go local with Obsidian and GitHub, then branch into building websites, knowledge bases, blogs and more."
-authors: ["Rufus Pollock"]
+authors: ["rufus"]
 date: 2026-07-18
 ---
 
