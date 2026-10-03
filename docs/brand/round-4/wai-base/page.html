@@ -1,0 +1,422 @@
+<title>Way of Markdown Round 4</title>
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+<style>
+/* Layout: Way Into AI's "blue pencil" system, copied as-is, with the accent
+   pulled out into two tokens so the switcher can try blue against orange.
+   --acc: marks, fills, sketches.  --acc-text: links and emphasis (needs contrast). */
+:root{
+  --paper:#fbfbf9; --ink:#1b1b1d; --muted:#5f5f66; --rule:#e2e2de; --code:#f2f2ee; --desk:#ecebe7;
+  --acc:#ff5a00; --acc-text:#cc4400;
+  --wash:color-mix(in srgb,var(--acc) 9%,var(--paper));
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --serif:"Newsreader","Iowan Old Style",Charter,Georgia,serif;
+  color-scheme:light;
+}
+/* One deliberate light look: this is a mock of a light site. */
+*,*::before,*::after{box-sizing:border-box}
+body{background:var(--desk);color:var(--ink);font-family:var(--mono);font-size:14px;line-height:1.65;margin:0;padding-inline:16px;padding-block:0 64px}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+::selection{background:color-mix(in srgb,var(--acc) 18%,transparent)}
+h1,h2,h3{text-wrap:balance}
+
+/* ---------- the brief around the mocks ---------- */
+.brief{max-width:1120px;margin:0 auto}
+.label{color:var(--muted);font-size:.78rem;letter-spacing:.08em;margin:0;text-transform:uppercase}
+.bhead{padding:clamp(2.5rem,6vw,4rem) 0 2rem;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:clamp(2rem,5vw,4rem);border-bottom:1px solid var(--rule)}
+.bhead h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.2rem,4.6vw,3.4rem);line-height:1.06;letter-spacing:-.015em;margin:.8rem 0 1.1rem;max-width:18ch}
+.bhead h1 em{color:var(--acc-text)}
+.bhead p.lede{font-family:var(--serif);font-size:1.2rem;line-height:1.5;color:var(--muted);margin:0 0 .8rem;max-width:50ch}
+.checks{list-style:none;margin:.9rem 0 0;padding:0;display:grid;gap:.85rem}
+.checks li{display:grid;grid-template-columns:2.2rem 1fr;gap:0 .5rem}
+.checks li::before{content:"[x]";color:var(--acc-text);font-size:.8rem;grid-row:span 2;padding-top:.1rem}
+.checks li.later::before{content:"[ ]";color:var(--muted)}
+.checks strong{font-weight:600}
+.checks span{color:var(--muted)}
+.bsec{padding:2.5rem 0 1rem}
+.bsec>h2{font-family:var(--mono);font-size:.95rem;font-weight:600;margin:0 0 .5rem}
+.bsec>h2::before{content:"## ";color:var(--acc)}
+.bsec>p{font-family:var(--serif);font-size:1.15rem;line-height:1.5;max-width:62ch;margin:0 0 1.2rem;color:var(--muted)}
+
+/* switcher */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;margin:0 -16px;padding:.6rem 16px;background:color-mix(in srgb,var(--desk) 92%,transparent);backdrop-filter:blur(6px);border-bottom:1px solid var(--rule)}
+.bar-in{max-width:1120px;margin:0 auto;display:flex;flex-wrap:wrap;gap:.5rem 1.6rem;align-items:center}
+.grp{display:flex;flex-wrap:wrap;gap:.3rem;align-items:center}
+.grp>span{color:var(--muted);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;margin-right:.3rem}
+.grp button,.grp label.pick{font:inherit;font-size:.78rem;border:1px solid var(--rule);background:var(--paper);color:var(--ink);padding:.25rem .55rem;cursor:pointer;display:inline-flex;align-items:center;gap:.35rem}
+.grp button[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+.sw{width:.8rem;height:.8rem;display:inline-block;border-radius:50%}
+.grp input[type=color]{width:1.3rem;height:1.1rem;border:0;padding:0;background:none;cursor:pointer}
+.grp button svg{width:1.1rem;height:1.1rem}
+.grp button[aria-pressed="true"] svg{background:var(--paper)}
+
+/* window frame around each mock page */
+.frame{background:var(--paper);border:1px solid #cfcec9;box-shadow:0 1px 0 #d8d7d2,0 18px 40px -28px rgba(0,0,0,.35);margin:0 0 1rem;overflow:hidden}
+.frame .chrome{display:flex;gap:.6rem;align-items:center;padding:.45rem .8rem;border-bottom:1px solid var(--rule);background:#f4f4f1;font-size:.72rem;color:var(--muted)}
+.frame .chrome i{width:.55rem;height:.55rem;border-radius:50%;background:#d6d5d0;display:inline-block}
+.frame .chrome b{font-weight:400;margin-left:.6rem;background:var(--paper);border:1px solid var(--rule);padding:.05rem .6rem;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+/* ---------- the site (Way Into AI system) ---------- */
+.site{color:var(--ink);font-family:var(--mono);font-size:14px;line-height:1.65}
+.nav{display:flex;flex-wrap:wrap;gap:.6rem 1.6rem;align-items:center;justify-content:space-between;padding:.9rem clamp(1rem,4vw,3rem);border-bottom:1px solid var(--rule)}
+.brandname{display:flex;align-items:center;gap:.55rem;font-weight:600;font-size:.9rem;text-decoration:none}
+.navlogo{display:inline-flex;width:1.7rem;height:1.7rem}
+.navlogo svg{display:none;width:100%;height:100%}
+html[data-logo="a"] .navlogo .la,html[data-logo="b"] .navlogo .lb,html[data-logo="c"] .navlogo .lc,
+html[data-logo="d"] .navlogo .ld,html[data-logo="e"] .navlogo .le,html[data-logo="f"] .navlogo .lf{display:block}
+.navlinks{display:flex;flex-wrap:wrap;gap:.3rem 1.4rem;font-size:.82rem}
+.navlinks a{text-decoration:none}
+.navlinks a:hover,.navlinks a.hi{color:var(--acc-text)}
+.sheet{max-width:1120px;margin:0 auto;padding:0 clamp(1rem,5vw,4rem) clamp(2.5rem,5vw,4rem)}
+.site h2.s{font-family:var(--mono);font-size:.95rem;font-weight:600;margin:0 0 1.1rem}
+.site h2.s::before{content:"## ";color:var(--acc)}
+.site .lbl{color:var(--muted);font-size:.78rem;letter-spacing:.08em;margin:0;text-transform:uppercase}
+.site .lbl .m{color:var(--acc)}
+.hero{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:clamp(2rem,5vw,4rem);padding:clamp(2.5rem,6vw,4.5rem) 0 clamp(2rem,4vw,3rem)}
+.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.4rem,5.2vw,3.9rem);letter-spacing:-.015em;line-height:1.04;margin:.9rem 0 1rem}
+.hero .say{font-family:var(--serif);font-size:clamp(1.35rem,2.4vw,1.75rem);line-height:1.3;margin:0 0 1rem;max-width:26ch}
+.hero .say em{color:var(--acc-text)}
+.lede{color:var(--muted);font-family:var(--serif);font-size:clamp(1.1rem,1.8vw,1.25rem);line-height:1.5;margin:0 0 1.6rem;max-width:46ch}
+.ctas{display:flex;flex-wrap:wrap;gap:.6rem 1.4rem;align-items:center}
+.btn{background:var(--ink);color:var(--paper);text-decoration:none;padding:.7rem 1.1rem;font-weight:500}
+.btn:hover{background:var(--acc)}
+.cta{color:var(--acc-text);text-decoration:none}
+.cta::after{content:" →"}
+.cta:hover{text-decoration:underline}
+.steps{align-self:center;border-left:1px solid var(--rule);padding-left:clamp(1rem,3vw,2.25rem)}
+.steps ol{list-style:none;margin:.9rem 0 0;padding:0;display:grid;gap:1rem;counter-reset:st}
+.steps li{display:grid;grid-template-columns:2rem 1fr;gap:0 .6rem;counter-increment:st}
+.steps li::before{content:counter(st) ".";color:var(--acc);font-size:.85rem;grid-row:span 2}
+.steps strong{font-weight:600}
+.steps span{color:var(--muted)}
+.sec{border-top:1px solid var(--rule);padding:clamp(2rem,4vw,2.75rem) 0}
+.guides{display:grid}
+.guides a{border-top:1px solid var(--rule);display:grid;grid-template-columns:3.4rem 7rem minmax(0,1fr) minmax(0,1.3fr);gap:1rem;align-items:center;padding:.6rem 0;text-decoration:none}
+.guides a:last-child{border-bottom:1px solid var(--rule)}
+.guides svg{width:3.4rem;height:auto;display:block}
+.guides .k{color:var(--muted);font-size:.8rem}
+.guides .k.first{color:var(--acc-text)}
+.guides .t{font-family:var(--serif);font-size:1.2rem;line-height:1.3}
+.guides .d{color:var(--muted);font-family:var(--serif);font-size:1.02rem;line-height:1.4}
+.guides a:hover .t{color:var(--acc-text)}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(2rem,4vw,3.5rem);align-items:start}
+.two .copy p{font-family:var(--serif);font-size:1.2rem;line-height:1.5;margin:0 0 .85rem;max-width:56ch}
+.two .copy p.more{font-family:var(--mono);font-size:.9rem;display:flex;gap:1.4rem;margin-top:1.1rem}
+.two .copy em{color:var(--acc-text);font-style:italic}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem 2rem;border-top:1px solid var(--rule);padding:1.2rem clamp(1rem,4vw,3rem);font-size:.8rem;color:var(--muted)}
+
+/* sketches: the opt4 drawings, recoloured from the accent token. CSS beats the
+   SVG presentation attributes, so the source files stay untouched. */
+.site svg [fill="#ff5a00"]{fill:var(--acc)}
+.site svg [stroke="#ff5a00"]{stroke:var(--acc)}
+.site svg [fill="#ffd3bb"]{fill:color-mix(in srgb,var(--acc) 30%,#fff)}
+.site svg [fill="#ffe6d6"]{fill:color-mix(in srgb,var(--acc) 16%,#fff)}
+.site svg [font-family^="JetBrains"]{font-family:var(--mono)}
+.site svg text[font-family^="Inter"]{font-family:var(--serif)}
+.fig{margin:0;counter-increment:fig}
+.fig .ft{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 .5rem}
+.fig .ft::before{content:"Fig. " counter(fig) " · ";color:var(--acc)}
+.fig .panel svg{display:block;width:100%;height:auto}
+.fig figcaption{color:var(--muted);font-family:var(--serif);font-size:1rem;line-height:1.45;margin:.6rem 0 0;max-width:60ch}
+.site{counter-reset:fig}
+/* three panel treatments, picked by the switcher */
+html[data-panel="dots"] .panel{background:#fff radial-gradient(#d6d6d6 .9px,transparent .9px);background-size:9px 9px;border:1px solid var(--acc);padding:12px 14px}
+html[data-panel="wash"] .panel{background:var(--wash);padding:14px 16px}
+html[data-panel="plain"] .panel{background:transparent;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:12px 0}
+html[data-panel="plain"] .panel [fill="#fff"]{fill:var(--paper)}
+.hero-fig{margin-bottom:clamp(1rem,3vw,2rem)}
+
+/* guide page */
+.art{display:grid;grid-template-columns:minmax(0,44rem) 13rem;gap:3.5rem;justify-content:center;padding-top:clamp(2rem,5vw,3.5rem)}
+.ph .crumb{font-size:.8rem;color:var(--muted);margin:0 0 .9rem}
+.ph .crumb a{color:var(--acc-text);text-decoration:none}
+.ph h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.1rem,4.4vw,3.2rem);line-height:1.1;letter-spacing:-.01em;margin:0 0 .8rem}
+.ph .desc{font-family:var(--serif);color:var(--muted);font-size:1.25rem;line-height:1.45;margin:0 0 .9rem}
+.ph .meta{font-size:.8rem;color:var(--muted);margin:0 0 2rem;padding-bottom:1.2rem;border-bottom:1px solid var(--rule)}
+.prose{font-family:var(--serif)}
+.prose :where(p,li){font-size:1.125rem;line-height:1.6}
+.prose p{margin:0 0 1.1em}
+.prose h2{font-family:var(--mono);font-weight:600;font-size:1.05rem;line-height:1.35;margin:2.5em 0 .8em}
+.prose h2::before{content:"## ";color:var(--acc)}
+.prose a{color:var(--acc-text);text-decoration-thickness:1px;text-underline-offset:.18em}
+.prose a:hover{text-decoration-thickness:2px}
+html[data-links="ink"] :is(.prose a,.cta,.ph .crumb a,.hero .say em,.two .copy em,.guides .k.first){color:var(--ink)}
+html[data-links="ink"] .prose a{text-decoration-color:var(--acc)}
+.prose em.s{font-style:italic}
+.prose table{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:.85rem;margin:0 0 1.4em;display:block;overflow-x:auto}
+.prose th{text-align:left;font-weight:600;border-bottom:1px solid var(--ink);padding:.4rem .7rem .4rem 0}
+.prose td{border-bottom:1px solid var(--rule);padding:.5rem .7rem .5rem 0;vertical-align:top}
+.prose td:nth-child(2){white-space:nowrap}
+.prose pre{background:var(--code);font-family:var(--mono);font-size:.85rem;line-height:1.6;padding:1rem 1.1rem;overflow-x:auto;margin:0 0 1.4em}
+.prose pre .k{color:var(--acc-text)}
+.prose pre .d{color:var(--muted)}
+.prose .fig{margin:.4em 0 1.8em}
+.prose blockquote{border-left:2px solid var(--acc);margin:0 0 1.4em;padding:.2rem 0 .2rem 1.2rem}
+.prose blockquote ol{padding-left:1.2rem;margin:.4rem 0 .8rem}
+.prose blockquote li{margin-bottom:.5em}
+.prose blockquote .bt{font-family:var(--mono);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 .4rem}
+.prose ol.steps2 li{margin-bottom:.5em}
+.toc{position:sticky;top:5rem;align-self:start;font-size:.78rem;display:grid;gap:.45rem}
+.toc .tt{color:var(--muted);font-size:.72rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;margin:0}
+.toc a{text-decoration:none}
+.toc a:hover{color:var(--acc-text)}
+
+/* logo ideas */
+.logos{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.lg{background:var(--paper);padding:1.2rem 1.2rem 1rem;display:flex;flex-direction:column;gap:.8rem;min-width:0}
+.lg .big{height:120px;display:flex;align-items:center;justify-content:center}
+.lg .big svg{width:110px;height:110px}
+.lg .sizes{display:flex;align-items:flex-end;gap:1rem;border-top:1px solid var(--rule);padding-top:.7rem;color:var(--muted);font-size:.7rem}
+.lg .sizes div{display:flex;flex-direction:column;align-items:center;gap:.25rem}
+.lg .sizes .tab{background:#dedcd6;padding:5px 8px;display:flex;align-items:center;gap:6px;font-size:.7rem;color:var(--ink);margin-left:auto}
+.lg h3{font-family:var(--serif);font-weight:400;font-size:1.25rem;margin:0}
+.lg h3 b{font-family:var(--mono);font-size:.78rem;font-weight:600;color:var(--acc);margin-right:.4rem}
+.lg p{margin:0;color:var(--muted);font-family:var(--serif);font-size:1rem;line-height:1.4}
+.lockups{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:1px}
+.lockups .lg .big{height:90px;justify-content:flex-start}
+.lk{display:flex;align-items:center;gap:.7rem}
+.lk svg{width:44px;height:44px}
+.lk .w1{font-family:var(--serif);font-size:1.7rem;letter-spacing:-.01em}
+.lk .w2{font-family:var(--mono);font-size:1.3rem;font-weight:600}
+.caret{animation:blink 1.1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.caret{animation:none}}
+
+/* later */
+.later{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;border-top:1px solid var(--rule);padding-top:1.4rem}
+.later h3{font-family:var(--serif);font-weight:400;font-size:1.3rem;margin:.3rem 0 .4rem}
+.later p{margin:0;color:var(--muted);font-family:var(--serif);font-size:1.05rem;line-height:1.45}
+
+@media (max-width:860px){
+  .bhead,.hero,.two{grid-template-columns:1fr}
+  .steps{border-left:0;border-top:1px solid var(--rule);padding:1.5rem 0 0}
+  .guides a{grid-template-columns:3rem minmax(0,1fr);gap:.2rem .8rem}
+  .guides svg{grid-row:span 3;width:3rem}
+  .art{grid-template-columns:minmax(0,1fr)}
+  .toc{display:none}
+}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="hash" viewBox="-4 -4 108 108"><path d="M35.8 8.5 L35.7 9.4 L35.6 10.4 L35.4 11.6 L35.2 13.0 L35.0 14.4 L34.9 16.0 L34.7 17.6 L34.5 19.3 L34.3 21.1 L34.2 22.9 L34.1 24.7 L34.0 26.5 L33.8 28.3 L33.7 30.1 L33.6 31.8 L33.5 33.4 L33.4 35.0 L33.3 36.6 L33.2 38.2 L33.0 39.7 L32.9 41.3 L32.8 42.9 L32.6 44.4 L32.4 46.0 L32.3 47.6 L32.0 49.2 L31.8 50.8 L31.6 52.5 L31.5 54.2 L31.3 55.9 L31.2 57.6 L31.1 59.4 L30.9 61.2 L30.8 63.2 L30.6 65.4 L30.4 67.6 L30.2 69.8 L29.9 72.1 L29.5 74.4 L29.2 76.6 L29.2 78.9 L29.3 81.1 L29.4 83.2 L29.5 85.1 L29.5 86.9 L29.5 88.5 L29.4 89.8 L29.2 90.9 L29.8 91.1 L30.0 90.0 L30.4 88.7 L30.9 87.2 L31.6 85.5 L32.4 83.7 L33.2 81.8 L34.1 79.8 L34.8 77.6 L35.4 75.4 L35.8 73.2 L36.3 70.9 L36.9 68.7 L37.4 66.5 L37.9 64.4 L38.5 62.5 L38.9 60.6 L39.3 58.9 L39.7 57.1 L40.1 55.4 L40.4 53.8 L40.7 52.1 L41.0 50.5 L41.2 48.8 L41.4 47.2 L41.7 45.6 L41.9 44.0 L42.2 42.5 L42.4 40.9 L42.7 39.3 L43.0 37.7 L43.2 36.2 L43.5 34.6 L43.8 32.9 L44.0 31.2 L44.3 29.4 L44.6 27.6 L44.8 25.8 L45.0 24.0 L45.3 22.2 L45.4 20.4 L45.6 18.7 L45.7 17.0 L45.8 15.4 L45.9 14.0 L46.0 12.6 L46.1 11.4 L46.1 10.4 L46.2 9.5 L35.5 8.5 L35.9 6.8 L36.9 5.3 L38.2 4.2 L39.8 3.6 L41.5 3.5 L43.2 3.9 L44.7 4.9 L45.8 6.2 L46.4 7.8 L46.5 9.5Z"/><path d="M66.0 12.5 L65.9 13.3 L65.8 14.4 L65.7 15.5 L65.5 16.8 L65.3 18.2 L65.1 19.7 L64.9 21.3 L64.8 22.9 L64.6 24.6 L64.5 26.3 L64.4 28.1 L64.3 29.8 L64.2 31.5 L64.1 33.2 L64.0 34.8 L63.9 36.4 L63.8 37.9 L63.6 39.5 L63.5 41.0 L63.3 42.6 L63.2 44.1 L63.0 45.7 L62.8 47.3 L62.5 48.8 L62.3 50.4 L62.1 52.0 L61.9 53.5 L61.8 55.1 L61.6 56.7 L61.5 58.3 L61.3 59.8 L61.2 61.4 L61.0 62.9 L60.8 64.6 L60.6 66.3 L60.3 68.0 L60.0 69.8 L59.6 71.5 L59.3 73.3 L59.2 75.0 L59.2 76.8 L59.2 78.4 L59.2 80.0 L59.2 81.5 L59.1 82.9 L59.0 84.1 L58.9 85.1 L58.7 85.9 L59.3 86.1 L59.5 85.2 L59.8 84.3 L60.3 83.1 L60.8 81.9 L61.5 80.6 L62.2 79.2 L63.0 77.7 L63.8 76.1 L64.5 74.5 L65.0 72.8 L65.4 71.0 L65.9 69.3 L66.4 67.5 L66.9 65.9 L67.4 64.2 L67.8 62.6 L68.3 61.1 L68.7 59.6 L69.1 58.0 L69.5 56.5 L69.9 54.9 L70.3 53.3 L70.6 51.7 L70.8 50.2 L71.1 48.6 L71.4 47.0 L71.7 45.4 L71.9 43.8 L72.2 42.3 L72.5 40.7 L72.8 39.2 L73.1 37.6 L73.4 36.0 L73.7 34.4 L74.0 32.7 L74.3 30.9 L74.5 29.2 L74.8 27.4 L75.0 25.7 L75.2 23.9 L75.4 22.3 L75.5 20.7 L75.6 19.2 L75.7 17.8 L75.8 16.5 L75.8 15.3 L75.9 14.3 L76.0 13.5 L65.8 12.5 L66.2 10.9 L67.1 9.5 L68.3 8.5 L69.9 7.9 L71.5 7.8 L73.1 8.2 L74.5 9.1 L75.5 10.3 L76.1 11.9 L76.2 13.5Z"/><path d="M10.3 43.5 L11.1 43.4 L12.1 43.4 L13.3 43.4 L14.6 43.4 L16.0 43.4 L17.5 43.3 L19.0 43.2 L20.7 43.1 L22.4 43.0 L24.1 42.9 L25.9 42.7 L27.6 42.5 L29.4 42.3 L31.1 42.1 L32.8 41.9 L34.4 41.7 L35.9 41.5 L37.5 41.3 L39.0 41.1 L40.6 40.9 L42.2 40.7 L43.7 40.5 L45.3 40.3 L46.9 40.1 L48.6 39.9 L50.2 39.7 L51.9 39.5 L53.5 39.3 L55.2 39.1 L57.0 38.9 L58.7 38.6 L60.5 38.3 L62.4 37.9 L64.4 37.4 L66.4 36.9 L68.6 36.3 L70.8 35.8 L73.1 35.2 L75.3 34.7 L77.5 34.2 L79.7 33.8 L81.8 33.3 L83.7 32.5 L85.5 31.7 L87.2 30.9 L88.7 30.4 L90.0 30.0 L91.0 29.7 L91.0 29.3 L89.9 29.4 L88.5 29.4 L86.9 29.4 L85.1 29.2 L83.1 29.1 L81.1 29.0 L78.9 29.1 L76.7 29.5 L74.5 29.7 L72.2 30.0 L69.9 30.1 L67.6 30.3 L65.5 30.4 L63.3 30.5 L61.3 30.6 L59.5 30.7 L57.7 30.8 L56.0 31.0 L54.3 31.2 L52.7 31.3 L51.0 31.5 L49.4 31.6 L47.8 31.7 L46.2 31.8 L44.6 31.9 L43.0 32.0 L41.5 32.0 L39.9 32.1 L38.3 32.1 L36.8 32.2 L35.2 32.2 L33.6 32.3 L32.0 32.3 L30.4 32.3 L28.7 32.4 L27.0 32.4 L25.2 32.5 L23.5 32.5 L21.8 32.6 L20.1 32.7 L18.4 32.8 L16.9 32.9 L15.4 33.0 L14.0 33.1 L12.7 33.3 L11.5 33.4 L10.5 33.5 L9.7 33.5 L10.3 43.7 L8.7 43.6 L7.2 42.9 L5.9 41.8 L5.1 40.4 L4.8 38.8 L4.9 37.2 L5.6 35.7 L6.7 34.4 L8.1 33.6 L9.7 33.3Z"/><path d="M8.2 72.7 L9.0 72.7 L10.0 72.7 L11.2 72.7 L12.5 72.7 L13.9 72.7 L15.4 72.7 L16.9 72.7 L18.6 72.6 L20.3 72.5 L22.0 72.4 L23.8 72.2 L25.5 72.1 L27.3 72.0 L29.0 71.8 L30.6 71.6 L32.2 71.5 L33.8 71.3 L35.3 71.2 L36.9 71.1 L38.5 70.9 L40.0 70.8 L41.6 70.7 L43.3 70.5 L44.9 70.4 L46.5 70.3 L48.2 70.2 L49.9 70.0 L51.6 69.9 L53.3 69.8 L55.0 69.6 L56.7 69.3 L58.5 69.0 L60.3 68.6 L62.2 68.1 L64.2 67.6 L66.2 67.1 L68.3 66.5 L70.4 65.9 L72.5 65.4 L74.6 65.0 L76.6 64.5 L78.5 63.9 L80.3 63.1 L82.0 62.2 L83.5 61.5 L84.8 60.9 L86.0 60.5 L87.1 60.3 L86.9 59.7 L85.9 59.8 L84.6 59.9 L83.2 59.9 L81.5 59.7 L79.6 59.6 L77.7 59.4 L75.7 59.5 L73.7 59.8 L71.6 60.1 L69.4 60.4 L67.3 60.6 L65.2 60.7 L63.1 60.8 L61.2 60.9 L59.3 61.0 L57.5 61.0 L55.9 61.1 L54.2 61.1 L52.6 61.2 L50.9 61.3 L49.3 61.4 L47.7 61.5 L46.1 61.6 L44.5 61.6 L42.9 61.6 L41.3 61.6 L39.7 61.6 L38.1 61.6 L36.5 61.5 L34.9 61.5 L33.3 61.5 L31.8 61.5 L30.2 61.5 L28.5 61.5 L26.8 61.5 L25.1 61.5 L23.3 61.5 L21.6 61.5 L19.8 61.6 L18.2 61.6 L16.5 61.7 L14.9 61.7 L13.4 61.8 L12.1 61.9 L10.8 62.1 L9.6 62.1 L8.6 62.2 L7.8 62.3 L8.2 73.0 L6.5 72.8 L4.9 72.1 L3.7 70.9 L2.8 69.4 L2.5 67.7 L2.7 66.0 L3.4 64.4 L4.6 63.2 L6.1 62.3 L7.8 62.0Z"/></symbol></svg>
+
+<div class="bar" role="toolbar" aria-label="Try the design">
+ <div class="bar-in">
+  <div class="grp" data-set="accent"><span>Accent</span>
+   <button data-v="blue" aria-pressed="false"><i class="sw" style="background:#2140c4"></i>Way Into AI blue</button>
+   <button data-v="orange" aria-pressed="false"><i class="sw" style="background:#ff5a00"></i>Orange</button>
+   <button data-v="split" aria-pressed="true"><i class="sw" style="background:linear-gradient(90deg,#ff5a00 50%,#cc4400 50%)"></i>Orange, darker text</button>
+   <label class="pick" for="custom-acc">Own <input id="custom-acc" type="color" value="#ff5a00"></label>
+  </div>
+  <div class="grp" data-set="links"><span>Links</span>
+   <button data-v="acc" aria-pressed="true">Accent</button><button data-v="ink" aria-pressed="false">Ink</button>
+  </div>
+  <div class="grp" data-set="panel"><span>Sketches on</span>
+   <button data-v="dots" aria-pressed="true">Dot grid</button><button data-v="wash" aria-pressed="false">Wash</button><button data-v="plain" aria-pressed="false">Paper</button>
+  </div>
+  <div class="grp" data-set="logo"><span>Nav logo</span>
+   <button data-v="a" aria-pressed="true" aria-label="Logo A"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#hash" width="100" height="100" style="fill:var(--ink)"/></svg></button><button data-v="b" aria-pressed="false" aria-label="Logo B"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#hash" width="100" height="100" style="fill:var(--acc)"/></svg></button><button data-v="c" aria-pressed="false" aria-label="Logo C"><svg viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" rx="8" style="fill:var(--acc)"/><use href="#hash" x="13" y="13" width="74" height="74" style="fill:#fff"/></svg></button><button data-v="d" aria-pressed="false" aria-label="Logo D"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M63 8.5 A43 43 0 1 1 29 13.5" fill="none" stroke-width="7" stroke-linecap="round" style="stroke:var(--acc)"/><use href="#hash" x="24" y="24" width="52" height="52" style="fill:var(--ink)"/></svg></button><button data-v="e" aria-pressed="false" aria-label="Logo E"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#hash" x="0" y="12" width="74" height="74" style="fill:var(--ink)"/><rect class="caret" x="80" y="24" width="13" height="52" style="fill:var(--acc)"/></svg></button><button data-v="f" aria-pressed="false" aria-label="Logo F"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#hash" width="100" height="100" style="fill:var(--ink)"/><circle cx="49.5" cy="51" r="7" style="fill:var(--acc)"/></svg></button>
+  </div>
+ </div>
+</div>
+
+<div class="brief">
+ <header class="bhead">
+  <div>
+   <p class="label">The Way of Markdown · visual direction · round 4 · 3 Oct 2026</p>
+   <h1>Way Into AI's design, <em>with our orange</em>.</h1>
+   <p class="lede">Nearly decided, so this is a check, not a menu. The layout, type and spacing are copied from Way Into AI, which reads warmer than the Inter mock. Our sketches go in as they are.</p>
+   <p class="lede">Use the bar at the top to try the accent: blue as Way Into AI has it, our orange, or orange with a darker shade for text. Plain #ff5a00 is only 3:1 against the paper, too faint for link text; the darker one is 4.6:1.</p>
+  </div>
+  <div>
+   <p class="label">What we're confirming</p>
+   <ul class="checks">
+    <li><strong>Way Into AI's design</strong><span>Newsreader for voice, IBM Plex Mono for structure, ## marks, hairlines, no cards, 44rem text column.</span></li>
+    <li><strong>Orange, not blue</strong><span>So it isn't a copy of Way Into AI. Which shade, and where it goes.</span></li>
+    <li><strong>The sketches stay</strong><span>Recoloured from the accent. Three backgrounds to try.</span></li>
+    <li><strong>The brush # as the logo</strong><span>Six ideas below to mix and match. The tai chi figure is out: it can't work small.</span></li>
+    <li class="later"><strong>Later, separately</strong><span>A Making Software direction, and how sketches and diagrams work. See the end.</span></li>
+   </ul>
+  </div>
+ </header>
+
+ <section class="bsec" id="front">
+  <h2>Front page</h2>
+  <p>Way Into AI's homepage shape: pitch on the left, a short list on the right, then hairline lists. The guide cards become a list with the small sketches as icons.</p>
+  <div class="frame"><div class="chrome"><i></i><i></i><i></i><b>wayofmarkdown.com</b></div>
+  <div class="site">
+   <nav class="nav"><a class="brandname" href="#front"><span class="navlogo"><svg class="la" viewBox="0 0 100 100" aria-hidden="true"><use href="#hash" width="100" height="100" style="fill:var(--ink)"/></svg><svg class="lb" viewBox="0 0 100 100" aria-hidden="true"><use href="#hash" width="100" height="100" style="fill:var(--acc)"/></svg><svg class="lc" viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" rx="8" style="fill:var(--acc)"/><use href="#hash" x="13" y="13" width="74" height="74" style="fill:#fff"/></svg><svg class="ld" viewBox="0 0 100 100" aria-hidden="true"><path d="M63 8.5 A43 43 0 1 1 29 13.5" fill="none" stroke-width="7" stroke-linecap="round" style="stroke:var(--acc)"/><use href="#hash" x="24" y="24" width="52" height="52" style="fill:var(--ink)"/></svg><svg class="le" viewBox="0 0 100 100" aria-hidden="true"><use href="#hash" x="0" y="12" width="74" height="74" style="fill:var(--ink)"/><rect class="caret" x="80" y="24" width="13" height="52" style="fill:var(--acc)"/></svg><svg class="lf" viewBox="0 0 100 100" aria-hidden="true"><use href="#hash" width="100" height="100" style="fill:var(--ink)"/><circle cx="49.5" cy="51" r="7" style="fill:var(--acc)"/></svg></span>The Way of Markdown</a>
+    <span class="navlinks"><a href="#guide">Use it</a><a href="#front">Learn it</a><a href="#front">Why</a><a href="#front">Manifesto</a><a class="hi" href="#front">Playground</a></span></nav>
+   <main class="sheet">
+    <section class="hero">
+     <div>
+      <p class="lbl"><span class="m">#</span> Markdown is eating the world</p>
+      <h1>The Way of Markdown</h1>
+      <p class="say">There's a better way to do your notes, docs and site. <em>It's plain text.</em></p>
+      <p class="lede">A practical guide to doing it with files you own, and the philosophy underneath: simple, open, yours.</p>
+      <p class="ctas"><a class="btn" href="#guide">Replace Notion, step by step</a><a class="cta" href="#front">Find out why</a></p>
+     </div>
+     <div class="steps">
+      <p class="lbl">Start here</p>
+      <ol>
+       <li><strong>Learn the basics</strong><span>Ten minutes. Headings, lists, links. Try it in the playground.</span></li>
+       <li><strong>Pick a tool</strong><span>Obsidian for notes, a publisher for a site. Each guide says what it's good at, and what it isn't.</span></li>
+       <li><strong>Move one thing</strong><span>Export from Notion or Google Docs. Start with one folder, not your whole life.</span></li>
+      </ol>
+     </div>
+    </section>
+    <figure class="fig hero-fig"><p class="ft">One file, any tool</p><div class="panel"><svg viewBox="0 0 600 236" fill="none" stroke="#111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" font-family="JetBrains Mono,ui-monospace,Menlo,monospace" aria-label="Sketch: a person holds a file called notes.md; arrows lead from it to a website, Obsidian, a phone, an AI chat and a git history box; a second person reads the website."><defs><filter id="wob" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="1.6" xChannelSelector="R" yChannelSelector="G"/></filter></defs><g><circle cx="110" cy="71.0" r="11.0" fill="#fff"/><path d="M110 82.0 v33.0"/><path d="M110 115.0 l-9.9 24.200000000000003 M110 115.0 l9.9 24.200000000000003"/><path d="M110 90.8 l15.400000000000002 6.6000000000000005 M110 90.8 l15.400000000000002 15.400000000000002"/><circle cx="106.7" cy="70.0" r="0.9" fill="#111" stroke="none"/><path d="M111 75.0 q3 2 5 0" stroke-width="1.2"/><path d="M132 84 h28 l8 8 v36 h-36 z" fill="#fff"/><path d="M160 84 v8 h8"/><path d="M138 98 h22" stroke-width="1.4"/><path d="M138 105 h14" stroke-width="1.4"/><path d="M138 112 h22" stroke-width="1.4"/><path d="M138 119 h14" stroke-width="1.4"/><text x="150.0" y="140" font-size="10" text-anchor="middle" fill="#111" stroke="none">notes.md</text><rect x="290" y="30" width="70" height="46" rx="4" fill="#ffd3bb"/><path d="M290 44h70"/><circle cx="297" cy="37" r="1.6" fill="#111" stroke="none"/><circle cx="303" cy="37" r="1.6" fill="#111" stroke="none"/><text x="325" y="65" font-size="8.5" letter-spacing=".06em" text-anchor="middle" fill="#111" stroke="none">WEBSITE</text><rect x="300" y="100" width="64" height="40" rx="3" fill="#fff"/><path d="M292 140h80" stroke-width="2.2"/><path d="M312 110h40M312 118h30M312 126h36" stroke-width="1.3"/><text x="332" y="158" font-size="8.5" letter-spacing=".06em" text-anchor="middle" fill="#111" stroke="none">OBSIDIAN</text><rect x="318" y="168" width="24" height="42" rx="4" fill="#fff"/><circle cx="330" cy="202" r="1.8" fill="#111" stroke="none"/><path d="M322 176h16M322 182h12" stroke-width="1.2"/><text x="330" y="226" font-size="8.5" letter-spacing=".06em" text-anchor="middle" fill="#111" stroke="none">PHONE</text><rect x="450" y="60" width="44" height="40" rx="6" fill="#f0f0f0"/><circle cx="465" cy="76" r="3" fill="#111" stroke="none"/><circle cx="479" cy="76" r="3" fill="#111" stroke="none"/><path d="M462 90h20M472 60v-10M466 50h12"/><text x="472" y="118" font-size="8.5" letter-spacing=".06em" text-anchor="middle" fill="#111" stroke="none">AI CHAT</text><path d="M440 150h50v36h-50z M440 150l10-10h50l-10 10 M490 150l10-10v36l-10 10" fill="#fff"/><text x="466" y="206" font-size="8.5" letter-spacing=".06em" text-anchor="middle" fill="#111" stroke="none">GIT (HISTORY)</text><path d="M170 100 Q235.0 74.0 288 60"/><path d="M288 60 l-4.7 5.2 M288 60 l-6.9 -1.2"/><path d="M172 108 Q241.0 107.0 298 118"/><path d="M298 118 l-6.4 2.9 M298 118 l-5.9 -3.8"/><path d="M168 118 Q248.0 145.5 316 185"/><path d="M316 185 l-7.0 0.5 M316 185 l-4.2 -5.6"/><path d="M360 52 Q410.0 55.0 448 70"/><path d="M448 70 l-6.7 2.1 M448 70 l-5.3 -4.5"/><path d="M366 120 Q408.0 134.0 438 160"/><path d="M438 160 l-7.0 -0.0 M438 160 l-3.7 -5.9"/><circle cx="540" cy="129.0" r="9.0" fill="#fff"/><path d="M540 138.0 v27.0"/><path d="M540 165.0 l-8.1 19.8 M540 165.0 l8.1 19.8"/><path d="M540 145.2 l-9.0 10.8 M540 145.2 l-12.6 -12.6"/><circle cx="542.7" cy="128.0" r="0.9" fill="#111" stroke="none"/><path d="M539 133.0 q-3 2 -5 0" stroke-width="1.2"/><text x="547" y="208" font-size="12.5" letter-spacing=".06em" text-anchor="middle" fill="#ff5a00" stroke="none">!</text></g></svg></div><figcaption>Write a plain file. Every tool you already use can read it. Change tools, keep the file. Still yours.</figcaption></figure>
+
+    <section class="sec">
+     <h2 class="s">What do you want to do?</h2>
+     <div class="guides">
+      <a href="#guide"><svg viewBox="0 0 120 90" fill="none" stroke="#111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" font-family="JetBrains Mono,ui-monospace,Menlo,monospace" aria-label="Sketch: a page and a small table"><defs><filter id="wob" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="1.6" xChannelSelector="R" yChannelSelector="G"/></filter></defs><g><path d="M20 14 h42 l8 8 v52 h-50 z" fill="#fff"/><path d="M62 14 v8 h8"/><path d="M26 28 h36" stroke-width="1.4"/><path d="M26 35 h28" stroke-width="1.4"/><path d="M26 42 h36" stroke-width="1.4"/><rect x="60" y="30" width="46" height="46" rx="3" fill="#ffd3bb"/><path d="M60 45h46M60 60h46M75 30v46M90 30v46" stroke-width="1.2"/><text x="60" y="86" font-size="7.5" letter-spacing=".06em" text-anchor="middle" fill="#111" stroke="none">docs + a little database</text></g></svg><span class="k first">start here</span><span class="t">A markdown Notion</span><span class="d">Docs, wikis and light databases as files you own.</span></a>
+      <a href="#front"><svg viewBox="0 0 120 90" fill="none" stroke="#111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" font-family="JetBrains Mono,ui-monospace,Menlo,monospace" aria-label="Sketch: three linked pages"><defs><filter id="wob" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="1.6" xChannelSelector="R" yChannelSelector="G"/></filter></defs><g><path d="M14 16 h26 l8 8 v36 h-34 z" fill="#fff"/><path d="M40 16 v8 h8"/><path d="M20 30 h20" stroke-width="1.4"/><path d="M20 37 h12" stroke-width="1.4"/><path d="M20 44 h20" stroke-width="1.4"/><path d="M44 24 h26 l8 8 v36 h-34 z" fill="#fff"/><path d="M70 24 v8 h8"/><path d="M50 38 h20" stroke-width="1.4"/><path d="M50 45 h12" stroke-width="1.4"/><path d="M50 52 h20" stroke-width="1.4"/><path d="M74 12 h26 l8 8 v36 h-34 z" fill="#fff"/><path d="M100 12 v8 h8"/><path d="M80 26 h20" stroke-width="1.4"/><path d="M80 33 h12" stroke-width="1.4"/><path d="M80 40 h20" stroke-width="1.4"/><path d="M48 40 q-8 -14 -4 -22 M78 44 q6 -20 -4 -24" stroke-dasharray="2 3"/><text x="60" y="86" font-size="7.5" letter-spacing=".06em" text-anchor="middle" fill="#111" stroke="none">linked, in a folder</text></g></svg><span class="k">guide</span><span class="t">Notes</span><span class="d">Obsidian and friends. A second brain that's just a folder.</span></a>
+      <a href="#front"><svg viewBox="0 0 120 90" fill="none" stroke="#111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" font-family="JetBrains Mono,ui-monospace,Menlo,monospace" aria-label="Sketch: a browser window"><defs><filter id="wob" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="1.6" xChannelSelector="R" yChannelSelector="G"/></filter></defs><g><rect x="20" y="14" width="80" height="56" rx="4" fill="#ffd3bb"/><path d="M20 28h80"/><circle cx="28" cy="21" r="2" fill="#111" stroke="none"/><circle cx="36" cy="21" r="2" fill="#111" stroke="none"/><path d="M32 42h40M32 52h28" stroke-width="1.3"/><text x="60" y="86" font-size="7.5" letter-spacing=".06em" text-anchor="middle" fill="#111" stroke="none">yourname.org</text></g></svg><span class="k">guide</span><span class="t">A website</span><span class="d">From a folder of pages to a live site on your domain.</span></a>
+      <a href="#front"><svg viewBox="0 0 120 90" fill="none" stroke="#111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" font-family="JetBrains Mono,ui-monospace,Menlo,monospace" aria-label="Sketch: a page and a pencil"><defs><filter id="wob" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="1.6" xChannelSelector="R" yChannelSelector="G"/></filter></defs><g><path d="M30 12 h48 l8 8 v52 h-56 z" fill="#fff"/><path d="M78 12 v8 h8"/><path d="M36 26 h42" stroke-width="1.4"/><path d="M36 33 h34" stroke-width="1.4"/><path d="M36 40 h42" stroke-width="1.4"/><path d="M36 47 h34" stroke-width="1.4"/><path d="M78 70 l22 -40 l8 4 l-22 40 z" fill="#f0f0f0"/><path d="M78 70 l-2 8 l8 -4"/><text x="60" y="86" font-size="7.5" letter-spacing=".06em" text-anchor="middle" fill="#111" stroke="none">write, publish, keep</text></g></svg><span class="k">guide</span><span class="t">A blog</span><span class="d">Write in your editor, publish from the same files, keep the archive.</span></a>
+      <a href="#front"><svg viewBox="0 0 120 90" fill="none" stroke="#111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" font-family="JetBrains Mono,ui-monospace,Menlo,monospace" aria-label="Sketch: two people and a shared page"><defs><filter id="wob" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="1.6" xChannelSelector="R" yChannelSelector="G"/></filter></defs><g><circle cx="40" cy="16.0" r="6.0" fill="#fff"/><path d="M40 22.0 v18.0"/><path d="M40 40.0 l-5.3999999999999995 13.2 M40 40.0 l5.3999999999999995 13.2"/><path d="M40 26.8 l-6.0 9.6 M40 26.8 l6.0 9.6"/><circle cx="38.2" cy="15.0" r="0.9" fill="#111" stroke="none"/><path d="M41 20.0 q3 2 5 0" stroke-width="1.2"/><circle cx="80" cy="16.0" r="6.0" fill="#fff"/><path d="M80 22.0 v18.0"/><path d="M80 40.0 l-5.3999999999999995 13.2 M80 40.0 l5.3999999999999995 13.2"/><path d="M80 26.8 l-6.0 9.6 M80 26.8 l6.0 9.6"/><circle cx="81.8" cy="15.0" r="0.9" fill="#111" stroke="none"/><path d="M79 20.0 q-3 2 -5 0" stroke-width="1.2"/><path d="M50 46 h12 l8 8 v16 h-20 z" fill="#fff"/><path d="M62 46 v8 h8"/><path d="M56 60 h6" stroke-width="1.4"/><path d="M56 67 h-2" stroke-width="1.4"/><text x="60" y="86" font-size="7.5" letter-spacing=".06em" text-anchor="middle" fill="#111" stroke="none">shared, reviewed</text></g></svg><span class="k">guide</span><span class="t">Team docs and wikis</span><span class="d">Shared docs in a repo. Reviewable, searchable, never locked in.</span></a>
+      <a href="#front"><svg viewBox="0 0 120 90" fill="none" stroke="#111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" font-family="JetBrains Mono,ui-monospace,Menlo,monospace" aria-label="Sketch: shelves of files"><defs><filter id="wob" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="1.6" xChannelSelector="R" yChannelSelector="G"/></filter></defs><g><path d="M16 24h88M16 50h88M16 74h88" stroke-width="2"/><rect x="24" y="28" width="12" height="22" rx="1" fill="#ffd3bb"/><rect x="40" y="28" width="12" height="22" rx="1" fill="#f0f0f0"/><rect x="56" y="28" width="12" height="22" rx="1" fill="#ffe6d6"/><rect x="74" y="28" width="12" height="22" rx="1" fill="#ffd3bb"/><rect x="24" y="52" width="12" height="22" rx="1" fill="#ffe6d6"/><rect x="40" y="52" width="12" height="22" rx="1" fill="#ffd3bb"/><rect x="60" y="52" width="12" height="22" rx="1" fill="#f0f0f0"/><rect x="78" y="52" width="12" height="22" rx="1" fill="#ffe6d6"/><text x="60" y="86" font-size="7.5" letter-spacing=".06em" text-anchor="middle" fill="#111" stroke="none">one file per thing</text></g></svg><span class="k">guide</span><span class="t">A catalogue or database</span><span class="d">One file per thing, frontmatter for the fields.</span></a>
+     </div>
+    </section>
+
+    <section class="sec">
+     <h2 class="s">Learn it</h2>
+     <div class="two">
+      <figure class="fig"><p class="ft">One file, two views</p><div class="panel"><svg viewBox="0 0 420 200" fill="none" stroke="#111" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" font-family="JetBrains Mono,monospace" aria-label="Sketch: the same note shown raw on the left and rendered on the right">
+      <defs><filter id="wob2"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="1.6"/></filter></defs>
+      <g>
+      <path d="M20 20h170v160H20z" fill="#fff"/><path d="M230 20h170v160H230z" fill="#fff"/>
+      <g font-family="JetBrains Mono,monospace" font-size="9.5" fill="#111" stroke="none"><text x="32" y="46"># Weekly notes</text><text x="32" y="66">Things I **must** do:</text><text x="32" y="84">- [x] call the bank</text><text x="32" y="102">- [ ] write the post</text><text x="32" y="126">&gt; "Own the source."</text><text x="32" y="150">See [[plan]] for more.</text></g>
+      <g font-family="Inter,sans-serif" fill="#111" stroke="none"><text x="242" y="50" font-size="15" font-weight="700">Weekly notes</text><text x="242" y="70" font-size="10">Things I <tspan font-weight="700">must</tspan> do:</text><text x="258" y="88" font-size="10">call the bank</text><text x="258" y="104" font-size="10">write the post</text><text x="252" y="128" font-size="10" font-style="italic" fill="#5f6368">Own the source.</text><text x="242" y="152" font-size="10">See <tspan fill="#ff5a00" text-decoration="underline">plan</tspan> for more.</text></g>
+      <rect x="244" y="80" width="8" height="8"/><path d="M246 84l2 2 4-5"/><rect x="244" y="96" width="8" height="8"/><path d="M244 118v14" stroke="#ff5a00" stroke-width="2"/>
+      <path d="M196 100 q10 -10 30 0" /><path d="M226 100 l-6 -3 M226 100 l-5 5"/>
+      <text x="105" y="196" font-size="12" text-anchor="middle" fill="#111" stroke="none">WHAT YOU TYPE</text><text x="315" y="196" font-size="12" text-anchor="middle" fill="#111" stroke="none">WHAT YOU SEE</text>
+      </g>
+    </svg></div><figcaption>What you type on the left, what you see on the right. Same file.</figcaption></figure>
+      <div class="copy"><p>A hash for a heading, stars for bold, a dash for a list. That's most of it, and AI already writes it for you. Then: tables, links between notes, fields on a file, HTML when you need it.</p><p>It's already in more places than you've noticed: Google Docs, Obsidian, GitHub, Slack, every AI chat.</p><p class="more"><a class="cta" href="#front">The basics</a><a class="cta" href="#front">Markdown in every app</a></p></div>
+     </div>
+    </section>
+
+    <section class="sec">
+     <h2 class="s">Why</h2>
+     <div class="two">
+      <div class="copy"><p>Nobody cares about formats, any more than they care about TCP/IP. You care about what they let you do. Markdown is the rare case where the format made the difference, and it wasn't a straight line.</p><p>People could write it by hand, so tools took it as their format. Tools took it, so more people wrote it. Twenty years of that, and the tools got good. AI arrived late and speaks it by default.</p><p>That's the whole philosophy: <em>simple pieces you own beat one monolith you rent.</em></p><p class="more"><a class="cta" href="#front">The whole story</a><a class="cta" href="#front">The manifesto</a></p></div>
+      <figure class="fig"><p class="ft">Two forces</p><div class="panel"><svg viewBox="0 0 420 246" fill="none" stroke="#111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" font-family="JetBrains Mono,ui-monospace,Menlo,monospace" aria-label="Sketch: two people, labelled people and tools, push a wheel round between them; more writers lead to more tools and back; a small robot labelled AI joins late."><defs><filter id="wob" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="1.6" xChannelSelector="R" yChannelSelector="G"/></filter></defs><g><circle cx="200" cy="120" r="70" fill="#ffd3bb" stroke-width="2.2"/><circle cx="200" cy="120" r="8" fill="#fff"/><path d="M200 120 l70.0 0.0 M200 120 l-70.0 -0.0" stroke-width="1.2"/><path d="M200 120 l35.0 60.6 M200 120 l-35.0 -60.6" stroke-width="1.2"/><path d="M200 120 l-35.0 60.6 M200 120 l35.0 -60.6" stroke-width="1.2"/><circle cx="96" cy="90.0" r="10.0" fill="#fff"/><path d="M96 100.0 v30.0"/><path d="M96 130.0 l-9.0 22.0 M96 130.0 l9.0 22.0"/><path d="M96 108.0 l-10.0 12.0 M96 108.0 l14.0 -14.0"/><circle cx="93.0" cy="89.0" r="0.9" fill="#111" stroke="none"/><path d="M97 94.0 q3 2 5 0" stroke-width="1.2"/><text x="96" y="185" font-size="9.5" letter-spacing=".06em" text-anchor="middle" fill="#111" stroke="none">PEOPLE</text><text x="96" y="199" font-size="7.5" letter-spacing=".06em" text-anchor="middle" fill="#111" stroke="none">(easy to write)</text><circle cx="304" cy="90.0" r="10.0" fill="#fff"/><path d="M304 100.0 v30.0"/><path d="M304 130.0 l-9.0 22.0 M304 130.0 l9.0 22.0"/><path d="M304 108.0 l-10.0 12.0 M304 108.0 l-14.0 -14.0"/><circle cx="307.0" cy="89.0" r="0.9" fill="#111" stroke="none"/><path d="M303 94.0 q-3 2 -5 0" stroke-width="1.2"/><text x="304" y="185" font-size="9.5" letter-spacing=".06em" text-anchor="middle" fill="#111" stroke="none">TOOLS</text><text x="304" y="199" font-size="7.5" letter-spacing=".06em" text-anchor="middle" fill="#111" stroke="none">(easy to read)</text><path d="M150 40 q50 -30 100 0" /><path d="M250 40 l-8 -6 M250 40 l-9 4"/><text x="200" y="24" font-size="8.5" letter-spacing=".06em" text-anchor="middle" fill="#111" stroke="none">MORE WRITERS</text><path d="M250 200 q-50 30 -100 0" /><path d="M150 200 l8 6 M150 200 l9 -4"/><text x="200" y="232" font-size="8.5" letter-spacing=".06em" text-anchor="middle" fill="#111" stroke="none">MORE TOOLS</text><rect x="362" y="118" width="34" height="30" rx="5" fill="#f0f0f0"/><circle cx="373" cy="130" r="2.4" fill="#111" stroke="none"/><circle cx="385" cy="130" r="2.4" fill="#111" stroke="none"/><path d="M370 140h14M379 118v-7"/><text x="379" y="166" font-size="8.5" letter-spacing=".06em" text-anchor="middle" fill="#111" stroke="none">AI, LATE</text><text x="379" y="178" font-size="7.5" letter-spacing=".06em" text-anchor="middle" fill="#111" stroke="none">TO THE PARTY</text><path d="M358 130 l-18 -4" stroke-dasharray="3 3"/></g></svg></div><figcaption>More people writing it meant more tools reading it, and back again. AI joined late.</figcaption></figure>
+     </div>
+    </section>
+   </main>
+   <footer class="foot"><span>The Way of Markdown</span><span>Use it · Learn it · Why · Manifesto</span><span>A site by Rufus Pollock</span></footer>
+  </div></div>
+ </section>
+
+ <section class="bsec" id="guide">
+  <h2>Guide page</h2>
+  <p>Way Into AI's article page: serif title and prose at 1.125rem, mono headings with the ## mark, a 44rem column, contents on the right.</p>
+  <div class="frame"><div class="chrome"><i></i><i></i><i></i><b>wayofmarkdown.com/markdown-notion</b></div>
+  <div class="site">
+   <nav class="nav"><a class="brandname" href="#front"><span class="navlogo"><svg class="la" viewBox="0 0 100 100" aria-hidden="true"><use href="#hash" width="100" height="100" style="fill:var(--ink)"/></svg><svg class="lb" viewBox="0 0 100 100" aria-hidden="true"><use href="#hash" width="100" height="100" style="fill:var(--acc)"/></svg><svg class="lc" viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" rx="8" style="fill:var(--acc)"/><use href="#hash" x="13" y="13" width="74" height="74" style="fill:#fff"/></svg><svg class="ld" viewBox="0 0 100 100" aria-hidden="true"><path d="M63 8.5 A43 43 0 1 1 29 13.5" fill="none" stroke-width="7" stroke-linecap="round" style="stroke:var(--acc)"/><use href="#hash" x="24" y="24" width="52" height="52" style="fill:var(--ink)"/></svg><svg class="le" viewBox="0 0 100 100" aria-hidden="true"><use href="#hash" x="0" y="12" width="74" height="74" style="fill:var(--ink)"/><rect class="caret" x="80" y="24" width="13" height="52" style="fill:var(--acc)"/></svg><svg class="lf" viewBox="0 0 100 100" aria-hidden="true"><use href="#hash" width="100" height="100" style="fill:var(--ink)"/><circle cx="49.5" cy="51" r="7" style="fill:var(--acc)"/></svg></span>The Way of Markdown</a>
+    <span class="navlinks"><a class="hi" href="#guide">Use it</a><a href="#front">Learn it</a><a href="#front">Why</a><a href="#front">Manifesto</a><a href="#front">Playground</a></span></nav>
+   <main class="sheet">
+    <div class="art">
+     <article>
+      <header class="ph">
+       <p class="crumb"><a href="#front">Use it</a> / guide</p>
+       <h1>Replacing Notion with Markdown</h1>
+       <p class="desc">How to move docs, wikis and light databases out of Notion into plain files you own, and what you give up.</p>
+       <p class="meta">Rufus Pollock · updated 2026 · 8 min read</p>
+      </header>
+      <div class="prose">
+       <p>Still weighing it up? The feature-by-feature scorecard is at <a href="#guide">Notion vs Markdown</a>; this page is the <em class="s">how</em>, for when you've decided.</p>
+       <p>Let me be clear upfront: Notion is genuinely good software. The blocks editor is slick, the databases are clever, and teams get real value from it. If it's working for you and the trade-offs below don't bother you, carry on.</p>
+       <p>But Notion is also a proprietary blocks database that owns your notes, your wiki and your little databases, rented back to you monthly. Your "pages" aren't files; they're rows in someone else's system. And most people don't realise that most of what they use Notion for works in plain markdown files. Not with heroic effort. With a nice editor and a couple of conventions.</p>
+       <h2 id="g-map">The mapping</h2>
+       <p>Take the things you actually do in Notion, one at a time:</p>
+       <table><thead><tr><th>In Notion</th><th>In markdown</th><th>With</th></tr></thead><tbody>
+        <tr><td>Docs and notes</td><td>a .md file</td><td>Obsidian over a folder you own: live preview, slash commands, the lot.</td></tr>
+        <tr><td>Wikis</td><td>[[wiki-links]]</td><td>Obsidian for backlinks and graph; add GitHub for review and history.</td></tr>
+        <tr><td>Databases</td><td>frontmatter fields</td><td>A folder of files is a table. Obsidian Bases gives views, filters, cards.</td></tr>
+        <tr><td>Public pages</td><td>publish the folder</td><td>Flowershow or any static site tool. A real site on your domain.</td></tr>
+       </tbody></table>
+       <p><strong>Databases</strong> are the interesting one, and the reason people think they're stuck. A Notion database is records with fields and views. But a markdown file with frontmatter <em class="s">is</em> a record with fields:</p>
+<pre><span class="d">---</span>
+<span class="k">title:</span> The Dispossessed
+<span class="k">author:</span> Ursula K. Le Guin
+<span class="k">status:</span> read
+<span class="k">rating:</span> 5
+<span class="d">---</span>
+Anarchist moon physics. Loved it.</pre>
+       <p>A folder of these is a table. Here's one, three markdown files rendered as a live table in Obsidian:</p>
+       <figure class="fig"><p class="ft">Three files, one table</p><div class="panel"><svg viewBox="0 0 480 196" fill="none" stroke="#111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" font-family="JetBrains Mono,ui-monospace,Menlo,monospace" aria-label="Sketch: three markdown files with frontmatter become one table with columns file, house and pet."><defs><filter id="wob" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="1.6" xChannelSelector="R" yChannelSelector="G"/></filter></defs><g><path d="M20 20 h88 l8 8 v42 h-96 z" fill="#fff"/><path d="M108 20 v8 h8"/><text x="30" y="36" font-size="8.5" letter-spacing=".06em" text-anchor="start" fill="#ff5a00" stroke="none">MALFOY.MD</text><text x="30" y="50" font-size="7.5" letter-spacing=".06em" text-anchor="start" fill="#111" stroke="none">house: Slytherin</text><text x="30" y="62" font-size="7.5" letter-spacing=".06em" text-anchor="start" fill="#111" stroke="none">pet: -</text><path d="M120 45 Q142.0 71.5 152 110"/><path d="M152 110 l-5.7 -4.0 M152 110 l0.3 -7.0"/><path d="M20 82 h88 l8 8 v42 h-96 z" fill="#fff"/><path d="M108 82 v8 h8"/><text x="30" y="98" font-size="8.5" letter-spacing=".06em" text-anchor="start" fill="#ff5a00" stroke="none">POTTER.MD</text><text x="30" y="112" font-size="7.5" letter-spacing=".06em" text-anchor="start" fill="#111" stroke="none">house: Gryffindor</text><text x="30" y="124" font-size="7.5" letter-spacing=".06em" text-anchor="start" fill="#111" stroke="none">pet: Hedwig</text><path d="M120 107 Q142.0 102.5 152 110"/><path d="M152 110 l-6.4 2.8 M152 110 l-5.8 -3.9"/><path d="M20 144 h88 l8 8 v42 h-96 z" fill="#fff"/><path d="M108 144 v8 h8"/><text x="30" y="160" font-size="8.5" letter-spacing=".06em" text-anchor="start" fill="#ff5a00" stroke="none">GRANGER.MD</text><text x="30" y="174" font-size="7.5" letter-spacing=".06em" text-anchor="start" fill="#111" stroke="none">house: Gryffindor</text><text x="30" y="186" font-size="7.5" letter-spacing=".06em" text-anchor="start" fill="#111" stroke="none">pet: Crookshanks</text><path d="M120 169 Q142.0 133.5 152 110"/><path d="M152 110 l0.0 7.0 M152 110 l-5.9 3.8"/><rect x="160" y="60" width="300" height="104" rx="3" fill="#fff"/><path d="M160 86h300M160 112h300M160 138h300M240 60v104M340 60v104" stroke-width="1.2"/><rect x="160" y="60" width="300" height="26" fill="#f0f0f0" stroke="none" opacity=".7"/><text x="200" y="78" font-size="9.5" letter-spacing=".06em" text-anchor="middle" fill="#111" stroke="none">FILE</text><text x="290" y="78" font-size="9.5" letter-spacing=".06em" text-anchor="middle" fill="#111" stroke="none">HOUSE</text><text x="400" y="78" font-size="9.5" letter-spacing=".06em" text-anchor="middle" fill="#111" stroke="none">PET</text><text x="200" y="104" font-size="8.5" letter-spacing=".06em" text-anchor="middle" fill="#ff5a00" stroke="none">MALFOY</text><text x="290" y="104" font-size="8.5" letter-spacing=".06em" text-anchor="middle" fill="#111" stroke="none">SLYTHERIN</text><text x="400" y="104" font-size="8.5" letter-spacing=".06em" text-anchor="middle" fill="#111" stroke="none">-</text><text x="200" y="130" font-size="8.5" letter-spacing=".06em" text-anchor="middle" fill="#ff5a00" stroke="none">POTTER</text><text x="290" y="130" font-size="8.5" letter-spacing=".06em" text-anchor="middle" fill="#111" stroke="none">GRYFFINDOR</text><text x="400" y="130" font-size="8.5" letter-spacing=".06em" text-anchor="middle" fill="#111" stroke="none">HEDWIG (OWL)</text><text x="200" y="156" font-size="8.5" letter-spacing=".06em" text-anchor="middle" fill="#ff5a00" stroke="none">GRANGER</text><text x="290" y="156" font-size="8.5" letter-spacing=".06em" text-anchor="middle" fill="#111" stroke="none">GRYFFINDOR</text><text x="400" y="156" font-size="8.5" letter-spacing=".06em" text-anchor="middle" fill="#111" stroke="none">CROOKSHANKS</text></g></svg></div><figcaption>Three plain files become one table. Obsidian Bases draws it; Dataview did for years before.</figcaption></figure>
+       <h2 id="g-honest">What you give up, honestly</h2>
+       <figure class="fig"><p class="ft">Not a free lunch</p><div class="panel"><svg viewBox="0 0 400 206" fill="none" stroke="#111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" font-family="JetBrains Mono,ui-monospace,Menlo,monospace" aria-label="Sketch: a balance scale. The light side lists what you give up: live multiplayer, page permissions, huge databases. The heavy side lists what you get: your files forever, any tool any time, no rent."><defs><filter id="wob" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="1.6" xChannelSelector="R" yChannelSelector="G"/></filter></defs><g><path d="M200 190 h-40 M180 190 v-110" stroke-width="2.4"/><path d="M80 90 L280 70" stroke-width="2.4"/><circle cx="180" cy="80" r="4" fill="#111"/><path d="M80 90 l-30 50 h60 z" fill="#f0f0f0"/><path d="M280 70 l-30 50 h60 z" fill="#ffd3bb"/><text x="80" y="156" font-size="9.5" letter-spacing=".06em" text-anchor="middle" fill="#111" stroke="none">YOU GIVE UP</text><text x="80" y="170" font-size="7.5" letter-spacing=".06em" text-anchor="middle" fill="#111" stroke="none">live multiplayer</text><text x="80" y="182" font-size="7.5" letter-spacing=".06em" text-anchor="middle" fill="#111" stroke="none">page permissions</text><text x="80" y="194" font-size="7.5" letter-spacing=".06em" text-anchor="middle" fill="#111" stroke="none">huge databases</text><text x="280" y="136" font-size="9.5" letter-spacing=".06em" text-anchor="middle" fill="#111" stroke="none">YOU GET</text><text x="280" y="150" font-size="7.5" letter-spacing=".06em" text-anchor="middle" fill="#111" stroke="none">your files, forever</text><text x="280" y="162" font-size="7.5" letter-spacing=".06em" text-anchor="middle" fill="#111" stroke="none">any tool, any time</text><text x="280" y="174" font-size="7.5" letter-spacing=".06em" text-anchor="middle" fill="#111" stroke="none">no rent, no export button</text><circle cx="368" cy="147.0" r="7.0" fill="#fff"/><path d="M368 154.0 v21.0"/><path d="M368 175.0 l-6.3 15.399999999999999 M368 175.0 l6.3 15.399999999999999"/><path d="M368 159.6 l-7.0 8.399999999999999 M368 159.6 l-9.799999999999999 -9.799999999999999"/><circle cx="370.1" cy="146.0" r="0.9" fill="#111" stroke="none"/><path d="M367 151.0 q-3 2 -5 0" stroke-width="1.2"/></g></svg></div><figcaption>Honestly, it tips. But not for everyone.</figcaption></figure>
+       <blockquote><p class="bt">Not a free lunch</p><ol>
+        <li><strong>Real-time multiplayer editing.</strong> Git-based collaboration is asynchronous: commit, push, review. Fine for docs and knowledge; wrong for six people live-editing one meeting note.</li>
+        <li><strong>Granular permissions.</strong> A repo is shared or it isn't.</li>
+        <li><strong>Heavy relational databases.</strong> Thousands of records and rollups want an actual database. (Though ask yourself honestly whether you have that, or four lists and a books catalogue.)</li>
+       </ol><p>If those three are your core use, stay on Notion, sincerely. If, like most people, what you have is notes, docs, links and lists: you can own all of it.</p></blockquote>
+       <h2 id="g-escape">The escape, step by step</h2>
+       <ol class="steps2">
+        <li><strong>Export.</strong> Notion Settings → Export all workspace content → <em class="s">Markdown &amp; CSV</em>.</li>
+        <li><strong>Tidy.</strong> Notion appends ugly ID hashes to filenames; a rename pass fixes it.</li>
+        <li><strong>Open in Obsidian.</strong> Point it at the folder. That's it, you're operational.</li>
+        <li><strong>Add git when ready.</strong> <a href="#guide">Push the vault to GitHub</a> for history, sync and collaboration.</li>
+        <li><strong>Publish if you want.</strong> <a href="#guide">Tutorial</a>.</li>
+       </ol>
+       <p>That's the actual point. Not that Notion is bad, but that <a href="#guide">your content shouldn't need an export button</a>.</p>
+      </div>
+     </article>
+     <aside class="toc"><p class="tt">On this page</p><a href="#g-map">The mapping</a><a href="#g-honest">What you give up</a><a href="#g-escape">The escape, step by step</a><p class="tt" style="margin-top:1rem">Next</p><a href="#guide">Notion vs Markdown, the scorecard</a><a href="#guide">The markdown database pattern</a></aside>
+    </div>
+   </main>
+   <footer class="foot"><span>The Way of Markdown</span><span>Use it · Learn it · Why · Manifesto</span><span>A site by Rufus Pollock</span></footer>
+  </div></div>
+ </section>
+
+ <section class="bsec" id="logo">
+  <h2>Logo ideas</h2>
+  <p>All built on the brush #. Each is shown large, at favicon sizes and in a browser tab. They combine: the dot from F works inside the seal C, the caret from E works in a lockup. Pick one in the bar above to see it in the nav.</p>
+  <div class="logos site">
+   <div class="lg"><div class="big"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#hash" width="100" height="100" style="fill:var(--ink)"/></svg></div><h3><b>A</b>The brush #</h3><p>The mark on its own, in ink. Calm. The accent stays for the page.</p><div class="sizes"><div><svg viewBox="0 0 100 100" width="48" height="48" aria-hidden="true"><use href="#hash" width="100" height="100" style="fill:var(--ink)"/></svg>48</div><div><svg viewBox="0 0 100 100" width="32" height="32" aria-hidden="true"><use href="#hash" width="100" height="100" style="fill:var(--ink)"/></svg>32</div><div><svg viewBox="0 0 100 100" width="16" height="16" aria-hidden="true"><use href="#hash" width="100" height="100" style="fill:var(--ink)"/></svg>16</div><span class="tab"><svg viewBox="0 0 100 100" width="16" height="16" aria-hidden="true"><use href="#hash" width="100" height="100" style="fill:var(--ink)"/></svg>Way of Markdown</span></div></div>
+   <div class="lg"><div class="big"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#hash" width="100" height="100" style="fill:var(--acc)"/></svg></div><h3><b>B</b>The brush # in colour</h3><p>Same mark, in the accent. Louder in a tab; fights the ## marks on the page a little.</p><div class="sizes"><div><svg viewBox="0 0 100 100" width="48" height="48" aria-hidden="true"><use href="#hash" width="100" height="100" style="fill:var(--acc)"/></svg>48</div><div><svg viewBox="0 0 100 100" width="32" height="32" aria-hidden="true"><use href="#hash" width="100" height="100" style="fill:var(--acc)"/></svg>32</div><div><svg viewBox="0 0 100 100" width="16" height="16" aria-hidden="true"><use href="#hash" width="100" height="100" style="fill:var(--acc)"/></svg>16</div><span class="tab"><svg viewBox="0 0 100 100" width="16" height="16" aria-hidden="true"><use href="#hash" width="100" height="100" style="fill:var(--acc)"/></svg>Way of Markdown</span></div></div>
+   <div class="lg"><div class="big"><svg viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" rx="8" style="fill:var(--acc)"/><use href="#hash" x="13" y="13" width="74" height="74" style="fill:#fff"/></svg></div><h3><b>C</b>The seal</h3><p>White # cut out of a square of accent, like a name seal. Best at 16px. The practice-tradition note, without a figure.</p><div class="sizes"><div><svg viewBox="0 0 100 100" width="48" height="48" aria-hidden="true"><rect width="100" height="100" rx="8" style="fill:var(--acc)"/><use href="#hash" x="13" y="13" width="74" height="74" style="fill:#fff"/></svg>48</div><div><svg viewBox="0 0 100 100" width="32" height="32" aria-hidden="true"><rect width="100" height="100" rx="8" style="fill:var(--acc)"/><use href="#hash" x="13" y="13" width="74" height="74" style="fill:#fff"/></svg>32</div><div><svg viewBox="0 0 100 100" width="16" height="16" aria-hidden="true"><rect width="100" height="100" rx="8" style="fill:var(--acc)"/><use href="#hash" x="13" y="13" width="74" height="74" style="fill:#fff"/></svg>16</div><span class="tab"><svg viewBox="0 0 100 100" width="16" height="16" aria-hidden="true"><rect width="100" height="100" rx="8" style="fill:var(--acc)"/><use href="#hash" x="13" y="13" width="74" height="74" style="fill:#fff"/></svg>Way of Markdown</span></div></div>
+   <div class="lg"><div class="big"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M63 8.5 A43 43 0 1 1 29 13.5" fill="none" stroke-width="7" stroke-linecap="round" style="stroke:var(--acc)"/><use href="#hash" x="24" y="24" width="52" height="52" style="fill:var(--ink)"/></svg></div><h3><b>D</b>The circle</h3><p>One open brush circle around the #. The "Way", where the tai chi figure was trying to go. Gets muddy small.</p><div class="sizes"><div><svg viewBox="0 0 100 100" width="48" height="48" aria-hidden="true"><path d="M63 8.5 A43 43 0 1 1 29 13.5" fill="none" stroke-width="7" stroke-linecap="round" style="stroke:var(--acc)"/><use href="#hash" x="24" y="24" width="52" height="52" style="fill:var(--ink)"/></svg>48</div><div><svg viewBox="0 0 100 100" width="32" height="32" aria-hidden="true"><path d="M63 8.5 A43 43 0 1 1 29 13.5" fill="none" stroke-width="7" stroke-linecap="round" style="stroke:var(--acc)"/><use href="#hash" x="24" y="24" width="52" height="52" style="fill:var(--ink)"/></svg>32</div><div><svg viewBox="0 0 100 100" width="16" height="16" aria-hidden="true"><path d="M63 8.5 A43 43 0 1 1 29 13.5" fill="none" stroke-width="7" stroke-linecap="round" style="stroke:var(--acc)"/><use href="#hash" x="24" y="24" width="52" height="52" style="fill:var(--ink)"/></svg>16</div><span class="tab"><svg viewBox="0 0 100 100" width="16" height="16" aria-hidden="true"><path d="M63 8.5 A43 43 0 1 1 29 13.5" fill="none" stroke-width="7" stroke-linecap="round" style="stroke:var(--acc)"/><use href="#hash" x="24" y="24" width="52" height="52" style="fill:var(--ink)"/></svg>Way of Markdown</span></div></div>
+   <div class="lg"><div class="big"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#hash" x="0" y="12" width="74" height="74" style="fill:var(--ink)"/><rect class="caret" x="80" y="24" width="13" height="52" style="fill:var(--acc)"/></svg></div><h3><b>E</b>The cursor</h3><p># and a blinking cursor: plain text, being written. The only one that moves; still in reduced-motion.</p><div class="sizes"><div><svg viewBox="0 0 100 100" width="48" height="48" aria-hidden="true"><use href="#hash" x="0" y="12" width="74" height="74" style="fill:var(--ink)"/><rect class="caret" x="80" y="24" width="13" height="52" style="fill:var(--acc)"/></svg>48</div><div><svg viewBox="0 0 100 100" width="32" height="32" aria-hidden="true"><use href="#hash" x="0" y="12" width="74" height="74" style="fill:var(--ink)"/><rect class="caret" x="80" y="24" width="13" height="52" style="fill:var(--acc)"/></svg>32</div><div><svg viewBox="0 0 100 100" width="16" height="16" aria-hidden="true"><use href="#hash" x="0" y="12" width="74" height="74" style="fill:var(--ink)"/><rect class="caret" x="80" y="24" width="13" height="52" style="fill:var(--acc)"/></svg>16</div><span class="tab"><svg viewBox="0 0 100 100" width="16" height="16" aria-hidden="true"><use href="#hash" x="0" y="12" width="74" height="74" style="fill:var(--ink)"/><rect class="caret" x="80" y="24" width="13" height="52" style="fill:var(--acc)"/></svg>Way of Markdown</span></div></div>
+   <div class="lg"><div class="big"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#hash" width="100" height="100" style="fill:var(--ink)"/><circle cx="49.5" cy="51" r="7" style="fill:var(--acc)"/></svg></div><h3><b>F</b>The # with a dot</h3><p>An accent dot in the middle square of the #. The one point of colour, like the dot in the old mock's masthead.</p><div class="sizes"><div><svg viewBox="0 0 100 100" width="48" height="48" aria-hidden="true"><use href="#hash" width="100" height="100" style="fill:var(--ink)"/><circle cx="49.5" cy="51" r="7" style="fill:var(--acc)"/></svg>48</div><div><svg viewBox="0 0 100 100" width="32" height="32" aria-hidden="true"><use href="#hash" width="100" height="100" style="fill:var(--ink)"/><circle cx="49.5" cy="51" r="7" style="fill:var(--acc)"/></svg>32</div><div><svg viewBox="0 0 100 100" width="16" height="16" aria-hidden="true"><use href="#hash" width="100" height="100" style="fill:var(--ink)"/><circle cx="49.5" cy="51" r="7" style="fill:var(--acc)"/></svg>16</div><span class="tab"><svg viewBox="0 0 100 100" width="16" height="16" aria-hidden="true"><use href="#hash" width="100" height="100" style="fill:var(--ink)"/><circle cx="49.5" cy="51" r="7" style="fill:var(--acc)"/></svg>Way of Markdown</span></div></div>
+  </div>
+  <div class="lockups site">
+   <div class="lg"><div class="big"><span class="lk"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#hash" width="100" height="100" style="fill:var(--ink)"/></svg><span class="w1">The Way of Markdown</span></span></div><h3><b>G</b>Lockup, serif</h3><p>Mark plus the name in Newsreader. For the press kit and social cards.</p></div>
+   <div class="lg"><div class="big"><span class="lk"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#hash" x="0" y="12" width="74" height="74" style="fill:var(--ink)"/><rect class="caret" x="80" y="24" width="13" height="52" style="fill:var(--acc)"/></svg><span class="w2">way of markdown</span></span></div><h3><b>H</b>Lockup, mono</h3><p>Lower case in Plex Mono, as if typed. Matches the nav, which is mono.</p></div>
+  </div>
+ </section>
+
+ <section class="bsec" id="later">
+  <h2>Later, in their own threads</h2>
+  <div class="later">
+   <div><p class="label">wom-b5o.14 · running now</p><h3>A Making Software direction</h3><p>A full alternative that imitates makingsoftware.com closely, with its Arizona type set larger than they use it. A separate artifact, so this one stays a clean check.</p></div>
+   <div><p class="label">wom-b5o.15</p><h3>Sketches and diagrams</h3><p>How drawings sit on the page, and whether to go towards Making Software's animated diagrams or make the stick-figure sketches better. The background toggle above is a stopgap.</p></div>
+  </div>
+ </section>
+</div>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  var ACC={blue:["#2140c4","#2140c4"],orange:["#ff5a00","#ff5a00"],split:["#ff5a00","#cc4400"]};
+  function press(grp,v){grp.querySelectorAll("button").forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.v===v))})}
+  function setAccent(a,t){root.style.setProperty("--acc",a);root.style.setProperty("--acc-text",t)}
+  function apply(set,v){
+    if(set==="accent"){if(ACC[v])setAccent(ACC[v][0],ACC[v][1])}
+    else root.setAttribute("data-"+set,v);
+  }
+  var defaults={accent:"split",links:"acc",panel:"dots",logo:"a"};
+  Object.keys(defaults).forEach(function(k){apply(k,defaults[k])});
+  document.querySelectorAll(".grp[data-set]").forEach(function(grp){
+    grp.addEventListener("click",function(e){
+      var b=e.target.closest("button");if(!b)return;
+      press(grp,b.dataset.v);apply(grp.dataset.set,b.dataset.v);
+    });
+  });
+  var pick=document.getElementById("custom-acc");
+  pick.addEventListener("input",function(){setAccent(pick.value,pick.value);press(pick.closest(".grp"),"")});
+})();
+</script>
