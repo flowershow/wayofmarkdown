@@ -4,6 +4,7 @@ description: "The site has a new design: one orange, a serif for reading, mono f
 date: 2026-10-03
 authors: ["rufus"]
 image: /assets/blog/2026-10-03/home.png
+promote: true
 ---
 
 The site has a new look. One orange, a serif for reading and a monospace for structure, headings marked with a `##` the way you'd type them, and a brush-stroke `#` in an orange square for a logo.

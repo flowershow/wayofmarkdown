@@ -109,14 +109,6 @@
             "name": "About"
           },
           {
-            "href": "/blog",
-            "name": "Blog"
-          },
-          {
-            "href": "/changelog",
-            "name": "Changelog"
-          },
-          {
             "href": "/explore",
             "name": "Site index"
           },
@@ -129,6 +121,10 @@
       {
         "href": "/roadmap",
         "name": "Roadmap"
+      },
+      {
+        "href": "/changelog",
+        "name": "Changelog"
       }
     ],
     "social": [
@@ -216,10 +212,6 @@
             "href": "/about"
           },
           {
-            "name": "Blog",
-            "href": "/blog"
-          },
-          {
             "name": "Changelog",
             "href": "/changelog"
           },
@@ -268,6 +260,22 @@
     {
       "from": "/kb/ipad-notes",
       "to": "/markdown-in-apple-notes"
+    },
+    {
+      "from": "/blog",
+      "to": "/changelog"
+    },
+    {
+      "from": "/blog/2026-07-18-the-way-of-markdown-is-live",
+      "to": "/changelog/2026-07-18-the-way-of-markdown-is-live"
+    },
+    {
+      "from": "/blog/2026-07-18-visual-roadmap",
+      "to": "/changelog/2026-07-18-visual-roadmap"
+    },
+    {
+      "from": "/blog/2026-10-03-finding-a-look",
+      "to": "/changelog/2026-10-03-finding-a-look"
     }
   ],
   "contentHide": [

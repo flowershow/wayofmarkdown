@@ -92,4 +92,4 @@ can use paragraphs or bullets. Omit internal implementation detail. For the
 first entry or when the format is unclear, fetch and follow
 https://raw.githubusercontent.com/life-itself/changelog/main/CONVENTION.md
 
-`changelog/` is published: `/changelog` (its `index.mdx`) lists the entries, and it's in the navbar. Entries are public pages, so write them for readers.
+`changelog/` is published at `/changelog` and promoted in the navbar; it is also the site's news stream (the old blog was merged into it on 2026-10-03, `/blog` redirects). Short entries for most changes; a longer story when one deserves it. Entries are public pages, so write them for readers.

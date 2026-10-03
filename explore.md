@@ -88,7 +88,7 @@ The [reference shelf](kb/): things to look up rather than read through.
 - [The Markdown Canon](kb/canon.md) 📜 — the essential texts, from Gruber's spec onwards
 - [Videos](videos.md) 🎬 · [Badges](badges.md) ❤ · [About this site](about.md)
 
-From the [blog](blog/):
+From the [changelog](changelog/):
 
-- [The Way of Markdown is live](blog/2026-07-18-the-way-of-markdown-is-live.md)
-- [New: the visual roadmap (and where it came from)](blog/2026-07-18-visual-roadmap.md)
+- [The Way of Markdown is live](changelog/2026-07-18-the-way-of-markdown-is-live.md)
+- [New: the visual roadmap (and where it came from)](changelog/2026-07-18-visual-roadmap.md)

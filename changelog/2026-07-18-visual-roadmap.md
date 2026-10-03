@@ -3,9 +3,8 @@ title: "New: the visual roadmap (and where it came from)"
 description: "The site's whole learning path is now one clickable, colour-coded picture — generated from a plain-text data file, naturally."
 date: 2026-07-18
 authors: ["rufus"]
+promote: false
 ---
-
-# New: the visual roadmap
 
 The [roadmap](/roadmap) is now an actual map: boxes, edges, a spine with branches — roadmap.sh-style — with every box clickable and colour-coded by build status. Green is written, amber is in progress, grey is planned. So it's simultaneously the learner's path *and* the site's honest public to-do list.
 

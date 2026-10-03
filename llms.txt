@@ -34,4 +34,4 @@ Site: https://wayofmarkdown.com — all pages are written in markdown; append no
 - [The markdown timeline](https://wayofmarkdown.com/timeline), [The Markdown Canon](https://wayofmarkdown.com/kb/canon)
 - [Pluggable markdown](https://wayofmarkdown.com/pluggable-markdown): fenced blocks as markdown's plugin system
 - [Git/GitHub glossary](https://wayofmarkdown.com/kb/glossary), [Git rescue](https://wayofmarkdown.com/kb/git-rescue)
-- [Blog](https://wayofmarkdown.com/blog)
+- [Changelog](https://wayofmarkdown.com/changelog)
