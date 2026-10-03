@@ -3,7 +3,9 @@
 
 Usage: python3 scripts/roadmap-gen.py            # regenerates the SVG inside roadmap.md
 The map is data (scripts/roadmap-map.json); the picture is a generated view of it.
-Drawn in the site diagram language (scripts/isokit.py): built is a solid orange line,\npartial dashed, planned dotted grey.
+Drawn in the map mode of the site diagram language (scripts/isokit.py): built is a
+solid orange line, partial dashed, planned dotted grey. The earlier isometric
+version is backed up in docs/brand/diagrams/roadmap-iso-2026-10-03/.
 """
 import json
 import html
@@ -12,16 +14,20 @@ import os
 import re
 import sys
 sys.path.insert(0, os.path.dirname(__file__))
-from isokit import CSS, Iso, plate, text_on, leader  # noqa: E402
+from isokit import CSS, box, wire  # noqa: E402
 
-W = 760
+# Map mode (docs/brand/diagram-language.md): a heavy orange rail down the
+# middle with the stages on it; optional side trips in lighter boxes either
+# side, joined by dotted right-angled wires.
+W = 1000
 CX = W // 2
-PW = 210          # plate length along its x axis (the stage title runs this way)
-THICK = 6
-STAGE_GAP = 16    # vertical space between one plate's bottom and the next plate's top
-LX_LEFT, LX_RIGHT = 186, 576   # where the branch labels' leaders end
+SPINE_W, SPINE_H = 260, 58
+BR_W, BR_H = 200, 38
+STAGE_GAP = 44
+BR_GAP = 10
+BR_XOFF = 70  # gap between a stage box and its side trips
 CIRCLED = dict(zip("⓪①②③④⑤⑥⑦⑧⑨", "0123456789"))
-EMOJI = re.compile("[\U0001F000-\U0001FFFF\u2600-\u27BF\u2B00-\u2BFF\uFE0F\u2728]")
+EMOJI = re.compile("[\\U0001F000-\\U0001FFFF\\u2600-\\u27BF\\u2B00-\\u2BFF\\uFE0F\\u2728]")
 
 
 def clean(label):
@@ -32,41 +38,44 @@ def clean(label):
 def main():
     here = os.path.dirname(__file__)
     data = json.load(open(os.path.join(here, "roadmap-map.json")))
-    parts, y = [], 24
+    wires, boxes, y = [], [], 24
+    first_mid = last_mid = None
     for stage in data["stages"]:
         branches = stage.get("branches", [])
         left = [b for b in branches if b.get("side") == "left"]
         right = [b for b in branches if b.get("side") != "left"]
-        k = max(len(left), len(right), 1)
-        pd = max(120, 36 * (k + 1))                # plate depth grows with its branches
-        iso = Iso(CX - (PW - pd) * 0.866 / 2, y)   # centre the plate on the page
-        status = stage["status"]
+        n = max(len(left), len(right))
+        cluster_h = n * (BR_H + BR_GAP) - BR_GAP if n else 0
+        stage_h = max(SPINE_H, cluster_h)
+        sy = y + (stage_h - SPINE_H) / 2
+        mid = sy + SPINE_H / 2
+        first_mid = mid if first_mid is None else first_mid
+        last_mid = mid
         title = clean(stage["label"])
-        num = CIRCLED.get(title[:1], "")
+        num = CIRCLED.get(title[:1])
         title = title[1:].strip() if num else title
-        lines = title.split("\\n")
-        g = [plate(iso, PW, pd, 0, THICK)]
-        if num:
-            g.append(text_on(iso, 18, 34, 0, num, 30, "num"))
-        for i, line in enumerate(lines):
-            g.append(text_on(iso, 18, 56 + i * 17, 0, html.escape(line), 12.5))
-        parts.append(f'<a href="{stage["url"]}"><g class="{status}">{"".join(g)}</g></a>')
-        for side, items in (("L", left), ("R", right)):
-            for i, b in enumerate(items):
-                yy = pd * (i + 1) / (len(items) + 1)
-                px, py = iso.P(0, yy) if side == "L" else iso.P(PW, yy)
-                lx = LX_LEFT if side == "L" else LX_RIGHT
-                lab = leader(px, py, lx, html.escape(clean(b["label"])), side)
-                parts.append(f'<a href="{b["url"]}"><g class="{b["status"]}">{lab}</g></a>')
-        y += (PW + pd) * 0.5 + THICK + STAGE_GAP
+        lines = [html.escape(t) for t in title.split("\\n")]
+        boxes.append(f'<a href="{stage["url"]}">'
+                     f'{box(CX - SPINE_W / 2, sy, SPINE_W, SPINE_H, lines, "stop " + stage["status"], num)}</a>')
+        for side, items in (("left", left), ("right", right)):
+            by = y + (stage_h - (len(items) * (BR_H + BR_GAP) - BR_GAP)) / 2
+            for b in items:
+                bx = CX - SPINE_W / 2 - BR_XOFF - BR_W if side == "left" else CX + SPINE_W / 2 + BR_XOFF
+                x1 = CX - SPINE_W / 2 if side == "left" else CX + SPINE_W / 2
+                x2 = bx + BR_W if side == "left" else bx
+                wires.append(wire(x1, mid, x2, by + BR_H / 2))
+                lab = [html.escape(clean(b["label"]))]
+                boxes.append(f'<a href="{b["url"]}">{box(bx, by, BR_W, BR_H, lab, "side-stop " + b["status"], size=13)}</a>')
+                by += BR_H + BR_GAP
+        y += stage_h + STAGE_GAP
     y -= STAGE_GAP - 24
-    spine = f'<line class="spine" x1="{CX}" y1="40" x2="{CX}" y2="{y - 60:.0f}"/>'
-    svg = (f'<svg class="ik" viewBox="0 0 {W} {y:.0f}" xmlns="http://www.w3.org/2000/svg" role="img" '
-           f'aria-label="The Markdown Roadmap: seven stages from why bother to build your thing, each with side trips" '
-           f'style="width:100%;height:auto;max-width:{W}px">'
-           f'<style>{CSS}</style>{spine}{"".join(parts)}</svg>')
+    rail = f'<line class="rail" x1="{CX}" y1="{first_mid:.1f}" x2="{CX}" y2="{last_mid:.1f}"/>'
+    svg = (f'<svg class="ik ik-map" viewBox="0 0 {W} {y:.0f}" xmlns="http://www.w3.org/2000/svg" role="img" '
+           f'aria-label="The Markdown Roadmap: seven stages on a central line, each with optional side trips" '
+           f'style="width:100%;height:auto">'
+           f'<style>{CSS}</style>{rail}{"".join(wires)}{"".join(boxes)}</svg>')
     block = f"""<!-- ROADMAP-SVG-START (generated by scripts/roadmap-gen.py from scripts/roadmap-map.json — edit the data, then regenerate; do not edit the SVG by hand) -->
-<div style="overflow-x:auto">
+<div class="ik-wide">
 {svg}
 </div>
 <!-- ROADMAP-SVG-END -->"""

@@ -1,9 +1,5 @@
 """The site's diagram language, as code (see docs/brand/diagram-language.md).
 
-Two modes share one style. Anatomy (isometric plates and leader labels) for
-"what's inside X". Map (flat boxes on a spine, right-angled connectors) for
-routes, flows and roadmaps.
-
 Taken from the front-page figure (docs/brand/round-4/makingsoftware/iso.py):
 flat isometric plates in one orange line, a faint orange side, mono labels on
 horizontal leader lines ending in a small arrow. Diagrams are inline SVG that
@@ -31,19 +27,6 @@ CSS = """
 .ik .lab { fill: currentColor; font-size: 13px; }
 .ik .planned .lab { fill: var(--site-muted, #8a8a90); }
 .ik a:hover .top { fill: color-mix(in srgb, var(--wom-mark, #ff5a00) 10%, var(--color-background, #fbfbf9)); }
-/* map mode */
-.ik .rail { stroke: var(--wom-mark, #ff5a00); stroke-width: 3; }
-.ik .stop rect { fill: var(--color-background, #fbfbf9); stroke: var(--wom-mark, #ff5a00); stroke-width: 1.6; }
-.ik .side-stop rect { fill: var(--color-background, #fbfbf9); stroke: var(--wom-mark, #ff5a00); stroke-width: 1; }
-.ik .partial rect { stroke-dasharray: 6 4; }
-.ik .planned rect { stroke: var(--site-muted, #8a8a90); stroke-dasharray: 2 4; }
-.ik .wire { fill: none; stroke: var(--wom-mark, #ff5a00); stroke-width: 1; stroke-dasharray: 2 3; }
-.ik .dot { fill: var(--wom-mark, #ff5a00); }
-.ik .stop .t { fill: currentColor; font-size: 14.5px; font-weight: 600; }
-.ik .side-stop .t { fill: currentColor; font-size: 13px; }
-.ik .planned .t { fill: var(--site-muted, #8a8a90); }
-.ik a:hover rect { fill: color-mix(in srgb, var(--wom-mark, #ff5a00) 10%, var(--color-background, #fbfbf9)); }
-.ik a:hover .t { fill: var(--color-accent, #cc4400); }
 .ik a:hover .lab { fill: var(--color-accent, #cc4400); text-decoration: underline; }
 """
 
@@ -86,26 +69,3 @@ def leader(px, py, lx, s, side):
     return (f'<line class="lead" x1="{lx}" y1="{py:.1f}" x2="{px:.1f}" y2="{py:.1f}"/>'
             f'<path class="arr" d="M{px:.1f} {py:.1f} l{tip} -3 v6 z"/>'
             f'<text class="lab" x="{tx}" y="{py + 4:.1f}" text-anchor="{anchor}">{s}</text>')
-
-
-# --- map mode ---------------------------------------------------------------
-
-def box(x, y, w, h, lines, cls, num=None, size=14.5):
-    """A square-cornered box with centred mono text; an optional serif number
-    sits at its left edge (spine stops)."""
-    out = [f'<rect x="{x:.1f}" y="{y:.1f}" width="{w}" height="{h}"/>']
-    tx = x + w / 2 + (14 if num is not None else 0)
-    n = len(lines)
-    for i, line in enumerate(lines):
-        ty = y + h / 2 + (i - (n - 1) / 2) * (size + 3) + size * 0.35
-        out.append(f'<text class="t" x="{tx:.1f}" y="{ty:.1f}" text-anchor="middle">{line}</text>')
-    if num is not None:
-        out.append(f'<text class="num" x="{x + 16:.1f}" y="{y + h / 2 + 10:.1f}" font-size="28">{num}</text>')
-    return f'<g class="{cls}">{"".join(out)}</g>'
-
-
-def wire(x1, y1, x2, y2):
-    """Right-angled dotted connector: out horizontally, along, then in."""
-    mx = (x1 + x2) / 2
-    return (f'<path class="wire" d="M{x1:.1f} {y1:.1f} H{mx:.1f} V{y2:.1f} H{x2:.1f}"/>'
-            f'<circle class="dot" cx="{x1:.1f}" cy="{y1:.1f}" r="2.5"/>')

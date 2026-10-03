@@ -93,6 +93,8 @@ body { background: var(--color-background); }
 
 /* Inline diagrams (scripts/isokit.py) style their own links; keep prose link styling out */
 .rendered-mdx:not(.is-plain) .ik a { color: var(--color-foreground); text-decoration: none; }
+/* Wide diagrams break out of the 44rem text column, centred on it */
+.ik-wide { left: 50%; margin: 1.5rem 0; max-width: 1000px; overflow-x: auto; position: relative; transform: translateX(-50%); width: calc(100vw - 2rem); }
 
 /* Table of contents (right-hand, this page) */
 .toc-title { color: var(--site-muted); font-family: var(--wom-mono); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; }
