@@ -20,3 +20,9 @@ Shared style:
 - **As code, never by hand.** Primitives: `scripts/isokit.py` (anatomy: `Iso`, `plate`, `text_on`, `leader`; map: `box`, `wire`; and the CSS). A wide diagram goes in `<div class="ik-wide">` to break out of the text column. Inline SVG picks up the site's light and dark tokens; for `<img>` files, bake the colours in (see `scripts/build-site-art.py`).
 
 In use: the homepage figure (`docs/brand/round-4/makingsoftware/iso.py`, to be moved onto `isokit`) and the roadmap (`scripts/roadmap-gen.py`).
+
+## Motion
+
+Map diagrams can move, gently: the rail's dashes flow downhill, a ball runs the route (round the edge of each stop), dots run out to side trips now and then, and a burst of tracers marks the destination. One loop, about 12 seconds, with rest at the end. Everything moving sits in `<g class="moving">` and is hidden under `prefers-reduced-motion`.
+
+**CSS animation only.** SVG's own animation tags (`<animate>`, `<animateMotion>`) break Flowershow pages: the renderer lower-cases them and the rest of the page after the diagram disappears (found 2026-10-03, reverted). Use CSS keyframes, `offset-path` for things that travel along a line, and `stroke-dashoffset` for tracers. See `animation()` in `scripts/roadmap-gen.py`.
