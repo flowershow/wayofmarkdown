@@ -1,5 +1,7 @@
 ---
 title: Using Cursor with Obsidian
+authors: ["Rufus Pollock"]
+date: 2026-07-18
 ---
 
 # Using Cursor with Obsidian

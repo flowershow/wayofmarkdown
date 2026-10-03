@@ -1,6 +1,8 @@
 ---
 title: "Markdown-based Websites — the complete guide"
 description: "How to build and publish a real website from plain markdown files: the architecture, the tools, and the underrated superpower that markdown supports HTML."
+authors: ["Rufus Pollock"]
+date: 2026-07-18
 ---
 
 # Markdown-based Websites

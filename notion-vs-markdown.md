@@ -2,6 +2,7 @@
 title: "Notion vs Markdown — can a folder of files really replace it?"
 description: "A fair, feature-by-feature comparison of Notion against the markdown-based stack (Obsidian, Bases, git, publishing). Where files win, where Notion wins, and how to choose."
 authors: ["Rufus Pollock"]
+date: 2026-07-18
 ---
 
 # Notion vs Markdown: the honest comparison

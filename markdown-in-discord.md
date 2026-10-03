@@ -1,6 +1,8 @@
 ---
 title: "How to use Markdown in Discord — the full formatting guide"
 description: "Discord supports a proper markdown subset: bold, italic, headings, lists, quotes, code blocks with syntax highlighting, spoilers and more. The complete syntax."
+authors: ["Rufus Pollock"]
+date: 2026-07-18
 ---
 
 # How to use Markdown in Discord

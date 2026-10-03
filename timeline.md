@@ -1,6 +1,8 @@
 ---
 title: "The Markdown Timeline — a brief history"
 description: "From plain-text prehistory through Gruber and Swartz's 2004 release to CommonMark, GitHub, and the AI era: how markdown quietly took over the world."
+authors: ["Rufus Pollock"]
+date: 2026-07-18
 ---
 
 # The Markdown Timeline

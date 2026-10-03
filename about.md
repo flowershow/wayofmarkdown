@@ -1,6 +1,8 @@
 ---
 title: "About"
 description: "Who's behind The Way of Markdown, why it exists, and how the site itself is made (spoiler: it's markdown in a public repo)."
+authors: ["Rufus Pollock"]
+date: 2026-07-18
 ---
 
 # About

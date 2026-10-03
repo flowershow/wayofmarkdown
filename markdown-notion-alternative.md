@@ -1,6 +1,8 @@
 ---
 title: "Replace Notion with Markdown — the escape guide"
 description: "Most of what you do in Notion — docs, wikis, light databases — works as plain markdown files with Obsidian, git and friends. How to escape, step by step, and what you honestly trade."
+authors: ["Rufus Pollock"]
+date: 2026-07-18
 ---
 
 # Replacing Notion with Markdown

@@ -1,6 +1,8 @@
 ---
 title: "Videos — the markdown way, watchable"
 description: "Video tutorials on markdown knowledge bases, publishing, web clipping, AI editing and more."
+authors: ["Rufus Pollock"]
+date: 2026-07-18
 ---
 
 # Videos 🎬

@@ -1,6 +1,8 @@
 ---
 title: "Markdown-based Landing Pages"
 description: "A landing page — hero, pitch, call to action — from a markdown file, using the HTML-in-markdown superpower. Yes, really."
+authors: ["Rufus Pollock"]
+date: 2026-07-18
 ---
 
 # Markdown-based Landing Pages

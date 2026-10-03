@@ -1,6 +1,8 @@
 ---
 title: "Markdown-based Books & Long-form Writing"
 description: "Write your book as markdown chapters and publish to everything — PDF, EPUB, print, web — with pandoc and friends. One source, every format, full git history."
+authors: ["Rufus Pollock"]
+date: 2026-07-18
 ---
 
 # Markdown-based Books & Long-form

@@ -1,6 +1,8 @@
 ---
 title: "Markdown in GitHub — where markdown conquered the world"
 description: "GitHub runs on markdown: READMEs, issues, pull requests, comments, wikis. GFM syntax — tables, task lists, alerts, mermaid diagrams — and how to use it well."
+authors: ["Rufus Pollock"]
+date: 2026-07-18
 ---
 
 # Markdown in GitHub

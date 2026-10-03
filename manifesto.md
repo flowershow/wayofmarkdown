@@ -2,6 +2,8 @@
 title: "The Markdown Manifesto"
 description: "Markdown is eating the world. Choose markdown and you choose freedom, power and simplicity — and the most awesome ecosystem of tooling in the world."
 created: 2026-01-26
+authors: ["Rufus Pollock"]
+date: 2026-07-18
 ---
 
 # The Markdown Manifesto

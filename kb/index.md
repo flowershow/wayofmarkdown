@@ -1,6 +1,8 @@
 ---
 title: "Markdown Reference: tools, workflows and help"
 description: "The reference shelf: markdown converters, AI and Obsidian workflows, Git and GitHub help for non-developers, and the essential reading."
+authors: ["Rufus Pollock"]
+date: 2026-07-18
 ---
 
 # Markdown Reference

@@ -1,5 +1,7 @@
 ---
 title: Markdoc
+authors: ["Rufus Pollock"]
+date: 2026-07-18
 ---
 
 # Markdoc

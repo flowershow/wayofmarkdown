@@ -1,6 +1,8 @@
 ---
 title: "Pluggable Markdown — the plugin system hiding in three backticks"
 description: "Fenced code blocks make markdown extensible: label a ``` block and you can embed mermaid diagrams, database views, math, whole other tools — inside plain text."
+authors: ["Rufus Pollock"]
+date: 2026-07-18
 ---
 
 # Pluggable Markdown

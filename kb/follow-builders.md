@@ -1,6 +1,8 @@
 ---
 title: Follow Builders, Not Influencers — AI builders digest
 description: "A daily/weekly digest that tracks top AI builders on X and YouTube, remixes their content into summaries. Set up in two minutes with Claude Code or OpenClaw. No API keys needed."
+authors: ["Rufus Pollock"]
+date: 2026-08-15
 ---
 
 # Follow Builders, Not Influencers

@@ -70,6 +70,24 @@ body { background: var(--color-background); }
 .rendered-mdx:not(.is-plain) :where(td) { border-bottom: 1px solid var(--site-rule); }
 .rendered-mdx:not(.is-plain) img { border: 1px solid var(--site-rule); }
 
+/* Page header: hairline under it, meta in mono */
+.page-header { border-bottom: 1px solid var(--site-rule); }
+.page-header-metadata-container { color: var(--site-muted); }
+
+/* Callouts: a hairline in the callout colour, a faint wash, a mono label.
+   Note, tip, info and example take the brand orange; warning and danger
+   keep their own colours, since they mean something. */
+:root {
+  --callout-note-color: var(--wom-mark);
+  --callout-tip-color: var(--wom-mark);
+  --callout-example-color: var(--wom-mark);
+  --callout-quote-color: var(--site-muted);
+}
+.rendered-mdx [data-callout] { background: color-mix(in srgb, var(--callout-color) 6%, transparent); border: 0; border-left: 2px solid var(--callout-color); border-radius: 0; padding: 0.9rem 1.1rem 1rem; }
+.rendered-mdx [data-callout] > [data-callout-title] { align-items: center; font-family: var(--wom-mono); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; }
+.rendered-mdx [data-callout] > [data-callout-title]::before { height: 0.95rem; margin-top: 0; width: 0.95rem; }
+.rendered-mdx [data-callout] > [data-callout-body] :where(p, li) { font-size: 1.05rem; }
+
 /* Table of contents (right-hand, this page) */
 .toc-title { color: var(--site-muted); font-family: var(--wom-mono); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; }
 .toc-item-self { font-family: var(--wom-mono); font-size: 0.78rem; }

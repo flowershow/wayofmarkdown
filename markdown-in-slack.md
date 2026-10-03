@@ -1,6 +1,8 @@
 ---
 title: "How to use Markdown in Slack — and why it's weird (mrkdwn)"
 description: "Slack supports markdown-style formatting but with its own dialect called mrkdwn: single-asterisk bold, no headings, and a hidden setting you should know about."
+authors: ["Rufus Pollock"]
+date: 2026-07-18
 ---
 
 # How to use Markdown in Slack (and why it's weird)

@@ -1,6 +1,8 @@
 ---
 title: "Markdown-based Wikis & Team Handbooks"
 description: "Run your team wiki or handbook as markdown files in a git repo: everyone can edit, changes get reviewed, history comes free. The full pattern."
+authors: ["Rufus Pollock"]
+date: 2026-07-18
 ---
 
 # Markdown-based Wikis & Team Handbooks

@@ -1,6 +1,8 @@
 ---
 title: "Markdown-based Everything — what you can build with markdown"
 description: "Websites, blogs, wikis, knowledge bases, databases, digital gardens, even a Notion replacement — all from plain markdown files you own. The guide index."
+authors: ["Rufus Pollock"]
+date: 2026-07-18
 ---
 
 # Markdown-based Everything

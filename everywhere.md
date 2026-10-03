@@ -1,6 +1,8 @@
 ---
 title: "Markdown is Everywhere — every app that speaks markdown"
 description: "The big list of apps and tools that support markdown — WhatsApp, Google Docs, Discord, Slack, Notion, Obsidian, AI chats and more. Plus the holdouts."
+authors: ["Rufus Pollock"]
+date: 2026-07-18
 ---
 
 # Markdown is Everywhere 🌍

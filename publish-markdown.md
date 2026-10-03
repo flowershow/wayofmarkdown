@@ -1,6 +1,8 @@
 ---
 title: "How to publish a Markdown file online — the fastest ways"
 description: "You have a markdown file; you want it on the web as a page someone can read. The fastest routes, from ten seconds to a full site."
+authors: ["Rufus Pollock"]
+date: 2026-07-18
 ---
 
 # How to publish a Markdown file online

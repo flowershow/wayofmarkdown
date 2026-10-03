@@ -1,6 +1,8 @@
 ---
 title: Heading identifiers in Pandoc-style Markdown
 created: 2025-12-04
+authors: ["Rufus Pollock"]
+date: 2025-12-04
 ---
 
 Pandoc introduced the syntax:

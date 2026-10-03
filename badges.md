@@ -1,6 +1,8 @@
 ---
 title: "❤ Markdown badges — show the flag"
 description: "Put a '❤ Markdown' badge on your site, README or docs, linking back to the Markdown Manifesto. Free to use, two styles, copy-paste embed."
+authors: ["Rufus Pollock"]
+date: 2026-07-18
 ---
 
 # ❤ Markdown badges

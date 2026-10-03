@@ -1,6 +1,8 @@
 ---
 title: "Markdown in ChatGPT, Claude and every AI chat — the hidden superpower"
 description: "Every AI chat speaks markdown natively — that's why the output has headings and bold. How to get raw markdown out, feed markdown in, and use AI as your universal format converter."
+authors: ["Rufus Pollock"]
+date: 2026-07-18
 ---
 
 # Markdown in ChatGPT, Claude and every AI chat

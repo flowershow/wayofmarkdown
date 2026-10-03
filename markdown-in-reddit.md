@@ -1,6 +1,8 @@
 ---
 title: "How to use Markdown in Reddit"
 description: "Reddit has supported markdown for over a decade: bold, links, lists, tables, spoilers, superscript. How to switch to Markdown mode and the syntax that works."
+authors: ["Rufus Pollock"]
+date: 2026-07-18
 ---
 
 # How to use Markdown in Reddit

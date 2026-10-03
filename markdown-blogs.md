@@ -1,6 +1,8 @@
 ---
 title: "Markdown-based Blogs"
 description: "A blog is a folder of dated markdown posts plus a publisher. How to set one up in minutes, and why it outlasts every platform."
+authors: ["Rufus Pollock"]
+date: 2026-07-18
 ---
 
 # Markdown-based Blogs

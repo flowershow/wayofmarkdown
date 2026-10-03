@@ -1,5 +1,7 @@
 ---
 title: Using AI to edit markdown notes in Obsidian (Claude Code, Codex)
+authors: ["Rufus Pollock"]
+date: 2026-07-18
 ---
 
 # Using AI to edit Markdown notes in Obsidian

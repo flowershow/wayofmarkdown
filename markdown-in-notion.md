@@ -1,6 +1,8 @@
 ---
 title: "How to use Markdown in Notion — import, export and shortcuts"
 description: "Notion supports markdown three ways: live shortcuts as you type, pasting markdown in, and importing/exporting .md files. What round-trips cleanly and what doesn't."
+authors: ["Rufus Pollock"]
+date: 2026-07-18
 ---
 
 # How to use Markdown in Notion

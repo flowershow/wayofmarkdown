@@ -1,6 +1,8 @@
 ---
 title: "Why Markdown-based?"
 description: "Nobody cares about markdown per se. What matters is the markdown-based approach: open formats, tools you choose, content you own — and no lock-in."
+authors: ["Rufus Pollock"]
+date: 2023-12-14
 ---
 
 # Why Markdown-based?

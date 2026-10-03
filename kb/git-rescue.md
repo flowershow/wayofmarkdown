@@ -1,6 +1,8 @@
 ---
 title: "Git rescue: undo, unstage, and fix merge conflicts"
 description: "I committed the wrong thing, I can't push, there's a merge conflict — calm fixes for the git situations every markdown-site editor eventually hits."
+authors: ["Rufus Pollock"]
+date: 2026-07-18
 ---
 
 # Git rescue 🚑

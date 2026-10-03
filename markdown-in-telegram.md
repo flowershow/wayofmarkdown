@@ -1,6 +1,8 @@
 ---
 title: "How to use Markdown in Telegram"
 description: "Telegram supports markdown-style formatting in chats — bold, italic, code, spoilers — with quirks per platform, plus a full MarkdownV2 dialect for bots."
+authors: ["Rufus Pollock"]
+date: 2026-07-18
 ---
 
 # How to use Markdown in Telegram

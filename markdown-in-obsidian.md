@@ -1,6 +1,8 @@
 ---
 title: "Markdown in Obsidian — the app that is markdown"
 description: "Obsidian doesn't 'support' markdown, it IS markdown: plain files on your disk with a beautiful editor on top. What it adds, and why that matters."
+authors: ["Rufus Pollock"]
+date: 2026-07-18
 ---
 
 # Markdown in Obsidian

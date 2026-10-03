@@ -1,6 +1,8 @@
 ---
 title: "Git & GitHub glossary for non-developers"
 description: "Repository, clone, commit, push, branch, fork, pull request, merge — every term you meet in a markdown workflow, explained in plain language."
+authors: ["Rufus Pollock"]
+date: 2026-07-18
 ---
 
 # Git & GitHub glossary (for normal people)

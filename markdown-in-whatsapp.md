@@ -1,6 +1,8 @@
 ---
 title: "How to use Markdown in WhatsApp — bold, italic, lists and more"
 description: "WhatsApp formatting is basically markdown with an accent: *bold*, _italic_, ~strikethrough~, lists, quotes and monospace. The full syntax and the quirks."
+authors: ["Rufus Pollock"]
+date: 2026-07-18
 ---
 
 # How to use Markdown in WhatsApp

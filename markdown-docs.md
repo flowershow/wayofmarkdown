@@ -1,6 +1,8 @@
 ---
 title: "Markdown-based Documentation Sites"
 description: "Docs-as-code: product and project documentation as markdown files in the repo, published as a site. The pattern every serious dev tool uses, and how to have it."
+authors: ["Rufus Pollock"]
+date: 2026-07-18
 ---
 
 # Markdown-based Docs

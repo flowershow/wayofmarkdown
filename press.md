@@ -1,6 +1,8 @@
 ---
 title: "Press kit — The Way of Markdown logo, mark and animation"
 description: "Download the Way of Markdown brand mark: animated GIF, SVG and PNG in green, black and white, with guidance on which to use where."
+authors: ["Rufus Pollock"]
+date: 2026-08-08
 ---
 
 Everything here is free to use when writing about, linking to or referencing The Way of Markdown. Right-click to save, or use the direct links.
