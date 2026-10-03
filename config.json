@@ -14,9 +14,8 @@
   "description": "Markdown is the universal language of the web. Learn how to use it — and the markdown-based tool ecosystem — to build websites, docs and knowledge bases you own.",
   "analytics": "G-HZH2GBB7K8",
   "showSidebar": false,
-  "favicon": "🚀",
+  "favicon": "/assets/logo/seal.svg",
   "showEditLink": true,
-  "theme": "lessflowery",
   "nav": {
     "title": "The Way of Markdown",
     "links": [
@@ -177,5 +176,5 @@
     "tai-chi-robe.html",
     "hero-mark.html"
   ],
-  "logo": "/assets/brand/mark.svg"
+  "logo": "/assets/logo/seal.svg"
 }

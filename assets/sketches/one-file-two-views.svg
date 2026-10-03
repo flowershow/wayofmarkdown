@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 200" fill="none" stroke="#111" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" font-family="'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" aria-label="Sketch: the same note shown raw on the left and rendered on the right">
+      <defs><filter id="wob2"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="1.6"/></filter></defs>
+      <g>
+      <path d="M20 20h170v160H20z" fill="#fff"/><path d="M230 20h170v160H230z" fill="#fff"/>
+      <g font-family="'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="9.5" fill="#111" stroke="none"><text x="32" y="46"># Weekly notes</text><text x="32" y="66">Things I **must** do:</text><text x="32" y="84">- [x] call the bank</text><text x="32" y="102">- [ ] write the post</text><text x="32" y="126">&gt; "Own the source."</text><text x="32" y="150">See [[plan]] for more.</text></g>
+      <g font-family="Newsreader,'Iowan Old Style',Charter,Georgia,serif" fill="#111" stroke="none"><text x="242" y="50" font-size="15" font-weight="700">Weekly notes</text><text x="242" y="70" font-size="10">Things I <tspan font-weight="700">must</tspan> do:</text><text x="258" y="88" font-size="10">call the bank</text><text x="258" y="104" font-size="10">write the post</text><text x="252" y="128" font-size="10" font-style="italic" fill="#5f6368">Own the source.</text><text x="242" y="152" font-size="10">See <tspan fill="#ff5a00" text-decoration="underline">plan</tspan> for more.</text></g>
+      <rect x="244" y="80" width="8" height="8"/><path d="M246 84l2 2 4-5"/><rect x="244" y="96" width="8" height="8"/><path d="M244 118v14" stroke="#ff5a00" stroke-width="2"/>
+      <path d="M196 100 q10 -10 30 0" /><path d="M226 100 l-6 -3 M226 100 l-5 5"/>
+      <text x="105" y="196" font-size="12" text-anchor="middle" fill="#111" stroke="none">WHAT YOU TYPE</text><text x="315" y="196" font-size="12" text-anchor="middle" fill="#111" stroke="none">WHAT YOU SEE</text>
+      </g>
+    </svg>

@@ -1,113 +1,109 @@
 ---
 title: "The Way of Markdown. Own the source. Compose with anything."
-description: "Websites, knowledge bases, blogs, even a Notion replacement — built from plain text files you own, with tools you can swap anytime. Markdown is quietly everywhere; here's the way to make it work for you."
+description: "Websites, knowledge bases, blogs, even a Notion replacement, built from plain text files you own, with tools you can swap anytime. Markdown is quietly everywhere; here's the way to make it work for you."
+syntaxMode: md
 layout: plain
 showHero: false
+showToc: false
+showSidebar: false
+showEditLink: false
+showComments: false
 ---
 
-<main class="wom-home mx-auto w-full max-w-6xl px-5 py-12 sm:px-8 sm:py-16 lg:px-10 lg:py-20">
-  <section class="mx-auto flex max-w-4xl flex-col items-center text-center">
-    <h1 class="m-0 text-4xl font-medium leading-none tracking-tight text-stone-800 dark:text-stone-100 sm:text-6xl lg:text-7xl">The Way of Markdown</h1>
-    <div class="mt-6 w-full max-w-xl sm:mt-8" style="aspect-ratio:16/9;">
-      <video class="block h-full w-full" src="/assets/way-of-markdown.mp4" autoplay muted loop playsinline aria-label="A figure in profile, written in Markdown punctuation, performing a tai chi movement"></video>
-    </div>
-    <p class="mt-5 text-2xl font-medium leading-tight text-stone-700 dark:text-stone-200 sm:text-3xl">Own the source. Compose with anything.</p>
-    <p class="mt-6 max-w-3xl text-lg leading-8 text-stone-600 dark:text-stone-300 sm:text-xl">Websites, knowledge bases, blogs, even a Notion replacement — built from plain text files you own, with tools you can swap anytime. Markdown is quietly everywhere; here's the way to make it work for you.</p>
-    <div class="mt-8 flex w-full flex-col justify-center gap-3 sm:w-auto sm:flex-row">
-      <a class="rounded-xl border border-green-600 bg-green-600 px-6 py-3 text-base font-bold text-white no-underline shadow-sm transition hover:border-green-700 hover:bg-green-700 sm:text-lg" href="/roadmap">Start the roadmap 🗺️</a>
-      <a class="rounded-xl border border-green-600 px-6 py-3 text-base font-semibold text-stone-700 no-underline transition hover:bg-green-50 dark:text-stone-100 dark:hover:bg-green-950 sm:text-lg" href="/basics">New here? Markdown in 10 minutes</a>
-    </div>
-  </section>
-
-  <section class="mt-16 border-t border-stone-200 pt-12 dark:border-stone-700 sm:mt-20 sm:pt-16" aria-labelledby="source-and-output">
-    <h2 id="source-and-output" class="sr-only">Markdown source and rendered output</h2>
-    <div class="grid items-stretch gap-5 lg:grid-cols-2">
-      <div class="min-w-0 overflow-hidden rounded-2xl border border-stone-300 bg-white/40 dark:border-stone-700 dark:bg-stone-900/30">
-        <div class="border-b border-stone-300 px-5 py-3 font-mono text-sm leading-6 text-stone-500 dark:border-stone-700 dark:text-stone-400">notes/reading-list.md — plain text, yours forever</div>
-        <pre class="m-0 overflow-x-auto bg-transparent p-5 text-sm leading-7 text-stone-800 dark:text-stone-100 sm:p-6 sm:text-base"><code>&#35; My reading list
-
-Books I &#42;&#42;actually&#42;&#42; finished:
-
-&#124; Book &#124; Year &#124; Done &#124;
-&#124;&#45;&#45;&#45;&#45;&#45;&#45;&#124;&#45;&#45;&#45;&#45;&#45;&#45;&#124;&#45;&#45;&#45;&#45;&#45;&#45;&#124;
-&#124; The Dispossessed &#124; 1974 &#124; ☐ &#124;
-&#124; File over app &#124; 2023 &#124; ☑ &#124;
-
-&#96;&#96;&#96;mermaid
-graph LR
-  A[write] &#45;&#45;&gt; B[store] &#45;&#45;&gt; C[publish]
-&#96;&#96;&#96;
-
-&#62; Plain text never goes out of fashion.</code></pre>
-      </div>
-      <div class="overflow-hidden rounded-2xl border border-green-500 bg-white/40 dark:bg-stone-900/30">
-        <div class="border-b border-green-400 px-5 py-3 font-mono text-sm leading-6 text-green-600 dark:text-green-400">the same file, rendered — by any tool, today or in 2046</div>
-        <div class="p-5 sm:p-6">
-          <h3 class="m-0 text-3xl font-bold text-stone-800 dark:text-stone-100">My reading list</h3>
-          <p class="mt-4 text-lg text-stone-700 dark:text-stone-200">Books I <strong>actually</strong> finished:</p>
-          <div class="mt-5 overflow-x-auto">
-            <table class="w-full border-collapse text-left text-base text-stone-700 dark:text-stone-200">
-              <thead><tr class="border-b-2 border-stone-300 dark:border-stone-600"><th class="px-2 py-2">Book</th><th class="px-2 py-2">Year</th><th class="px-2 py-2">Done</th></tr></thead>
-              <tbody>
-                <tr class="border-b border-stone-200 dark:border-stone-700"><td class="px-2 py-2">The Dispossessed</td><td class="px-2 py-2">1974</td><td class="px-2 py-2">☐</td></tr>
-                <tr><td class="px-2 py-2">File over app</td><td class="px-2 py-2">2023</td><td class="px-2 py-2">☑</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="mt-6 flex flex-wrap items-center gap-2 text-sm text-stone-600 dark:text-stone-300">
-            <span class="rounded-md border border-green-500 px-3 py-1">write</span><span aria-hidden="true">→</span>
-            <span class="rounded-md border border-green-500 px-3 py-1">store</span><span aria-hidden="true">→</span>
-            <span class="rounded-md border border-green-500 px-3 py-1">publish</span>
-          </div>
-          <blockquote class="mt-6 border-l-4 border-green-500 pl-5 text-xl italic leading-8 text-stone-600 dark:text-stone-300">Plain text never goes out of fashion.</blockquote>
-        </div>
-      </div>
-    </div>
-    <p class="mx-auto mt-8 max-w-3xl text-center text-lg italic leading-8 text-stone-600 dark:text-stone-300">Tables, task lists, diagrams — all still plain text. That's the whole trick, and it goes remarkably far.</p>
-    <p class="mt-6 text-center"><a href="/playground.html" class="inline-block rounded-xl bg-green-600 px-7 py-3 text-lg font-bold text-white no-underline shadow-md shadow-green-600/20 transition hover:bg-green-700">🎮 Try it yourself in the playground</a></p>
-  </section>
-
-  <section class="mx-auto mt-20 max-w-3xl sm:mt-24" aria-labelledby="why-markdown-wins">
-    <h2 id="why-markdown-wins" class="text-3xl font-bold tracking-tight text-stone-800 dark:text-stone-100 sm:text-4xl">Why markdown wins</h2>
-    <p class="mt-5 text-lg leading-8 text-stone-700 dark:text-stone-300">The whole syntax takes <a class="text-green-700 underline decoration-green-600/40 underline-offset-4 dark:text-green-400" href="/basics">ten minutes</a> to learn, and then it's <a class="text-green-700 underline decoration-green-600/40 underline-offset-4 dark:text-green-400" href="/why">yours</a>: plain files on your disk, still readable in fifty years, which is more than your .docx files can promise (<a class="text-green-700 underline decoration-green-600/40 underline-offset-4 dark:text-green-400" href="/timeline">the history</a> is instructive here). The rest of the world has quietly agreed. <a class="text-green-700 underline decoration-green-600/40 underline-offset-4 dark:text-green-400" href="/markdown-in-chatgpt">Every AI speaks markdown</a>, <a class="text-green-700 underline decoration-green-600/40 underline-offset-4 dark:text-green-400" href="/everywhere">most of the apps you already use</a> handle it, and you can put diagrams, databases and whole tools <a class="text-green-700 underline decoration-green-600/40 underline-offset-4 dark:text-green-400" href="/pluggable-markdown">inside three backticks</a>.</p>
-  </section>
-
-  <section class="mt-20 sm:mt-24" aria-labelledby="what-will-you-build">
-    <div class="mx-auto max-w-3xl text-center">
-      <h2 id="what-will-you-build" class="text-3xl font-bold tracking-tight text-stone-800 dark:text-stone-100 sm:text-4xl">What will you build?</h2>
-      <p class="mt-5 text-lg leading-8 text-stone-700 dark:text-stone-300">Nobody cares about markdown, the same way nobody cares about ASCII. You care about the thing you want to make — and there's a guide for each:</p>
-    </div>
-    <div class="mt-9 grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
-      <a href="/markdown-websites" class="rounded-xl border border-stone-300 p-4 text-center font-bold text-stone-800 no-underline transition hover:border-green-500 hover:shadow-md dark:border-stone-700 dark:text-stone-100 dark:hover:border-green-500">🌐 Website</a>
-      <a href="/markdown-knowledge-bases" class="rounded-xl border border-stone-300 p-4 text-center font-bold text-stone-800 no-underline transition hover:border-green-500 hover:shadow-md dark:border-stone-700 dark:text-stone-100 dark:hover:border-green-500">🧠 Knowledge base</a>
-      <a href="/markdown-notion-alternative" class="rounded-xl border border-stone-300 p-4 text-center font-bold text-stone-800 no-underline transition hover:border-green-500 hover:shadow-md dark:border-stone-700 dark:text-stone-100 dark:hover:border-green-500">🚪 Notion escape</a>
-      <a href="/markdown-blogs" class="rounded-xl border border-stone-300 p-4 text-center font-bold text-stone-800 no-underline transition hover:border-green-500 hover:shadow-md dark:border-stone-700 dark:text-stone-100 dark:hover:border-green-500">✍️ Blog</a>
-      <a href="/markdown-databases-guide" class="rounded-xl border border-stone-300 p-4 text-center font-bold text-stone-800 no-underline transition hover:border-green-500 hover:shadow-md dark:border-stone-700 dark:text-stone-100 dark:hover:border-green-500">🗃️ Database</a>
-      <a href="/markdown-wikis" class="rounded-xl border border-stone-300 p-4 text-center font-bold text-stone-800 no-underline transition hover:border-green-500 hover:shadow-md dark:border-stone-700 dark:text-stone-100 dark:hover:border-green-500">👥 Team wiki</a>
-      <a href="/markdown-digital-gardens" class="rounded-xl border border-stone-300 p-4 text-center font-bold text-stone-800 no-underline transition hover:border-green-500 hover:shadow-md dark:border-stone-700 dark:text-stone-100 dark:hover:border-green-500">🌱 Garden</a>
-      <a href="/markdown-based" class="rounded-xl border border-green-500 bg-green-50 p-4 text-center font-bold text-green-800 no-underline transition hover:bg-green-100 hover:shadow-md dark:bg-green-950 dark:text-green-300 dark:hover:bg-green-900">✨ All guides</a>
-    </div>
-  </section>
-
-  <section class="mt-20 sm:mt-24" aria-labelledby="start-here">
-    <div class="mx-auto max-w-3xl text-center">
-      <h2 id="start-here" class="text-3xl font-bold tracking-tight text-stone-800 dark:text-stone-100 sm:text-4xl">Start here</h2>
-      <p class="mt-5 text-lg leading-8 text-stone-700 dark:text-stone-300">There are two ways in, and they walk the same path:</p>
-    </div>
-    <div class="mt-9 grid gap-5 md:grid-cols-2">
-      <article class="rounded-2xl border border-stone-300 p-6 dark:border-stone-700 sm:p-8">
-        <h3 class="text-xl font-bold text-stone-800 dark:text-stone-100">🚀 “I want to publish something”</h3>
-        <p class="mt-4 text-base leading-7 text-stone-700 dark:text-stone-300">A website, a blog, a page on the web. <a class="text-green-700 underline decoration-green-600/40 underline-offset-4 dark:text-green-400" href="/roadmap">The roadmap</a> starts at the syntax and has you live by step ②, today. Prefer working straight through? <a class="text-green-700 underline decoration-green-600/40 underline-offset-4 dark:text-green-400" href="/learn">The tutorial series</a> goes from zero to a published site.</p>
-      </article>
-      <article class="rounded-2xl border border-stone-300 p-6 dark:border-stone-700 sm:p-8">
-        <h3 class="text-xl font-bold text-stone-800 dark:text-stone-100">📝 “I want better notes”</h3>
-        <p class="mt-4 text-base leading-7 text-stone-700 dark:text-stone-300">A knowledge base, a second brain, published later or never. Start the same way, then <a class="text-green-700 underline decoration-green-600/40 underline-offset-4 dark:text-green-400" href="/learn/howtos/create-a-simple-catalog-of-anything">build a catalog of anything</a> and read <a class="text-green-700 underline decoration-green-600/40 underline-offset-4 dark:text-green-400" href="/markdown-database">the pattern behind it</a>.</p>
-      </article>
-    </div>
-    <p class="mx-auto mt-9 max-w-3xl text-center text-base leading-7 text-stone-600 dark:text-stone-300">Never touched markdown? <a class="text-green-700 underline decoration-green-600/40 underline-offset-4 dark:text-green-400" href="/basics">The basics</a> take ten minutes, or <a class="text-green-700 underline decoration-green-600/40 underline-offset-4 dark:text-green-400" href="/playground.html">try it live</a> right now. Onboarding a team? The <a class="text-green-700 underline decoration-green-600/40 underline-offset-4 dark:text-green-400" href="/learn/onboarding">step-by-step path</a> sequences the whole thing with checkpoints. Already fluent — go poke around the <a class="text-green-700 underline decoration-green-600/40 underline-offset-4 dark:text-green-400" href="/kb">reference shelf</a>, the <a class="text-green-700 underline decoration-green-600/40 underline-offset-4 dark:text-green-400" href="/videos">videos</a>, the <a class="text-green-700 underline decoration-green-600/40 underline-offset-4 dark:text-green-400" href="/kb/canon">canon</a> or the <a class="text-green-700 underline decoration-green-600/40 underline-offset-4 dark:text-green-400" href="/blog">blog</a>.</p>
-  </section>
-
-  <footer class="mt-20 border-t border-stone-200 pt-8 text-center text-sm italic leading-6 text-stone-500 dark:border-stone-700 dark:text-stone-400 sm:mt-24">
-    Made by <a class="text-green-700 underline decoration-green-600/40 underline-offset-4 dark:text-green-400" href="/about">Rufus Pollock</a> and <a class="text-green-700 underline decoration-green-600/40 underline-offset-4 dark:text-green-400" href="https://datopian.com/">folks at Datopian</a>, as markdown files <a class="text-green-700 underline decoration-green-600/40 underline-offset-4 dark:text-green-400" href="https://github.com/flowershow/wayofmarkdown">in the open</a>. This page is itself markdown with a little HTML in it — <a class="text-green-700 underline decoration-green-600/40 underline-offset-4 dark:text-green-400" href="/markdown-websites">which is rather the point</a>.
-  </footer>
+<div class="wom">
+<main class="wom__sheet">
+<section class="wom__hero wom__row">
+<div>
+<p class="wom__label"><b>#</b> Markdown is eating the world</p>
+<h1>The Way of Markdown</h1>
+<p class="wom__say">There's a better way to do your notes, docs and site. <em>It's plain text.</em></p>
+<p class="wom__lede">A practical guide to doing it with files you own, and the philosophy underneath: simple, open, yours.</p>
+<p class="wom__ctas"><a class="wom__btn" href="/roadmap">Start the roadmap</a> <a class="wom__cta" href="/basics">New here? Markdown in 10 minutes</a></p>
+</div>
+<figure class="wom__fig">
+<p class="wom__ft">Inside a markdown file</p>
+<div class="wom__panel"><img src="/assets/sketches/inside-a-markdown-file.svg" alt="Exploded view of a markdown file: the plain text file, its frontmatter fields, its headings and lists, its links, and the rendered page any tool can show from it." width="800" height="700"></div>
+<figcaption>A plain text file, its fields, its headings and lists, its links, and the page any tool can show from it.</figcaption>
+</figure>
+</section>
+<section class="wom__section">
+<h2>Start here</h2>
+<ol class="wom__steps">
+<li><a href="/basics">Learn the basics</a><span>Ten minutes. Headings, lists, links. Or <a class="wom__cta" href="/playground.html">try it live</a></span></li>
+<li><a href="/markdown-based">Pick what you're building</a><span>A site, a knowledge base, a wiki. Each guide says what works, what you give up, and the steps.</span></li>
+<li><a href="/markdown-notion-alternative">Move one thing</a><span>Export from Notion or Google Docs. Start with one folder, not your whole life.</span></li>
+</ol>
+</section>
+<section class="wom__section">
+<h2>Contents</h2>
+<div class="wom__contents">
+<div>
+<h3><b>1.</b>Build</h3>
+<ul>
+<li class="wom__first"><a href="/markdown-notion-alternative"><span class="wom__t">Replace Notion</span><span class="wom__dots"></span><span class="wom__k">start here</span></a></li>
+<li><a href="/markdown-websites"><span class="wom__t">A website</span><span class="wom__dots"></span><span class="wom__k">guide</span></a></li>
+<li><a href="/markdown-knowledge-bases"><span class="wom__t">A knowledge base</span><span class="wom__dots"></span><span class="wom__k">guide</span></a></li>
+<li><a href="/markdown-blogs"><span class="wom__t">A blog</span><span class="wom__dots"></span><span class="wom__k">guide</span></a></li>
+<li><a href="/markdown-wikis"><span class="wom__t">A team wiki</span><span class="wom__dots"></span><span class="wom__k">guide</span></a></li>
+<li><a href="/markdown-databases-guide"><span class="wom__t">A database or catalogue</span><span class="wom__dots"></span><span class="wom__k">guide</span></a></li>
+<li><a href="/markdown-digital-gardens"><span class="wom__t">A digital garden</span><span class="wom__dots"></span><span class="wom__k">guide</span></a></li>
+<li><a href="/markdown-based"><span class="wom__t">All guides</span><span class="wom__dots"></span><span class="wom__k">index</span></a></li>
+</ul>
+</div>
+<div>
+<h3><b>2.</b>Learn</h3>
+<ul>
+<li><a href="/basics"><span class="wom__t">The basics</span><span class="wom__dots"></span><span class="wom__k">10 min</span></a></li>
+<li><a href="/playground.html"><span class="wom__t">The playground</span><span class="wom__dots"></span><span class="wom__k">try it</span></a></li>
+<li><a href="/roadmap"><span class="wom__t">The roadmap</span><span class="wom__dots"></span><span class="wom__k">path</span></a></li>
+<li><a href="/learn"><span class="wom__t">Tutorials</span><span class="wom__dots"></span><span class="wom__k">series</span></a></li>
+<li><a href="/everywhere"><span class="wom__t">Markdown in every app</span><span class="wom__dots"></span><span class="wom__k">hub</span></a></li>
+<li><a href="/learn/onboarding"><span class="wom__t">Onboarding a team</span><span class="wom__dots"></span><span class="wom__k">path</span></a></li>
+<li><a href="/kb"><span class="wom__t">Reference shelf</span><span class="wom__dots"></span><span class="wom__k">notes</span></a></li>
+</ul>
+</div>
+<div>
+<h3><b>3.</b>Why</h3>
+<ul>
+<li><a href="/why"><span class="wom__t">Why markdown-based?</span><span class="wom__dots"></span><span class="wom__k">essay</span></a></li>
+<li><a href="/manifesto"><span class="wom__t">The manifesto</span><span class="wom__dots"></span><span class="wom__k">essay</span></a></li>
+<li><a href="/markdown-database"><span class="wom__t">The markdown database pattern</span><span class="wom__dots"></span><span class="wom__k">essay</span></a></li>
+<li><a href="/notion-vs-markdown"><span class="wom__t">Notion vs markdown</span><span class="wom__dots"></span><span class="wom__k">scorecard</span></a></li>
+<li><a href="/timeline"><span class="wom__t">A brief history</span><span class="wom__dots"></span><span class="wom__k">timeline</span></a></li>
+<li><a href="/videos"><span class="wom__t">Videos</span><span class="wom__dots"></span><span class="wom__k">watch</span></a></li>
+</ul>
+</div>
+</div>
+</section>
+<section class="wom__section wom__row">
+<div class="wom__copy">
+<h2>Learn it</h2>
+<p>A hash for a heading, stars for bold, a dash for a list. That's most of it, and AI already writes it for you. Then: tables, links between notes, fields on a file, HTML when you need it.</p>
+<p>It's already in more places than you've noticed: Google Docs, Obsidian, GitHub, Slack, every AI chat.</p>
+<p class="wom__more"><a class="wom__cta" href="/basics">The basics</a> <a class="wom__cta" href="/everywhere">Markdown in every app</a></p>
+</div>
+<figure class="wom__fig">
+<p class="wom__ft">One file, two views</p>
+<div class="wom__panel"><img src="/assets/sketches/one-file-two-views.svg" alt="The same note shown raw on the left and rendered on the right." width="420" height="200"></div>
+<figcaption>What you type on the left, what you see on the right. Same file.</figcaption>
+</figure>
+</section>
+<section class="wom__section wom__row">
+<div class="wom__copy">
+<h2>Why</h2>
+<p>Nobody cares about markdown, the same way nobody cares about ASCII. You care about the thing you want to make. Markdown is the rare case where the format made the difference, and it wasn't a straight line.</p>
+<p>People could write it by hand, so tools took it as their format. Tools took it, so more people wrote it. Twenty years of that, and the tools got good. AI arrived late and speaks it by default.</p>
+<p>That's the whole philosophy: <em>simple pieces you own beat one monolith you rent.</em></p>
+<p class="wom__more"><a class="wom__cta" href="/why">Why markdown-based</a> <a class="wom__cta" href="/manifesto">The manifesto</a></p>
+</div>
+<figure class="wom__fig">
+<p class="wom__ft">Two forces</p>
+<div class="wom__panel"><img src="/assets/sketches/two-forces.svg" alt="A loop: more people writing markdown means more tools reading it, and back again, with AI joining late." width="420" height="246"></div>
+<figcaption>More people writing it meant more tools reading it, and back again. AI joined late.</figcaption>
+</figure>
+</section>
+<section class="wom__section">
+<p class="wom__label">Made by <a href="/about">Rufus Pollock</a> and <a href="https://datopian.com/">folks at Datopian</a>, as markdown files <a href="https://github.com/flowershow/wayofmarkdown">in the open</a>. This page is itself markdown with a little HTML in it, <a href="/markdown-websites">which is rather the point</a>.</p>
+</section>
 </main>
+</div>
