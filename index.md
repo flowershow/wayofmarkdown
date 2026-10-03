@@ -38,7 +38,7 @@ showComments: false
 <h2>Contents</h2>
 <div class="wom__contents">
 <div>
-<h3><b>1.</b>Build</h3>
+<h3><b>1.</b>Use</h3>
 <ul>
 <li class="wom__first"><a href="/markdown-notion-alternative"><span class="wom__t">Replace Notion</span><span class="wom__dots"></span><span class="wom__k">start here</span></a></li>
 <li><a href="/markdown-websites"><span class="wom__t">A website</span><span class="wom__dots"></span><span class="wom__k">guide</span></a></li>

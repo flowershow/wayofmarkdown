@@ -19,11 +19,7 @@
     "title": "The Way of Markdown",
     "links": [
       {
-        "href": "/roadmap",
-        "name": "Roadmap"
-      },
-      {
-        "name": "Build",
+        "name": "Use",
         "links": [
           {
             "href": "/markdown-based",
@@ -51,7 +47,7 @@
           },
           {
             "href": "/markdown-databases-guide",
-            "name": "A database or catalogue"
+            "name": "A database"
           }
         ]
       },
@@ -59,8 +55,12 @@
         "name": "Learn",
         "links": [
           {
+            "href": "/roadmap",
+            "name": "Roadmap"
+          },
+          {
             "href": "/basics",
-            "name": "The basics"
+            "name": "Basics"
           },
           {
             "href": "/learn",
@@ -68,7 +68,7 @@
           },
           {
             "href": "/everywhere",
-            "name": "Markdown in every app"
+            "name": "Apps"
           },
           {
             "href": "/playground.html",
@@ -76,15 +76,11 @@
           },
           {
             "href": "/learn/onboarding",
-            "name": "Onboarding a team"
+            "name": "Onboarding"
           },
           {
             "href": "/kb",
             "name": "Reference"
-          },
-          {
-            "href": "/explore",
-            "name": "Explore everything"
           }
         ]
       },
@@ -93,15 +89,15 @@
         "links": [
           {
             "href": "/why",
-            "name": "Why markdown-based?"
+            "name": "Why markdown-based"
           },
           {
             "href": "/manifesto",
-            "name": "The manifesto"
+            "name": "Manifesto"
           },
           {
             "href": "/timeline",
-            "name": "A brief history"
+            "name": "History"
           },
           {
             "href": "/videos",
@@ -110,12 +106,29 @@
         ]
       },
       {
-        "href": "/blog",
-        "name": "Blog"
-      },
-      {
-        "href": "/changelog",
-        "name": "Changelog"
+        "name": "About",
+        "links": [
+          {
+            "href": "/about",
+            "name": "About"
+          },
+          {
+            "href": "/blog",
+            "name": "Blog"
+          },
+          {
+            "href": "/changelog",
+            "name": "Changelog"
+          },
+          {
+            "href": "/explore",
+            "name": "Site index"
+          },
+          {
+            "href": "/press",
+            "name": "Press"
+          }
+        ]
       }
     ],
     "social": [
@@ -129,6 +142,27 @@
   "footer": {
     "navigation": [
       {
+        "title": "Use",
+        "links": [
+          {
+            "name": "All guides",
+            "href": "/markdown-based"
+          },
+          {
+            "name": "Replace Notion",
+            "href": "/markdown-notion-alternative"
+          },
+          {
+            "name": "A website",
+            "href": "/markdown-websites"
+          },
+          {
+            "name": "A knowledge base",
+            "href": "/markdown-knowledge-bases"
+          }
+        ]
+      },
+      {
         "title": "Learn",
         "links": [
           {
@@ -136,37 +170,37 @@
             "href": "/roadmap"
           },
           {
+            "name": "Basics",
+            "href": "/basics"
+          },
+          {
             "name": "Tutorials",
             "href": "/learn"
           },
           {
-            "name": "Markdown Basics",
-            "href": "/basics"
+            "name": "Apps",
+            "href": "/everywhere"
           },
           {
-            "name": "Team onboarding",
+            "name": "Onboarding",
             "href": "/learn/onboarding"
           }
         ]
       },
       {
-        "title": "Guides",
+        "title": "Why",
         "links": [
           {
-            "name": "Markdown-based everything",
-            "href": "/markdown-based"
+            "name": "Why markdown-based",
+            "href": "/why"
           },
           {
-            "name": "Markdown everywhere",
-            "href": "/everywhere"
+            "name": "Manifesto",
+            "href": "/manifesto"
           },
           {
-            "name": "Knowledge base",
-            "href": "/markdown-knowledge-bases"
-          },
-          {
-            "name": "Reference",
-            "href": "/kb"
+            "name": "History",
+            "href": "/timeline"
           },
           {
             "name": "Videos",
@@ -178,19 +212,7 @@
         "title": "About",
         "links": [
           {
-            "name": "Explore everything",
-            "href": "/explore"
-          },
-          {
-            "name": "The Manifesto",
-            "href": "/manifesto"
-          },
-          {
-            "name": "Why markdown-based",
-            "href": "/why"
-          },
-          {
-            "name": "About this site",
+            "name": "About",
             "href": "/about"
           },
           {
@@ -202,8 +224,12 @@
             "href": "/changelog"
           },
           {
-            "name": "Timeline",
-            "href": "/timeline"
+            "name": "Site index",
+            "href": "/explore"
+          },
+          {
+            "name": "Press",
+            "href": "/press"
           }
         ]
       }
