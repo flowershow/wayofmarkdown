@@ -73,6 +73,8 @@ scripts/                            voice-lint.py, link-check.py, check-tai-chi.
 
 This repo uses Beads (prefix `wom`) with an embedded Dolt database, alongside GitHub issues (see Workflow above). In each clone, configure Git hooks with `git config core.hooksPath .beads/hooks`. At session start, run `git pull`, `bd dolt pull`, and `bd status`. At session end, commit work and run `git push`; the repo-local pre-push hook also pushes Beads Dolt data. If that hook reports a sync failure, run `bd dolt push` manually. JSONL export is for interchange and viewers; Dolt remotes provide cross-machine sync.
 
+Keep beads short: a title, a line or two, and a pointer. Long briefs, specs and notes go in `docs/plans/` (or the relevant `docs/` file) and the bead links to them.
+
 ## Changelog
 
 At session end, only log new features or significant reader-facing changes
