@@ -1,0 +1,29 @@
+<!doctype html>
+<!-- Default social card (1200x630) for wayofmarkdown.com. Render:
+     python3 scripts/build-og.py   (writes assets/og/default-2026-10.png) -->
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap">
+<style>
+  html, body { margin: 0; }
+  body { width: 1200px; height: 630px; overflow: hidden; background: #fbfbf9; color: #1b1b1d; font-family: "IBM Plex Mono", monospace; }
+  .card { box-sizing: border-box; display: grid; grid-template-columns: 1fr 430px; gap: 44px; height: 100%; padding: 64px 64px 56px 76px; }
+  .words { display: flex; flex-direction: column; }
+  .kicker { font-size: 21px; letter-spacing: .1em; text-transform: uppercase; color: #5f5f66; margin: 0; }
+  .kicker b { color: #ff5a00; font-weight: 500; }
+  h1 { font-family: "Newsreader", serif; font-weight: 400; font-size: 98px; line-height: 1; letter-spacing: -.02em; margin: 30px 0 28px; }
+  .say { font-family: "Newsreader", serif; font-size: 34px; max-width: 18em; line-height: 1.25; margin: 0; }
+  .say em { color: #cc4400; }
+  .foot { margin-top: auto; display: flex; align-items: center; gap: 16px; font-size: 22px; font-weight: 500; }
+  .foot img { width: 44px; height: 44px; }
+  .fig { align-self: center; background: #fff radial-gradient(#d9d8d3 1.1px, transparent 1.1px); background-size: 12px 12px; border: 2px solid #ff5a00; padding: 14px; }
+  .fig img { display: block; width: 100%; }
+</style>
+<div class="card">
+  <div class="words">
+    <p class="kicker"><b>#</b> Markdown is eating the world</p>
+    <h1>The Way of Markdown</h1>
+    <p class="say">There's a better way to do your notes, docs and site. <em>It's plain text.</em></p>
+    <div class="foot"><img src="../../../assets/logo/seal.svg" alt="">wayofmarkdown.com</div>
+  </div>
+  <div class="fig"><img src="../../../assets/sketches/inside-a-markdown-file.svg" alt=""></div>
+</div>
