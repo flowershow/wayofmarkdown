@@ -28,7 +28,9 @@ def write(path, text):
 paths = "".join(re.findall(r"<path[^>]*>", (brand / "hash-brush.svg").read_text()))
 seal = (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="The Way of Markdown">'
         f'<rect width="100" height="100" fill="{ACC}"/>'
-        f'<svg x="12" y="12" width="76" height="76" viewBox="-4 -4 108 108" fill="#fff">{paths}</svg></svg>\n')
+        # The brush # sits up and left in its own box (bbox centre 46.8, 47.3) and its
+        # heavy stroke starts pull it further left, so nudge it right and down.
+        f'<svg x="15" y="14" width="76" height="76" viewBox="-4 -4 108 108" fill="#fff">{paths}</svg></svg>\n')
 write(root / "assets/logo/seal.svg", seal)
 
 # --- sketches ---
