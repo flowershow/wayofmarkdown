@@ -40,7 +40,18 @@ body { background: var(--color-background); }
 .site-navbar-site-logo { height: 1.6rem; width: 1.6rem; }
 .site-navbar-link, .mobile-nav-link { font-family: var(--wom-mono); font-size: 0.82rem; letter-spacing: 0; text-transform: none; }
 .site-navbar-link:hover, .mobile-nav-link:hover { color: var(--color-accent); }
-.site-navbar-dropdown-trigger, .site-navbar-dropdown-item, .site-navbar-dropdown-link { font-family: var(--wom-mono); font-size: 0.82rem; letter-spacing: 0; text-transform: none; }
+/* Nav menus as markdown: "+" opens a menu, "-" marks each item, like a list */
+.site-navbar-links-container { gap: 1.75rem; }
+.site-navbar-link[href="/roadmap"] { color: var(--color-accent); }
+.site-navbar-dropdown-trigger, .site-navbar-dropdown-item { font-family: var(--wom-mono); font-size: 0.82rem; letter-spacing: 0; text-transform: none; }
+.site-navbar-dropdown-trigger { gap: 0.4rem; }
+.site-navbar-dropdown-icon { display: none; }
+.site-navbar-dropdown-trigger::after { color: var(--wom-mark); content: "+"; font-weight: 500; width: 0.6em; }
+.site-navbar-dropdown-trigger.is-open::after { content: "\2212"; }
+.site-navbar-dropdown-panel { border: 1px solid var(--site-rule); border-radius: 0; box-shadow: 0 10px 24px -18px rgba(0, 0, 0, 0.35); min-width: 13rem; padding: 0.5rem 0; }
+.site-navbar-dropdown-item { color: var(--color-foreground); padding: 0.4rem 1.2rem 0.4rem 1rem; }
+.site-navbar-dropdown-item::before { color: var(--wom-mark); content: "- "; }
+.site-navbar-dropdown-item:hover { background: color-mix(in srgb, var(--wom-mark) 7%, transparent); color: var(--color-accent); }
 .site-footer { border-top: 1px solid var(--site-rule); font-family: var(--wom-mono); font-size: 0.8rem; }
 .site-subnav { font-family: var(--wom-mono); font-size: 0.8rem; }
 
