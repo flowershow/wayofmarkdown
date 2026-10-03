@@ -24,7 +24,7 @@ CSS = """
 .ik .arr { fill: var(--wom-mark, #ff5a00); }
 .ik .num { fill: var(--wom-mark, #ff5a00); font-family: 'Newsreader', Georgia, serif; }
 .ik .on { fill: currentColor; font-weight: 600; }
-.ik .lab { fill: currentColor; font-size: 12.5px; }
+.ik .lab { fill: currentColor; font-size: 13px; }
 .ik .planned .lab { fill: var(--site-muted, #8a8a90); }
 .ik a:hover .top { fill: color-mix(in srgb, var(--wom-mark, #ff5a00) 10%, var(--color-background, #fbfbf9)); }
 .ik a:hover .lab { fill: var(--color-accent, #cc4400); text-decoration: underline; }

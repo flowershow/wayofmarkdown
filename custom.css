@@ -91,6 +91,9 @@ body { background: var(--color-background); }
 .rendered-mdx [data-callout] > [data-callout-title]::before { height: 0.95rem; margin-top: 0; width: 0.95rem; }
 .rendered-mdx [data-callout] > [data-callout-body] :where(p, li) { font-size: 1.05rem; }
 
+/* Inline diagrams (scripts/isokit.py) style their own links; keep prose link styling out */
+.rendered-mdx:not(.is-plain) .ik a { color: var(--color-foreground); text-decoration: none; }
+
 /* Table of contents (right-hand, this page) */
 .toc-title { color: var(--site-muted); font-family: var(--wom-mono); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; }
 .toc-item-self { font-family: var(--wom-mono); font-size: 0.78rem; }

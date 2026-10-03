@@ -14,12 +14,12 @@ import sys
 sys.path.insert(0, os.path.dirname(__file__))
 from isokit import CSS, Iso, plate, text_on, leader  # noqa: E402
 
-W = 920
+W = 760
 CX = W // 2
 PW = 210          # plate length along its x axis (the stage title runs this way)
 THICK = 6
 STAGE_GAP = 16    # vertical space between one plate's bottom and the next plate's top
-LX_LEFT, LX_RIGHT = 214, 706   # where the branch labels' leaders end
+LX_LEFT, LX_RIGHT = 186, 576   # where the branch labels' leaders end
 CIRCLED = dict(zip("⓪①②③④⑤⑥⑦⑧⑨", "0123456789"))
 EMOJI = re.compile("[\U0001F000-\U0001FFFF\u2600-\u27BF\u2B00-\u2BFF\uFE0F\u2728]")
 
