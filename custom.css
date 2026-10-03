@@ -40,6 +40,7 @@ body { background: var(--color-background); }
 .site-navbar-site-logo { height: 1.6rem; width: 1.6rem; }
 .site-navbar-link, .mobile-nav-link { font-family: var(--wom-mono); font-size: 0.82rem; letter-spacing: 0; text-transform: none; }
 .site-navbar-link:hover, .mobile-nav-link:hover { color: var(--color-accent); }
+.site-navbar-dropdown-trigger, .site-navbar-dropdown-item, .site-navbar-dropdown-link { font-family: var(--wom-mono); font-size: 0.82rem; letter-spacing: 0; text-transform: none; }
 .site-footer { border-top: 1px solid var(--site-rule); font-family: var(--wom-mono); font-size: 0.8rem; }
 .site-subnav { font-family: var(--wom-mono); font-size: 0.8rem; }
 

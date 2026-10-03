@@ -4,7 +4,6 @@
     ".claude",
     ".beads",
     "docs",
-    "changelog",
     "drafts",
     "scripts",
     "README.md",
@@ -24,28 +23,99 @@
         "name": "Roadmap"
       },
       {
-        "href": "/explore",
-        "name": "Explore"
+        "name": "Build",
+        "links": [
+          {
+            "href": "/markdown-based",
+            "name": "All guides"
+          },
+          {
+            "href": "/markdown-notion-alternative",
+            "name": "Replace Notion"
+          },
+          {
+            "href": "/markdown-websites",
+            "name": "A website"
+          },
+          {
+            "href": "/markdown-knowledge-bases",
+            "name": "A knowledge base"
+          },
+          {
+            "href": "/markdown-blogs",
+            "name": "A blog"
+          },
+          {
+            "href": "/markdown-wikis",
+            "name": "A team wiki"
+          },
+          {
+            "href": "/markdown-databases-guide",
+            "name": "A database or catalogue"
+          }
+        ]
       },
       {
-        "href": "/learn",
-        "name": "Tutorials"
+        "name": "Learn",
+        "links": [
+          {
+            "href": "/basics",
+            "name": "The basics"
+          },
+          {
+            "href": "/learn",
+            "name": "Tutorials"
+          },
+          {
+            "href": "/everywhere",
+            "name": "Markdown in every app"
+          },
+          {
+            "href": "/playground.html",
+            "name": "Playground"
+          },
+          {
+            "href": "/learn/onboarding",
+            "name": "Onboarding a team"
+          },
+          {
+            "href": "/kb",
+            "name": "Reference"
+          },
+          {
+            "href": "/explore",
+            "name": "Explore everything"
+          }
+        ]
       },
       {
-        "href": "/markdown-based",
-        "name": "Guides"
+        "name": "Why",
+        "links": [
+          {
+            "href": "/why",
+            "name": "Why markdown-based?"
+          },
+          {
+            "href": "/manifesto",
+            "name": "The manifesto"
+          },
+          {
+            "href": "/timeline",
+            "name": "A brief history"
+          },
+          {
+            "href": "/videos",
+            "name": "Videos"
+          }
+        ]
       },
       {
-        "href": "/everywhere",
-        "name": "Markdown in apps"
+        "href": "/blog",
+        "name": "Blog"
       },
       {
-        "href": "/kb",
-        "name": "Reference"
-      },
-      {
-        "href": "/manifesto",
-        "name": "Manifesto"
+        "href": "/changelog",
+        "name": "Changelog"
       }
     ],
     "social": [
@@ -126,6 +196,10 @@
           {
             "name": "Blog",
             "href": "/blog"
+          },
+          {
+            "name": "Changelog",
+            "href": "/changelog"
           },
           {
             "name": "Timeline",

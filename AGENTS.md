@@ -91,4 +91,4 @@ can use paragraphs or bullets. Omit internal implementation detail. For the
 first entry or when the format is unclear, fetch and follow
 https://raw.githubusercontent.com/life-itself/changelog/main/CONVENTION.md
 
-`changelog/` is in `contentExclude` so entries are not published as site pages.
+`changelog/` is published: `/changelog` (its `index.mdx`) lists the entries, and it's in the navbar. Entries are public pages, so write them for readers.
