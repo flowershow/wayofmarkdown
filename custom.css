@@ -65,6 +65,9 @@ body { background: var(--color-background); }
 .rendered-mdx:not(.is-plain) blockquote { border-left: 2px solid var(--wom-mark); color: inherit; font-style: italic; }
 .rendered-mdx:not(.is-plain) hr { border-color: var(--site-rule); }
 .rendered-mdx:not(.is-plain) :where(code, pre, kbd) { font-family: var(--wom-mono); }
+.rendered-mdx:not(.is-plain) :not(pre) > code { background: var(--color-code-bg); font-size: 0.85em; font-weight: 400; padding: 0.1em 0.35em; }
+.rendered-mdx:not(.is-plain) :not(pre) > code::before, .rendered-mdx:not(.is-plain) :not(pre) > code::after { content: none; }
+:root[data-theme="dark"] .rendered-mdx:not(.is-plain) :not(pre) > code, .dark .rendered-mdx:not(.is-plain) :not(pre) > code { background: var(--color-code-bg-dark); }
 .rendered-mdx:not(.is-plain) :where(table) { font-family: var(--wom-mono); font-size: 0.85rem; }
 .rendered-mdx:not(.is-plain) :where(th) { border-bottom: 1px solid var(--color-foreground); }
 .rendered-mdx:not(.is-plain) :where(td) { border-bottom: 1px solid var(--site-rule); }
