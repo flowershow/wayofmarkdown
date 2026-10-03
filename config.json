@@ -55,10 +55,6 @@
         "name": "Learn",
         "links": [
           {
-            "href": "/roadmap",
-            "name": "Roadmap"
-          },
-          {
             "href": "/basics",
             "name": "Basics"
           },
