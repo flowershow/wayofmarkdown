@@ -56,18 +56,19 @@ def animation(tops, wires_by_stage):
     dist, arrive = lead, []
     for i, top in enumerate(tops):
         arrive.append(dist)
+        if i == len(tops) - 1:
+            break  # the ball stops at the top of the last stage; the burst takes over
         edge = L if i % 2 == 0 else R
         d += f" H{edge:.1f} V{top + SPINE_H:.1f} H{CX}"
         dist += half + SPINE_H + half
-        if i + 1 < len(tops):
-            d += f" V{tops[i + 1]:.1f}"
-            dist += tops[i + 1] - (top + SPINE_H)
+        d += f" V{tops[i + 1]:.1f}"
+        dist += tops[i + 1] - (top + SPINE_H)
     travel = dist / SPEED
     cycle = travel + BURST + REST
     pc = lambda t: 100 * t / cycle  # noqa: E731  seconds -> percent of the cycle
     end = pc(travel)
     css = [
-        ".ik .rail { stroke-dasharray: 10 7; }",
+        ".ik .rail { stroke-width: 1.6; stroke-dasharray: 9 6; }",
         ".ik .ball, .ik .spark { fill: var(--wom-mark, #ff5a00); }",
         f'.ik .ball {{ offset-path: path("{d}"); offset-rotate: 0deg; animation: ik-run {cycle:.1f}s linear infinite; }}',
         f"@keyframes ik-run {{ 0% {{ offset-distance: 0%; opacity: 0; }} 1% {{ opacity: 1; }} "
@@ -77,6 +78,7 @@ def animation(tops, wires_by_stage):
         f"@keyframes ik-burst {{ 0%, {end:.2f}% {{ stroke-dashoffset: 22; opacity: 0; }} {end + 0.5:.2f}% {{ opacity: 1; }} "
         f"{pc(travel + BURST):.2f}% {{ stroke-dashoffset: -100; opacity: 0; }} 100% {{ stroke-dashoffset: -100; opacity: 0; }} }}",
         ".ik .spark { opacity: 0; offset-rotate: 0deg; }",
+        "@keyframes ik-shuttle { from { offset-distance: 0%; } to { offset-distance: 100%; } }",
         "@media (prefers-reduced-motion: reduce) { .ik .moving { display: none; } .ik .stop rect { animation: none !important; } }",
     ]
     lit = "color-mix(in srgb, var(--wom-mark, #ff5a00) 14%, var(--color-background, #fbfbf9))"
@@ -85,18 +87,18 @@ def animation(tops, wires_by_stage):
     for i, t in enumerate(arrive):
         a = pc(t / SPEED)
         css.append(f".ik .s{i} rect {{ animation: ik-lit{i} {cycle:.1f}s linear infinite; }}")
+        css.append(f"@keyframes ik-show{i} {{ 0%, {a:.2f}% {{ opacity: 0; }} {a + 0.4:.2f}%, 99% {{ opacity: 1; }} 100% {{ opacity: 0; }} }}")
         css.append(f"@keyframes ik-lit{i} {{ 0%, {a:.2f}% {{ fill: {base}; stroke-width: 1.6; }} "
                    f"{a + 0.4:.2f}%, 99% {{ fill: {lit}; stroke-width: 2.4; }} 100% {{ fill: {base}; stroke-width: 1.6; }} }}")
         for j, (x1, y1, x2, y2) in enumerate(wires_by_stage[i]):
+            # once the stage is lit, the dot shuttles back and forth along its wire
+            # until the loop resets: one animation moves it, a second shows it
             mx = (x1 + x2) / 2
-            length = abs(x2 - x1) + abs(y2 - y1)
-            s0, s1 = pc(t / SPEED), pc(t / SPEED + length / SPEED)
+            run = (abs(x2 - x1) + abs(y2 - y1)) / SPEED
             name = f"trip{i}_{j}"
             css.append(f'.ik .{name} {{ offset-path: path("M{x1:.1f} {y1:.1f} H{mx:.1f} V{y2:.1f} H{x2:.1f}"); '
-                       f"animation: ik-{name} {cycle:.1f}s linear infinite; }}")
-            css.append(f"@keyframes ik-{name} {{ 0%, {s0:.2f}% {{ offset-distance: 0%; opacity: 0; }} "
-                       f"{s0 + 0.2:.2f}% {{ opacity: 1; }} {s1:.2f}% {{ offset-distance: 100%; opacity: 1; }} "
-                       f"{s1 + 0.6:.2f}%, 100% {{ offset-distance: 100%; opacity: 0; }} }}")
+                       f"animation: ik-shuttle {run:.2f}s ease-in-out {t / SPEED:.2f}s infinite alternate, "
+                       f"ik-show{i} {cycle:.1f}s linear infinite; }}")
             els.append(f'<circle class="spark {name}" r="3"/>')
     cx, cy = CX, tops[-1] + SPINE_H / 2
     for k in range(16):
