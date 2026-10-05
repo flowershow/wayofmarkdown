@@ -30,7 +30,7 @@ Published prose must sound like Rufus, not like AI. This is a hard requirement (
 - **Every published page** gets frontmatter `title` and `description` (descriptive and query-matching — the brand name carries no SEO weight, the page titles do).
 - **Spoke articles** lead with the answer (syntax table up top), cover quirks honestly, and end with one link deeper into the site. Hub and spokes must link both ways.
 - **Guides** follow: what is X → the markdown-based pattern → tools (Flowershow appears as *a* publishing option, never the headline) → walkthrough. Be honest about limits; it's a signature of the voice and the site.
-- **Videos**: embed as HTML `<iframe>` (allowed — and on-message, since "markdown supports HTML" is a core lesson). Index: `videos.md`.
+- **Videos**: put the bare YouTube URL on its own line; Flowershow embeds it with the right aspect ratio. Do not hand-write `<iframe>`s (fixed 560x315 gives odd ratios). Index: `videos.md`.
 - **New page slugs are permanent** — they become URLs. Think before naming; renames need redirects.
 
 ## Publishing mechanics
