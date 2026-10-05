@@ -33,7 +33,7 @@ A publisher renders the folder as a blog listing and each file as a post. Feeds,
 
 With Flowershow it takes about thirty seconds, and I mean that literally:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/0NGvcuXTris" title="Blog listing with Flowershow in 30 seconds" frameborder="0" allowfullscreen></iframe>
+https://www.youtube.com/watch?v=0NGvcuXTris
 
 The recipe: make a `blog/` folder in your site repo, add posts with `title` and `date` frontmatter, and the listing page appears. If you don't have a site repo yet, [tutorial 1](learn/tutorials/create-a-website-from-scratch.md) gets you one in ten minutes. Prefer another tool? Hugo, Jekyll, Astro and Eleventy all eat the same folder of dated markdown, which is rather the point.
 

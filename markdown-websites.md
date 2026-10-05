@@ -34,9 +34,7 @@ Markdown isn't a walled garden that ends where the syntax ends. **HTML is valid 
 
 And the 2026 twist: you don't even need to *know* HTML, because AI writes it fluently and [AI speaks markdown](markdown-in-chatgpt.md). Describe what you want, paste the result into your page. Watch it done on a real site:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Qquv0Qq7luE" title="Edit a complex HTML site without knowing any code using Codex AI" frameborder="0" allowfullscreen></iframe>
-
-(That video is embedded with a plain HTML `<iframe>` in this markdown page. See? 😎)
+https://www.youtube.com/watch?v=Qquv0Qq7luE
 
 ## Part 3: The tools
 

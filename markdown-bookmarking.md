@@ -19,7 +19,7 @@ Bookmarks rot. Links die (the average webpage lives a couple of years), read-lat
 
 **Watch it done:**
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/d-Vte5vJCl0" title="Markdown for bookmarking and webclipping" frameborder="0" allowfullscreen></iframe>
+https://www.youtube.com/watch?v=d-Vte5vJCl0
 
 ## From clippings to knowledge
 

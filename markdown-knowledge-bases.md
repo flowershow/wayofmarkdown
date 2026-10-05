@@ -40,11 +40,11 @@ That last point deserves emphasis because it's where knowledge bases usually die
 
 The whole stack -- markdown, Obsidian, git, AI, publishing -- in one walkthrough:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/HwkO14-nTwk" title="Markdown knowledgebase setup with AI, git and Obsidian" frameborder="0" allowfullscreen></iframe>
+https://www.youtube.com/watch?v=HwkO14-nTwk
 
 And a more advanced setup, running actual projects and issue tracking from a markdown knowledge base with the PARA method:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/CsCVOFn3bMc" title="Markdown Knowledge Base for Issue Tracking and Projects (Obsidian + PARA)" frameborder="0" allowfullscreen></iframe>
+https://www.youtube.com/watch?v=CsCVOFn3bMc
 
 ## Getting started (30 minutes, honestly)
 
