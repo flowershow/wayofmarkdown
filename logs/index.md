@@ -1,6 +1,7 @@
 ---
 title: "Markdown log: news and notes from the markdown world"
 description: "A running log of things happening in markdown: apps adding support, new tools, AI workflows. Short dated notes, newest first."
+syntaxMode: mdx
 showToc: false
 ---
 
