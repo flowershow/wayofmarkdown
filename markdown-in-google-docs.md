@@ -9,7 +9,10 @@ date: 2025-01-15
 
 Did you know that Google Docs has major markdown support? Most importantly (at least for me) you can copy and past from markdown -- this is great for moving content from or to systems that are markdown-native like GitHub, ChatGPT, Discourse, Obsidian etc etc.
 
-**However, markdown support is disabled by default 🤯**. So you need to enable it ... here's how courtesy of the official instructions https://support.google.com/docs/answer/12014036?hl=en
+> [!note] New (Oct 2026): Docs now opens `.md` files natively
+> Google Drive previews `.md` files and Docs edits, comments on and shares them without converting them. The file stays markdown. Details and limits: [Google Docs now opens and edits .md files](/logs/2026-10-05-google-docs-opens-md-files).
+
+**However, markdown support (for paste and copy) is disabled by default 🤯**. So you need to enable it ... here's how courtesy of the official instructions https://support.google.com/docs/answer/12014036?hl=en
 
 <img width="968" alt="image" src="https://github.com/user-attachments/assets/9a0fea17-c672-43e0-b942-c31154e91988" />
 

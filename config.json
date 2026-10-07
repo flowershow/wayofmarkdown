@@ -96,6 +96,10 @@
             "name": "History"
           },
           {
+            "href": "/logs",
+            "name": "Markdown log"
+          },
+          {
             "href": "/videos",
             "name": "Videos"
           }

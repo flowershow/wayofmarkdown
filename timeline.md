@@ -25,7 +25,7 @@ How a 2004 Perl script for bloggers became the default format of the internet. (
 
 <div style="margin-bottom:1.6rem;"><strong>2022 · AI speaks markdown.</strong> ChatGPT launches and answers in markdown; every AI since does too. Trained on a markdown web and needing a token-cheap structure, <a href="markdown-in-chatgpt.md">AI makes markdown the native format of the era</a>, arguably the biggest boost since GitHub.</div>
 
-<div style="margin-bottom:1.6rem;"><strong>2024–now · convergence.</strong> Google Docs adds real markdown import/export. WhatsApp expands its formatting. iPad Notes breaks Apple's holdout streak. <code>llms.txt</code> proposes markdown as the web's AI-facing layer. The world is <a href="everywhere.md">converging on markdown</a>, mostly without announcements.</div>
+<div style="margin-bottom:1.6rem;"><strong>2024–now · convergence.</strong> Google Docs adds real markdown import/export, then in 2026 <a href="logs/2026-10-05-google-docs-opens-md-files.md">opens <code>.md</code> files natively</a>. WhatsApp expands its formatting. iPad Notes breaks Apple's holdout streak. <code>llms.txt</code> proposes markdown as the web's AI-facing layer. The world is <a href="everywhere.md">converging on markdown</a>, mostly without announcements.</div>
 
 </div>
 

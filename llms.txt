@@ -20,7 +20,7 @@ Site: https://wayofmarkdown.com — all pages are written in markdown; append no
 ## Markdown in apps ("everywhere")
 
 - [Hub: every app that speaks markdown](https://wayofmarkdown.com/everywhere)
-- Per-app guides: [WhatsApp](https://wayofmarkdown.com/markdown-in-whatsapp), [Discord](https://wayofmarkdown.com/markdown-in-discord), [Slack](https://wayofmarkdown.com/markdown-in-slack), [Notion](https://wayofmarkdown.com/markdown-in-notion), [ChatGPT/AI chats](https://wayofmarkdown.com/markdown-in-chatgpt), [Google Docs](https://wayofmarkdown.com/kb/google-docs)
+- Per-app guides: [WhatsApp](https://wayofmarkdown.com/markdown-in-whatsapp), [Discord](https://wayofmarkdown.com/markdown-in-discord), [Slack](https://wayofmarkdown.com/markdown-in-slack), [Notion](https://wayofmarkdown.com/markdown-in-notion), [ChatGPT/AI chats](https://wayofmarkdown.com/markdown-in-chatgpt), [Google Docs](https://wayofmarkdown.com/markdown-in-google-docs)
 
 ## Learning
 
@@ -34,4 +34,5 @@ Site: https://wayofmarkdown.com — all pages are written in markdown; append no
 - [The markdown timeline](https://wayofmarkdown.com/timeline), [The Markdown Canon](https://wayofmarkdown.com/kb/canon)
 - [Pluggable markdown](https://wayofmarkdown.com/pluggable-markdown): fenced blocks as markdown's plugin system
 - [Git/GitHub glossary](https://wayofmarkdown.com/kb/glossary), [Git rescue](https://wayofmarkdown.com/kb/git-rescue)
+- [Markdown log](https://wayofmarkdown.com/logs): dated news and notes from the markdown world
 - [Changelog](https://wayofmarkdown.com/changelog)

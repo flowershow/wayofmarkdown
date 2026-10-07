@@ -30,7 +30,7 @@ Markdown's in there, sometimes as a dialect, sometimes hidden behind a setting.
 
 | App | The deal |
 |---|---|
-| [Google Docs](markdown-in-google-docs.md) | Genuinely good now: paste from markdown, copy as markdown, import/export. You have to switch it on. |
+| [Google Docs](markdown-in-google-docs.md) | Genuinely good now: opens and edits `.md` files natively (Oct 2026), plus paste from markdown and copy as markdown (switch those on). |
 | [WhatsApp](markdown-in-whatsapp.md) | Bold, italic, lists, quotes, code -- with its own accent (single `*asterisks*` for bold). |
 | [Discord](markdown-in-discord.md) | Solid subset: headings, lists, code blocks with syntax highlighting, spoilers. |
 | [Slack](markdown-in-slack.md) | Speaks "mrkdwn" -- a markdown cousin with opinions. Worth understanding. |
